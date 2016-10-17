@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="/js/layer/layer.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 text-center">
+					<img src="<%=userImg%>"  alt="" class="img-circle img-responsive" style="margin:0 auto 20px;">
+					<ul class="list-unstyled">
+						<li class="text-center" style="margin-bottom:20px"><a href="/user/modify" class="btn btn-lg btn-info" >修改信息</a></li>
+						<li class="text-center" style="margin-bottom:20px"><a href="/user/reset" class="btn btn-lg btn-info" >修改密码</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-9">
+					    <div>
+					    <ul class="list-unstyled list-inline">
+					    	<li class="text-center" style="margin-bottom:20px"><a href="#" class="btn btn-lg btn-info" >当前借阅</a></li>
+							<li class="text-center" style="margin-bottom:20px"><a href="#" class="btn btn-lg btn-info" >借阅历史</a></li>
+						</ul>
+					    </div>
+						<div class="col-sm-12" class="user-tab-list">
+						  <div class="col-sm-12">
+						  	<p class="col-sm-7 ">书名</p>
+							<p class="col-sm-3 ">应归还时间</p>
+						  </div>
+							<ul class="list-unstyled">
+							<%if(book.length>0){%>
+							<%for(var i=0,max=book.length;i<max;i++){%>
+							<li class="clearfix">
+								<p class="col-sm-7"><%=book[i].bookName%></p>
+								<p class="col-sm-3"><%=book[i].returnBefore%></p>
+								<p class="col-sm-2"><a href="javascript:" class="btn btn-success returnBtn" borrowid="<%=book[i].borrowID%>" bookid="<%=book[i].bookID%>" >归还</a></p>
+								
+							</li>
+							<%}%>
+							<%}else{%>
+							<p>当前没有借阅记录</p>
+							<%}%>
+							</ul>	
+						</div>
+				</div>
+			</div>
+		</div>
+		<script src="/js/user.js"></script>
+	</body>
+</html>

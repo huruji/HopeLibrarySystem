@@ -1,0 +1,23 @@
+{
+  "name": "hope-borrow",
+  "version": "1.0.0",
+  "description": "book camera and so on",
+  "main": "hope",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "huruji",
+    "book",
+    "hope"
+  ],
+  "author": "huruji",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mysql": "^2.11.1"
+  }
+}
