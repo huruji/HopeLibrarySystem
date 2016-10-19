@@ -27,7 +27,7 @@
 							<li class="text-center" style="margin-bottom:20px"><a href="#" class="btn btn-lg btn-info" >用户管理</a></li>
 							<li class="text-center" style="margin-bottom:20px"><a href="#" class="btn btn-lg btn-info" >图书管理</a></li>
 							<li class="text-center" style="margin-bottom:20px"><a href="#" class="btn btn-lg btn-info" >设备管理</a></li>
-							<li class="text-center" style="margin-bottom:20px"><a href="#" class="btn btn-lg btn-default" >增加用户</a></li>
+							<li class="text-center" style="margin-bottom:20px"><a href="/admin/userAdd" class="btn btn-lg btn-default" >增加用户</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-12" class="user-tab-list">
@@ -39,7 +39,7 @@
 						<div class="col-sm-12" style="margin-bottom:15px;padding:5px;border-bottom:1px dashed #275d27">
 							<li class="col-sm-3"><%=user[i].readerName%></li>
 							<li class="col-sm-3"><%=user[i].readerGroup%></li>
-							<li class="col-sm-6"><a href="" class="btn btn-success modify-user" style="margin-right:15px;" user-data="<%=user[i].readerID%>user" >修改</a><a href="javascrip:" class="btn btn-success dropBtn" user-data="<%=user[i].readerID%>user" >删除</a></li>
+							<li class="col-sm-6"><a href="/admin/userModify/<%=user[i].readerID%>" class="btn btn-success modify-user" style="margin-right:15px;" user-data="<%=user[i].readerID%>user" >修改</a><a href="javascrip:" class="btn btn-success dropBtn" user-data="<%=user[i].readerID%>user" >删除</a></li>
 						</div>
 							
 						<%}%>

@@ -1,4 +1,4 @@
-/*用户自行修改信息的函数*/
+/*管理员修改用户信息的函数*/
 (function(global,$){
 	$("#save").click(function(){
 		var sex=$.trim($(":radio[name=sex]:checked").parent().text());
@@ -6,8 +6,9 @@
         var readerEmail=$.trim($("#readerEmail").val());
         var readerPhone=$.trim($("#readerPhone").val());
         var readerMajor=$.trim($("#readerMajor").val());
+        console.log(readerMajor);
         var readerGroup=$.trim($(":radio[name=hopeGroup]:checked").parent().text());
-        var readerName=$.trim($("#readerName"));
+        var readerName=$.trim($("#readerName").val());
 
 		$.ajax({
         	dataType:"json",
@@ -27,7 +28,7 @@
                         shift: 2 
         			});
                     setTimeout(function(){
-                        location.assign("/user");
+                        location.assign("/admin");
                     },500)
                     
                     

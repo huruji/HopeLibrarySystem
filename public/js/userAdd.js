@@ -1,18 +1,20 @@
-/*用户自行修改信息的函数*/
+/*管理员修改用户信息的函数*/
 (function(global,$){
 	$("#save").click(function(){
+		console.log("aaaa");
+		var userName=$.trim($("#userName").val());
+		var userPassword=$("#userPassword").val();
 		var sex=$.trim($(":radio[name=sex]:checked").parent().text());
         var studentNumber=$.trim($("#studentNumber").val());
         var readerEmail=$.trim($("#readerEmail").val());
         var readerPhone=$.trim($("#readerPhone").val());
         var readerMajor=$.trim($("#readerMajor").val());
         var readerGroup=$.trim($(":radio[name=hopeGroup]:checked").parent().text());
-        var readerName=$.trim($("#readerName"));
 
 		$.ajax({
         	dataType:"json",
         	async:true,
-        	data:{"readerName":readerName,"sex":sex,"studentNumber":studentNumber,"readerEmail":readerEmail,"readerPhone":readerPhone,"readerMajor":readerMajor,"readerGroup":readerGroup},
+        	data:{"readerName":userName,"readerPassword":userPassword,"sex":sex,"studentNumber":studentNumber,"readerEmail":readerEmail,"readerPhone":readerPhone,"readerMajor":readerMajor,"readerGroup":readerGroup},
         	type:"POST",
         	beforeSend:function(){
 
@@ -27,7 +29,7 @@
                         shift: 2 
         			});
                     setTimeout(function(){
-                        location.assign("/user");
+                        location.assign("/admin");
                     },500)
                     
                     

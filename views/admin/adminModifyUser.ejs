@@ -21,7 +21,7 @@
     		<div class="form-group">
     			<label for="" class="control-label col-sm-2">读者名：</label>
     			<div class="col-sm-10">
-    				<input type="text" name="" class="form-control" disabled value="<%=user.readerName%>">
+    				<input type="text" name="" class="form-control" id="readerName" value="<%=user.readerName%>">
     			</div>
     		</div>
     		<div class="form-group">
@@ -48,7 +48,7 @@
     		<div class="form-group">
     			<label for="" class="control-label col-sm-2" >学号：</label>
     			<div class="col-sm-10">
-    				<input type="text" name="" class="form-control" id="studentNumber" placeholder="请输入8位学号"   value="<%=user.studentNumber%>">
+    				<input type="text" name="" class="form-control" id="studentNumber" placeholder="请8位学号"   value="<%=user.studentNumber%>">
     			</div>
     		</div>
     		<div class="form-group">
@@ -60,13 +60,27 @@
     		<div class="form-group">
     			<label for="" class="control-label col-sm-2">手机：</label>
     			<div class="col-sm-10">
-    				<input type="text" name="" class="form-control"  id="readerPhone"  placeholder="请输入您的手机号" value="<%=user.readerPhone%>">
+    				<input type="text" name="" class="form-control"  id="readerPhone"  placeholder="请输入手机号" value="<%=user.readerPhone%>">
     			</div>
     		</div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">
+                    厚朴组：
+                </label>
+                <div class="col-sm-10">
+                <%for(var i=0,max=hopeGroup.length;i<max;i++){%>
+                <%if(hopeGroup[i]==user.readerGroup){%>
+                <label class="radio-inline"><input type="radio" class="" name="hopeGroup" checked value=""><%=hopeGroup[i]%></label>
+                <%}else{%>
+                <label class="radio-inline"><input type="radio" class="" name="hopeGroup" value=""><%=hopeGroup[i]%></label>
+                <%}%>
+                <%}%>
+                </div>
+            </div>
     		<div class="form-group">
     			<label for="" class="control-label col-sm-2">专业：</label>
     			<div class="col-sm-10">
-    				<input type="text" name="" class="form-control" id="readerMajor" placeholder="请输入您的专业"  value="<%=user.readerMajor%>">
+    				<input type="text" name="" class="form-control" id="readerMajor" placeholder="请输入专业"  value="<%=user.readerMajor%>">
     			</div>
     		</div>
     		<div>
@@ -75,6 +89,6 @@
     		</div>	
     	</form>
     </div>
-    <script src="/js/userModify.js"></script>
+    <script src="/js/adminModifyuser.js"></script>
 </body>
 </html>

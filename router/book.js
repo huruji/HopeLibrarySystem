@@ -32,8 +32,8 @@ router.route("/").get(function(req,res){
 						return;
 					}else{
 						bookAll.push(rows);
-						/*console.log(bookAll[0]);*/
-						res.render("book",{"book":bookAll,"cate":bookCate})
+						var bookCateEng=[]
+						res.render("book/index",{"book":bookAll,"cate":bookCate})
 					}
 				});
 				}
@@ -89,6 +89,26 @@ router.route("/").get(function(req,res){
 			}
 		})
 	}
+})
+
+router.route("/cate:cateID").get(function(req,res){
+	var groupID=req.params.cateID;
+	console.log(groupID)
+	mysql_util.DBConnection.query("SELECT  DISTINCT bookCate FROM hopeBook ORDER BY bookCate",function(err,rows,fields){
+		if(err){
+			console.log(err);
+			return;
+		}
+		console.log(rows[0].bookCate);
+		var cateArr=rows;
+		mysql_util.DBConnection.query("SELECT * FROM hopeBook WHERE bookCate=? ORDER BY bookLeft DESC",cateArr[groupID].bookCate,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			res.render("book/bookCate",{book:rows,cate:cateArr[groupID].bookCate});
+		})
+	})
 })
 
 

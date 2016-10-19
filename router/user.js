@@ -81,7 +81,7 @@ router.route("/reset").post(function(req,res){
 		console.log("bbb");
 		res.redirect("/user/login");
 	}else{
-	res.render("reset");
+	res.render("user/reset");
 }
 });
 
@@ -115,7 +115,7 @@ router.route("/").get(function(req,res){
 				for(var i=0,max=rows.length;i<max;i++){
 					rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
 				}
-				res.render("user",{book:rows,userImg:userImg});
+				res.render("user/index",{book:rows,userImg:userImg});
 			}
 		})
 			}
@@ -149,13 +149,14 @@ router.route("/modify").get(function(req,res){
 			if(err){
 				console.log(err)
 			}else{
-				res.render("usermodify",{user:rows[0]});
+				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+				res.render("user/usermodify",{user:rows[0],hopeGroup:hopeGroup});
 			}
 		})
 	}
 }).post(function(req,res){
 	console.log("post modify");
-	mysql_util.DBConnection.query("UPDATE hopeReader SET readerSex=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=?",[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail],function(err,rows,fields){
+	mysql_util.DBConnection.query("UPDATE hopeReader SET readerSex=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=?,readerGroup=? WHERE readerID=?",[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.cookies.userId],function(err,rows,fields){
 		if(err){
 			console.log(err);
 		}else{

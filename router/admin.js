@@ -56,7 +56,7 @@ router.route("/").get(function(req,res){
 					if(err){
 						console.log(err);
 					}else{
-						res.render("admin",{admin:admin,user:rows});
+						res.render("admin/index",{admin:admin,user:rows});
 					}
 				});
 			}else if(rows[0].adminPermissions=="camera"){
@@ -89,7 +89,7 @@ router.route("/").get(function(req,res){
 								}
 								/*console.log(borrower);
 								console.log(book.length);*/
-								res.render("admin-book",{admin:admin,book:book,borrower:borrower});
+								res.render("admin-book/index",{admin:admin,book:book,borrower:borrower});
 							}
 						})
 						
@@ -98,6 +98,44 @@ router.route("/").get(function(req,res){
 			}
 		})
 	}
+})
+
+
+router.route("/userModify/:userID").get(function(req,res){
+	if(!req.cookies.adminId){
+		res.redirect("/admin/login")
+	}else{
+		var userID=req.params.userID;
+		mysql_util.DBConnection.query("SELECT * FROM hopeReader WHERE readerID=?",userID,function(err,rows,fields){
+			if(err){
+				console.log(err);
+			}else{
+				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+				res.render("admin/adminModifyuser",{user:rows[0],hopeGroup:hopeGroup});
+			}
+		})
+	}
+}).post(function(req,res){
+	var name=req.body.readerName,
+	    sex=req.body.sex,
+	    number=req.body.studentNumber,
+	    major=req.body.readerMajor,
+	    phone=req.body.readerPhone,
+	    email=req.body.readerEmail,
+	    group=req.body.readerGroup,
+	    userID=parseInt(req.params.userID);
+	var DBParams=[name,sex,group,number,major,phone,email,userID];
+	console.log(DBParams);
+	mysql_util.DBConnection.query("UPDATE hopeReader SET readerName=?,readerSex=?,readerGroup=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=? WHERE readerID=?",DBParams,function(err,rows,fields){
+		if(err){
+			console.log(err);
+		}else{
+			var success={
+				message:"保存成功"
+			};
+			res.send(success);
+		}
+	})
 })
 
 router.route("/drop").post(function(req,res){
@@ -140,7 +178,7 @@ router.route("/bookModify/:bookID").get(function(req,res){
 				console.log(err);
 			}else{
 				var bookCate=["编程类","设计类","摄影类","其他"];
-				res.render("bookModify",{book:rows[0],bookGroup:bookCate});
+				res.render("admin-book/bookModify",{book:rows[0],bookGroup:bookCate});
 			}
 		})
 	}
@@ -166,7 +204,7 @@ router.route("/bookAdd").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login")
 	}else{
-		res.render("bookAdd");
+		res.render("admin/bookAdd");
 	}
 }).post(function(req,res){
 	var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup];
@@ -181,6 +219,38 @@ router.route("/bookAdd").get(function(req,res){
 			res.send(success);
 		}
 	})
+});
+
+
+router.route("/userAdd").get(function(req,res){
+	if(!req.cookies.adminId){
+		res.redirect("/admin/login")
+	}else{
+		res.render("userAdd");
+	}
+}).post(function(req,res){
+	var sha=crypto.createHash("md5");
+	sha.update(req.body.readerPassword);
+	var password_md5=sha.digest("hex");
+	var name=req.body.readerName,
+	    sex=req.body.sex,
+	    number=req.body.studentNumber,
+	    major=req.body.readerMajor,
+	    phone=req.body.readerPhone,
+	    email=req.body.readerEmail,
+	    group=req.body.readerGroup;
+	var DBParams=[name,password_md5,sex,group,number,major,phone,email];
+	mysql_util.DBConnection.query("INSERT hopeReader(readerName,readerPassword,readerSex,readerGroup,studentNumber,readerMajor,readerPhone,readerEmail) VALUES(?,?,?,?,?,?,?,?)",DBParams,function(err,rows,fields){
+		if(err){
+			console.log(err);
+		}else{
+			var success={
+				message:"增加成功"
+			};
+			res.send(success);
+		}
+	})
+
 })
 
 

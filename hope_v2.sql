@@ -23,7 +23,7 @@ studentNumber varchar(8),
 readerMajor VARCHAR(20),
 readerPhone varchar(11),
 readerEmail VARCHAR(100),
-readerBadNum INT(11),
+readerBadNum INT(11) DEFAULT 0,
 userImgSrc varchar(100) DEFAULT "/img/user/user-default.jpg"
 );
 
