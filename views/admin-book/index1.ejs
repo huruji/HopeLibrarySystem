@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>厚朴工作室图书借阅系统</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/font-awesome/font-awesome.min.css" />
+		<script src="/js/public/jquery-hope.js"></script>
+		<script src="/js/layer/layer.js"></script>
+	</head>
+	<body>
+		<div class="topbar">
+			<div class="container floatfix">
+				<div class="topbar-left">图书借阅、设备预约系统</div>
+				<div class="topbar-right">
+					<span><a href="#"><i class="fa fa-home"></i>网站首页</a></span>
+					<span><a href="#"><i class="fa fa-sign-out"></i>退出</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="main-content container floatfix">
+			<div class="user-left">
+				<div class="user-img">
+					<a href=""><img src="<%=userImg%>" alt=""></a>
+					<p>欢迎你，<%=userName%></p>
+				</div>
+				<div class="user-menu">
+					<h1><i class="fa fa-cog"></i>账号</h1>
+					<ul class="menu-list">
+						<li class="menu-list-item"><a href="/user/modify">修改信息</a></li>
+						<li class="menu-list-item"><a href="/user/reset">修改密码</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="user-right">
+				<div class="user-info">
+					<h1>基本信息</h1>
+					<ul class="basic-info floatfix">
+						<li class="basic-info-item floatfix">
+							<div class="info-item-icon">
+								<i class="fa fa-credit-card"></i>
+							</div>
+							<div class="info-item-right">
+								<p>用户组别</p>
+								<p>图书管理员</p>
+							</div>
+						</li>
+						<li class="basic-info-item floatfix">
+							<div class="info-item-icon">
+								<i class="fa fa-user"></i>
+							</div>
+							<div class="info-item-right">
+								<p>登录账号</p>
+								<p><%=userName%></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="user-oparate">
+					<nav>
+						<ul class="nav-itme-container floatfix">
+							<li class="nav-item nav-item-cur"><a href="#">当前图书</a></li>
+							<li class="nav-item"><a href="#">增加图书</a></li>
+						</ul>
+					</nav>
+					<%if(book.length>0){%>
+					<table class="operate-list-container">
+					<thead>
+						<tr>
+							<th class="admin-bookname bookname">图书名</th>
+							<th class="book-hopeID">编号</th>
+							<th class="book-state">状态</th>
+							<th class="borrow-person">借阅人</th>
+							<th class="admin-main-oparate main-oparate">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					    <%if(book.length>10){var max=10;}else{var max=book.length;}%>
+						<%for(var i=0;i<max;i++){%>
+						<tr>
+							<td class="bookname"><%=book[i].bookName%></th>
+							<th class="book-hopeID"><%=book[i].bookHopeID%></th>
+							<%if(book[i].bookLeft==0){%>
+							<td class="borow-state">已借出</th>
+							<td class="borrow-person"><%=borrower[i]%></th>
+							<%}else{%>
+							<td class="borow-state">在架上</th>
+							<td class="borrow-person"></th>
+                            <%}%>
+							<td class="main-oparate">
+								<span><a href="javascript:" class="modify-book"  book-data="<%=book[i].bookID%>">修改</a></span>
+								<span><a href="javascript:" class=""  book-data="<%=book[i].bookID%>">催还</a></span>
+							</td>
+						</tr>
+						<%}%>
+					</tbody>
+					</table>
+                    <%if(bookNum>1){%>
+                    <div class="page-control">
+                    	<%for(var k=1;k<=bookNum;k++){%>
+                    	 <span <%if(k==bookPage){%> class="page-cur"<%}%>><a href="/admin/admin-book?pageTab=<%=k%>"><%=k%></a></span> 
+                    	<%}%>
+                    <%}%>
+					<%}else{%>
+					<p class="no-borrow">当前暂无书籍！</p>
+                   <%}%>
+                   </div>
+				</div>
+			</div>
+		</div>
+		<footer>
+		<div class="container">
+			<p>技术支持：厚朴〖HOPE〗工作室</p>
+			</div>
+		</footer>
+		<script src="/js/adminbook.js"></script>
+	</body>
+</html>

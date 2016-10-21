@@ -371,3 +371,16 @@ div.radio{
 	display: inline-block;
 	margin-left:5%;
 }
+
+/* 分页 */
+.page-control{
+	height:30px;
+	margin:0 auto;
+	text-align: center;
+	margin-top:10px;
+}
+.page-control span{
+	display: inline-block;
+	padding:5px 8px;
+	border:1px solid #ddd;
+}

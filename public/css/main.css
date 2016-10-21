@@ -172,7 +172,7 @@ body{
 	background:#fff;
 	padding:20px 25px;
 	height:100%;
-	height:600px;
+	height:700px;
 }
 .user-right{
 	float:left;
@@ -240,7 +240,7 @@ body{
 }
 .user-oparate{
 	background:#fff;
-	height:479px;
+	height:579px;
 }
 .user-oparate nav{
 	height:40px;
@@ -279,12 +279,23 @@ th.borow-time,th.return-time,th.main-oparate{
 	line-height: 16px;
 	padding:10px 0;
 }
+
 td.borow-time,td.return-time,td.main-oparate{
 	padding:15px 0;
 	text-align: center;
 }
 th.main-oparate,td.main-oparate{
 	padding-right:25px;
+}
+th.borow-hopeID,th.book-state,th.borrow-person,th.admin-main-oparate{
+	width:15%;
+	line-height: 16px;
+	line-height: 16px;
+	padding:10px 0;
+}
+td.borow-hopeID,td.book-state,td.borrow-person,td.admin-main-oparate{
+	padding:15px 0;
+	text-align: center;
 }
 footer{
 	background:#fff;
@@ -372,4 +383,34 @@ label.radio-inline input[type="radio"]{
 div.radio{
 	display: inline-block;
 	margin-left:5%;
+}
+
+/* 分页 */
+.page-control{
+	height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+}
+.page-control span{
+    border: 1px solid #ddd;
+    cursor:pointer;
+    display: inline-block;
+}
+.page-control span a{
+	padding: 5px 8px;
+	display: inline-block;
+}
+.page-control span:hover{
+	background:#0cca7a;
+	
+}
+.page-control span:hover a{
+	color:#fff;
+}
+.page-control span.page-cur{
+	background:#0cca7a;
+}
+.page-control span.page-cur a{
+	color: #fff;
 }

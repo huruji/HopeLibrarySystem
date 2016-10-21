@@ -2,6 +2,7 @@ const express=require("express");
 const mysql_util=require("./mysql_util");
 const bodyParser=require("body-parser");
 const crypto=require("crypto");
+const url=require("url");
 const router=express.Router();
 
 router.route("/login").post(function(req,res){
@@ -68,31 +69,35 @@ router.route("/").get(function(req,res){
 					}
 				});
 			}else{
-				mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookID DESC",function(err,rows,fields){
+				mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft",function(err,rows,fields){
 					if(err){
 						console.log(err);
 					}else{
 						var book=rows;
-						mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopeReader,bookBorrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
+						mysql_util.DBConnection.query("SELECT COUNT(*) AS bookNum FROM hopeBook",function(err,rows,fields){
 							if(err){
 								console.log(err);
-							}else{
-								var borrower=[];
-								for(var i=0,max=book.length;i<max;i++){
-									borrower[i]=0;
-									for(var j=0,max1=rows.length;j<max1;j++){
-										if(rows[j].borrowBookID==book[i].bookID){
-											borrower[i]=rows[j].readerName;
-										}
-									}
-									 console.log("i="+i)
-								}
-								/*console.log(borrower);
-								console.log(book.length);*/
-								res.render("admin-book/index",{admin:admin,book:book,borrower:borrower});
+								return;
 							}
-						})
-						
+							var bookNum=Math.ceil(rows[0].bookNum/10);
+							console.log("bookNum:"+bookNum)
+							mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopeReader,bookBorrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
+								if(err){
+									console.log(err);
+								}else{
+									var borrower=[];
+									for(var i=0,max=book.length;i<max;i++){
+										borrower[i]=0;
+										for(var j=0,max1=rows.length;j<max1;j++){
+											if(rows[j].borrowBookID==book[i].bookID){
+												borrower[i]=rows[j].readerName;
+											}
+									 	}
+									}
+								res.render("admin-book/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
+								}
+							})
+						})		
 					}
 				});
 			}
@@ -200,12 +205,30 @@ router.route("/bookModify/:bookID").get(function(req,res){
 })
 
 
-router.route("/bookAdd").get(function(req,res){
+router.route("/bookadd").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login")
-	}else{
-		res.render("admin-book/bookAdd");
+		return;
 	}
+	mysql_util.DBConnection.query("SELECT adminName,adminImgSrc FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+		if(err){
+			console.log(err);
+			return
+		}
+		var userName=rows[0].adminName;
+		var userImg=rows[0].adminImgSrc;
+		mysql_util.DBConnection.query("SELECT DISTINCT bookCate FROM hopeBook",function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var bookCate=[];
+			for(var i=0,max=rows.length;i<max;i++){
+				bookCate.push(rows[i].bookCate);
+			}
+			res.render("admin-book/bookAdd1",{userName:userName,userImg:userImg,bookCate:bookCate});
+		});
+	});
 }).post(function(req,res){
 	var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup];
 	console.log(DBParam);
@@ -253,6 +276,58 @@ router.route("/userAdd").get(function(req,res){
 
 })
 
+
+
+/*图书管理员图书分页*/
+router.route("/admin-book").get(function(req,res){
+	if(!req.cookies.adminId){
+		res.redirect("admin/login");
+		return;
+	}
+	var pageNum=req.query.pageTab;
+	console.log("pageNum:"+pageNum)
+	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+		if(err){
+			console.log(err);
+			return;
+		}
+		var userName=rows[0].adminName;
+		var userImg=rows[0].adminImgSrc;
+		var bookStart=(pageNum-1)*10;
+		var bookEnd=pageNum*10;
+		mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft LIMIT ?,?",[bookStart,bookEnd],function(err,rows,fields){
+		    if(err){
+		    	console.log(err);
+		    	return;
+		    }
+            var book=rows;
+			mysql_util.DBConnection.query("SELECT COUNT(*) AS bookNum FROM hopeBook",function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				var bookNum=Math.ceil(rows[0].bookNum/10);
+				console.log("bookNum:"+bookNum)
+				mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopeReader,bookBorrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
+					if(err){
+						console.log(err);
+						return;
+					}
+					var borrower=[];
+					for(var i=0,max=book.length;i<max;i++){
+						borrower[i]=0;
+						for(var j=0,max1=rows.length;j<max1;j++){
+							if(rows[j].borrowBookID==book[i].bookID){
+									borrower[i]=rows[j].readerName;
+							}
+						}
+					}
+					res.render("admin-book/index1",{userName:userName,userImg:userImg,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum});
+		 		});
+			});
+    	});
+	});
+});
 
 router.route("/booklook/:bookID").get(function(req,res){
 

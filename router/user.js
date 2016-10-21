@@ -117,12 +117,13 @@ router.route("/").get(function(req,res){
 			}else{
 				var userImg=rows[0].userImgSrc;
 				var userName=rows[0].readerName;
-				mysql_util.DBConnection.query("SELECT bookName,bookID,borrowID,returnBefore FROM hopeBook,hopeReader,bookBorrow WHERE hopeBook.bookID=bookBorrow.borrowBookID AND hopeReader.readerID=bookBorrow.borrowUserID AND returnWhe=0 AND readerID=?;",req.cookies.userId,function(err,rows,fields){
+				mysql_util.DBConnection.query("SELECT bookName,borrowTime,bookID,borrowID,returnBefore FROM hopeBook,hopeReader,bookBorrow WHERE hopeBook.bookID=bookBorrow.borrowBookID AND hopeReader.readerID=bookBorrow.borrowUserID AND returnWhe=0 AND readerID=?;",req.cookies.userId,function(err,rows,fields){
 			if(err){
 				console.log(err);
 			}else{
 				for(var i=0,max=rows.length;i<max;i++){
 					rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
+					rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
 				}
 				res.render("user/index1",{book:rows,userImg:userImg,userName:userName});
 			}
