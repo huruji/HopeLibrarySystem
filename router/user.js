@@ -70,19 +70,27 @@ router.route("/reset").post(function(req,res){
 		}else{
 			var success={
 				code:0,
-				message:"成功",
+				message:"修改成功",
 				userId:userId
 			}
 			res.send(success);
 		}
 	})
 }).get(function(req,res){
-	if(!req.headers.cookie){
+	if(!req.cookies.userId){
 		console.log("bbb");
 		res.redirect("/user/login");
 	}else{
-	res.render("user/reset");
-}
+		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopeReader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+			if(err){
+				console.log(err)
+			}else{
+				var userImg=rows[0].userImgSrc;
+				var userName=rows[0].readerName;
+	            res.render("user/reset1",{userImg:userImg,userName:userName});
+            }
+		})
+	}
 });
 
 router.route("/borrow").post(function(req,res){
@@ -103,11 +111,12 @@ router.route("/").get(function(req,res){
 		res.redirect("/user/login");
 	}else{
 		var userId=req.cookies.userId;
-		mysql_util.DBConnection.query("SELECT userImgSrc FROM hopeReader WHERE readerID=?",userId,function(err,rows,fields){
+		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopeReader WHERE readerID=?",userId,function(err,rows,fields){
 			if(err){
 				console.log(err)
 			}else{
 				var userImg=rows[0].userImgSrc;
+				var userName=rows[0].readerName;
 				mysql_util.DBConnection.query("SELECT bookName,bookID,borrowID,returnBefore FROM hopeBook,hopeReader,bookBorrow WHERE hopeBook.bookID=bookBorrow.borrowBookID AND hopeReader.readerID=bookBorrow.borrowUserID AND returnWhe=0 AND readerID=?;",req.cookies.userId,function(err,rows,fields){
 			if(err){
 				console.log(err);
@@ -115,7 +124,7 @@ router.route("/").get(function(req,res){
 				for(var i=0,max=rows.length;i<max;i++){
 					rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
 				}
-				res.render("user/index",{book:rows,userImg:userImg});
+				res.render("user/index1",{book:rows,userImg:userImg,userName:userName});
 			}
 		})
 			}
@@ -150,7 +159,9 @@ router.route("/modify").get(function(req,res){
 				console.log(err)
 			}else{
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-				res.render("user/usermodify",{user:rows[0],hopeGroup:hopeGroup});
+				var userName=rows[0].readerName;
+				var userImg=rows[0].userImgSrc;
+				res.render("user/usermodify1",{userName:userName,userImg:userImg,user:rows[0],hopeGroup:hopeGroup});
 			}
 		})
 	}

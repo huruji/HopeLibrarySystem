@@ -37,13 +37,16 @@
         	},
         	success:function(response){
         			if(response){
-        				location.href="/";	
+        				var success=response.message;	
         			}
-        			layer.alert(errMsg,{
+        			layer.alert(success,{
         				skin: 'layui-layer-molv',
                         closeBtn: 0,
                         shift: 2 
         			});
+                    setTimeout(function(){
+                        location.replace("/user");
+                    },500)
         		},
         	error:function(){
         		/*layer.alert("请求失败，请重试！",{

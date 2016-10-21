@@ -204,7 +204,7 @@ router.route("/bookAdd").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login")
 	}else{
-		res.render("admin/bookAdd");
+		res.render("admin-book/bookAdd");
 	}
 }).post(function(req,res){
 	var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup];
@@ -226,7 +226,7 @@ router.route("/userAdd").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login")
 	}else{
-		res.render("userAdd");
+		res.render("admin/userAdd");
 	}
 }).post(function(req,res){
 	var sha=crypto.createHash("md5");

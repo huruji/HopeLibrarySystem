@@ -24,8 +24,6 @@
                     setTimeout(function(){
                         location.assign(location.href);
                     },500)
-                    
-                    
         		},
         	error:function(){
                 layer.alert("请求失败",{
