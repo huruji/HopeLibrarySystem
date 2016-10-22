@@ -63,58 +63,37 @@
 					</ul>
 				</div>
 				<div class="user-oparate">
-					<nav>
-						<ul class="nav-itme-container floatfix">
-							<li class="nav-item nav-item-cur"><a href="#">当前图书</a></li>
-							<li class="nav-item"><a href="/admin/bookadd">增加图书</a></li>
-						</ul>
-					</nav>
-					<%if(book.length>0){%>
-					<table class="operate-list-container">
-					<thead>
-						<tr>
-							<th class="admin-bookname bookname">图书名</th>
-							<th class="book-hopeID">编号</th>
-							<th class="book-state">状态</th>
-							<th class="borrow-person">借阅人</th>
-							<th class="admin-main-oparate main-oparate">操作</th>
-						</tr>
-					</thead>
-					<tbody>
-					    <%if(book.length>10){var max=10;}else{var max=book.length;}%>
-						<%for(var i=0;i<max;i++){%>
-						<tr>
-							<td class="bookname"><%=book[i].bookName%></td>
-							<td class="book-hopeID"><%=book[i].bookHopeID%></td>
-							<%if(book[i].bookLeft==0){%>
-							<td class="borow-state">已借出</td>
-							<td class="borrow-person"><%=borrower[i]%></td>
-							<td class="main-oparate">
-								<span><a href="/admin/bookmodify/<%=book[i].bookID%>" class="modify-book"  >修改</a></span>
-								<span><a href="javascript:" class=""  book-data="<%=book[i].bookID%>">催还</a></span>
-							</td>
-							<%}else{%>
-							<td class="borow-state">在架上</td>
-							<td class="borrow-person"></td>
-							<td class="main-oparate">
-								<span><a href="/admin/bookmodify/<%=book[i].bookID%>" class="modify-book"  >修改</a></span>
-							</td>
+					<form>
+						<div class="form-group">
+							<label for="">图书名：</label>
+							<input type="text" value="<%=book.bookName%>" id="bookName" >
+						</div>
+						<div class="form-group">
+							<label for="">厚朴编号：</label>
+							<input type="text" value="<%=book.bookHopeID%>" id="hopeID">
+						</div>
+						<div class="form-group">
+							<label for="">分类：</label>
+							<div class="radio">
+							<%for(var i=0,max=bookCate.length;i<max;i++){%>
+                            	<label class="radio-inline"><input type="radio" name="bookGroup" value="" <%if(bookCate[i]==book.bookCate){%> checked <%}%> ><%=bookCate[i]%></label>
                             <%}%>
-							
-						</tr>
-						<%}%>
-					</tbody>
-					</table>
-                    <%if(bookNum>1){%>
-                    <div class="page-control">
-                    	<%for(var k=1;k<=bookNum;k++){%>
-                    	 <span <%if(k==bookPage){%> class="page-cur"<%}%>><a href="/admin/admin-book?pageTab=<%=k%>"><%=k%></a></span> 
-                    	<%}%>
-                    <%}%>
-					<%}else{%>
-					<p class="no-borrow">当前暂无书籍！</p>
-                   <%}%>
-                   </div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="">作者：</label>
+							<input type="text"  value="<%=book.bookAuthor%>" id="bookAuthor">
+						</div>
+						<div class="form-group">
+							<label for="">ISBN：</label>
+							<input type="text" id="bookISBN" value="<%=book.bookISBN%>" >
+						</div>
+						<div class="form-group">
+							<label for="">出版社：</label>
+							<input type="text" id="bookPress" value="<%=book.bookPress%>" >
+						</div>
+						<p class="button-group button-group-2"><button type="button" id="save">保存</button><a class="button" href="javascript:history.go(-1);location=location"  title="返回">返回</a></p>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -123,6 +102,6 @@
 			<p>技术支持：厚朴〖HOPE〗工作室</p>
 			</div>
 		</footer>
-		<script src="/js/adminbook.js"></script>
+		<script src="/js/addbook.js"></script>
 	</body>
 </html>

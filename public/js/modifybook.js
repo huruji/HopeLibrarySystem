@@ -7,12 +7,11 @@
         var bookAuthor=$.trim($("#bookAuthor").val());
         var bookISBN=$.trim($("#bookISBN").val());
         var bookPress=$.trim($("#bookPress").val());
-        var bookID=$(this).attr("book-data");
 
         $.ajax({
             dataType:"json",
             async:true,
-            data:{"bookGroup":bookGroup,"bookName":bookName,"hopeID":hopeID,"bookAuthor":bookAuthor,"bookISBN":bookISBN,"bookPress":bookPress,"bookID":bookID},
+            data:{"bookGroup":bookGroup,"bookName":bookName,"hopeID":hopeID,"bookAuthor":bookAuthor,"bookISBN":bookISBN,"bookPress":bookPress},
             type:"POST",
             beforeSend:function(){
 

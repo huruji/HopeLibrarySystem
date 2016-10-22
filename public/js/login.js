@@ -41,7 +41,9 @@ $(document).ready(function(){
         		var errMsg="登录失败";
         			if(response){
         				if(response.code==0 && response.userId){
-        					location.href="/";
+                            var p=location.pathname,
+                                redirect="/"+p.split("/")[1];
+                            window.location=redirect;
         					return 0;
         				}
         				if(response.message){

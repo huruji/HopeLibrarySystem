@@ -45,7 +45,9 @@
                         shift: 2 
         			});
                     setTimeout(function(){
-                        location.replace("/user");
+                        var p=location.pathname,
+                            redirect="/"+p.split("/")[1];
+                        location.replace(redirect);
                     },500)
         		},
         	error:function(){
