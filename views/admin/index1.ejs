@@ -48,7 +48,7 @@
 							</div>
 							<div class="info-item-right">
 								<p>用户组别</p>
-								<p>图书管理员</p>
+								<p>超级管理员</p>
 							</div>
 						</li>
 						<li class="basic-info-item floatfix">
@@ -65,54 +65,64 @@
 				<div class="user-oparate">
 					<nav>
 						<ul class="nav-itme-container floatfix">
-							<li class="nav-item nav-item-cur"><a href="#">当前图书</a></li>
-							<li class="nav-item"><a href="/admin/bookadd">增加图书</a></li>
+							<li class="nav-item nav-item-cur"><a href="#">用户管理</a></li>
+							<li class="nav-item"><a href="">图书管理</a></li>
+							<li class="nav-item"><a href="#">设备管理</a></li>
+							<li class="nav-item"><a href="#">增加用户</a></li>
 						</ul>
 					</nav>
-					<%if(book.length>0){%>
+					<%if(user.length>0){%>
 					<table class="operate-list-container">
 					<thead>
 						<tr>
-							<th class="admin-bookname bookname">图书名</th>
-							<th class="book-hopeID">编号</th>
-							<th class="book-state">状态</th>
-							<th class="borrow-person">借阅人</th>
-							<th class="admin-main-oparate main-oparate">操作</th>
+							<th class="username">用户名</th>
+							<th class="hopegroup">厚朴组</th>
+							<th class="user-permission">角色</th>
+							<th class="admin-user-oparate">操作</th>
 						</tr>
 					</thead>
 					<tbody>
-					    <%if(book.length>10){var max=10;}else{var max=book.length;}%>
-						<%for(var i=0;i<max;i++){%>
+					<%if(user.length>10){var max=10}else{var max=user.length}%>
+					<%for(var i=0;i<max;i++){%>
 						<tr>
-							<td class="bookname"><%=book[i].bookName%></td>
-							<td class="book-hopeID"><%=book[i].bookHopeID%></td>
-							<%if(book[i].bookLeft==0){%>
-							<td class="borow-state">已借出</td>
-							<td class="borrow-person"><%=borrower[i]%></td>
-							<td class="main-oparate">
-								<span><a href="/admin/bookmodify/<%=book[i].bookID%>" class="modify-book"  >修改</a></span>
-								<span><a href="javascript:" class=""  book-data="<%=book[i].bookID%>">催还</a></span>
+							<td class="username"><%=user[i].adminName%><%=user[i].readerName%></td>
+							<%if(user[i].readerGroup){%>
+							<td class="hopegroup"><%=user[i].readerGroup%></td>
+							<%}else{%>
+							<td class="hopegroup"></td>
+							<%}%>
+							<%if(user[i].adminPermissions=="super"){%>
+							<td class="user-permission">超级管理员</td>
+							<%}else if(user[i].adminPermissions=="camera"){%>
+							<td class="user-permission">设备管理员</td>
+							<%}else if(user[i].adminPermissions=="book"){%>
+							<td class="user-permission">图书管理员</td>
+							<%}else{%>
+							<td class="user-permission">普通用户</td>
+							<%}%>
+							<%if(user[i].readerGroup){%>
+							<td class="admin-user-oparate">
+								<span><a href="" class="modify-book" user-data="user<%=user[i].readerID%>">修改</a></span>
+								<span><a href="" class="modify-book" user-data="user<%=user[i].readerID%>">删除</a></span>
 							</td>
 							<%}else{%>
-							<td class="borow-state">在架上</td>
-							<td class="borrow-person"></td>
-							<td class="main-oparate">
-								<span><a href="/admin/bookmodify/<%=book[i].bookID%>" class="modify-book"  >修改</a></span>
+							<td class="admin-user-oparate">
+								<span><a href="" class="modify-book" user-data="admin<%=user[i].adminID%>">修改</a></span>
+								<span><a href="" class="modify-book" user-data="admin<%=user[i].adminID%>">删除</a></span>
 							</td>
-                            <%}%>
-							
+							<%}%>
 						</tr>
-						<%}%>
+					<%}%>
 					</tbody>
 					</table>
-                    <%if(bookNum>1){%>
+					<%if(userPageNum>1){%>
                     <div class="page-control">
-                    	<%for(var k=1;k<=bookNum;k++){%>
-                    	 <span <%if(k==bookPage){%> class="page-cur"<%}%>><a href="/admin/admin-book?pageTab=<%=k%>"><%=k%></a></span> 
+                    	<%for(var k=1;k<=userPageNum;k++){%>
+                    	 <span <%if(k==userPage){%> class="page-cur"<%}%>><a href="/admin/admin-user?pageTab=<%=k%>"><%=k%></a></span> 
                     	<%}%>
                     <%}%>
-					<%}else{%>
-					<p class="no-borrow">当前暂无书籍！</p>
+                    <%}else{%>
+					<p class="no-borrow">当前暂无成员</p>
                    <%}%>
                    </div>
 				</div>

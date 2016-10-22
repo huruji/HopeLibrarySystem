@@ -44,21 +44,31 @@ router.route("/login").post(function(req,res){
 })
 router.route("/").get(function(req,res){
 	if(!req.cookies.adminId){
-		res.redirect("admin/login");
+		res.redirect("/admin/login");
 		console.log("no cookie");
 	}else{
 		var adminId=req.cookies.adminId;
-		console.log("have cookie")
-		/*console.log(adminId);*/
+		console.log("have cookie");
 		mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",adminId,function(err,rows,fields){
 			var admin=rows[0];
 			if(rows[0].adminPermissions=="super"){
 				mysql_util.DBConnection.query("SELECT * FROM hopeReader",function(err,rows,fields){
 					if(err){
 						console.log(err);
-					}else{
-						res.render("admin/index",{admin:admin,user:rows});
+						return;
 					}
+					var reader=rows;
+					mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID!=?",adminId,function(err,rows,fields){
+						if(err){
+							console.log(err);
+							return;
+						}
+						var adminUser=rows;
+						var userPageNum=Math.ceil((adminUser.length+reader.length)/10);
+						console.log(userPageNum);
+						var user=adminUser.concat(reader);
+						res.render("admin/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,user:user,userPageNum:userPageNum,userPage:1});
+					});
 				});
 			}else if(rows[0].adminPermissions=="camera"){
 				mysql_util.DBConnection.query("SELECT * FROM hopeEquip",function(err,rows,fields){
@@ -250,7 +260,7 @@ router.route("/userAdd").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login")
 	}else{
-		res.render("admin/userAdd");
+		res.render("/admin/userAdd");
 	}
 }).post(function(req,res){
 	var sha=crypto.createHash("md5");
@@ -282,7 +292,7 @@ router.route("/userAdd").get(function(req,res){
 /*图书管理员图书分页*/
 router.route("/admin-book").get(function(req,res){
 	if(!req.cookies.adminId){
-		res.redirect("admin/login");
+		res.redirect("/admin/login");
 		return;
 	}
 	var pageNum=req.query.pageTab;
@@ -336,7 +346,7 @@ router.route("/booklook/:bookID").get(function(req,res){
 
 router.route("/reset").get(function(req,res){
 	if(!req.cookies.adminId){
-		res.redirect("admin/login");
+		res.redirect("/admin/login");
 		return;
 	}
 	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
@@ -366,7 +376,26 @@ router.route("/reset").get(function(req,res){
 
 //管理员修改信息
 router.route("/modify").get(function(req,res){
-	if()
-})
+	if(!req.cookies.adminId){
+		res.redirect("/admin/login");
+		return;
+	}
+	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+		var userName=rows[0].adminName,
+		    userImg=rows[0].adminImgSrc;
+		res.render("admin-book/adminModify",{userName:userName,userImg:userImg,user:rows[0]});
+	})
+}).post(function(req,res){
+	mysql_util.DBConnection.query("UPDATE hopeAdmin SET adminEmail=? WHERE adminID=?",[req.body.readerEmail,req.cookies.adminId],function(err,rows,fields){
+		if(err){
+			console.log(err)
+			return;
+		}
+		var success={
+			message:"修改成功"
+		};
+		res.send(success);
+	});
+});
 
 module.exports=router;

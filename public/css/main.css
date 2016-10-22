@@ -43,6 +43,7 @@ input, button, textarea, select {
 input {
     background: transparent;
     border: none;
+     font-family:"Microsoft Yahei",Helvetica, Arial, sans-serif;
 }
 
 input[type=submit] {
@@ -61,7 +62,9 @@ select::-ms-expand {
 }
 
 body {
-    font: 14px/1 "Microsoft Yahei",Helvetica, Arial, sans-serif;
+    font-size:14px;
+    line-height:1em;
+    font-family:"Microsoft Yahei",Helvetica, Arial, sans-serif;
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
@@ -296,6 +299,21 @@ th.borow-hopeID,th.book-state,th.borrow-person,th.admin-main-oparate{
 td.borow-hopeID,td.book-state,td.borrow-person,td.admin-main-oparate{
 	padding:15px 0;
 	text-align: center;
+}
+th.username,th.hopegroup,th.user-permission,th.admin-user-oparate,td.username,td.hopegroup,td.user-permission,td.admin-user-oparate{
+	width:25%;
+	line-height: 14px;
+	padding:10px 0;
+	text-align: left
+}
+td.username,td.hopegroup,td.user-permission,td.amdin-user-oparate{
+	padding:15px 0;
+}
+th.admin-user-oparate,td.admin-user-oparate{
+	padding-right:25px;
+}
+th.username,td.username{
+	padding-left:25px;
 }
 footer{
 	background:#fff;
