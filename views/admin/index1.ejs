@@ -102,13 +102,13 @@
 							<%}%>
 							<%if(user[i].readerGroup){%>
 							<td class="admin-user-oparate">
-								<span><a href="" class="modify-book" user-data="user<%=user[i].readerID%>">修改</a></span>
-								<span><a href="" class="modify-book" user-data="user<%=user[i].readerID%>">删除</a></span>
+								<span><a href="/admin/adminmodifyuser/user<%=user[i].readerID%>" class="modify-user" user-data="user<%=user[i].readerID%>">修改</a></span>
+								<span><a href="javascript:" class="drop-user" user-data="user<%=user[i].readerID%>">删除</a></span>
 							</td>
 							<%}else{%>
 							<td class="admin-user-oparate">
-								<span><a href="" class="modify-book" user-data="admin<%=user[i].adminID%>">修改</a></span>
-								<span><a href="" class="modify-book" user-data="admin<%=user[i].adminID%>">删除</a></span>
+								<span><a href="admin/adminmodifyuser/admin<%=user[i].adminID%>" class="modify-user" user-data="admin<%=user[i].adminID%>">修改</a></span>
+								<span><a href="javascript:" class="drop-user" user-data="admin<%=user[i].adminID%>">删除</a></span>
 							</td>
 							<%}%>
 						</tr>
@@ -133,6 +133,6 @@
 			<p>技术支持：厚朴〖HOPE〗工作室</p>
 			</div>
 		</footer>
-		<script src="/js/adminbook.js"></script>
+		<script src="/js/admin.js"></script>
 	</body>
 </html>

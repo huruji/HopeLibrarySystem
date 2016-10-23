@@ -287,7 +287,40 @@ router.route("/userAdd").get(function(req,res){
 
 })
 
-
+/*用户分页*/
+router.route("/admin-user").get(function(req,res){
+	if(!req.cookies.adminId){
+		res.redirect("/admin/login");
+		return;
+	}
+	var userPage=req.query.pageTab;
+	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+        if(err){
+        	console.log(err);
+        	return;
+        }
+        var admin=rows[0];
+		mysql_util.DBConnection.query("SELECT * FROM hopeReader",function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var reader=rows;
+			mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID!=?",req.cookies.adminId,function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				var adminUser=rows;
+				var userPageNum=Math.ceil((adminUser.length+reader.length)/10);
+				var userStart=(userPage-1)*10;
+				var userEnd=userPage*10;
+				var user=adminUser.concat(reader).splice(userStart,userEnd);
+				res.render("admin/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,user:user,userPageNum:userPageNum,userPage:userPage});
+		});
+	});
+	});
+})
 
 /*图书管理员图书分页*/
 router.route("/admin-book").get(function(req,res){
@@ -398,4 +431,42 @@ router.route("/modify").get(function(req,res){
 	});
 });
 
+router.route("/adminmodifyuser/:userID").get(function(req,res){
+	if(!req.cookies.adminId){
+		res.redirect("/admin/login");
+	}
+	var userType=req.params.userID.replace(/\d/g,""),
+	    userID=req.params.userID.replace(/\D/g,"");
+	console.log("uerType="+userType);
+	console.log("userID="+userID);
+	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+		if(err){
+			console.log(err);
+			return;
+		}
+		var userName=rows[0].adminName;
+		var userImg=rows[0].adminImgSrc;
+		if(userType=="user"){
+			console.log("user")
+			mysql_util.DBConnection.query("SELECT * FROM hopeReader WHERE readerID=?",userID,function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,user:rows[0],hopeGroup:hopeGroup});
+			});
+
+		}else if(userType == "admin"){
+			console.log("admin")
+			mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",userID,function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,user:rows[0]});
+			});
+		}
+	});
+});
 module.exports=router;
