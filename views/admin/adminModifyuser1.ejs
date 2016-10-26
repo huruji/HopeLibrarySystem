@@ -48,7 +48,7 @@
 							</div>
 							<div class="info-item-right">
 								<p>用户组别</p>
-								<p>普通用户</p>
+								<p>超级管理员</p>
 							</div>
 						</li>
 						<li class="basic-info-item floatfix">
@@ -64,10 +64,10 @@
 				</div>
 				<div class="user-oparate">
 				<%if(user.readerGroup){%>
-					<form form-data="user">
+					<form form-data="user" id="user-form">
 						<div class="form-group" >
 							<label for="">用户名：</label>
-							<input type="text" value="<%=user.readerName%>">
+							<input type="text" value="<%=user.readerName%>" id="readerName">
 						</div>
 						<div class="form-group">
 							<label for="">性别：</label>
@@ -103,17 +103,17 @@
 						<p class="button-group button-group-2"><button type="button" id="save">确认</button><a class="button" href="javascript:history.go(-1);location=location"  title="返回">返回</a></p>
 					</form>
 					<%}else{%>
-					<form form-data="admin">
+					<form form-data="admin" id="user-form">
 						<div class="form-group" >
 							<label for="">用户名：</label>
-							<input type="text" value="<%=user.adminName%>">
+							<input type="text" value="<%=user.adminName%>" id="adminName">
 						</div>
 						<div class="form-group">
 							<label for="">权限：</label>
 							<div class="radio">
-								<label class="radio-inline"><input type="radio" name="permission" value="" <%if(user.adminPermissions=="super"){%> checked<%}%> >超级管理员</label>
-								<label class="radio-inline"><input type="radio" name="permission" value="" <%if(user.adminPermissions=="book"){%> checked<%}%> >图书管理员</label>
-								<label class="radio-inline"><input type="radio" name="permission" value="" <%if(user.adminPermissions=="camera"){%> checked<%}%> >设备管理员</label>
+								<label class="radio-inline" user-type="super"><input type="radio" name="permission" value="" <%if(user.adminPermissions=="super"){%> checked<%}%> >超级管理员</label>
+								<label class="radio-inline" user-type="book"><input type="radio" name="permission" value="" <%if(user.adminPermissions=="book"){%> checked<%}%> >图书管理员</label>
+								<label class="radio-inline" user-type="camera"><input type="radio" name="permission" value="" <%if(user.adminPermissions=="camera"){%> checked<%}%> >设备管理员</label>
 							</div>
 						</div>
 
@@ -132,6 +132,6 @@
 			<p>技术支持：厚朴〖HOPE〗工作室</p>
 			</div>
 		</footer>
-		<script src="/js/userModify.js"></script>
+		<script src="/js/adminModifyuser.js"></script>
 	</body>
 </html>

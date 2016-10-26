@@ -153,34 +153,7 @@ router.route("/userModify/:userID").get(function(req,res){
 	})
 })
 
-router.route("/drop").post(function(req,res){
-	var dropData=req.body.dropData.trim();
-	var dropID=parseInt(dropData.match(/\d+/g)[0]);
-	var dropType=dropData.replace(/\d+/g,"").trim();
-	if(dropType="user"){
-		mysql_util.DBConnection.query("DELETE FROM hopeReader WHERE readerID=?",dropID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-			}else{
-				var success={
-					message:"删除用户成功",
-				};
-				res.send(success);
-			}
-		});
-	}else if(dropType="admin"){
-		mysql_util.DBConnection.query("DELETE FROM hopeAdmin WHERE adminID=?",dropID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-			}else{
-				var success={
-					message:"删除管理员成功",
-				};
-				res.send(success);
-			}
-		});
-	}
-})
+
 
 //管理员修改图书信息
 router.route("/bookmodify/:bookID").get(function(req,res){
@@ -256,12 +229,12 @@ router.route("/bookadd").get(function(req,res){
 });
 
 
-router.route("/userAdd").get(function(req,res){
+router.route("/useradd").get(function(req,res){
 	if(!req.cookies.adminId){
-		res.redirect("/admin/login")
-	}else{
-		res.render("/admin/userAdd");
+		res.redirect("/admin/login");
+		return;
 	}
+	res.render("/admin/userAdd");
 }).post(function(req,res){
 	var sha=crypto.createHash("md5");
 	sha.update(req.body.readerPassword);
@@ -329,7 +302,9 @@ router.route("/admin-book").get(function(req,res){
 		return;
 	}
 	var pageNum=req.query.pageTab;
-	console.log("pageNum:"+pageNum)
+	if(!pageNum){
+		pageNum=1;
+	}
 	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
 		if(err){
 			console.log(err);
@@ -468,5 +443,76 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 			});
 		}
 	});
+}).post(function(req,res){
+	var userType=req.params.userID.replace(/\d/g,""),
+	    userID=req.params.userID.replace(/\D/g,"");
+	if(userType=="user"){
+		var mysqlParams=[req.body.readerName,
+		                 req.body.sex,
+		                 req.body.studentNumber,
+		                 req.body.readerMajor,
+		                 req.body.readerPhone,
+		                 req.body.readerEmail,
+		                 req.body.readerGroup,
+		                 userID];
+		console.log(mysqlParams)
+		mysql_util.DBConnection.query("UPDATE hopeReader SET readerName=?,readerSex=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=?,readerGroup=? WHERE readerID=?",mysqlParams,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var success={
+				message:"修改成功"
+			};
+			res.send(success);
+
+		})
+	}else if(userType="admin"){
+		var mysqlParams=[req.body.readerName,
+		                 req.body.readerEmail,
+		                 req.body.permission,
+		                 userID];
+		console.log(mysqlParams);
+		mysql_util.DBConnection.query("UPDATE hopeAdmin SET adminName=?,adminEmail=?,adminPermissions=? WHERE adminID=?",mysqlParams,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var success={
+				message:"修改成功"
+			};
+			res.send(success);
+		})
+	}
+	
 });
+
+//管理员删除用户
+router.route("/admindropuser").post(function(req,res){
+	var userType=req.body.dropData.replace(/\d/g,""),
+	    userID=req.body.dropData.replace(/\D/g,"");
+	if(userType=="user"){
+		mysql_util.DBConnection.query("DELETE FROM hopeReader WHERE readerID=?",userID,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var success={
+				message:"删除用户成功",
+			};
+			res.send(success);
+		});
+	}else if(userType=="admin"){
+		mysql_util.DBConnection.query("DELETE FROM hopeAdmin WHERE adminID=?",userID,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var success={
+				message:"删除用户成功",
+			};
+			res.send(success);
+		});
+	}
+})
 module.exports=router;

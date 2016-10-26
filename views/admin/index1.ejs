@@ -66,7 +66,7 @@
 					<nav>
 						<ul class="nav-itme-container floatfix">
 							<li class="nav-item nav-item-cur"><a href="#">用户管理</a></li>
-							<li class="nav-item"><a href="">图书管理</a></li>
+							<li class="nav-item"><a href="/admin/admin-book">图书管理</a></li>
 							<li class="nav-item"><a href="#">设备管理</a></li>
 							<li class="nav-item"><a href="#">增加用户</a></li>
 						</ul>
@@ -107,7 +107,7 @@
 							</td>
 							<%}else{%>
 							<td class="admin-user-oparate">
-								<span><a href="admin/adminmodifyuser/admin<%=user[i].adminID%>" class="modify-user" user-data="admin<%=user[i].adminID%>">修改</a></span>
+								<span><a href="/admin/adminmodifyuser/admin<%=user[i].adminID%>" class="modify-user" user-data="admin<%=user[i].adminID%>">修改</a></span>
 								<span><a href="javascript:" class="drop-user" user-data="admin<%=user[i].adminID%>">删除</a></span>
 							</td>
 							<%}%>

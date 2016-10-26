@@ -48,3 +48,7 @@ returnWhe TINYINT(1) DEFAULT 0,
 /* 0代表未归还*/
 returnBefore DATE
 );
+
+
+
+SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=5; 

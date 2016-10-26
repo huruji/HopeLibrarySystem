@@ -8,6 +8,7 @@ const config=require("./config");
 const routerUser=require("./router/user");
 const routerBook=require("./router/book");
 const routerAdmin=require("./router/admin");
+const emailSchedule=require("./router/email-schedule");
 
 const app=express();
 
@@ -23,7 +24,7 @@ app.use("/user",routerUser);
 app.use("/book",routerBook);
 app.use("/admin",routerAdmin);
 
-
+emailSchedule();
 app.listen(config.server.port,function(){
 	console.log("listening port 3000");
 })
