@@ -10,7 +10,7 @@ const server={
 }
 const emailSetting={
 	userEmail:"xiezhq3@mail2.sysu.edu.cn",
-	userEmailPassWord:"showca7seD",
+	userEmailPassWord:"",
 	transportOptions:{
 		host:"smtp.exmail.qq.com",
 		port:465,
