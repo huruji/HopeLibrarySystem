@@ -67,7 +67,7 @@ router.route("/").get(function(req,res){
 						var userPageNum=Math.ceil((adminUser.length+reader.length)/10);
 						console.log(userPageNum);
 						var user=adminUser.concat(reader);
-						res.render("admin/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,user:user,userPageNum:userPageNum,userPage:1});
+						res.render("admin/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:1});
 					});
 				});
 			}else if(rows[0].adminPermissions=="camera"){
@@ -104,7 +104,7 @@ router.route("/").get(function(req,res){
 											}
 									 	}
 									}
-								res.render("admin-book/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
+								res.render("admin-book/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
 								}
 							})
 						})		
@@ -169,8 +169,9 @@ router.route("/bookmodify/:bookID").get(function(req,res){
 		}
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
+		var userPermission=rows[0].adminPermissions;
 		var bookCate=["编程类","设计类","摄影类","其他"];
-		res.render("admin-book/bookModify1",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg});
+		res.render("admin-book/bookModify1",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission});
 	});
 }).post(function(req,res){
 	console.log("aaaaa");
@@ -201,6 +202,7 @@ router.route("/bookadd").get(function(req,res){
 		}
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
+		var userPermission=rows[0].adminPermissions;
 		mysql_util.DBConnection.query("SELECT DISTINCT bookCate FROM hopeBook",function(err,rows,fields){
 			if(err){
 				console.log(err);
@@ -210,7 +212,7 @@ router.route("/bookadd").get(function(req,res){
 			for(var i=0,max=rows.length;i<max;i++){
 				bookCate.push(rows[i].bookCate);
 			}
-			res.render("admin-book/bookAdd1",{userName:userName,userImg:userImg,bookCate:bookCate});
+			res.render("admin-book/bookAdd1",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate});
 		});
 	});
 }).post(function(req,res){
@@ -312,6 +314,7 @@ router.route("/admin-book").get(function(req,res){
 		}
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
+		var userPermission=rows[0].adminPermisssions;
 		var bookStart=(pageNum-1)*10;
 		var bookEnd=pageNum*10;
 		mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft LIMIT ?,?",[bookStart,bookEnd],function(err,rows,fields){
@@ -341,7 +344,7 @@ router.route("/admin-book").get(function(req,res){
 							}
 						}
 					}
-					res.render("admin-book/index1",{userName:userName,userImg:userImg,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum});
+					res.render("admin-book/index1",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum});
 		 		});
 			});
     	});
@@ -363,8 +366,9 @@ router.route("/reset").get(function(req,res){
 			return;
 		}
 		var userName=rows[0].adminName,
-		    userImg=rows[0].adminImgSrc;
-		res.render("admin-book/reset1",{userName:userName,userImg:userImg});
+		    userImg=rows[0].adminImgSrc,
+		    userPermission=rows[0].adminPermissions;
+		res.render("admin-book/reset1",{userName:userName,userImg:userImg,userPermission:userPermission});
 	});
 }).post(function(req,res){
 	var sha=crypto.createHash("md5");
@@ -390,8 +394,9 @@ router.route("/modify").get(function(req,res){
 	}
 	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
 		var userName=rows[0].adminName,
-		    userImg=rows[0].adminImgSrc;
-		res.render("admin-book/adminModify",{userName:userName,userImg:userImg,user:rows[0]});
+		    userImg=rows[0].adminImgSrc,
+		    userPermission=rows[0].adminPermissions;
+		res.render("admin-book/adminModify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0]});
 	})
 }).post(function(req,res){
 	mysql_util.DBConnection.query("UPDATE hopeAdmin SET adminEmail=? WHERE adminID=?",[req.body.readerEmail,req.cookies.adminId],function(err,rows,fields){
@@ -421,6 +426,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 		}
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
+		var userPermission=rows[0].adminPermissions;
 		if(userType=="user"){
 			console.log("user")
 			mysql_util.DBConnection.query("SELECT * FROM hopeReader WHERE readerID=?",userID,function(err,rows,fields){
@@ -429,7 +435,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 					return;
 				}
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,user:rows[0],hopeGroup:hopeGroup});
+				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup});
 			});
 
 		}else if(userType == "admin"){
@@ -439,7 +445,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 					console.log(err);
 					return;
 				}
-				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,user:rows[0]});
+				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0]});
 			});
 		}
 	});
@@ -456,7 +462,12 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 		                 req.body.readerGroup,
 		                 userID];
 		console.log(mysqlParams)
-		mysql_util.DBConnection.query("UPDATE hopeReader SET readerName=?,readerSex=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=?,readerGroup=? WHERE readerID=?",mysqlParams,function(err,rows,fields){
+		var mysqlQuery=["UPDATE hopeReader SET readerName=?,",
+		                "readerSex=?,studentNumber=?,",
+		                "readerMajor=?,readerPhone=?,",
+		                "readerEmail=?,readerGroup=?",
+		                " WHERE readerID=?"].join("")
+		mysql_util.DBConnection.query(mysqlQuery,mysqlParams,function(err,rows,fields){
 			if(err){
 				console.log(err);
 				return;

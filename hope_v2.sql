@@ -53,4 +53,4 @@ returnBefore DATE
 
 SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=5; 
 
-SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=5 AND hopeReader.readerID=7; 
+SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=4 AND hopeReader.readerID=7; 

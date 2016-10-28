@@ -1,0 +1,24 @@
+<div class="user-info">
+					<h1>基本信息</h1>
+					<ul class="basic-info floatfix">
+						<li class="basic-info-item floatfix">
+							<div class="info-item-icon">
+								<i class="fa fa-credit-card"></i>
+							</div>
+							<div class="info-item-right">
+								<p>用户组别</p>
+								<%if(userPermission=="super"){var character="超级管理员"}else if(userPermission=="book"){var character="图书管理员"}else if(userPermission=="camera"){var character="设备管理员"}else if(userPermission=="user"){var character="普通用户"}%>
+								<p><%=character%></p>
+							</div>
+						</li>
+						<li class="basic-info-item floatfix">
+							<div class="info-item-icon">
+								<i class="fa fa-user"></i>
+							</div>
+							<div class="info-item-right">
+								<p>登录账号</p>
+								<p><%=userName%></p>
+							</div>
+						</li>
+					</ul>
+				</div>

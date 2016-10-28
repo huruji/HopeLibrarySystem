@@ -87,7 +87,8 @@ router.route("/reset").post(function(req,res){
 			}else{
 				var userImg=rows[0].userImgSrc;
 				var userName=rows[0].readerName;
-	            res.render("user/reset1",{userImg:userImg,userName:userName});
+				var userPermission="user";
+	            res.render("user/reset1",{userImg:userImg,userName:userName,userPermission:userPermission});
             }
 		})
 	}
@@ -117,7 +118,14 @@ router.route("/").get(function(req,res){
 			}else{
 				var userImg=rows[0].userImgSrc;
 				var userName=rows[0].readerName;
-				mysql_util.DBConnection.query("SELECT bookName,borrowTime,bookID,borrowID,returnBefore FROM hopeBook,hopeReader,bookBorrow WHERE hopeBook.bookID=bookBorrow.borrowBookID AND hopeReader.readerID=bookBorrow.borrowUserID AND returnWhe=0 AND readerID=?;",req.cookies.userId,function(err,rows,fields){
+				var userPermission="user";
+				var mysqlQuery=["SELECT bookName,borrowTime,bookID,borrowID,returnBefore",
+				                " FROM hopeBook,hopeReader,bookBorrow",
+				                " WHERE hopeBook.bookID=bookBorrow.borrowBookID",
+				                " AND hopeReader.readerID=bookBorrow.borrowUserID",
+				                " AND returnWhe=0",
+				                " AND readerID=?"].join("");
+				mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
 			if(err){
 				console.log(err);
 			}else{
@@ -125,7 +133,7 @@ router.route("/").get(function(req,res){
 					rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
 					rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
 				}
-				res.render("user/index1",{book:rows,userImg:userImg,userName:userName});
+				res.render("user/index1",{book:rows,userImg:userImg,userName:userName,userPermission:userPermission});
 			}
 		})
 			}
@@ -162,13 +170,18 @@ router.route("/modify").get(function(req,res){
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
 				var userName=rows[0].readerName;
 				var userImg=rows[0].userImgSrc;
-				res.render("user/usermodify1",{userName:userName,userImg:userImg,user:rows[0],hopeGroup:hopeGroup});
+				var userPermission="user";
+				res.render("user/usermodify1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup});
 			}
 		})
 	}
 }).post(function(req,res){
 	console.log("post modify");
-	mysql_util.DBConnection.query("UPDATE hopeReader SET readerSex=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=?,readerGroup=? WHERE readerID=?",[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.cookies.userId],function(err,rows,fields){
+	var mysqlQuery=["UPDATE hopeReader SET readerSex=?,",
+	                "studentNumber=?,readerMajor=?,",
+	                "readerPhone=?,readerEmail=?,readerGroup=?",
+	                " WHERE readerID=?"].join("");
+	mysql_util.DBConnection.query(mysqlQuery,[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.cookies.userId],function(err,rows,fields){
 		if(err){
 			console.log(err);
 		}else{
