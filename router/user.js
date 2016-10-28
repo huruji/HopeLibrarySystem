@@ -44,7 +44,7 @@ router.route("/login").post(function(req,res){
 	})
 
 }).get(function(req,res){
-	res.render("login");
+	res.render("public/login");
 })
 
 /*router.get("/user/login",function(req,res){

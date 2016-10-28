@@ -40,7 +40,7 @@ router.route("/login").post(function(req,res){
 		}
 	})
 }).get(function(req,res){
-	res.render("login");
+	res.render("public/login");
 })
 router.route("/").get(function(req,res){
 	if(!req.cookies.adminId){
@@ -71,15 +71,38 @@ router.route("/").get(function(req,res){
 					});
 				});
 			}else if(rows[0].adminPermissions=="camera"){
-				mysql_util.DBConnection.query("SELECT * FROM hopeEquip",function(err,rows,fields){
+				mysql_util.DBConnection.query("SELECT * FROM hopeEquip 	WHERE equipAdminID=? ORDER BY equipLeft",req.cookies.adminId,function(err,rows,fields){
 					if(err){
 						console.log(err);
-					}else{
-						res.render("admin-equip",{admin:admin,equip:rows});
+						return;
 					}
+					var equip=rows;
+					mysql_util.DBConnection.query("SELECT COUNT(*) AS equipNum FROM hopeEquip WHERE equipAdminID=?",function(err,rows,fields){
+						if(err){
+							console.log(err);
+							return;
+						}
+						var equipNum=Math.ceil(rows[0].equipNum/10);
+						mysql_util.DBConnection.query("SELECT readerName,borrowEquipID FROM hopeReader,equipBorrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
+							if(err){
+								console.log(err);
+								return;
+							}
+							var borrower=[];
+							for(var i=0,max=book.length;i<max;i++){
+								borrower[i]=0;
+								for(var j=0,max1=rows.length;j<max1;j++){
+									if(rows[j].borrowEquipID==equip[i].equipD){
+										borrower[i]=rows[j].readerName;
+									}
+								}
+							}
+							res.render("admin-equip/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1});
+						})
+					})
 				});
 			}else{
-				mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft",function(err,rows,fields){
+				mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft WHERE",function(err,rows,fields){
 					if(err){
 						console.log(err);
 					}else{

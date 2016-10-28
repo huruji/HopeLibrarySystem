@@ -12,6 +12,15 @@ bookLeft tINYINT(1) default 1
 /*bookLeft=1表示在架上，bookLeft=0表示已借出*/
 );
 
+/*设备表*/
+CREATE TABLE hopeEquip(
+equipID INT KEY AUTO_INCREMENT,
+equipHopeID VARCHAR(100) NOT NULL UNIQUE,
+equipName VARCHAR(100) NOT NULL,
+equipImgSrc VARCHAR(100) DEFAULT "/img/equip/equip-default.jpg",
+equipAdminID INT NOT NULL
+)
+
 /*读者表*/
 CREATE TABLE hopeReader(
 readerID INT KEY AUTO_INCREMENT,
@@ -48,6 +57,7 @@ returnWhe TINYINT(1) DEFAULT 0,
 /* 0代表未归还*/
 returnBefore DATE
 );
+
 
 
 

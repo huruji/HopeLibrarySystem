@@ -1,16 +1,18 @@
-const express=require("express");
-const bodyParser=require("body-parser");
-const path=require("path");
-const mysql=require("mysql");
-const cookieParser=require("cookie-parser");
-const config=require("./config");
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const mysql = require("mysql");
+const cookieParser = require("cookie-parser");
+const config = require("./config");
 
-const routerUser=require("./router/user");
-const routerBook=require("./router/book");
-const routerAdmin=require("./router/admin");
-const emailSchedule=require("./router/email-schedule");
+const routerUser = require("./router/user");
+const routerBook = require("./router/book");
+const routerAdmin = require("./router/admin");
+const routerAdminBook = require("./router/admin-book");
+const routerAdminEquip = require("./router/admin-equip");
+const emailSchedule = require("./router/email-schedule");
 
-const app=express();
+const app = express();
 
 
 app.set("views",path.join(__dirname,"views"));
@@ -22,7 +24,7 @@ app.use(cookieParser());
 
 app.use("/user",routerUser);
 app.use("/book",routerBook);
-app.use("/admin",routerAdmin);
+app.use("/admin",routerAdmin,routerAdminBook,routerAdminEquip);
 
 emailSchedule();
 app.listen(config.server.port,function(){
