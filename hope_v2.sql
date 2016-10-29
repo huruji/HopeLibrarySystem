@@ -18,9 +18,15 @@ equipID INT KEY AUTO_INCREMENT,
 equipHopeID VARCHAR(100) NOT NULL UNIQUE,
 equipName VARCHAR(100) NOT NULL,
 equipImgSrc VARCHAR(100) DEFAULT "/img/equip/equip-default.jpg",
-equipAdminID INT NOT NULL
+equipAdminID INT NOT NULL,
+equipLeft tINYINT(1) DEFAULT 1;
+/*1代表在架上，0代表已借出*/
 )
-
+ALTER TABLE hopeEquip MODIFY equipAdminID INT;
+INSERT hopeEquip VALUES(DEFAULT,"1","D810",DEFAULT,4),(DEFAULT,"2","松下AG-DVC180B",DEFAULT,4),(DEFAULT,"3","松下AG-DVC180B2",DEFAULT,4),(DEFAULT,"4","松下AG-DVC180B3",DEFAULT,4),
+(DEFAULT,"5","D610甲",DEFAULT,4),(DEFAULT,"6","D610乙",DEFAULT,4);
+INSERT hopeEquip VALUES(DEFAULT,"7","D810",DEFAULT,4,default),(DEFAULT,"8","松下AG-DVC180B",DEFAULT,4,DEFAULT),(DEFAULT,"9","松下AG-DVC180B2",DEFAULT,4,DEFAULT),(DEFAULT,"10","松下AG-DVC180B3",DEFAULT,4,DEFAULT),
+(DEFAULT,"11","D610甲",DEFAULT,4,DEFAULT),(DEFAULT,"12","D610乙",DEFAULT,4,DEFAULT);
 /*读者表*/
 CREATE TABLE hopeReader(
 readerID INT KEY AUTO_INCREMENT,
@@ -57,8 +63,18 @@ returnWhe TINYINT(1) DEFAULT 0,
 /* 0代表未归还*/
 returnBefore DATE
 );
-
-
+CREATE TABLE equipBorrow(
+borrowID INT KEY AUTO_INCREMENT,
+borrowEquipID INT(8) NOT NULL,
+borrowUserID INT(8) NOT NULL,
+borrowTime DATE NOT NULL,
+returnWhe TINYINT(1) DEFAULT 0,
+/* 0代表未归还*/
+returnBefore DATE,
+reservation tINYINT(1) default 0
+/*0表示正在审核，审核未通过*/
+);
+ALTER TABLE equipBorrow ADD reservaion tINYINT(1) default 0;
 
 
 SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=5; 

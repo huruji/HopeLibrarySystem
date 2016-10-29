@@ -11,11 +11,10 @@ router.route("/").get(function(req,res){
 		}else{
 			var bookCate=rows;
 			var bookAll=[];
-			/*console.log("aaaa");*/
 			var i=0;
 			function queryBook(bookCate,i){
 				if(i<bookCate.length-1){
-				 mysql_util.DBConnection.query("SELECT * FROM hopeBook WHERE bookCate=? AND bookLeft>0 ORDER BY bookID DESC LIMIT 0,4",[bookCate[i].bookCate],function(err,rows,fields){
+				 mysql_util.DBConnection.query("SELECT * FROM hopeBook WHERE bookCate=? AND bookLeft>0 ORDER BY bookID DESC LIMIT 0,5",[bookCate[i].bookCate],function(err,rows,fields){
 					if(err){
 						console.log("err");
 						return;
@@ -33,7 +32,7 @@ router.route("/").get(function(req,res){
 					}else{
 						bookAll.push(rows);
 						var bookCateEng=[]
-						res.render("book/index",{"book":bookAll,"cate":bookCate})
+						res.render("book/book",{"book":bookAll,"cate":bookCate})
 					}
 				});
 				}
@@ -106,7 +105,7 @@ router.route("/cate:cateID").get(function(req,res){
 				console.log(err);
 				return;
 			}
-			res.render("book/bookCate",{book:rows,cate:cateArr[groupID].bookCate});
+			res.render("book/cate",{book:rows,cate:cateArr[groupID].bookCate});
 		})
 	})
 })

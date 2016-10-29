@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<%- include("./../public/header.ejs") %>
+<%- include("./../public/back/header.ejs") %>
 		<div class="main-content container floatfix">
-			<%- include("./../public/sidebar.ejs") %>
+			<%- include("./../public/back/sidebar.ejs") %>
 			<div class="user-right">
-			    <%- include("./../public/userinfo.ejs") %>
+			    <%- include("./../public/back/userinfo.ejs") %>
 				<div class="user-oparate">
-				    <%- include("./../public/user-nav.ejs") %>
+				    <%- include("./../public/back/user-nav.ejs") %>
 					<%if(book.length>0){%>
 					<table class="operate-list-container">
 					<thead>
@@ -56,7 +56,7 @@
 				</div>
 			</div>
 		</div>
-<%- include("./../public/footer.ejs") %>
+<%- include("./../public/back/footer.ejs") %>
 <script src="/js/adminbook.js"></script>
 	</body>
 </html>

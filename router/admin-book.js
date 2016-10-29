@@ -95,7 +95,7 @@ router.route("/admin-book").get(function(req,res){
 		}
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermisssions;
+		var userPermission=rows[0].adminPermissions;
 		var bookStart=(pageNum-1)*10;
 		var bookEnd=pageNum*10;
 		mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft LIMIT ?,?",[bookStart,bookEnd],function(err,rows,fields){

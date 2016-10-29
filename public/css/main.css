@@ -306,6 +306,18 @@ th.admin-user-oparate, td.admin-user-oparate {
 th.username, td.username {
 	padding-left: 25px;
 }
+th.admin-main-oparate.main-oparate {
+    padding-right: 25px;
+}
+td.book-hopeID.equipAdmin {
+    text-align: center;
+}
+td.borow-state.equip-state {
+    text-align: center;
+}
+th.main-operate{
+	padding-right:25px;
+}
 footer {
 	background: #fff;
 	height: 32px;

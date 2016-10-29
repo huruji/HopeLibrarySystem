@@ -151,3 +151,6 @@ UPDATE hopeBook SET bookName="编程高手",bookCate="编程类" WHERE bookID=32
 ALTER TABLE hopeBook DROP bookNum;
 ALTER TABLE hopeBook MODIFY bookISBN varchar(100) NOT NULL;
 ALTER TABLE hopeBook MODIFY bookLeft tINYINT(1) default 1;
+
+
+

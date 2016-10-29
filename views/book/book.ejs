@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<%- include("./../public/front/header.ejs") %>
+    <div class="main-content">
+    	<div class="container">
+    	<ul class="bookcate-container">
+    	<%for(var i=0,max=cate.length;i<max;i++){%>
+    			<li class="bookcate-container-item">
+    				<h1><a href="/book/cate<%=i%>">::<%=cate[i].bookCate%></a></h1>
+    				<ul class="book-list-container floatfix">
+    				 <%for(var j=0;j<book[i].length;j++){%>
+    					<li class="book-list-item">
+    						<img src="<%=book[i][j].bookImgSrc%>" alt="">
+    						<p class="">书名：<%=book[i][j].bookName%></p>
+    						<p class="">编号：<%=book[i][j].bookHopeID%></p>
+    						<button type="" class="borrow-btn"
+    						borrowID=<%=book[i][j].bookID%>>借阅</button>
+    					</li>
+    					<%}%>
+    				</ul>
+    			</li>
+    			<%}%>
+    		</ul>
+		</div>
+	</div>
+<%- include("./../public/front/footer.ejs") %>
+<script src="/js/borrow.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -392,3 +392,77 @@ div.radio{
 	padding:5px 8px;
 	border:1px solid #ddd;
 }
+
+
+
+
+
+.logo{
+	float:left;
+	padding:42px 0;
+}
+.header{
+	height:124px;
+
+}
+.main-nav{
+	float:right;
+	padding:42px 0;
+}
+.main-nav ul li{
+	float:left;
+	height:40px;
+	width:70px;
+	line-height:40px;
+	text-align: center;
+	font-size: 16px
+}
+.subnav{
+	border:1px solid #ddd;
+	border-left:0px;
+	border-right:0px;
+	height: 40px;
+}
+.bookcate-container-item{
+	padding-bottom: 20px;
+}
+.bookcate-container-item h1{
+	padding:15px 0;
+	font-size:20px;
+	text-align:center;
+}
+.book-list-item{
+	float:left;
+	padding-right:50px;
+	width:200px;
+	padding-bottom:10px;
+	border-bottom:1px solid #ddd;
+}
+.book-list-item:last-child{
+	padding-right:0px;
+}
+.book-list-item img{
+	width:100%;
+	height:280px;
+	padding-bottom:10px;
+}
+.book-list-item p{
+	padding:5px;
+	height:1.1em;
+	line-height: 1.1em;
+}
+.borrow-btn{
+	width:60px;
+	height:30px;
+	background:#1da1f3;
+	color:#fff;
+	font-family: "Microsoft Yahei";
+	margin:0 auto;
+	display:block;
+	font-size:16px;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.borrow-btn:hover{
+	background:#35adf8;
+}

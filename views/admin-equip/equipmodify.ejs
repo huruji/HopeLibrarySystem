@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<%- include("./../public/back/header.ejs") %>
+		<div class="main-content container floatfix">
+			<%- include("./../public/back/sidebar.ejs") %>
+			<div class="user-right">
+				<%- include("./../public/back/userinfo.ejs") %>
+				<div class="user-oparate">
+					<form>
+						<div class="form-group">
+							<label for="">设备编号：</label>
+							<input type="text" value="<%=equip.equipName%>" id="equipName" >
+						</div>
+						<div class="form-group">
+							<label for="">厚朴编号：</label>
+							<input type="text" value="<%=equip.equipHopeID%>" id="hopeID">
+						</div>
+						<div class="form-group">
+							<label for="">管理员：</label>
+							<input type="text" value="<%=equip.adminName%>" id="hopeAdmin">
+						</div>
+						<p class="button-group button-group-2"><button type="button" id="save">保存</button><a class="button" href="javascript:history.go(-1);location=location"  title="返回">返回</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+		<%- include("./../public/back/footer.ejs") %>
+		<script src="/js/modifyequip.js"></script>
+	</body>
+</html>

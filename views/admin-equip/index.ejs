@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<%- include("./../public/back/header.ejs") %>
+	<div class="main-content container floatfix">
+		<%- include("./../public/back/sidebar.ejs") %>
+		<div class="user-right">
+			<%- include("./../public/back/userinfo.ejs") %>
+			<div class="user-oparate">
+				<nav>
+					<ul class="nav-itme-container floatfix">
+						<li class="nav-item nav-item-cur"><a href="#">管理设备</a></li>
+						<li class="nav-item"><a href="#">借用审核</a></li>
+					</ul>
+				</nav>
+				<%if(equip.length>0){%>
+				<table class="operate-list-container">
+					<thead>
+						<tr>
+							<th class="admin-bookname bookname equipName">设备型号</th>
+							<th class="book-hopeID equipAdmin">管理员</th>
+							<th class="book-state equip-state">状态</th>
+							<th class="borrow-person">借用人</th>
+							<th class="admin-main-oparate main-oparate">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%if(equip.length>10){var max=10;}else{var max=equip.length;}%>
+						<%for(var i=0;i<max;i++){%>
+						<tr>
+							<td class="bookname equipName"><%=equip[i].equipName%></td>
+							<td class="book-hopeID equipAdmin"><%=equip[i].adminName%></td>
+							<%if(equip[i].equipLeft==0){%>
+							<td class="borow-state equip-state">已借出</td>
+							<td class="borrow-person"><%=borrower[i]%></td>
+							<td class="main-oparate">
+								<span><a href="/admin/equipmodify/<%=equip[i].equipID%>" class="modify-book"  >修改</a></span>
+							</td>
+							<%}else{%>
+							<td class="borow-state equip-state">在架上</td>
+							<td class="borrow-person"></td>
+							<td class="main-oparate">
+								<span><a href="/admin/equipmodify/<%=equip[i].equipID%>" class="modify-book"  >修改</a></span>
+							</td>
+							<%}%>
+							
+						</tr>
+						<%}%>
+					</tbody>
+				</table>
+				<%if(equipNum>1){%>
+				<div class="page-control">
+					<%for(var k=1;k<=equipNum;k++){%>
+					<span <%if(k==equipPage){%> class="page-cur"<%}%>><a href="/admin/admin-equip?pageTab=<%=k%>"><%=k%></a></span>
+					<%}%>
+					<%}%>
+					<%}else{%>
+					<p class="no-borrow">当前暂无设备！</p>
+					<%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%- include("./../public/back/footer.ejs") %>
+	<script src="/js/adminbook.js"></script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<%- include("./../public/header.ejs") %>
+	<%- include("./../public/back/header.ejs") %>
 		<div class="main-content container floatfix">
-			<%- include("./../public/sidebar.ejs") %>
+			<%- include("./../public/back/sidebar.ejs") %>
 			<div class="user-right">
-				<%- include("./../public/userinfo.ejs") %>
+				<%- include("./../public/back/userinfo.ejs") %>
 				<div class="user-oparate">
 					<form>
 					<div class="form-group">
@@ -20,11 +20,7 @@
 				</div>
 			</div>
 		</div>
-		<footer>
-		<div class="container">
-			<p>技术支持：厚朴〖HOPE〗工作室</p>
-			</div>
-		</footer>
+		<%- include("./../public/back/footer.ejs") %>
 		<script src="/js/reset.js"></script>
 	</body>
 </html>

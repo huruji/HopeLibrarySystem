@@ -1,6 +1,7 @@
 /*用户借阅的函数*/
+
 (function(global,$){
-	$(".borrowBtn").click(function(){
+	$(".borrow-btn").click(function(){
 		var borrowID=$(this).attr("borrowID");
         console.log(borrowID);
 		$.ajax({
@@ -8,6 +9,7 @@
         	async:true,
         	data:{"borrowID":borrowID},
         	type:"POST",
+            url:"/book",
         	beforeSend:function(){
 
         	},
