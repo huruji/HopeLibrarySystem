@@ -111,7 +111,7 @@ router.route("/cate:cateID").get(function(req,res){
 }).post(function(req,res){
 	var groupID=req.params.cateID;
 	var startNum=parseInt(req.body.bookNum);
-	var endNum = startNum+20;
+	var endNum = startNum+5;
 	console.log(startNum,endNum);
 	mysql_util.DBConnection.query("SELECT  DISTINCT bookCate FROM hopeBook ORDER BY bookCate",function(err,rows,fields){
 		if(err){
@@ -119,15 +119,27 @@ router.route("/cate:cateID").get(function(req,res){
 			return;
 		}
 		var cateArr=rows;
-		mysql_util.DBConnection.query("SELECT * FROM hopeBook WHERE bookCate=?  ORDER BY bookLeft DESC LIMIT ?,?",[cateArr[groupID].bookCate,startNum,endNum],function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success={
-				book:rows
-			}
-			res.send(success);
+		console.log("cateArr[groupID]" + cateArr[groupID]);
+		mysql_util.DBConnection.query("SELECT COUNT(*) AS bookCount FROM hopeBook WHERE bookCate=?",cateArr[groupID].bookCate,function(err,rows,fields){
+			
+			var bookNum = rows[0].bookCount;
+			console.log("bookNum:"+bookNum);
+			console.log("typeof" + typeof bookNum)
+			mysql_util.DBConnection.query("SELECT * FROM hopeBook WHERE bookCate=?  ORDER BY bookLeft DESC LIMIT ?,5",[cateArr[groupID].bookCate,startNum],function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				var success={
+					book:rows
+				}
+				console.log(success.book.length);
+				console.log("大小:"+ (endNum >= bookNum));
+				if(endNum >= bookNum){
+					success.end = true;
+				}
+				res.send(success);
+			})
 		})
 	})
 	
