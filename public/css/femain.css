@@ -254,3 +254,42 @@ body{
     z-index: 9999;
     opacity:.5;
 }
+
+.equip-container{
+    padding-top:20px;
+}
+.equip-list-item{
+    float:left;
+    padding-right:50px;
+    width:200px;
+    padding-bottom:10px;
+    position:relative;
+}
+.equip-list-item:last-child{
+    padding-right:0px;
+}
+.equip-list-item img{
+    width:100%;
+    height:220px;
+    padding-bottom:10px;
+}
+.equip-list-item p{
+    padding:5px;
+    height:1.1em;
+    line-height: 1.1em;
+}
+.borrow-btn{
+    width:60px;
+    height:30px;
+    background:#1da1f3;
+    color:#fff;
+    font-family: "Microsoft Yahei";
+    margin:0 auto;
+    display:block;
+    font-size:16px;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.borrow-btn:hover{
+    background:#35adf8;
+}

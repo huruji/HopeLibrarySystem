@@ -1,7 +1,7 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
+const bodyParser=require("body-parser");
 const router=express.Router();
-const routerUser=require("./user");
 
 router.route("/").get(function(req,res){
 	mysql_util.DBConnection.query("SELECT bookCate FROM hopeBook GROUP BY bookCate",function(err,rows,fields){

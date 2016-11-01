@@ -7,6 +7,7 @@ const config = require("./config");
 
 const routerUser = require("./router/user");
 const routerBook = require("./router/book");
+const routerEquip = require("./router/equip");
 const routerAdmin = require("./router/admin");
 const routerAdminBook = require("./router/admin-book");
 const routerAdminEquip = require("./router/admin-equip");
@@ -24,6 +25,7 @@ app.use(cookieParser());
 
 app.use("/user",routerUser);
 app.use("/book",routerBook);
+app.use("/equip",routerEquip);
 app.use("/admin",routerAdmin,routerAdminBook,routerAdminEquip);
 
 emailSchedule();
