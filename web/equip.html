@@ -7,9 +7,21 @@
         <meta name="description" content="">
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
         <link rel="stylesheet" href="/css/font-awesome/font-awesome.min.css" />
-        <script src="/js/public/jquery-hope.js"></script>
-        <script src="/js/layer/layer.js"></script>
+        <script src="js/jquery-hope.js"></script>
+        <script src="js/layer/layer.js"></script>
         <link rel="stylesheet" href="css/femain.css" />
+        <style>
+            p.reservation{
+                line-height: 1.5em;
+                text-indent:2em;
+            }
+            .reservation-container{
+                padding:20px 10px;
+            }
+            .reservation-container textarea{
+                margin-top:10px;
+            }
+        </style>
     </head>
     <body>
         <div class="header container floatfix">
@@ -65,5 +77,18 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(".borrow-btn").click(function(){
+                layer.open({
+                    type:1,
+                    title:"预约信息",
+                    area:["600px","350px"],
+                    skin:"layui-layer-molv",
+                    content:'<div class="reservation-container"><P class="reservation">你预约的设备是D610甲，管理员是阳富城，请填写你需要发送给管理员的信息(如：取设备的时间，需要的配件），可为空</p><textarea name="" id="email-info" style="width:100%;display:block;" rows=10></textarea></div>',
+                    btn:["确认","取消"],
+
+                })
+            })
+        </script>
     </body>
 </html>

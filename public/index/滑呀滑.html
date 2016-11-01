@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>fullPage</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+/**********css reset -s**********/
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, pre, address, code, em, img, small, strong, sub, sup, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, select, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    line-height: inherit; 
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    padding: 0;
+    margin: 0;
+}
+article p{
+    line-height:1.8em;
+}
+img {
+    border: 0;
+    vertical-align: top;
+    height:auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+input, button, textarea, select {
+    *font-size: 100%;
+}
+
+input {
+    background: transparent;
+    border: none;
+     font-family:"Microsoft Yahei",Helvetica, Arial, sans-serif;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+} 
+
+select::-ms-expand {
+    display: none;
+}
+
+body {
+    font-size:14px;
+    line-height:1em;
+    font-family:"Microsoft Yahei",Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+ol, ul, li {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width:100%;
+width:100%;
+}
+
+:link, :visited {
+    text-decoration: none;
+}
+
+pre {
+    font-family: "Lucida Console", Consolas, "Courier New", Tahoma;
+    color: #666;
+    text-indent: 0;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+hr.clearfloat {margin:0;width:100%;height:0;font:0/0 Arial;clear:both;border:none;visibility:hidden;}
+article, aside, figure, figcaption, footer, header, hgroup, nav, section, summary {
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+a, a:link, a:visited {
+    color: #000;
+}
+
+a:hover {
+    color: #0cca7a;
+}
+
+body {
+    font: 14px/1 Helvetica, 'Microsoft Yahei light','Microsoft Yahei', '宋体',sans-serif;
+    color: #000;
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+/**********css reset -e**********/
+html,body,.page-contaienr,.page{
+width:100%;
+height:100%;
+}
+.page1{
+	background-image:url(page1.jpg);
+    background-position:center;
+    background-size:100%;
+    background-repeat: no-repeat;
+}
+.page2{
+	background: #399ab2;
+}
+.page3{
+	background:#39b265;
+}
+.page4{
+	background-color:#5239b2; 
+}
+.page5{
+	background:#b239ad;
+}
+ul,ul li{
+	list-style: none;
+}
+.focus-container{
+	position:fixed;
+	right:50px;
+	top:50%;
+}
+.focus{
+	height:10px;
+	width:10px;
+	border-radius:50%;
+	border:2px solid #fff;
+	margin:20px;
+	background:transparent;
+}
+.focus-current{
+	background:#fff;
+}
+.soft-title{
+    color:#fff;
+    padding-top:20%;
+}
+.soft-title h1{
+    font-size:60px;
+    text-align: center;
+    padding-bottom:10px;
+}
+.soft-title h2{
+    font-size:30px;
+    text-align: center;
+}
+.soft-title h3{
+    font-size:20px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <ul class="page-contaienr">
+    	<li class="page page1">
+            <div class="soft-title">
+                <h1>图书借阅设备预约系统</h1>
+                <h3>0.0.1 beta版本测试</h3>
+            </div>   
+        </li>
+    	<li class="page page2"></li>
+    	<li class="page page3"></li>
+    	<li class="page page4"></li>
+    	<li class="page page5"></li>
+    </ul>
+    <ul class="focus-container">
+    	<li class="focus focus-current"></li>
+    	<li class="focus"></li>
+    	<li class="focus"></li>
+    	<li class="focus"></li>
+    	<li class="focus"></li>
+    </ol>
+    <script>
+    	var focusArr = document.getElementsByClassName("focus"),
+    	    pageArr = document.getElementsByClassName("page");
+        
+        function getStyle(ele,attr){
+        	if(ele.currentStyle){
+        		return ele.currentStyle[attr];
+        	}else{
+        		return getComputedStyle(ele,null)[attr];
+        	}
+        }
+
+    	function scrollAnimation(target,fn){
+    		this.timer = setInterval(function(){
+    			var cur = window.pageYOffset;
+    			var step = (target - cur)/10;
+    			step = step > 0 ? Math.ceil(step) : Math.floor(step);
+    			if(cur == target){
+    				clearInterval(this.timer);
+    				fn ? fn() : 0 ;
+    			}else{
+    			    window.scrollTo(0,cur + step);
+    			}
+    		},15);
+    	}
+        
+        function setCurrent(i){
+        	for(var j = 0, max = focusArr.length; j < max; j++){
+        		focusArr[j].className="focus";
+        	}
+        	focusArr[i].className+=" focus-current";
+        }
+
+        function focusClick(i){
+        	console.log("i="+i);
+        	var target = pageArr[i].offsetTop;
+        	clearInterval(window.timer);
+        	scrollAnimation(target);
+        }
+
+        for(var i = 0, max = focusArr.length;i<max;i++){
+        	focusArr[i].index = i;
+        	focusArr[i].onclick=function(){
+        		setCurrent(this.index);
+        		focusClick(this.index);
+        	}
+        }
+    </script>
+</body>
+</html>
