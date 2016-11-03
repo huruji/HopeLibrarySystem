@@ -12,7 +12,7 @@ var j=schedule.scheduleJob("42 36 21 * * *",function(){
 	                " AND bookBorrow.borrowUserID=hopeReader.readerID",
 	                " AND bookBorrow.returnWhe=0",
 	                " AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=4",
-	                " ORDER BY hopeReader.readerID"].join("")
+	                " ORDER BY hopeReader.readerID"].join("");
 	mysql_util.DBConnection.query(mysqlQuery,function(err,rows,fields){
 		if(err){
 			console.log(err);

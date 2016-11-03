@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<%- include("./../public/back/header.ejs") %>
+	<div class="main-content container floatfix">
+		<%- include("./../public/back/sidebar.ejs") %>
+		<div class="user-right">
+			<%- include("./../public/back/userinfo.ejs") %>
+			<div class="user-oparate">
+				<nav>
+					<ul class="nav-itme-container floatfix">
+						<li class="nav-item "><a href="/admin">管理设备</a></li>
+						<li class="nav-item nav-item-cur"><a href="#">预约审核</a></li>
+					</ul>
+				</nav>
+				<%if(equip.length>0){%>
+				<table class="operate-list-container">
+					<thead>
+						<tr>
+							<th class="admin-bookname bookname equipName">设备型号</th>
+							<th class="book-hopeID equipAdmin">预约人</th>
+							<th class="book-state equip-state">预约时间</th>
+							<th class="borrow-person">附加信息</th>
+							<th class="admin-main-oparate main-oparate">是否借用</th>
+						</tr>
+					</thead>
+					<tbody>
+					<%for(var i=0,max=equip.length;i<max;i++){%>
+					<tr>
+						<th class="admin-bookname bookname equipName"><%=equip[i].equipName%></th>
+						<th class="book-hopeID equipAdmin"><%=equip[i].readerName%></th>
+						<th class="book-state equip-state"><%=equip[i].borrowTime%></th>
+						<th class="borrow-person"><%=equip[i].reservationText%></th>
+						<th class="admin-main-oparate main-oparate">
+							<span ><a data-equipID="<%=equip[i].borrowEquipID%>" class="check-yes">是</a></span>
+							<span ><a data-equipID="<%=equip[i].borrowEquipID%>" class="check-no">否</a></span>
+						</th>
+					</tr>
+					<%}%>
+					</tbody>
+					</table>
+					<%}else{%>
+					<p class="no-borrow">当前暂无预约需要审核！</p>
+					<%}%>
+			</div>
+		</div>
+	</div>
+	<%- include("./../public/back/footer.ejs") %>
+	<script src="/js/equipCheck.js"></script>
+</body>
+</html>

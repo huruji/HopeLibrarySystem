@@ -239,3 +239,5 @@ INSERT hopeBook VALUES(DEFAULT,DEFAULT,"人生元编程","pr-121","忽如寄","1
 (DEFAULT,DEFAULT,"人生元编程","pr-204","忽如寄","1111166","天朝出版社","编程类",DEFAULT),
 (DEFAULT,DEFAULT,"人生元编程","pr-205","忽如寄","1111166","天朝出版社","编程类",DEFAULT),
 (DEFAULT,DEFAULT,"人生元编程","pr-206","忽如寄","1111166","天朝出版社","编程类",DEFAULT);
+
+SELECT adminName,equipName,adminEmail,readerName FROM hopeAdmin,hopeEquip,hopeReader WHERE hopeAdmin.adminID=hopeEquip.equipAdminID AND hopeEquip.equipID=1 AND hopeReader.readerID=7;

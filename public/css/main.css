@@ -107,6 +107,7 @@ figure {
 }
 a, a:link, a:visited {
 	color: #000;
+	cursor: pointer;
 }
 a:hover {
 	color: #0cca7a;
@@ -317,6 +318,12 @@ td.borow-state.equip-state {
 }
 th.main-operate{
 	padding-right:25px;
+}
+td.admin-main-operate span,th.admin-main-operate span{
+	cursor:pointer;
+}
+td.main-operatemain-oparate span:hover{
+	color:#0cca7a;
 }
 footer {
 	background: #fff;

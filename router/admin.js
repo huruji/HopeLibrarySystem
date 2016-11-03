@@ -48,7 +48,7 @@ router.route("/").get(function(req,res){
 		console.log("no cookie");
 	}else{
 		var adminId=req.cookies.adminId;
-		console.log("have cookie");
+		console.log("have cookie:"+req.cookies.adminId);
 		mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",adminId,function(err,rows,fields){
 			var admin=rows[0];
 			if(rows[0].adminPermissions=="super"){
@@ -102,7 +102,7 @@ router.route("/").get(function(req,res){
 					})
 				});
 			}else{
-				mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft WHERE",function(err,rows,fields){
+				mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft",function(err,rows,fields){
 					if(err){
 						console.log(err);
 					}else{

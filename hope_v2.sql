@@ -71,12 +71,25 @@ borrowTime DATE NOT NULL,
 returnWhe TINYINT(1) DEFAULT 0,
 /* 0代表未归还*/
 returnBefore DATE,
-reservation tINYINT(1) default 0
+reservation tINYINT(1) default 0,
 /*0表示正在审核，审核未通过*/
+reservationText TEXT
 );
+ALTER TABLE equipBorrow ADD reservationText TEXT;
 ALTER TABLE equipBorrow ADD reservaion tINYINT(1) default 0;
-
+ALTER TABLE hopeAdmin CHANGE adminImgSRC adminImgSrc VARCHAR(100) DEFAULT "/img/admin/admin-default.jpg";
+ALTER TABLE equipBorrow change reservaion reservation tINYINT(1) default 0;
 
 SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=5; 
 
 SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID FROM bookBorrow,hopeReader,hopeBook WHERE bookBorrow.borrowBookID=hopeBook.bookID AND bookBorrow.borrowUserID=hopeReader.readerID AND bookBorrow.returnWhe=0 AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=4 AND hopeReader.readerID=7; 
+
+
+UPDATE equipBorrow set returnWhe=1,reservation=1;
+update hopeequip set equipLeft=1;
+
+
+SELECT readerName,borrowTime,equipName,adminName FROM hopeReader,equipBorrow,hopeEquip,hopeAdmin WHERE equipBorrow.borrowEquipID=hopeEquip.equipID AND equipBorrow.reservation=0 AND hopeEquip.equipAdminID=hopeAdmin.adminID=4;
+
+
+SELECT readerName,borrowTime,equipName,adminName FROM hopeReader,equipBorrow,hopeEquip,hopeAdmin WHERE equipBorrow.borrowEquipID=hopeEquip.equipID AND equipBorrow.reservation=0 AND equipBorrow.borrowUserID=hopeReader.readerID AND hopeEquip.equipAdminID=hopeAdmin.adminID AND hopeAdmin.adminID=4;

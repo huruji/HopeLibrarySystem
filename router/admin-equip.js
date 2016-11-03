@@ -112,4 +112,73 @@ router.route("/equipmodify/:equipID").get(function(req,res){
     });	
 });
 
+router.route("/check").get(function(req,res){
+	if(!req.cookies.adminId){
+		res.redirect("/admin/login");
+		return;
+	}
+	mysql_util.DBConnection.query("SELECT * FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+		if(err){
+			console.log(err);
+			return;
+		}
+		var userName=rows[0].adminName;
+		var userImg=rows[0].adminImgSrc;
+		var userPermission=rows[0].adminPermissions;
+		var mysqlQuery=["SELECT readerName,borrowTime,equipName,reservationText,borrowEquipID,adminName",
+		                " FROM hopeReader,equipBorrow,hopeEquip,hopeAdmin",
+		                " WHERE equipBorrow.borrowEquipID=hopeEquip.equipID",
+		                " AND equipBorrow.reservation=0",
+		                " AND equipBorrow.borrowUserID=hopeReader.readerID",
+		                " AND hopeEquip.equipAdminID=hopeAdmin.adminID",
+		                " AND hopeAdmin.adminID=?"].join("");
+		mysql_util.DBConnection.query(mysqlQuery,req.cookies.adminId,function(err,rows,fields){
+			if(err){
+				console.log(err);
+            	return;
+			}
+			rows.forEach(function(e){
+				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
+			});
+			res.render("admin-equip/equipCheck",{equip:rows,userName:userName,userImg:userImg,userPermission:userPermission});
+		});
+	});
+}).post(function(req,res){
+	var equipID=req.body.equipID;
+	var check=req.body.check;
+	if(check==="ture"){
+		console.log("是");
+		mysql_util.DBConnection.query("UPDATE equipBorrow SET reservation=1 WHERE borrowEquipID=?",equipID,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var success = {
+				message:"操作成功"
+			}
+			res.send(success)
+		})
+	}else if(check==="false"){
+		console.log("否");
+		mysql_util.DBConnection.query("UPDATE  hopeEquip SET equipLeft=1 WHERE equipID=?",equipID,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			mysql_util.DBConnection.query("DELETE FROM equipBorrow WHERE borrowEquipID=?",equipID,function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				var success = {
+					message:"操作成功"
+				};
+				res.send(success);
+			})
+
+		})
+	}
+		
+})
+
 module.exports=router;

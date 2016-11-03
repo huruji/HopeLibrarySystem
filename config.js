@@ -29,6 +29,18 @@ const emailSetting={
                     ].join(""),
     emailHTMLEnd:'</tbody></table>'
 }
+
+const equipEmail = {
+	transportOptions:{
+		host:"smtp.exmail.qq.com",
+		port:465,
+		secure:true
+	},
+	emailSubject:"厚朴工作室设备预约提醒",
+	emailHTML:'<p>%s 管理员：</p><p>%s 同学想预约设备 %s,以下是他的给你留的附加信息：</p><p>%s</p>',
+}
+
 module.exports.DB=DB;
 module.exports.server=server;
 module.exports.email=emailSetting;
+module.exports.reservationEmail=equipEmail;

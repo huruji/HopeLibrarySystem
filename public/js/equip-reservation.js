@@ -12,7 +12,10 @@
         	},
         	success:function(response){
                     if(response){
-                        
+                        if(response.noLogin){
+                            location.assign("/user/login");
+                            return;
+                        }else{
                         var contentHTML = ['<div class="reservation-container"><P class="reservation">你预约的设备是',
                                           response.equipName,
                                           '，管理员是',
@@ -26,14 +29,15 @@
                             skin:"layui-layer-molv",
                             content:contentHTML,
                             btn:["确认","取消"],
-                            yse:function(){
-                                var dropData=$(this).attr("user-data");
+                            btn1:function(){
+                                var info=$("#email-info").val();
+                                console.log(info);
                                 $.ajax({
                                     dataType:"json",
                                     async:true,
-                                    data:{"dropData":dropData},
+                                    data:{"equipID":equipID,"info":info},
                                     type:"POST",
-                                    url:"/admin/admindropuser",
+                                    url:"/equip/equipreservation",
                                     beforeSend:function(){     
                                      },
                                     success:function(response){
@@ -46,7 +50,7 @@
                                             shift: 2 
                                          });
                                         setTimeout(function(){
-                                            location.assign(location.href);
+                                            location.href=window.location;
                                         },500)
                                     },
                                     error:function(){
@@ -62,6 +66,7 @@
                                 })
                                 }
                             })
+                    }
                     }
         		},
         	error:function(){

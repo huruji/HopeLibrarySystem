@@ -265,6 +265,9 @@ body{
     padding-bottom:10px;
     position:relative;
 }
+.equip-list-item-last{
+    padding-right:0;
+}
 .equip-list-item:last-child{
     padding-right:0px;
 }
@@ -292,4 +295,14 @@ body{
 }
 .borrow-btn:hover{
     background:#35adf8;
+}
+p.reservation{
+    line-height: 1.5em;
+    text-indent:2em;
+}
+.reservation-container{
+    padding:20px 10px;
+}
+.reservation-container textarea{
+    margin-top:10px;
 }
