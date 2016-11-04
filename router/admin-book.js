@@ -44,7 +44,7 @@ router.route("/bookadd").get(function(req,res){
 		res.redirect("/admin/login")
 		return;
 	}
-	mysql_util.DBConnection.query("SELECT adminName,adminImgSrc FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+	mysql_util.DBConnection.query("SELECT adminName,adminImgSrc,adminPermissions FROM hopeAdmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
 		if(err){
 			console.log(err);
 			return;
@@ -52,6 +52,7 @@ router.route("/bookadd").get(function(req,res){
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
 		var userPermission=rows[0].adminPermissions;
+
 		mysql_util.DBConnection.query("SELECT DISTINCT bookCate FROM hopeBook",function(err,rows,fields){
 			if(err){
 				console.log(err);
@@ -61,6 +62,8 @@ router.route("/bookadd").get(function(req,res){
 			for(var i=0,max=rows.length;i<max;i++){
 				bookCate.push(rows[i].bookCate);
 			}
+			console.log("userPermis:"+userPermission);
+			console.log("fasfkalsdf")
 			res.render("admin-book/bookAdd1",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate});
 		});
 	});
@@ -96,6 +99,7 @@ router.route("/admin-book").get(function(req,res){
 		var userName=rows[0].adminName;
 		var userImg=rows[0].adminImgSrc;
 		var userPermission=rows[0].adminPermissions;
+		console.log("userPermis:"+userPermission);
 		var bookStart=(pageNum-1)*10;
 		var bookEnd=pageNum*10;
 		mysql_util.DBConnection.query("SELECT * FROM hopeBook ORDER BY bookLeft LIMIT ?,?",[bookStart,bookEnd],function(err,rows,fields){

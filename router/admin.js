@@ -213,7 +213,7 @@ router.route("/bookmodify/:bookID").get(function(req,res){
 });
 
 
-router.route("/bookadd").get(function(req,res){
+/*router.route("/bookadd").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login")
 		return;
@@ -251,7 +251,7 @@ router.route("/bookadd").get(function(req,res){
 			res.send(success);
 		}
 	})
-});
+});*/
 
 
 router.route("/useradd").get(function(req,res){
@@ -321,7 +321,7 @@ router.route("/admin-user").get(function(req,res){
 })
 
 /*图书管理员图书分页*/
-router.route("/admin-book").get(function(req,res){
+/*router.route("/admin-book").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login");
 		return;
@@ -376,7 +376,7 @@ router.route("/admin-book").get(function(req,res){
 
 router.route("/booklook/:bookID").get(function(req,res){
 
-})
+})*/
 
 router.route("/reset").get(function(req,res){
 	if(!req.cookies.adminId){
