@@ -31,8 +31,8 @@
 						<th class="book-state equip-state"><%=equip[i].borrowTime%></th>
 						<th class="borrow-person"><%=equip[i].reservationText%></th>
 						<th class="admin-main-oparate main-oparate">
-							<span ><a data-equipID="<%=equip[i].borrowEquipID%>" class="check-yes">是</a></span>
-							<span ><a data-equipID="<%=equip[i].borrowEquipID%>" class="check-no">否</a></span>
+							<span data-equipID="<%=equip[i].borrowEquipID%>" class="check-yes" style="cursor:pointer">是</span>
+							<span data-equipID="<%=equip[i].borrowEquipID%>" class="check-no" style="cursor:pointer">否</span>
 						</th>
 					</tr>
 					<%}%>

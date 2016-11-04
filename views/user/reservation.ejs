@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<%- include("./../public/back/header.ejs") %>
+		<div class="main-content container floatfix">
+			<%- include("./../public/back/sidebar.ejs") %>
+			<div class="user-right">
+				<%- include("./../public/back/userinfo.ejs") %>
+				<div class="user-oparate">
+					<nav>
+						<ul class="nav-itme-container floatfix">
+							<li class="nav-item"><a href="/user">我的借阅</a></li>
+							<li class="nav-item nav-item-cur"><a href="/user/reservation">我的预约</a></li>
+							<li class="nav-item"><a href="#">借阅历史</a></li>
+						</ul>
+					</nav>
+					<%if(equip.length>0){%>
+					<table class="operate-list-container">
+					<thead>
+						<tr>
+							<th class="admin-bookname bookname">设备名</th>
+							<th class="book-hopeID">预约时间</th>
+							<th class="book-state">状态</th>
+							<th class="borrow-person">应还时间</th>
+							<th class="admin-main-oparate main-oparate">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%for(var i=0,max=equip.length;i<max;i++){%>
+						<tr>
+							<td class="admin-bookname bookname"><%=equip[i].equipName%></th>
+							<td class="book-hopeID"><%=equip[i].borrowTime%></th>
+							<%if(equip[i].reservation==0){%>
+							<th class="book-state">审核中</th>
+							<th class="borrow-person"></th>
+							<td class="admin-main-oparate main-oparate">
+							</td>
+							<%}else{%>
+							<th class="book-state">审核通过</th>
+							<th class="borrow-person"><%=equip[i].returnBefore%></th>
+							<td class="admin-main-oparate main-oparate">
+								<span><a href="javascript:" class="returnBtn" equipid="<%=equip[i].borrowEquipID%>" borrowid="<%=equip[i].borrowID%>">归还</a></span>
+							</td>
+							<%}%>
+						</tr>
+						<%}%>
+					</tbody>
+					</table>
+					<%}else{%>
+					<p class="no-borrow">当前暂无预约！</p>
+                   <%}%>
+				</div>
+			</div>
+		</div>
+		<%- include("./../public/back/footer.ejs") %>
+		<script src="/js/userEquip.js"></script>
+	</body>
+</html>

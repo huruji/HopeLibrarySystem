@@ -2,7 +2,8 @@
 
 (function(global,$){
 	$(".check-yes").click(function(){
-		var equipID=$(this).attr("data-equipID");
+		var equipID=$(this).attr("data-equipid");
+        console.log(equipID);
 		$.ajax({
         	dataType:"json",
         	async:true,

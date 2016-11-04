@@ -203,4 +203,55 @@ function cookieToJson(cookieValue){
 	return cookieJson
 }
 
+router.route("/reservation").get(function(req,res){
+	if(!req.cookies.userId){
+		res.redirect("/user/login");
+		return;
+	}
+	mysql_util.DBConnection.query("SELECT * FROM hopeReader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+		if(err){
+			console.log(err)
+		}
+		var userName=rows[0].readerName;
+		var userImg=rows[0].userImgSrc;
+		var userPermission="user";
+		var mysqlQuery=["SELECT equipName,borrowID,borrowTime,returnBefore,reservation,borrowEquipID",
+		                " FROM hopeEquip,equipBorrow",
+		                " WHERE returnWhe=0",
+		                " AND hopeEquip.equipID=equipBorrow.borrowEquipID",
+		                " AND borrowUserID=?"].join("")
+		mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			rows.forEach(function(e){
+				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
+				e.returnBefore = e.returnBefore.getFullYear()+"-"+e.returnBefore.getMonth()+"-"+e.returnBefore.getDate();
+			});
+			res.render("user/reservation",{userName:userName,userImg:userImg,userPermission:userPermission,equip:rows});	
+		})
+	})
+}).post(function(req,res){
+	var equipID=parseInt(req.body.equipID),
+		borrowID=parseInt(req.body.borrowID);
+		console.log(equipID,borrowID);
+		mysql_util.DBConnection.query("UPDATE equipBorrow SET returnWhe=1 WHERE borrowID=?",borrowID,function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			mysql_util.DBConnection.query("UPDATE hopeEquip SET equipLeft=1 WHERE equipID=?",equipID,function(err,rows,fields){
+				if(err){
+					console.log(err);
+					return;
+				}
+				var success={
+					message:"归还成功"
+				};
+				res.send(success);
+			})
+				
+		})
+})
 module.exports=router;

@@ -6,11 +6,14 @@
                 <ul class="equip-container floatfix">
                 <% for(var i = 0, max = equip.length;i<max;i++){%>
                     <li class="equip-list-item <%if((i+1)%5==0){%>equip-list-item-last<%}%>">
-
                         <img src="<%=equip[i].equipImgSrc%>" alt="">
+                        <%if(equip[i].equipLeft==0){%>
+                        <div class="img-mask" style="height:220px">
+                        </div>
+                        <%}%>
                         <p class="">设备名：<%=equip[i].equipName%></p>
                         <p class="">编号：<%=equip[i].equipHopeID%></p>
-                        <button type="" class="borrow-btn" data-equipID="<%=equip[i].equipID%>">预约</button>
+                        <button type="" class="borrow-btn" data-equipID="<%=equip[i].equipID%>"<%if(equip[i].equipLeft==0){%>disabled<%}%>>预约</button>
                     </li>
                 <%}%>
                 </ul>

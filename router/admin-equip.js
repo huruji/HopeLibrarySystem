@@ -146,7 +146,8 @@ router.route("/check").get(function(req,res){
 }).post(function(req,res){
 	var equipID=req.body.equipID;
 	var check=req.body.check;
-	if(check==="ture"){
+	console.log(equipID,check);
+	if(check==="true"){
 		console.log("是");
 		mysql_util.DBConnection.query("UPDATE equipBorrow SET reservation=1 WHERE borrowEquipID=?",equipID,function(err,rows,fields){
 			if(err){
