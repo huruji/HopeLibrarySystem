@@ -16,6 +16,13 @@
     body{
         background:url(/img/index-bg.jpg) center no-repeat;
     }
+    #hope-beta{
+        background:url(/img/index-bg.jpg) center no-repeat;
+        background-size:cover;
+    }
+    .layui-layer-btn{
+        background:#fff;
+    }
 </style>
 </head>
 <body>
@@ -33,5 +40,16 @@
     	<h2>厚朴工作室图书设备管理系统</h2>
     	<h3>Beta 0.0.1版本</h3>
     </div>
+    <script>
+        layer.open({
+            tyep:1,
+            title:false,
+            closeBtn:false,
+            area:["150px","300px"],
+            shade:0.8,
+            id:"hope-beta",
+            content:'<div style="color:#fff;">各位厚朴的亲们：<br/>这是图书借阅和设备预约的beta版，它现在长得很挫、功能很少，大家随意测试，有bug和用得不爽的地方记得告诉我们小组，毕竟我们的征途也是星辰大海嘛↖(^ω^)↗</div>'
+        })
+    </script>
 </body>
 </html>
