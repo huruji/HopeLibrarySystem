@@ -21,6 +21,7 @@ app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname,"public")));
 
 app.use(bodyParser.urlencoded({extended:false}));
+
 app.use(cookieParser());
 
 app.use("/user",routerUser);
@@ -28,6 +29,9 @@ app.use("/book",routerBook);
 app.use("/equip",routerEquip);
 app.use("/admin",routerAdmin,routerAdminBook,routerAdminEquip);
 
+app.get("/",function(req,res){
+	res.render("public/front/index")
+})
 emailSchedule();
 app.listen(config.server.port,function(){
 	console.log("listening port 3000");

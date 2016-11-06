@@ -2,14 +2,18 @@ const express=require("express");
 const mysql_util=require("./mysql_util");
 const bodyParser=require("body-parser");
 const crypto=require("crypto");
+const path = require("path");
+const fs = require("fs");
+const formidable = require("formidable");
 const router=express.Router();
+const jsonParser=bodyParser.json();
 
 router.route("/login").post(function(req,res){
 	console.log("hhhh");
 	var sha=crypto.createHash("md5");
 	sha.update(req.body.password);
 	var password_md5=sha.digest("hex");
-	mysql_util.DBConnection.query("SELECT readerID,readerName,readerPassword FROM hopeReader WHERE readerName=? AND readerPassword=?",[req.body.username,password_md5],function(err,rows,fields){
+	mysql_util.DBConnection.query("SELECT readerID,readerName,readerPassword FROM hopereader WHERE readerName=? AND readerPassword=?",[req.body.username,password_md5],function(err,rows,fields){
 		if(err){
 			var error={
 				code:3,
@@ -60,7 +64,7 @@ router.route("/reset").post(function(req,res){
 	var userId=req.cookies.userId;
 	console.log(userId);
 	console.log("cccc");
-	mysql_util.DBConnection.query("UPDATE hopeReader SET readerPassword=? WHERE readerID=?;",[password_md5,userId],function(err,rows,fields){
+	mysql_util.DBConnection.query("UPDATE hopereader SET readerPassword=? WHERE readerID=?;",[password_md5,userId],function(err,rows,fields){
 		if(err){
 			var error={
 				code:3,
@@ -81,7 +85,7 @@ router.route("/reset").post(function(req,res){
 		console.log("bbb");
 		res.redirect("/user/login");
 	}else{
-		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopeReader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
 			if(err){
 				console.log(err)
 			}else{
@@ -112,7 +116,7 @@ router.route("/").get(function(req,res){
 		res.redirect("/user/login");
 	}else{
 		var userId=req.cookies.userId;
-		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopeReader WHERE readerID=?",userId,function(err,rows,fields){
+		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",userId,function(err,rows,fields){
 			if(err){
 				console.log(err)
 			}else{
@@ -120,9 +124,9 @@ router.route("/").get(function(req,res){
 				var userName=rows[0].readerName;
 				var userPermission="user";
 				var mysqlQuery=["SELECT bookName,borrowTime,bookID,borrowID,returnBefore",
-				                " FROM hopeBook,hopeReader,bookBorrow",
-				                " WHERE hopeBook.bookID=bookBorrow.borrowBookID",
-				                " AND hopeReader.readerID=bookBorrow.borrowUserID",
+				                " FROM hopebook,hopereader,bookborrow",
+				                " WHERE hopebook.bookID=bookborrow.borrowBookID",
+				                " AND hopereader.readerID=bookborrow.borrowUserID",
 				                " AND returnWhe=0",
 				                " AND readerID=?"].join("");
 				mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
@@ -146,7 +150,7 @@ router.route("/").get(function(req,res){
 	}else{
 		var bookID=req.body.bookID,
 		    borrowID=req.body.borrowID;
-		mysql_util.DBConnection.query("UPDATE hopeBook SET bookLeft=bookLeft+1 WHERE bookID=?;UPDATE bookBorrow SET returnWhe=1 WHERE borrowID=?",[bookID,borrowID],function(err,rows,fields){
+		mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=bookLeft+1 WHERE bookID=?;UPDATE bookborrow SET returnWhe=1 WHERE borrowID=?",[bookID,borrowID],function(err,rows,fields){
 			if(err){
 				console.log(err);
 			}else{
@@ -159,11 +163,11 @@ router.route("/").get(function(req,res){
 	}
 })
 
-router.route("/modify").get(function(req,res){
+/*router.route("/modify").get(function(req,res){
 	if(!req.cookies.userId){
 		res.redirect("/user/login");
 	}else{
-		mysql_util.DBConnection.query("SELECT * FROM hopeReader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+		mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
 			if(err){
 				console.log(err)
 			}else{
@@ -177,7 +181,73 @@ router.route("/modify").get(function(req,res){
 	}
 }).post(function(req,res){
 	console.log("post modify");
-	var mysqlQuery=["UPDATE hopeReader SET readerSex=?,",
+	
+	var mysqlQuery=["UPDATE hopereader SET readerSex=?,",
+	                "studentNumber=?,readerMajor=?,",
+	                "readerPhone=?,readerEmail=?,readerGroup=?",
+	                " WHERE readerID=?"].join("");
+	console.log(req.body);
+	mysql_util.DBConnection.query(mysqlQuery,[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.cookies.userId],function(err,rows,fields){
+		if(err){
+			console.log(err);
+		}else{
+			var success={
+				message:"保存成功"
+			};
+			res.send(success);
+		}
+	})
+})*/
+
+router.route("/modify-img").post(function(req,res){
+	console.log(req.cookies.userId);
+	var form = new formidable.IncomingForm();
+	form.encoding = "utf-8";
+	form.uploadDir =path.join("./","public/img/user");
+	form.keepExtensions=true;
+	form.maxFieldsSize=2*1024*1024;
+	console.log("kkkk");
+	form.parse(req,function(err,fields,files){
+		console.log(files);
+		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
+		var newName="/user"+req.cookies.userId+Date.now()+extension;
+		var newPath=form.uploadDir+newName;
+		fs.renameSync(files.img.path,newPath);
+		var DBImgSrc="/img/user"+newName;
+		var mysqlQuery="UPDATE hopereader SET userImgSrc=? WHERE readerID=?";
+		console.log(mysqlQuery);
+		mysql_util.DBConnection.query(mysqlQuery,[DBImgSrc,req.cookies.userId],function(err,rows,fields){
+			if(err){
+				console.log(err);
+				return;
+			}
+			var success={
+				code:1
+			}
+			res.send(success);
+		})
+	});
+})
+router.route("/modify").get(function(req,res){
+	if(!req.cookies.userId){
+		res.redirect("/user/login");
+	}else{
+		mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+			if(err){
+				console.log(err)
+			}else{
+				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+				var userName=rows[0].readerName;
+				var userImg=rows[0].userImgSrc;
+				var userPermission="user";
+				res.render("user/usermodify1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup});
+			}
+		})
+	}
+}).post(function(req,res){
+	console.log("post modify");
+
+	var mysqlQuery=["UPDATE hopereader SET readerSex=?,",
 	                "studentNumber=?,readerMajor=?,",
 	                "readerPhone=?,readerEmail=?,readerGroup=?",
 	                " WHERE readerID=?"].join("");
@@ -208,7 +278,7 @@ router.route("/reservation").get(function(req,res){
 		res.redirect("/user/login");
 		return;
 	}
-	mysql_util.DBConnection.query("SELECT * FROM hopeReader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+	mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
 		if(err){
 			console.log(err)
 		}
@@ -216,9 +286,9 @@ router.route("/reservation").get(function(req,res){
 		var userImg=rows[0].userImgSrc;
 		var userPermission="user";
 		var mysqlQuery=["SELECT equipName,borrowID,borrowTime,returnBefore,reservation,borrowEquipID",
-		                " FROM hopeEquip,equipBorrow",
+		                " FROM hopeequip,equipborrow",
 		                " WHERE returnWhe=0",
-		                " AND hopeEquip.equipID=equipBorrow.borrowEquipID",
+		                " AND hopeequip.equipID=equipborrow.borrowEquipID",
 		                " AND borrowUserID=?"].join("")
 		mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
 			if(err){
@@ -236,12 +306,12 @@ router.route("/reservation").get(function(req,res){
 	var equipID=parseInt(req.body.equipID),
 		borrowID=parseInt(req.body.borrowID);
 		console.log(equipID,borrowID);
-		mysql_util.DBConnection.query("UPDATE equipBorrow SET returnWhe=1 WHERE borrowID=?",borrowID,function(err,rows,fields){
+		mysql_util.DBConnection.query("UPDATE equipborrow SET returnWhe=1 WHERE borrowID=?",borrowID,function(err,rows,fields){
 			if(err){
 				console.log(err);
 				return;
 			}
-			mysql_util.DBConnection.query("UPDATE hopeEquip SET equipLeft=1 WHERE equipID=?",equipID,function(err,rows,fields){
+			mysql_util.DBConnection.query("UPDATE hopeequip SET equipLeft=1 WHERE equipID=?",equipID,function(err,rows,fields){
 				if(err){
 					console.log(err);
 					return;

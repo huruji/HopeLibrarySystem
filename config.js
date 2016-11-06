@@ -1,7 +1,7 @@
-const DB={
+﻿const DB={
 	host:"localhost",
 	port:3306,
-	user:"huruji",
+	user:"root",
 	password:"xie138108",
 	database:"hopeWechat"
 }

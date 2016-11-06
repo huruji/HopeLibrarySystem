@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<%- include("./../public/back/header.ejs") %>
 		<div class="main-content container floatfix">
 			<%- include("./../public/back/sidebar.ejs") %>
@@ -7,6 +8,10 @@
 				<%- include("./../public/back/userinfo.ejs") %>
 				<div class="user-oparate">
 					<form>
+					<div class="upload-user-img">
+							<img src="<%=book.bookImgSrc%>" alt="">
+								<input type="file" id="user-img" class="upload-img">
+						</div>
 						<div class="form-group">
 							<label for="">图书名：</label>
 							<input type="text" value="<%=book.bookName%>" id="bookName" >
@@ -41,6 +46,7 @@
 			</div>
 		</div>
 		<%- include("./../public/back/footer.ejs") %>
-		<script src="/js/addbook.js"></script>
+		<script src="/js/modifybook.js"></script>
+		<script src="/js/public/loginout.js"></script>
 	</body>
 </html>

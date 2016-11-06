@@ -8,10 +8,10 @@
 				<div class="user-oparate">
 					<nav>
 						<ul class="nav-itme-container floatfix">
-							<li class="nav-item nav-item-cur"><a href="#">用户管理</a></li>
+							<li class="nav-item nav-item-cur"><a href="/admin/admin-user">用户管理</a></li>
 							<li class="nav-item"><a href="/admin/admin-book">图书管理</a></li>
-							<li class="nav-item"><a href="#">设备管理</a></li>
-							<li class="nav-item"><a href="#">增加用户</a></li>
+							<li class="nav-item"><a href="/admin/admin-equip">设备管理</a></li>
+							<li class="nav-item"><a href="/admin/useradd">增加用户</a></li>
 						</ul>
 					</nav>
 					<%if(user.length>0){%>
@@ -73,5 +73,6 @@
 		</div>
 		<%- include("./../public/back/footer.ejs") %>
 		<script src="/js/admin.js"></script>
+		<script src="/js/public/loginout.js"></script>
 	</body>
 </html>

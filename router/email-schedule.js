@@ -7,12 +7,12 @@ const util = require("util");
 function emailSchedule(){
 var j=schedule.scheduleJob("42 36 21 * * *",function(){
 	var mysqlQuery=["SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID,returnBefore",
-	                " FROM bookBorrow,hopeReader,hopeBook",
-	                " WHERE bookBorrow.borrowBookID=hopeBook.bookID",
-	                " AND bookBorrow.borrowUserID=hopeReader.readerID",
-	                " AND bookBorrow.returnWhe=0",
-	                " AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=4",
-	                " ORDER BY hopeReader.readerID"].join("");
+	                " FROM bookborrow,hopereader,hopebook",
+	                " WHERE bookborrow.borrowBookID=hopebook.bookID",
+	                " AND bookborrow.borrowUserID=hopereader.readerID",
+	                " AND bookborrow.returnWhe=0",
+	                " AND DATEDIFF(bookborrow.returnBefore,CURDATE())=4",
+	                " ORDER BY hopereader.readerID"].join("");
 	mysql_util.DBConnection.query(mysqlQuery,function(err,rows,fields){
 		if(err){
 			console.log(err);
@@ -77,12 +77,12 @@ var j=schedule.scheduleJob("42 36 21 * * *",function(){
 
 		noRep.forEach(function(e){
 			var mysqlQuery=["SELECT borrowBookID,borrowUserID,readerName,readerEmail,bookName,bookHopeID,returnBefore",
-			                " FROM bookBorrow,hopeReader,hopeBook",
-			                " WHERE bookBorrow.borrowBookID=hopeBook.bookID",
-			                " AND bookBorrow.borrowUserID=hopeReader.readerID",
-			                " AND bookBorrow.returnWhe=0",
-			                " AND DATEDIFF(bookBorrow.returnBefore,CURDATE())=4",
-			                " AND hopeReader.readerID=?"].join("");
+			                " FROM bookborrow,hopereader,hopebook",
+			                " WHERE bookborrow.borrowBookID=hopebook.bookID",
+			                " AND bookborrow.borrowUserID=hopereader.readerID",
+			                " AND bookborrow.returnWhe=0",
+			                " AND DATEDIFF(bookborrow.returnBefore,CURDATE())=4",
+			                " AND hopereader.readerID=?"].join("");
 			mysql_util.DBConnection.query(mysqlQuery,e,function(err,rows,fields){
 				if(err){
 					console.log(err);

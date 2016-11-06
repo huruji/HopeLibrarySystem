@@ -8,8 +8,8 @@
 			<div class="user-oparate">
 				<nav>
 					<ul class="nav-itme-container floatfix">
-						<li class="nav-item "><a href="/admin">管理设备</a></li>
-						<li class="nav-item nav-item-cur"><a href="#">预约审核</a></li>
+						<li class="nav-item "><a href="/admin/admin-equip">管理设备</a></li>
+						<li class="nav-item nav-item-cur"><a href="/admin/check">预约审核</a></li>
 					</ul>
 				</nav>
 				<%if(equip.length>0){%>
@@ -46,5 +46,6 @@
 	</div>
 	<%- include("./../public/back/footer.ejs") %>
 	<script src="/js/equipCheck.js"></script>
+	<script src="/js/public/loginout.js"></script>
 </body>
 </html>

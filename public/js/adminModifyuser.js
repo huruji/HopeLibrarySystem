@@ -11,7 +11,12 @@
         console.log(readerMajor);
         var readerGroup=$.trim($(":radio[name=hopeGroup]:checked").parent().text());
         var readerName=$.trim($("#readerName").val());
-
+        if(!readerName || !readerEmail || !sex || !readerGroup){
+            layer.alert("用户名、性别、邮箱、厚朴组为必填",{
+                skin: 'layui-layer-molv'
+            });
+            return;
+        }
         $.ajax({
             dataType:"json",
             async:true,
@@ -53,7 +58,12 @@
         var permission=$.trim($(":radio[name=permission]:checked").parent().attr("user-type"));
         var readerEmail=$.trim($("#readerEmail").val());
         var readerName=$.trim($("#adminName").val());
-
+        if(!readerName || !readerEmail || !permission){
+            layer.alert("用户名、邮箱、权限为必填",{
+                skin: 'layui-layer-molv'
+            });
+            return;
+        }
         $.ajax({
             dataType:"json",
             async:true,

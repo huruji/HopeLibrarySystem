@@ -7,7 +7,7 @@ const nodemailer = require("nodemailer");
 const config=require("./../config");
 
 router.route("/").get(function(req,res){
-	mysql_util.DBConnection.query("SELECT * FROM hopeEquip ORDER BY equipLeft DESC LIMIT 0,20",function(err,rows,fields){
+	mysql_util.DBConnection.query("SELECT * FROM hopeequip ORDER BY equipLeft DESC LIMIT 0,20",function(err,rows,fields){
 		if(err){
 			res.send("出错了，请联系管理员");
 			return;
@@ -22,9 +22,9 @@ router.route("/equipemail").post(function(req,res){
 	var equipID=parseInt(req.body.equipID);
 	console.log(equipID);
 	var mysqlQuery = ["SELECT adminName,equipName",
-	                  " FROM hopeAdmin,hopeEquip",
-	                  " WHERE hopeAdmin.adminID=hopeEquip.equipAdminID",
-	                  " AND hopeEquip.equipID =?"].join("");
+	                  " FROM hopeadmin,hopeequip",
+	                  " WHERE hopeadmin.adminID=hopeequip.equipAdminID",
+	                  " AND hopeequip.equipID =?"].join("");
 	if(!req.cookies.userId){
 		var noLogin = {
 			noLogin:true,
@@ -33,7 +33,7 @@ router.route("/equipemail").post(function(req,res){
 		res.send(noLogin);
 		return;
 	}
-	mysql_util.DBConnection.query("SELECT adminName,equipName FROM hopeAdmin,hopeEquip WHERE hopeAdmin.adminID=hopeEquip.equipAdminID AND hopeEquip.equipID = ?",equipID,function(err,rows,fields){
+	mysql_util.DBConnection.query("SELECT adminName,equipName FROM hopeadmin,hopeequip WHERE hopeadmin.adminID=hopeequip.equipAdminID AND hopeequip.equipID = ?",equipID,function(err,rows,fields){
 		if(err){
 			console.log(err);
 			return;
@@ -49,22 +49,22 @@ router.route("/equipemail").post(function(req,res){
 router.route("/equipreservation").post(function(req,res){
 	var equipID=parseInt(req.body.equipID);
 	var info = req.body.info;
-	mysql_util.DBConnection.query("UPDATE hopeEquip SET equipLeft=0 WHERE equipID = ?",equipID,function(err,rows,fields){
+	mysql_util.DBConnection.query("UPDATE hopeequip SET equipLeft=0 WHERE equipID = ?",equipID,function(err,rows,fields){
 		if(err){
 			console.log(err);
 			return;
 		}
-		var mysqlQuery = "INSERT equipBorrow Values(DEFAULT,?,?,CURDATE(),DEFAULT,ADDDATE(CURDATE(),3),DEFAULT,?)";
+		var mysqlQuery = "INSERT equipborrow Values(DEFAULT,?,?,CURDATE(),DEFAULT,ADDDATE(CURDATE(),3),DEFAULT,?)";
 		mysql_util.DBConnection.query(mysqlQuery,[equipID,req.cookies.userId,info],function(err,rows,fields){
 			if(err){
 				console.log(err);
 				return;
 			}
 			var mysqlQuery = ["SELECT adminName,equipName,adminEmail,readerName",
-			                  " FROM hopeAdmin,hopeEquip,hopeReader",
-			                  " WHERE hopeAdmin.adminID=hopeEquip.equipAdminID",
-			                  " AND hopeEquip.equipID = ?",
-			                  " AND hopeReader.readerID=?"].join("");
+			                  " FROM hopeadmin,hopeequip,hopereader",
+			                  " WHERE hopeadmin.adminID=hopeequip.equipAdminID",
+			                  " AND hopeequip.equipID = ?",
+			                  " AND hopereader.readerID=?"].join("");
 			mysql_util.DBConnection.query(mysqlQuery,[equipID,req.cookies.userId],function(err,rows,fields){
 				if(err){
 					console.log(err);

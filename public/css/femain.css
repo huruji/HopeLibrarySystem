@@ -306,3 +306,55 @@ p.reservation{
 .reservation-container textarea{
     margin-top:10px;
 }
+.index-top{
+        height:20px;
+        padding:10px;
+        background: #343168;
+    }
+    .top-left{
+        float:left;
+    }
+    .top-right{
+        float:right;
+    }
+    .index-top a{
+        font-size:16px;
+        color:#fff;
+    }
+    .index-top a:hover{
+        color:#d90000;
+    }
+    .index-title h2{
+
+    }
+    
+    @keyframes title{
+        from{
+            transform: scale3d(0.6,0.6,0.6);
+        }
+        to{
+            transform: scale3d(1,1,1);
+        }
+    }
+    .index-title{
+        position:absolute;
+        top:50%;
+        width:100%;
+        left:0;
+        right:0;
+        margin:auto;
+        margin-top:-40px;
+    }
+    .index-title h2{
+        color:#fff;
+        font-size:40px;
+        text-align: center;
+        animation:title 2s infinite alternate;
+    }
+    .index-title h3{
+        padding-top:10px;
+        color:#fff;
+        font-size:30px;
+        text-align: center;
+        animation:title 2s infinite alternate;
+    }
