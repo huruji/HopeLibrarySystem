@@ -115,7 +115,7 @@ router.route("/equipmodify/:equipID").get(function(req,res){
 				console.log(err);
             	return;
 			}
-			res.render("admin-equip/equipModify",{equip:rows[0],userName:userName,userImg:userImg,userPermission:userPermission});
+			res.render("admin-equip/equipmodify",{equip:rows[0],userName:userName,userImg:userImg,userPermission:userPermission});
 		});
 	});
 }).post(function(req,res){

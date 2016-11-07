@@ -241,11 +241,11 @@ router.route("/useradd").get(function(req,res){
 		var queryParams=[req.body.readerName,req.body.readerEmail,password_md5,req.body.hopeGroup];
 		var mysqlQuery="INSERT hopereader(readerName,readerEmail,readerPassword,readerGroup) VALUES(?,?,?,?)";
 	}else{
-		if(req.body.permission.indexOf("super")){
+		if(req.body.permission.indexOf("super")>=0){
 			var permission="super";
-		}else if(req.body.permission.indexOf("book")){
+		}else if(req.body.permission.indexOf("book")>=0){
 			var permission="book";
-		}else if(req.body.permission.indexOf("camera")){
+		}else if(req.body.permission.indexOf("camera")>=0){
 			var permission="camera";
 		}
 		var queryParams=[req.body.readerName,req.body.readerEmail,password_md5,permission];
