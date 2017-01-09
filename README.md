@@ -1,6 +1,6 @@
 # 厚朴工作室图书借阅、设备预约管理系统
 
-Beta版本0.0.1请浏览[http://23.106.155.80/](http://23.106.155.80/)
+Beta版本0.0.1请浏览[http://98.142.130.76:3000/](http://98.142.130.76:3000/)
 
 ## Installation
 1. git clone <code>https://github.com/huruji/HopeLibrarySystem</code>
