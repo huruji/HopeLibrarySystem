@@ -1,0 +1,60 @@
+@mixin float-left{
+  float:left;
+}
+@mixin float-right{
+  float: right;
+}
+@mixin width($width){
+  width:$width;
+}
+@mixin pointer{
+  cursor: pointer;
+}
+@mixin display-block{
+  display:block;
+}
+@mixin b-circle{
+  border-radius:50%;
+}
+@mixin b-radius($radius){
+  border-radius:$radius;
+}
+
+@mixin m-h-center{
+  margin:0 auto;
+}
+@mixin bg-center ($imgurl){
+  background-image:url($imgurl);
+  background-position:center;
+}
+
+@mixin text-center{
+  text-align: center;
+}
+
+@mixin p-hv-center{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+@mixin l-v-center ($line-height){
+  line-height:$line-height;
+  height:$line-height;
+}
+
+@mixin opacity($opacity) {
+  opacity:$opacity;
+  filter:alpha(opacity=$opacity);
+}
+
+@mixin ie-bg-rgba($color,$iecolor) {
+  @if $iecolor {
+    background: $iecolor;
+  }
+  background:$color;
+}
+
+

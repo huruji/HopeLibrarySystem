@@ -1,0 +1,25 @@
+.main-right-table{
+  margin-top:$main-table-margin-top;
+  background:$main-bgcolor;
+  table{
+    tr{
+      border-top: $aside-border;
+      border-bottom: $aside-border;
+      height:45px;
+      font-family: $global-zh-light-title-font-family;
+      th{
+        font-weight:bold;
+      }
+    }
+  }
+}
+.main-right-table-manage{
+  span{
+    display: inline-block;
+    padding:0 6px;
+    @include pointer;
+    &:hover{
+      color:$global-link-color;
+    }
+  }
+}

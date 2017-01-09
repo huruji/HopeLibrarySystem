@@ -1,0 +1,40 @@
+.main-right-borrow{
+  margin-top:20px;
+  &-list-item{
+    @include float-left;
+    width:221px;
+    border:$aside-border;
+    background:$main-bgcolor;
+    margin-right:20px;
+    margin-bottom:20px;
+    &:nth-child(4n){
+      margin-right:0;
+    }
+    &-img{
+      display:block;
+      height:190px;
+      @include text-center;
+      border-bottom:$aside-border;
+      padding:$book-borrow-item-padding;
+    }
+    &-message{
+      padding:$book-borrow-item-padding;
+      font-family: $global-zh-light-title-font-family;
+      line-height:1.5em;
+      p{
+        color:#a5a5a5;
+        padding-bottom:10px;
+      }
+      button{
+        background:$global-active-bgcolor;
+        color:$global-active-color;
+        height:32px;
+        width:78px;
+        @include pointer;
+        &[disabled="disabled"]{
+          background: #a3a3a3;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.footer{
+  padding:35px 0;
+  background:$footer-bgcolor;
+  color:$footer-color;
+  h3{
+    @include text-center;
+    a{
+      color:$footer-color;
+    }
+  }
+}
