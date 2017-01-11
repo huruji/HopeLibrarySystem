@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-form floatfix">
+                <form action="">
+                    <div class="form-group">
+                        <label>设备名</label>
+                        <input type="text" value="<%= equip.equipName %>" id="equipName">
+                    </div>
+                    <div class="form-group">
+                        <label>厚朴编号</label>
+                        <input type="text" value="<%= equip.equipHopeID %>" id="hopeID">
+                    </div>
+                    <div class="form-group">
+                        <label>管理员</label>
+                        <input type="text" value="<%= equip.adminName %>" id="hopeAdmin">
+                    </div>
+                    <div class="main-right-form-file form-group">
+                        <label>设备快照</label>
+                        <img src="<%= equip.equipImgSrc %>" alt="">
+                        <input type="file" value=""  id="user-img">
+                    </div>
+                    <div class="main-right-form-button clearfix">
+                        <div class="main-right-form-button-confirm">
+                            <input type="button" value="保存" id="save">
+                        </div>
+                        <div class="main-right-form-button-cancel">重置</div>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/modifyequip.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>
