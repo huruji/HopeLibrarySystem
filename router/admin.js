@@ -237,6 +237,7 @@ router.route("/useradd").get(function(req,res){
 	console.log("req.body.password"+req.body.password);
 	sha.update(req.body.password);
 	var password_md5=sha.digest("hex");
+	console.log("req.body.permission"+req.body.permission);
 	if(req.body.permission=="user"){
 		var queryParams=[req.body.readerName,req.body.readerEmail,password_md5,req.body.hopeGroup];
 		var mysqlQuery="INSERT hopereader(readerName,readerEmail,readerPassword,readerGroup) VALUES(?,?,?,?)";

@@ -1,8 +1,8 @@
 /*用户归还的函数*/
 (function(global,$){
-	$(".returnBtn").click(function(){
-		var bookID=$(this).attr("bookid"),
-		    borrowID=$(this).attr("borrowid");
+	$(".js-return-btn").click(function(){
+		var bookID=$(this).attr("data-bookid"),
+		    borrowID=$(this).attr("data-borrowid");
         console.log(borrowID);
 		$.ajax({
         	dataType:"json",

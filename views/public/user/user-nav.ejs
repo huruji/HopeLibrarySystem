@@ -1,0 +1,16 @@
+<nav class="main-right-nav">
+    <ul class="main-right-nav-list clearfix ">
+        <%if(firstPath=="book"){%>
+        <li class="main-right-nav-list-item main-right-nav-list-item-active">我的借阅</li>
+        <%}%>
+        <%if(firstPath=="camera"){%>
+        <li class="main-right-nav-list-item main-right-nav-list-item-active">我的预约</li>
+        <%}%>
+        <%if(firstPath=="account"){%>
+        <li class="main-right-nav-list-item  <%if(secondPath=="modify"){%> main-right-nav-list-item-active <%}%>"><a
+                    href="/user/modify">我的信息</a></li>
+        <li class="main-right-nav-list-item  <%if(secondPath=="reset"){%> main-right-nav-list-item-active <%}%>"><a
+                    href="/user/reset">修改密码</a></li>
+        <%}%>
+    </ul>
+</nav>

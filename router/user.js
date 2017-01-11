@@ -51,16 +51,12 @@ router.route("/login").post(function(req,res){
 	res.render("public/login");
 })
 
-/*router.get("/user/login",function(req,res){
-	console.log("login");
-	res.render("login");
-})*/
+
 router.route("/reset").post(function(req,res){
 	var sha=crypto.createHash("md5");
 	sha.update(req.body.password);
 	var password_md5=sha.digest("hex");
 	console.log(req.headers.cookie);
-	/*var userId=parseInt(cookieToJson(req.headers.cookie)[userId]);*/
 	var userId=req.cookies.userId;
 	console.log(userId);
 	console.log("cccc");
@@ -92,7 +88,7 @@ router.route("/reset").post(function(req,res){
 				var userImg=rows[0].userImgSrc;
 				var userName=rows[0].readerName;
 				var userPermission="user";
-	            res.render("user/reset1",{userImg:userImg,userName:userName,userPermission:userPermission});
+	            res.render("user/user-reset",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
             }
 		})
 	}
@@ -137,7 +133,7 @@ router.route("/").get(function(req,res){
 					rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
 					rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
 				}
-				res.render("user/index1",{book:rows,userImg:userImg,userName:userName,userPermission:userPermission});
+				res.render("user/index",{book:rows,userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'book'});
 			}
 		})
 			}
@@ -163,41 +159,7 @@ router.route("/").get(function(req,res){
 	}
 })
 
-/*router.route("/modify").get(function(req,res){
-	if(!req.cookies.userId){
-		res.redirect("/user/login");
-	}else{
-		mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
-			if(err){
-				console.log(err)
-			}else{
-				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-				var userName=rows[0].readerName;
-				var userImg=rows[0].userImgSrc;
-				var userPermission="user";
-				res.render("user/usermodify1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup});
-			}
-		})
-	}
-}).post(function(req,res){
-	console.log("post modify");
-	
-	var mysqlQuery=["UPDATE hopereader SET readerSex=?,",
-	                "studentNumber=?,readerMajor=?,",
-	                "readerPhone=?,readerEmail=?,readerGroup=?",
-	                " WHERE readerID=?"].join("");
-	console.log(req.body);
-	mysql_util.DBConnection.query(mysqlQuery,[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.cookies.userId],function(err,rows,fields){
-		if(err){
-			console.log(err);
-		}else{
-			var success={
-				message:"保存成功"
-			};
-			res.send(success);
-		}
-	})
-})*/
+
 
 router.route("/modify-img").post(function(req,res){
 	console.log(req.cookies.userId);
@@ -240,7 +202,7 @@ router.route("/modify").get(function(req,res){
 				var userName=rows[0].readerName;
 				var userImg=rows[0].userImgSrc;
 				var userPermission="user";
-				res.render("user/usermodify1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup});
+				res.render("user/user-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:'account',secondPath:'modify'});
 			}
 		})
 	}
@@ -255,6 +217,7 @@ router.route("/modify").get(function(req,res){
 		if(err){
 			console.log(err);
 		}else{
+			console.log("chenggon")
 			var success={
 				message:"保存成功"
 			};
@@ -299,7 +262,7 @@ router.route("/reservation").get(function(req,res){
 				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
 				e.returnBefore = e.returnBefore.getFullYear()+"-"+e.returnBefore.getMonth()+"-"+e.returnBefore.getDate();
 			});
-			res.render("user/reservation",{userName:userName,userImg:userImg,userPermission:userPermission,equip:rows});	
+			res.render("user/reservation",{userName:userName,userImg:userImg,userPermission:userPermission,equip:rows,firstPath:'camera'});
 		})
 	})
 }).post(function(req,res){

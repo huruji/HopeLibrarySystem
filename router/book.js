@@ -75,7 +75,7 @@ router.route("/").get(function(req,res){
 				console.log("left:"+left);
 				console.log(req.cookies.userId);
                 var userId=parseInt(req.cookies.userId);
-				mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=? WHERE bookID=?;INSERT bookborrow VALUES(DEFAULT,?,?,CURDATE(),DEFAULT,ADDDATE(CURDATE(),30));",[left,borrowID,borrowID,userId],function(err,rows,fields){
+				mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=? WHERE bookID=?;INSERT bookborrow VALUES(DEFAULT,?,?,CURDATE(),DEFAULT,ADDDATE(CURDATE(),6));",[left,borrowID,borrowID,userId],function(err,rows,fields){
 					if(err){
 						console.log(err)
 					}else{
