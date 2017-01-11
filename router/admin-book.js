@@ -118,7 +118,7 @@ router.route("/bookadd").get(function(req,res){
 			
 			console.log("userPermis:"+userPermission);
 			console.log("fasfkalsdf")
-			res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate});
+			res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate,firstPath:'book',secondPath:'add'});
 		});
 	});
 }).post(function(req,res){
