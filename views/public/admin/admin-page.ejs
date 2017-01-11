@@ -1,0 +1,36 @@
+<%if(bookNum>1){%>
+<section class="main-right-page-num">
+    <%if(bookNum>10){if(bookPage==1 || bookPage==bookNum){%>
+    <span <%if(bookPage==1){%> class="main-right-page-num-active" <%}%>><a href="/admin/admin-book?pageTab=1">1</a></span>
+    <span><a href="/admin/admin-book?pageTab=2">2</a></span>
+    <span><a href="/admin/admin-book?pageTab=3">3</a></span>
+    <span><a href="">...</a></span>
+    <span><a href="/admin/admin-book?pageTab=<%=bookNum-2%>"><%=bookNum-2%></a></span>
+    <span><a href="/admin/admin-book?pageTab=<%=bookNum-1%>"><%=bookNum-1%></a></span>
+    <span <%if(bookNum==bookPage){%> class="page-cur"<%}%>><a href="/admin/admin-book?pageTab=<%=bookNum%>"><%=bookNum%></a></span>
+    <%}else{%>
+    <span><a href="/admin/admin-book?pageTab=1">1</a></span>
+    <%if(bookPage>3){%>
+    <span><a href="">...</a></span>
+    <%}%>
+    <%if(bookPage>=3){%>
+    <span><a href="/admin/admin-book?pageTab=<%=bookPage-1%>"><%=parseInt(bookPage)-1%></a></span>
+    <%}%>
+    <span class="page-cur"><a href="/admin/admin-book?pageTab=<%=bookPage%>"><%=bookPage%></a></span>
+    <%if(bookPage<(parseInt(bookNum)-1)){%>
+    <span><a href="/admin/admin-book?pageTab=<%=parseInt(bookPage)+1%>"><%=parseInt(bookPage)+1%></a></span>
+    <%}%>
+    <%if(bookPage<(parseInt(bookNum)-2)){%>
+    <span><a href="">...</a></span>
+    <%}%>
+    <span><a href="/admin/admin-book?pageTab=<%=bookNum%>"><%=bookNum%></a></span>
+    <%}}else{%>
+    <%for(var k=1;k<=bookNum;k++){%>
+    <span <%if(k==bookPage){%> class="main-right-page-num-active"<%}%>><a href="/admin/admin-book?pageTab=<%=k%>"><%=k%></a></span>
+    <%}%>
+    <%}%>
+    <%}%>
+    <%}else{%>
+    <tr class="t-10 center">当前暂无借阅</tr>
+    <%}%>
+</section>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-table">
+                <table>
+                    <%if(book.length>0){%>
+                    <thead>
+                    <tr>
+                        <th class="t-4 left t-left-padding">书籍名</th>
+                        <th class="t-1 center">编号</th>
+                        <th class="t-1 center ">状态</th>
+                        <th class="t-1 center">借阅人</th>
+                        <th class="t-3 center t-right-padding">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%if(book.length>10){var max=10;}else{var max=book.length;}%>
+                    <%for(var i=0;i<max;i++){%>
+                    <tr>
+                        <td class="left t-left-padding"><%= book[i].bookName %></td>
+                        <td class="center"><%= book[i].bookHopeID %></td>
+                        <% if(book[i].bookLeft==0){ %>
+                        <td class="center">已借出</td>
+                        <td class="center"><%= borrower[i] %></td>
+                        <td class="center t-right-padding main-right-table-manage">
+                            <span>
+                                <a href="/admin/bookmodify/<%= book[i].bookID %>">修改</a>
+                            </span>
+                            <span>
+                                删除
+                            </span>
+                        </td>
+                        <%}else{%>
+                        <td class="center">在架上</td>
+                        <td class="center"></td>
+                        <td class="center t-right-padding main-right-table-manage">
+                            <span>
+                                <a href="/admin/bookmodify/<%= book[i].bookID %>">修改</a>
+                            </span>
+                            <span>
+                                删除
+                            </span>
+                        </td>
+                        <%}%>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+            </section>
+                <%if(bookNum>1){%>
+                <section class="main-right-page-num">
+                    <%if(bookNum>10){if(bookPage==1 || bookPage==bookNum){%>
+                    <span <%if(bookPage==1){%> class="main-right-page-num-active" <%}%>><a href="/admin/admin-book?pageTab=1">1</a></span>
+                    <span><a href="/admin/admin-book?pageTab=2">2</a></span>
+                    <span><a href="/admin/admin-book?pageTab=3">3</a></span>
+                    <span><a href="">...</a></span>
+                    <span><a href="/admin/admin-book?pageTab=<%=bookNum-2%>"><%=bookNum-2%></a></span>
+                    <span><a href="/admin/admin-book?pageTab=<%=bookNum-1%>"><%=bookNum-1%></a></span>
+                    <span <%if(bookNum==bookPage){%> class="page-cur"<%}%>><a href="/admin/admin-book?pageTab=<%=bookNum%>"><%=bookNum%></a></span>
+                    <%}else{%>
+                    <span><a href="/admin/admin-book?pageTab=1">1</a></span>
+                    <%if(bookPage>3){%>
+                    <span><a href="">...</a></span>
+                    <%}%>
+                    <%if(bookPage>=3){%>
+                    <span><a href="/admin/admin-book?pageTab=<%=bookPage-1%>"><%=parseInt(bookPage)-1%></a></span>
+                    <%}%>
+                    <span class="page-cur"><a href="/admin/admin-book?pageTab=<%=bookPage%>"><%=bookPage%></a></span>
+                    <%if(bookPage<(parseInt(bookNum)-1)){%>
+                    <span><a href="/admin/admin-book?pageTab=<%=parseInt(bookPage)+1%>"><%=parseInt(bookPage)+1%></a></span>
+                    <%}%>
+                    <%if(bookPage<(parseInt(bookNum)-2)){%>
+                    <span><a href="">...</a></span>
+                    <%}%>
+                    <span><a href="/admin/admin-book?pageTab=<%=bookNum%>"><%=bookNum%></a></span>
+                    <%}}else{%>
+                    <%for(var k=1;k<=bookNum;k++){%>
+                    <span <%if(k==bookPage){%> class="main-right-page-num-active"<%}%>><a href="/admin/admin-book?pageTab=<%=k%>"><%=k%></a></span>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+                    <%}else{%>
+                    <table>
+                    <th class="t-10 center">当前架上尚无图书</th>
+                    </table>
+                </section>
+                    <%}%>
+            </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/user.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-form floatfix">
+                <form action="">
+                    <div class="form-group">
+                        <label>图书名</label>
+                        <input type="text" id="bookName" >
+                    </div>
+                    <div class="form-group">
+                        <label>分类</label>
+                        <div class="radio">
+                            <%for(var i=0,max=bookCate.length;i<max;i++){%>
+                            <label class="radio-inline">
+                                <input type="radio" class="" name="bookGroup" value=""><%= bookCate[i]%>
+                            </label>
+                            <%}%>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>编号</label>
+                        <input type="text" id="hopeID">
+                    </div>
+                    <div class="form-group">
+                        <label>ISBN</label>
+                        <input type="text" id="bookISBN">
+                    </div>
+                    <div class="form-group">
+                        <label>作者</label>
+                        <input type="text" id="bookAuthor">
+                    </div>
+                    <div class="form-group">
+                        <label>出版社</label>
+                        <input type="text" id="bookPress">
+                    </div>
+                    <div class="main-right-form-file form-group">
+                        <label>封面图</label>
+                        <img src="/img/img-default.png" alt="">
+                        <input type="file"  id="user-img"  value="">
+                    </div>
+                    <div class="main-right-form-button clearfix">
+                        <div class="main-right-form-button-confirm">
+                            <input type="button" value="保存" id="save">
+                        </div>
+                        <div class="main-right-form-button-cancel">重置</div>
+                    </div>
+                </form>
+            </section>
+        </section>
+</div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/addbook.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>
