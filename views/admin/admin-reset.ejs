@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-form floatfix">
+                <form >
+                    <div class="form-group">
+                        <label>新密码</label>
+                        <input type="password"  id="reset-password">
+                    </div>
+                    <div class="form-group">
+                        <label>密码确认</label>
+                        <input type="password" id="config-password">
+                    </div>
+                    <div class="main-right-form-button clearfix">
+                        <div class="main-right-form-button-confirm">
+                            <input type="button" value="保存" id="resetBtn">
+                        </div>
+                        <div class="main-right-form-button-cancel">重置</div>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/reset.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>
