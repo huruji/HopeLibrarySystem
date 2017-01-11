@@ -43,7 +43,8 @@ router.route("/login").post(function(req,res){
 	})
 }).get(function(req,res){
 	res.render("public/login");
-})
+});
+
 router.route("/").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login");
@@ -99,7 +100,7 @@ router.route("/").get(function(req,res){
 									}
 								}
 							}
-							res.render("admin-equip/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1});
+							res.render("admin-equip/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1,firstPath:'camera',secondPath:''});
 						})
 					})
 				});

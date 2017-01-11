@@ -7,7 +7,8 @@
                     href="/admin/bookadd">增加图书</a></li>
         <%}%>
         <%if(firstPath=="camera"){%>
-        <li class="main-right-nav-list-item main-right-nav-list-item-active">我的预约</li>
+        <li class="main-right-nav-list-item <%if(secondPath=="modify" || !secondPath){%> main-right-nav-list-item-active <%}%>">库存设备</li>
+        <li class="main-right-nav-list-item <%if(secondPath=="modify" || !secondPath){%> main-right-nav-list-item-active <%}%>">预约审核</li>
         <%}%>
         <%if(firstPath=="account"){%>
         <li class="main-right-nav-list-item  <%if(secondPath=="modify"){%> main-right-nav-list-item-active <%}%>"><a
