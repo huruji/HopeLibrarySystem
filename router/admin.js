@@ -181,39 +181,7 @@ router.route("/userModify/:userID").get(function(req,res){
 
 
 
-/*//管理员修改图书信息
-router.route("/bookmodify/:bookID").get(function(req,res){
-	if(!req.cookies.adminId){
-		res.redirect("/admin/login");
-		return;
-	}
-	var bookID=req.params.bookID;
-	mysql_util.DBConnection.query("SELECT * FROM hopebook,hopeadmin WHERE bookID=? AND adminID=?",[bookID,req.cookies.adminId],function(err,rows,fields){
-		if(err){
-			console.log(err);
-            return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-		var bookCate=["编程类","设计类","摄影类","其他"];
-		res.render("admin-book/bookModify1",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission});
-	});
-}).post(function(req,res){
-	console.log("aaaaa");
-	var bookID=req.params.bookID;
-	var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup,bookID];
-	console.log(DBParam);
-	mysql_util.DBConnection.query("UPDATE hopebook SET bookName=?,bookHopeID=?,bookAuthor=?,bookISBN=?,bookPress=?,bookCate=? WHERE bookID=?",DBParam,function(err,rows,fields){
-		if(err){
-			console.log(err);
-		}
-		var success={
-			message:"修改成功"
-		}
-		res.send(success);
-	});
-});*/
+
 
 
 
