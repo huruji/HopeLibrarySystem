@@ -129,7 +129,7 @@ router.route("/").get(function(req,res){
 											}
 									 	}
 									}
-								res.render("admin-book/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
+								res.render("admin-book/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,book:book,borrower:borrower,bookNum:bookNum,bookPage:1,firstPath:'book',secondPath:''});
 								}
 							})
 						})		

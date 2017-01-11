@@ -118,7 +118,7 @@ router.route("/bookadd").get(function(req,res){
 			
 			console.log("userPermis:"+userPermission);
 			console.log("fasfkalsdf")
-			res.render("admin-book/bookAdd1",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate});
+			res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate});
 		});
 	});
 }).post(function(req,res){
@@ -189,7 +189,7 @@ router.route("/admin-book").get(function(req,res){
 							}
 						}
 					}
-					res.render("admin-book/index1",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum});
+					res.render("admin-book/index",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum,firstPath:'book'});
 		 		});
 			});
     	});
