@@ -1,5 +1,7 @@
-# 厚朴工作室图书借阅、设备预约管理系统
+# 厚朴工作室图书设备管理系统
+
 前端页面构建已分离至新的仓库，查看相关文档规范、代码规范、技术栈请到[https://github.com/huruji/HopeLibrarySystemUE](https://github.com/huruji/HopeLibrarySystemUE)
+
 Beta版本0.0.1请浏览[http://98.142.130.76:3000/](http://98.142.130.76:3000/)
 
 ## Installation
