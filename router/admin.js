@@ -317,7 +317,7 @@ router.route("/reset").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
-		res.render("admin-book/reset1",{userName:userName,userImg:userImg,userPermission:userPermission});
+		res.render("admin-book/reset1",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
 	});
 }).post(function(req,res){
 	var sha=crypto.createHash("md5");
@@ -373,7 +373,7 @@ router.route("/modify").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
-		res.render("admin-book/adminModify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0]});
+		res.render("admin-book/adminModify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:'account',secondPath:'modify'});
 	})
 }).post(function(req,res){
 	mysql_util.DBConnection.query("UPDATE hopeadmin SET adminEmail=? WHERE adminID=?",[req.body.readerEmail,req.cookies.adminId],function(err,rows,fields){
