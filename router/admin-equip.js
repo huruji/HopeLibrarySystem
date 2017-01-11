@@ -58,7 +58,7 @@ router.route("/admin-equip").get(function(req,res){
 							}
 						}
 					}
-					res.render("admin-equip/index",{userName:userName,userImg:userImg,userPermission:userPermission,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:pageNum});
+					res.render("admin-equip/index",{userName:userName,userImg:userImg,userPermission:userPermission,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:pageNum,firstPath:'camera',secondPath:'modify'});
 		 		});
 			});
     	});
@@ -181,7 +181,7 @@ router.route("/check").get(function(req,res){
 			rows.forEach(function(e){
 				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
 			});
-			res.render("admin-equip/equipCheck",{equip:rows,userName:userName,userImg:userImg,userPermission:userPermission});
+			res.render("admin-equip/admin-equip-check",{equip:rows,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'check'});
 		});
 	});
 }).post(function(req,res){

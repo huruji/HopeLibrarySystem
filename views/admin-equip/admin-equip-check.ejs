@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-table">
+                <%if(equip.length>0){%>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="t-2 left t-left-padding">设备</th>
+                        <th class="t-1 center">预约人</th>
+                        <th class="t-1 center ">预约时间</th>
+                        <th class="t-4 center">附加信息</th>
+                        <th class="t-2 center t-right-padding">是否借用</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%for(var i=0,max=equip.length;i<max;i++){%>
+                    <tr>
+                        <td class="left t-left-padding"><%=equip[i].equipName%></td>
+                        <td class="center"><%=equip[i].readerName%></td>
+                        <td class="center"><%=equip[i].borrowTime%></td>
+                        <td class="center"><%=equip[i].reservationText%></td>
+                        <td class="center t-right-padding main-right-table-manage">
+                            <span data-equipID="<%=equip[i].borrowEquipID%>" class="js-check-yes">是</span>
+                            <span data-equipID="<%=equip[i].borrowEquipID%>" class="js-check-no">否</span>
+                        </td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+            <%}else{%>
+            <table>
+                <th class="t-10 center">目前尚无预约需要审核</th>
+            </table>
+            <%}%>
+            </section>
+        </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/equipCheck.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>

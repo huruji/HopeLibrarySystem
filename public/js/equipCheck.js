@@ -1,7 +1,7 @@
 /*用户借阅的函数*/
 
 (function(global,$){
-	$(".check-yes").click(function(){
+	$(".js-check-yes").click(function(){
 		var equipID=$(this).attr("data-equipid");
         console.log(equipID);
 		$.ajax({
@@ -41,7 +41,7 @@
         })
 	});
 
-    $(".check-no").click(function(){
+    $(".js-check-no").click(function(){
         var equipID=$(this).attr("data-equipID");
         $.ajax({
             dataType:"json",
