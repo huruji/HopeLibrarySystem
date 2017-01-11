@@ -7,6 +7,9 @@
       border-bottom: $aside-border;
       height:45px;
       font-family: $global-zh-light-title-font-family;
+      &:hover{
+        background: #f8f8f8;
+      }
       th{
         font-weight:bold;
       }

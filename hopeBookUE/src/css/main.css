@@ -327,6 +327,8 @@ a:hover {
 }
 .banner-avatar img {
   border-radius: 50%;
+  width: 100%;
+  height: 100%;
 }
 .banner-word {
   float: left;
@@ -412,6 +414,9 @@ a:hover {
   border-bottom: 1px solid #e1e1e1;
   height: 45px;
   font-family: "Microsoft Yahei light";
+}
+.main-right-table table tr:hover {
+  background: #f8f8f8;
 }
 .main-right-table table tr th {
   font-weight: bold;
