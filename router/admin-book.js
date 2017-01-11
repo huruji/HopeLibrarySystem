@@ -38,7 +38,7 @@ router.route("/bookmodify-img/:bookID").post(function(req,res){
 		})
 	});
 })
-router.route("/bookmodify/:bookID").get(function(req,res){
+router.route("/book-modify/:bookID").get(function(req,res){
 	if(!req.cookies.adminId){
 		res.redirect("/admin/login");
 		return;
@@ -54,7 +54,7 @@ router.route("/bookmodify/:bookID").get(function(req,res){
 		var userImg=rows[0].adminImgSrc;
 		var userPermission=rows[0].adminPermissions;
 		var bookCate=["编程类","设计类","摄影类","网管类","人文类","软件教程类","博雅教育类","其他"];
-		res.render("admin-book/bookModify1",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission});
+		res.render("admin-book/admin-book-modify",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'book',secondPath:'modify'});
 	});
 }).post(function(req,res){
 	console.log("aaaaa");
