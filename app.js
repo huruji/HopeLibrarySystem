@@ -12,9 +12,9 @@ const routerEquip = require("./router/equip");
 const routerAdmin = require("./router/admin");
 const routerAdminBook = require("./router/admin-book");
 const routerAdminEquip = require("./router/admin-equip");
+const routerAdminSuper = require("./router/admin-super");
 const emailSchedule = require("./router/email-schedule");
 
-const checkLogin = require('./utils/check-login');
 
 const app = express();
 
@@ -47,7 +47,7 @@ app.use("/user",routerUser);
 app.use("/book",routerBook);
 app.use("/equip",routerEquip);
 /*app.use("/user", checkLogin(req, res, next, ['adminSign'], '/admin/login'));*/
-app.use("/admin",routerAdmin,routerAdminBook,routerAdminEquip);
+app.use("/admin",routerAdmin,routerAdminSuper,routerAdminBook,routerAdminEquip);
 
 app.get("/",function(req,res){
 	res.render("public/front/index")
