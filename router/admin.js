@@ -381,7 +381,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 					return;
 				}
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup});
+				res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:"user",secondPath:''});
 			});
 
 		}else if(userType == "admin"){
@@ -391,7 +391,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 					console.log(err);
 					return;
 				}
-				res.render("admin/adminModifyuser1",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0]});
+				res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
 			});
 		}
 	});

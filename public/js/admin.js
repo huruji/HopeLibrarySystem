@@ -1,8 +1,8 @@
 /*删除用户的函数*/
 (function(global,$){
-	$(".drop-user").click(function(){
+	$(".js-drop-user").click(function(){
 
-		var dropData=$(this).attr("user-data");
+		var dropData=$(this).attr("data-user-data");
         console.log(111);
         layer.confirm("删除用户将会删除该用户的所有信息",{
             skin: 'layui-layer-molv',

@@ -1,5 +1,13 @@
 <nav class="main-right-nav">
     <ul class="main-right-nav-list clearfix ">
+        <%if(firstPath=="user"){%>
+        <li class="main-right-nav-list-item <%if(secondPath=="modify" || !secondPath){%> main-right-nav-list-item-active <%}%>">
+            <a href="/admin/admin-book">当前用户</a>
+        </li>
+        <li class="main-right-nav-list-item <%if(secondPath=="add"){%> main-right-nav-list-item-active <%}%>">
+            <a href="/admin/bookadd">增加用户</a>
+        </li>
+        <%}%>
         <%if(firstPath=="book"){%>
         <li class="main-right-nav-list-item <%if(secondPath=="modify" || !secondPath){%> main-right-nav-list-item-active <%}%>">
             <a href="/admin/admin-book">库存图书</a>

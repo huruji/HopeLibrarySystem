@@ -42,10 +42,10 @@
                         <%if(user[i].readerGroup){%>
                         <td class="center t-right-padding main-right-table-manage">
                             <span>
-                                <a href="/admin/adminmodifyuser/user<%=user[i].readerID%>" class="modify-user" user-data="user<%=user[i].readerID%>">修改</a>
+                                <a href="/admin/adminmodifyuser/user<%=user[i].readerID%>">修改</a>
                             </span>
                             <span>
-                                <a href="javascript:" class="drop-user" user-data="user<%=user[i].readerID%>">删除</a>
+                                <a href="javascript:" class="js-drop-user" data-user-data="user<%=user[i].readerID%>">删除</a>
                             </span>
                         </td>
                         <%}else{%>
@@ -73,7 +73,7 @@
                 <%}else{%>
         <table>
             <thead>
-            <th class="t-10 center">当前暂无成员/th>
+            <th class="t-10 center">当前暂无成员</th>
             </thead>
         </table>
         <%}%>
@@ -81,7 +81,7 @@
     </div>
         </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/addbook.js"></script>
+<script src="/js/admin.js"></script>
 <script src="/js/public/logout.js"></script>
 </body>
 </html>
