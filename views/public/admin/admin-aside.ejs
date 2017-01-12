@@ -2,7 +2,7 @@
     <ul class="aside-list">
         <%if(userPermission == 'super'){%>
         <li class="aside-list-item <%if(firstPath == 'user'){%> aside-list-item-active <%}%>">
-            <a href="">用户管理</a>
+            <a href="/admin/admin-user">用户管理</a>
         </li>
         <%}%>
         <%if(userPermission == 'super' || userPermission == 'book'){%>

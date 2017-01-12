@@ -266,7 +266,7 @@ router.route("/admin-user").get(function(req,res){
 				var userStart=(userPage-1)*10;
 				var userEnd=userPage*10;
 				var user=adminUser.concat(reader).splice(userStart,userEnd);
-				res.render("admin/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:userPage});
+				res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:userPage,firstPath:'user',secondPath:'modify'});
 		});
 	});
 	});
