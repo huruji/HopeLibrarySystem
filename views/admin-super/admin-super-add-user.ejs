@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-form floatfix">
+                <form action="">
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input type="text" id="readerName">
+                    </div>
+                    <div class="form-group">
+                        <label>权限</label>
+                        <div class="radio">
+                            <label class="radio-inline">
+                                <input type="radio" name="permission" permission="admin-super">
+                                超级管理员
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="permission" permission="admin-book">
+                                图书管理员
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="permission" permission="admin-camera">
+                                设备管理员
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="permission" permission="user">
+                                普通用户
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group hope-group undisplay">
+                        <label>厚朴组</label>
+                        <div class="radio">
+                            <label class="radio-inline">
+                                <input type="radio" name="hopeGroup">
+                                编程组
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="hopeGroup">
+                                前端组
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="hopeGroup" >
+                                设计组
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="hopeGroup">
+                                数码组
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="hopeGroup">
+                                网管组
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">邮箱：</label>
+                        <input type="text" value="" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="">密码：</label>
+                        <input type="password" value="" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="">确认密码：</label>
+                        <input type="password" value="" id="confirmPassword">
+                    </div>
+                    <div class="main-right-form-button clearfix">
+                        <div class="main-right-form-button-confirm">
+                            <input type="button" value="保存" id="save">
+                        </div>
+                        <div class="main-right-form-button-cancel">重置</div>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/adduser.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>

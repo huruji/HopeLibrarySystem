@@ -199,7 +199,7 @@ router.route("/useradd").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
-		res.render("admin/userAdd1",{userName:userName,userImg:userImg,userPermission:userPermission});
+		res.render("admin-super/admin-super-add-user",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'user',secondPath:'add'});
 	})
 }).post(function(req,res){
 	var sha=crypto.createHash("md5");

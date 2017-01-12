@@ -1,4 +1,4 @@
-/*管理员增加书籍的函数*/
+/*管理员增加用户的函数*/
 (function(global,$){
     $(":radio[name=permission]").click(function(){
         if($(this).attr("permission")=="user"){
