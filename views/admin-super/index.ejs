@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-table">
+                <%if(user.length>0){%>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="t-2 left t-left-padding">用户名</th>
+                        <th class="t-3 center">厚朴组</th>
+                        <th class="t-2 center">角色</th>
+                        <th class="t-3 center t-right-padding">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%if(user.length>10){var max=10}else{var max=user.length}%>
+                    <%for(var i=0;i<max;i++){%>
+                    <tr>
+                        <td class="left t-left-padding"><%=user[i].adminName%><%=user[i].readerName%></td>
+                        <%if(user[i].readerGroup){%>
+                        <td class="center"><%=user[i].readerGroup%></td>
+                        <%}else{%>
+                        <td class="center"></td>
+                        <%}%>
+                        <%if(user[i].adminPermissions=="super"){%>
+                        <td class="center">超级管理员</td>
+                        <%}else if(user[i].adminPermissions=="camera"){%>
+                        <td class="center">设备管理员</td>
+                        <%}else if(user[i].adminPermissions=="book"){%>
+                        <td class="center">图书管理员</td>
+                        <%}else{%>
+                        <td class="center">普通用户</td>
+                        <%}%>
+                        <%if(user[i].readerGroup){%>
+                        <td class="center t-right-padding main-right-table-manage">
+                            <span>
+                                <a href="/admin/adminmodifyuser/user<%=user[i].readerID%>" class="modify-user" user-data="user<%=user[i].readerID%>">修改</a>
+                            </span>
+                            <span>
+                                <a href="javascript:" class="drop-user" user-data="user<%=user[i].readerID%>">删除</a>
+                            </span>
+                        </td>
+                        <%}else{%>
+                        <td class="center t-right-padding main-right-table-manage">
+                            <span>
+                                <a href="/admin/adminmodifyuser/admin<%=user[i].adminID%>" class="modify-user" user-data="admin<%=user[i].adminID%>">修改</a>
+                            </span>
+                            <span>
+                                <a href="javascript:" class="drop-user" user-data="admin<%=user[i].adminID%>">删除</a>
+                            </span>
+                        </td>
+                        <%}%>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+            </section>
+            <%if(userPageNum>1){%>
+            <section class="main-right-page-num">
+                <%for(var k=1;k<=userPageNum;k++){%>
+                <span <%if(k==userPage){%>class="main-right-page-num-active" <%}%>><a href="/admin/admin-user?pageTab=<%=k%>"><%=k%></a></span>
+                <%}%>
+            </section>
+                <%}%>
+                <%}else{%>
+        <table>
+            <thead>
+            <th class="t-10 center">当前暂无成员/th>
+            </thead>
+        </table>
+        <%}%>
+        </section>
+    </div>
+        </section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/addbook.js"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>

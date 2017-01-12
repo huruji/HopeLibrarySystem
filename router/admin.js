@@ -70,7 +70,7 @@ router.route("/").get(function(req,res){
 						var userPageNum=Math.ceil((adminUser.length+reader.length)/10);
 						console.log(userPageNum);
 						var user=adminUser.concat(reader);
-						res.render("admin/index1",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:1});
+						res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:1,firstPath:"user",secondPath:''});
 					});
 				});
 			}else if(rows[0].adminPermissions=="camera"){
