@@ -8,11 +8,12 @@ const formidable = require("formidable");
 const router=express.Router();
 const jsonParser=bodyParser.json();
 
+const setSession = require('./../utils/set-session');
+const md5Pass = require('./../utils/md5-pass');
+
+// 用户登录
 router.route("/login").post(function(req,res){
-	console.log("hhhh");
-	var sha=crypto.createHash("md5");
-	sha.update(req.body.password);
-	var password_md5=sha.digest("hex");
+	var password_md5=md5Pass(req.body.password);
 	mysql_util.DBConnection.query("SELECT readerID,readerName,readerPassword FROM hopereader WHERE readerName=? AND readerPassword=?",[req.body.username,password_md5],function(err,rows,fields){
 		if(err){
 			var error={
@@ -28,9 +29,6 @@ router.route("/login").post(function(req,res){
 				};
 				res.send(error)
 			}else{
-				/*var sha=crypto.createHash("md5");
-				sha.update(rows[0].readerID.toString());
-				var userId=sha.digest("hex");*/
 				console.log(rows[0].readerID);
 				res.cookie("userId",rows[0].readerID,{
 					maxAge: 30 * 60 * 1000,
@@ -42,24 +40,77 @@ router.route("/login").post(function(req,res){
 					message:"成功",
 					userId:rows[0].readerID
 				}
+                setSession(req,{userID: rows[0].readerID,userSign: true});
 				res.send(success);
 			}
 		}
 	})
-
 }).get(function(req,res){
+    if(req.session.userSign) {
+        console.log("req.session:" + req.session);
+        res.redirect('/user');
+        return;
+    }
 	res.render("public/login");
 })
+// 用户首页界面
+router.route("/").get(function(req,res){
+    if(!req.session.userSign){
+        res.redirect("/user/login");
+    }else{
+        var userId=req.session.userID;
+        mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",userId,function(err,rows,fields){
+            if(err){
+                console.log(err)
+            }else{
+                var userImg=rows[0].userImgSrc;
+                var userName=rows[0].readerName;
+                var userPermission="user";
+                var mysqlQuery=["SELECT bookName,borrowTime,bookID,borrowID,returnBefore",
+                    " FROM hopebook,hopereader,bookborrow",
+                    " WHERE hopebook.bookID=bookborrow.borrowBookID",
+                    " AND hopereader.readerID=bookborrow.borrowUserID",
+                    " AND returnWhe=0",
+                    " AND readerID=?"].join("");
+                mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    for(var i=0,max=rows.length;i<max;i++){
+                        rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
+                        rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
+                    }
+                    setSession(req,{userSign:true});
+                    res.render("user/index",{book:rows,userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'book'});
+                })
+            }
+        })
 
+    }
+}).post(function(req,res){
+    if(!req.session.userSign){
+        res.redirect("/user/login");
+    }else{
+        var bookID=req.body.bookID,
+            borrowID=req.body.borrowID;
+        mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=bookLeft+1 WHERE bookID=?;UPDATE bookborrow SET returnWhe=1 WHERE borrowID=?",[bookID,borrowID],function(err,rows,fields){
+            if(err){
+                console.log(err);
+                return;
+            }
+            var success={
+                message:"归还成功"
+            };
+            res.send(success);
+        })
+    }
+})
 
+// 用户重置密码
 router.route("/reset").post(function(req,res){
-	var sha=crypto.createHash("md5");
-	sha.update(req.body.password);
-	var password_md5=sha.digest("hex");
-	console.log(req.headers.cookie);
-	var userId=req.cookies.userId;
-	console.log(userId);
-	console.log("cccc");
+	var password_md5 = md5Pass(req.body.password);
+	var userId=req.session.userID;
 	mysql_util.DBConnection.query("UPDATE hopereader SET readerPassword=? WHERE readerID=?;",[password_md5,userId],function(err,rows,fields){
 		if(err){
 			var error={
@@ -77,19 +128,19 @@ router.route("/reset").post(function(req,res){
 		}
 	})
 }).get(function(req,res){
-	if(!req.cookies.userId){
-		console.log("bbb");
+	if(!req.session.userSign){
 		res.redirect("/user/login");
 	}else{
-		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
+		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",req.session.userID,function(err,rows,fields){
 			if(err){
-				console.log(err)
-			}else{
+				console.log(err);
+				return;
+			}
 				var userImg=rows[0].userImgSrc;
 				var userName=rows[0].readerName;
 				var userPermission="user";
+                setSession(req,{userSign: true});
 	            res.render("user/user-reset",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
-            }
 		})
 	}
 });
@@ -107,62 +158,10 @@ router.route("/borrow").post(function(req,res){
 
 
 
-router.route("/").get(function(req,res){
-	if(!req.cookies.userId){
-		res.redirect("/user/login");
-	}else{
-		var userId=req.cookies.userId;
-		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",userId,function(err,rows,fields){
-			if(err){
-				console.log(err)
-			}else{
-				var userImg=rows[0].userImgSrc;
-				var userName=rows[0].readerName;
-				var userPermission="user";
-				var mysqlQuery=["SELECT bookName,borrowTime,bookID,borrowID,returnBefore",
-				                " FROM hopebook,hopereader,bookborrow",
-				                " WHERE hopebook.bookID=bookborrow.borrowBookID",
-				                " AND hopereader.readerID=bookborrow.borrowUserID",
-				                " AND returnWhe=0",
-				                " AND readerID=?"].join("");
-				mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
-			if(err){
-				console.log(err);
-			}else{
-				for(var i=0,max=rows.length;i<max;i++){
-					rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
-					rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
-				}
-				res.render("user/index",{book:rows,userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'book'});
-			}
-		})
-			}
-		})
-		
-	}
-}).post(function(req,res){
-	if(!req.cookies.userId){
-		res.redirect("/user/login");
-	}else{
-		var bookID=req.body.bookID,
-		    borrowID=req.body.borrowID;
-		mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=bookLeft+1 WHERE bookID=?;UPDATE bookborrow SET returnWhe=1 WHERE borrowID=?",[bookID,borrowID],function(err,rows,fields){
-			if(err){
-				console.log(err);
-			}else{
-				var success={
-					message:"归还成功"
-				};
-				res.send(success);
-			}
-		})
-	}
-})
 
 
-
+// 用户更换头像
 router.route("/modify-img").post(function(req,res){
-	console.log(req.cookies.userId);
 	var form = new formidable.IncomingForm();
 	form.encoding = "utf-8";
 	form.uploadDir =path.join("./","public/img/user");
@@ -189,31 +188,36 @@ router.route("/modify-img").post(function(req,res){
 			res.send(success);
 		})
 	});
-})
+});
+//用户更换信息
 router.route("/modify").get(function(req,res){
-	if(!req.cookies.userId){
+	if(!req.session.sign){
 		res.redirect("/user/login");
 	}else{
 		mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
 			if(err){
-				console.log(err)
-			}else{
+				console.log(err);
+				return;
+			}
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
 				var userName=rows[0].readerName;
 				var userImg=rows[0].userImgSrc;
 				var userPermission="user";
+				res.setSession(req, {userSign: true});
 				res.render("user/user-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:'account',secondPath:'modify'});
-			}
 		})
 	}
 }).post(function(req,res){
+    if(!req.session.userSign) {
+        res.redirect('/user/login');
+        return;
+    }
 	console.log("post modify");
-
 	var mysqlQuery=["UPDATE hopereader SET readerSex=?,",
 	                "studentNumber=?,readerMajor=?,",
 	                "readerPhone=?,readerEmail=?,readerGroup=?",
 	                " WHERE readerID=?"].join("");
-	mysql_util.DBConnection.query(mysqlQuery,[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.cookies.userId],function(err,rows,fields){
+	mysql_util.DBConnection.query(mysqlQuery,[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.session.ID],function(err,rows,fields){
 		if(err){
 			console.log(err);
 		}else{
@@ -226,18 +230,10 @@ router.route("/modify").get(function(req,res){
 	})
 })
 
-function cookieToJson(cookieValue){
-	var cookieEqu=cookieValue.split(";");
-	var cookieJson={};
-	for (var i=0;i<cookieEqu.length;i++){
-		var keyValue=cookieEqu[i].split("=");
-		cookieJson[keyValue[0]]=keyValue[1];
-	}
-	return cookieJson
-}
 
+// 用户预约设备界面
 router.route("/reservation").get(function(req,res){
-	if(!req.cookies.userId){
+	if(!req.session.userSign){
 		res.redirect("/user/login");
 		return;
 	}
@@ -262,6 +258,7 @@ router.route("/reservation").get(function(req,res){
 				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
 				e.returnBefore = e.returnBefore.getFullYear()+"-"+e.returnBefore.getMonth()+"-"+e.returnBefore.getDate();
 			});
+			setSession(req, {userSign:true})
 			res.render("user/reservation",{userName:userName,userImg:userImg,userPermission:userPermission,equip:rows,firstPath:'camera'});
 		})
 	})

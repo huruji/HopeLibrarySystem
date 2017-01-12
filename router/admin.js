@@ -8,10 +8,12 @@ const formidable = require("formidable");
 const url=require("url");
 const router=express.Router();
 
+const setSession = require('./../utils/set-session');
+const md5Pass = require('./../utils/md5-pass');
+
+// 管理员登录页面
 router.route("/login").post(function(req,res){
-	var sha=crypto.createHash("md5");
-	sha.update(req.body.password);
-	var password_md5=sha.digest("hex");
+	var password_md5=md5Pass(req.body.password);
 	mysql_util.DBConnection.query("SELECT adminID,adminName,adminPassword FROM hopeadmin WHERE adminName=? AND adminPassword=?",[req.body.username,password_md5],function(err,rows,fields){
 		if(err){
 			var error={
@@ -37,21 +39,24 @@ router.route("/login").post(function(req,res){
 					message:"成功",
 					userId:rows[0].adminID
 				}
+                setSession(req,{adminID:rows[0].adminID,adminSign: true});
 				res.send(success);
 			}
 		}
 	})
 }).get(function(req,res){
+    if(req.session.adminSign){
+        res.redirect('/admin');
+        return;
+    }
 	res.render("public/login");
 });
-
+//超级管理员管理用户页面
 router.route("/").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
-		console.log("no cookie");
 	}else{
-		var adminId=req.cookies.adminId;
-		console.log("have cookie:"+req.cookies.adminId);
+		var adminId=req.session.adminID;
 		mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",adminId,function(err,rows,fields){
 			var admin=rows[0];
 			if(rows[0].adminPermissions=="super"){
@@ -70,6 +75,7 @@ router.route("/").get(function(req,res){
 						var userPageNum=Math.ceil((adminUser.length+reader.length)/10);
 						console.log(userPageNum);
 						var user=adminUser.concat(reader);
+						setSession(req,{adminSign: true});
 						res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:1,firstPath:"user",secondPath:''});
 					});
 				});
@@ -100,6 +106,7 @@ router.route("/").get(function(req,res){
 									}
 								}
 							}
+                            setSession(req,{adminSign: true});
 							res.render("admin-equip/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1,firstPath:'camera',secondPath:''});
 						})
 					})
@@ -130,6 +137,7 @@ router.route("/").get(function(req,res){
 											}
 									 	}
 									}
+									setSession(req,{adminSign: true});
 								res.render("admin-book/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,book:book,borrower:borrower,bookNum:bookNum,bookPage:1,firstPath:'book',secondPath:''});
 								}
 							})
@@ -141,9 +149,9 @@ router.route("/").get(function(req,res){
 	}
 })
 
-
+// 超级管理员修改用户界面
 router.route("/userModify/:userID").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.userID){
 		res.redirect("/admin/login")
 	}else{
 		var userID=req.params.userID;
@@ -152,6 +160,7 @@ router.route("/userModify/:userID").get(function(req,res){
 				console.log(err);
 			}else{
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+                setSession(req,{adminSign: true});
 				res.render("admin/adminModifyuser",{user:rows[0],hopeGroup:hopeGroup});
 			}
 		})
@@ -185,9 +194,9 @@ router.route("/userModify/:userID").get(function(req,res){
 
 
 
-
+// 超级管理员增加用户界面
 router.route("/useradd").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
@@ -199,6 +208,7 @@ router.route("/useradd").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
+        setSession(req,{adminSign: true});
 		res.render("admin-super/admin-super-add-user",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'user',secondPath:'add'});
 	})
 }).post(function(req,res){
@@ -231,7 +241,6 @@ router.route("/useradd").get(function(req,res){
 			res.send(success);
 		}
 	})
-
 })
 
 /*用户分页*/
@@ -266,6 +275,7 @@ router.route("/admin-user").get(function(req,res){
 				var userStart=(userPage-1)*10;
 				var userEnd=userPage*10;
 				var user=adminUser.concat(reader).splice(userStart,userEnd);
+                setSession(req,{adminSign: true});
 				res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:userPage,firstPath:'user',secondPath:'modify'});
 		});
 	});
@@ -273,8 +283,9 @@ router.route("/admin-user").get(function(req,res){
 })
 
 
+// 管理员修改密码界面
 router.route("/reset").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
@@ -286,12 +297,11 @@ router.route("/reset").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
+        setSession(req,{adminSign: true});
 		res.render("admin/admin-reset",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
 	});
 }).post(function(req,res){
-	var sha=crypto.createHash("md5");
-	sha.update(req.body.password);
-	var password_md5=sha.digest("hex");
+	var password_md5 = md5Pass(req.body.password);
 	mysql_util.DBConnection.query("UPDATE hopeadmin SET adminPassword=? WHERE adminID=?",[password_md5,req.cookies.adminId],function(err,rows,fields){
 		if(err){
 			console.log(err);
@@ -303,8 +313,9 @@ router.route("/reset").get(function(req,res){
 		res.send(success);
 	});
 });
+//管理员修改头像页面
 router.route("/modify-img").post(function(req,res){
-	console.log(req.cookies.adminId);
+	console.log(req.session.adminID);
 	var form = new formidable.IncomingForm();
 	form.encoding = "utf-8";
 	form.uploadDir =path.join("./","public/img/admin");
@@ -334,7 +345,7 @@ router.route("/modify-img").post(function(req,res){
 })
 //管理员修改信息
 router.route("/modify").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
@@ -342,6 +353,7 @@ router.route("/modify").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
+        setSession(req,{adminSign: true});
 		res.render("admin/admin-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:'account',secondPath:'modify'});
 	})
 }).post(function(req,res){
@@ -357,8 +369,9 @@ router.route("/modify").get(function(req,res){
 	});
 });
 
+// 超级管理员修改用户信息页面
 router.route("/adminmodifyuser/:userID").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 	}
 	var userType=req.params.userID.replace(/\d/g,""),
@@ -381,6 +394,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 					return;
 				}
 				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+                setSession(req,{adminSign: true});
 				res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:"user",secondPath:''});
 			});
 
@@ -391,6 +405,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 					console.log(err);
 					return;
 				}
+                setSession(req,{adminSign: true});
 				res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
 			});
 		}
