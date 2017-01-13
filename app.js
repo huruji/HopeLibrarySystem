@@ -27,22 +27,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(cookieParser());
 
-/*app.use(function(req, res, next) {
-    var url = req.originalUrl;
-    console.log('url' + url);
-    if(url !=='/user/login' || url !== '/admin/user'){
-        if(!req.session.sign) {
-            res.redirect('/user/login');
-            return;
-        } else {
-            res.session.sign = true;
-            next();
-        }
-    }else{
-        next();
-    }
-});*/
-/*app.use("/user", checkLogin(req, res, next, ['userSign'], '/user/login'));*/
+
 app.use("/user",routerUser);
 app.use("/book",routerBook);
 app.use("/equip",routerEquip);
