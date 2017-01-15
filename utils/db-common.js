@@ -70,6 +70,7 @@ const operate = (connection, table) => {
 		const action = query + setKeyArray.join() + ' WHERE ' + searchArray.join();
 		connection.query(action, callback);
 	}
+	return this;
 }
 
 module.exports = operate;

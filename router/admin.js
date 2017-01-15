@@ -10,6 +10,9 @@ const router=express.Router();
 
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
+const hopeDB = require('./../utils/hopeDB.js');
+const adminDB = hopeDB.adminDB;
+const userDB = hopeDB.userDB;
 
 // 管理员登录页面
 router.route("/login").post(function(req,res){
@@ -169,16 +172,19 @@ router.route("/reset").get(function(req,res){
 	});
 }).post(function(req,res){
 	var password_md5 = md5Pass(req.body.password);
-	mysql_util.DBConnection.query("UPDATE hopeadmin SET adminPassword=? WHERE adminID=?",[password_md5,req.cookies.adminId],function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var success={
-			message:"修改成功",
-		};
-		res.send(success);
-	});
+	// mysql_util.DBConnection.query("UPDATE hopeadmin SET adminPassword=? WHERE adminID=?",[password_md5,req.cookies.adminId],function(err,rows,fields){
+	// 	if(err){
+	// 		console.log(err);
+	// 		return;
+	// 	}
+	// 	var success={
+	// 		message:"修改成功",
+	// 	};
+		adminDB.resetPassword(req.session.adminID,password_md5,(message) => {
+		    res.send(message);
+        })
+/*		res.send(success);*/
+	// });
 });
 //管理员修改头像页面
 router.route("/modify-img").post(function(req,res){
