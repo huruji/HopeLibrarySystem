@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/db-common.js" afterPath="$PROJECT_DIR$/utils/db-common.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -383,8 +380,8 @@
       <file leaf-file-name="db-common.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/db-common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+            <state relative-caret-position="260">
+              <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -648,7 +645,7 @@
       <workItem from="1484373540387" duration="599000" />
       <workItem from="1484408560735" duration="1890000" />
       <workItem from="1484449875784" duration="2609000" />
-      <workItem from="1484454806752" duration="162000" />
+      <workItem from="1484454806752" duration="354000" />
     </task>
     <task id="LOCAL-00001" summary="更新图书管理员页面">
       <created>1484112874589</created>
@@ -797,11 +794,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484239415798</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="webstorm ES6环境配置以适应新的代码:art:">
+      <created>1484455001034</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1484455001034</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36546000" />
+    <option name="totallyTimeSpent" value="36738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -870,7 +874,8 @@
     <MESSAGE value="npm下载express-session模块:art:" />
     <MESSAGE value="验证从cookie改为session:art:" />
     <MESSAGE value="将超级管理员功能分离出来单独成为一个路由文件处理:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="将超级管理员功能分离出来单独成为一个路由文件处理:art:" />
+    <MESSAGE value="webstorm ES6环境配置以适应新的代码:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="webstorm ES6环境配置以适应新的代码:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1508,8 +1513,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/db-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        <state relative-caret-position="260">
+          <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
           <folding />
         </state>
       </provider>
