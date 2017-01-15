@@ -7,7 +7,7 @@ const operate = (connection, table) => {
 		const action = 'DROP TABLE ' + table;
 		connection.query(action, callback);
 	};
-	this.insertItem = (dataJson, callback) => {
+	this.insertItem = (dataJson, callback)  => {
 		const query = 'INSERT ' + table + ' SET ';
 		let keyArray = [];
 		for(let key in dataJson) {
