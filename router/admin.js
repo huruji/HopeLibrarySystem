@@ -156,7 +156,7 @@ router.route("/reset").get(function(req,res){
 		res.redirect("/admin/login");
 		return;
 	}
-	mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
+	mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.session.adminID,function(err,rows,fields){
 		if(err){
 			console.log(err);
 			return;

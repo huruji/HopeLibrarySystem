@@ -191,9 +191,10 @@ router.route("/modify-img").post(function(req,res){
 });
 //用户更换信息
 router.route("/modify").get(function(req,res){
-	if(!req.session.sign){
+	if(!req.session.userSign){
 		res.redirect("/user/login");
 	}else{
+		console.log('user modify');
 		mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
 			if(err){
 				console.log(err);
@@ -203,7 +204,7 @@ router.route("/modify").get(function(req,res){
 				var userName=rows[0].readerName;
 				var userImg=rows[0].userImgSrc;
 				var userPermission="user";
-				res.setSession(req, {userSign: true});
+				setSession(req, {userSign: true});
 				res.render("user/user-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:'account',secondPath:'modify'});
 		})
 	}
