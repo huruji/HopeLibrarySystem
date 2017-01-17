@@ -20,23 +20,25 @@ router.route("/useradd").get(function(req,res){
         res.redirect("/admin/login");
         return;
     }
-    mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-        if(err){
-            console.log(err);
-            return;
-        }
+    adminDB.selectMessage(req.session.adminID, (rows) => {
         var userName=rows[0].adminName,
             userImg=rows[0].adminImgSrc,
             userPermission=rows[0].adminPermissions;
         setSession(req,{adminSign: true});
         res.render("admin-super/admin-super-add-user",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'user',secondPath:'add'});
-    })
+    });
 }).post(function(req,res){
     var password_md5=md5Pass(req.body.password);
-    console.log("req.body.permission"+req.body.permission);
     if(req.body.permission=="user"){
-        var queryParams=[req.body.readerName,req.body.readerEmail,password_md5,req.body.hopeGroup];
-        var mysqlQuery="INSERT hopereader(readerName,readerEmail,readerPassword,readerGroup) VALUES(?,?,?,?)";
+        let setDataJson = {
+            readerName:req.body.readerName,
+            readerEmail:req.body.readerEmail,
+            readerPassword:password_md5,
+            readerGroup:req.body.hopeGroup
+        }
+        userDB.addUser(setDataJson, (message) => {
+            res.send(message);
+        })
     }else{
         if(req.body.permission.indexOf("super")>=0){
             var permission="super";
