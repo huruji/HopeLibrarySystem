@@ -165,6 +165,24 @@ const bookDB ={
             }
             callback(rows);
         });
+    },
+    orderItems: (columnName, start, end, callback) => {
+        bookOperate.orderItems(columnName, start, end, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        })
+    },
+    countItems: (columnName, callback) => {
+        bookOperate.countItems(columnName, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback(rows);
+        })
     }
 }
 const equipDB ={

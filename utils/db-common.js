@@ -93,6 +93,17 @@ operate.prototype.showColumns = function(columnName, callback) {
 		action = 'SHOW COLUMNS FROM ' + this.table;
 	}
 	this.connection.query(action, callback)
+};
+operate.prototype.orderItems = function(orderColumn, start, end, callback) {
+    let action = 'SELECT * FROM ' + this.table + ' ORDER BY ' + orderColumn;
+    if(start && end) {
+        action = action + ' LIMIT ' + start + ',' + end;
+    }
+    this.connection.query(action, callback);
+};
+operate.prototype.countItems =function(columnName, callback) {
+    const action = 'SELECT COUNT(*) AS ' + columnName +' FROM ' + this.table;
+    this.connection.query(action, callback);
 }
 
 module.exports.operate = operate;

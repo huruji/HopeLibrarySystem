@@ -108,102 +108,76 @@ router.route("/bookadd").get(function(req,res){
         let userName=rows[0].adminName,
             userImg=rows[0].adminImgSrc,
             userPermission=rows[0].adminPermissions;
-
-	})
-	mysql_util.DBConnection.query("SELECT adminName,adminImgSrc,adminPermissions FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-
-		mysql_util.DBConnection.query("SHOW COLUMNS FROM hopebook LIKE 'bookCate'",function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var bookCate=rows[0].Type.replace(/enum\(|\'|\)/g,"").split(",");
-			
-			console.log("userPermis:"+userPermission);
-			console.log("fasfkalsdf")
-			res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate,firstPath:'book',secondPath:'add'});
+        bookDB.showColumns('bookCate', (rows) => {
+            let bookCate=rows[0].Type.replace(/enum\(|\'|\)/g,"").split(",");
+            res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate,firstPath:'book',secondPath:'add'});
 		});
 	});
 }).post(function(req,res){
+	let setDataJson;
 	if(!req.body.bookImgSrc || req.body.booImgSrc.length<1){
-		var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup];
-		var mysqlQuery="INSERT hopebook(bookName,bookHopeID,bookAuthor,bookISBN,bookPress,bookCate) VALUES(?,?,?,?,?,?)"
-	}else{
-		var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup,req.body.bookImgSrc];
-		var mysqlQuery="INSERT hopebook(bookName,bookHopeID,bookAuthor,bookISBN,bookPress,bookCate,bookImgSrc) VALUES(?,?,?,?,?,?,?)";
-	}
-	console.log(DBParam);
-	mysql_util.DBConnection.query(mysqlQuery,DBParam,function(err,rows,fields){
-		if(err){
-			console.log(err);
-		}else{
-			var success={
-				message:"增加成功"
-			}
-			res.send(success);
+		 setDataJson = {
+            bookName: req.body.bookName,
+            bookHopeID: req.body.hopeID,
+            bookAuthor: req.body.bookAuthor,
+            bookISBN: req.body.bookISBN,
+            bookPress: req.body.bookPress,
+            bookCate: req.body.bookGroup
 		}
-	})
+	}else{
+         setDataJson = {
+            bookName: req.body.bookName,
+            bookHopeID: req.body.hopeID,
+            bookAuthor: req.body.bookAuthor,
+            bookISBN: req.body.bookISBN,
+            bookPress: req.body.bookPress,
+            bookCate: req.body.bookGroup,
+            bookImgSrc: req.body.bookImgSrc
+        }
+	}
+	bookDB.addItem(setDataJson, (message) => {
+		res.send(message);
+	});
 });
 /*图书管理员图书分页*/
 router.route("/admin-book").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
-	var pageNum=req.query.pageTab;
+	let pageNum=req.query.pageTab;
 	if(!pageNum){
 		pageNum=1;
 	}
-	mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-		console.log("userPermis:"+userPermission);
-		var bookStart=(pageNum-1)*10;
-		var bookEnd=pageNum*10;
-		mysql_util.DBConnection.query("SELECT * FROM hopebook ORDER BY bookLeft LIMIT ?,?",[bookStart,bookEnd],function(err,rows,fields){
-		    if(err){
-		    	console.log(err);
-		    	return;
-		    }
-            var book=rows;
-			mysql_util.DBConnection.query("SELECT COUNT(*) AS bookNum FROM hopebook",function(err,rows,fields){
-				if(err){
-					console.log(err);
-					return;
-				}
-				var bookNum=Math.ceil(rows[0].bookNum/10);
-				console.log("bookNum:"+bookNum)
-				mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopereader,bookborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
-					if(err){
-						console.log(err);
-						return;
-					}
-					var borrower=[];
-					for(var i=0,max=book.length;i<max;i++){
-						borrower[i]=0;
-						for(var j=0,max1=rows.length;j<max1;j++){
-							if(rows[j].borrowBookID==book[i].bookID){
-									borrower[i]=rows[j].readerName;
-							}
-						}
-					}
-					res.render("admin-book/index",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum,firstPath:'book',secondPath:'modify'});
-		 		});
-			});
-    	});
-	});
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName = rows[0].adminName,
+            userImg = rows[0].adminImgSrc,
+            userPermission = rows[0].adminPermissions;
+        let bookStart=(pageNum-1)*10;
+        let bookEnd=pageNum*10;
+        bookDB.orderItems(bookLeft, bookStart, bookEnd, (rows) => {
+            let book=rows;
+            bookDB.countItems('bookNum', (rows) => {
+                let bookNum=Math.ceil(rows[0].bookNum/10);
+                mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopereader,bookborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    var borrower=[];
+                    for(var i=0,max=book.length;i<max;i++){
+                        borrower[i]=0;
+                        for(var j=0,max1=rows.length;j<max1;j++){
+                            if(rows[j].borrowBookID==book[i].bookID){
+                                borrower[i]=rows[j].readerName;
+                            }
+                        }
+                    }
+                    res.render("admin-book/index",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum,firstPath:'book',secondPath:'modify'});
+                });
+            })
+        })
+    });
 });
 
 module.exports=router;
