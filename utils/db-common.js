@@ -84,6 +84,15 @@ operate.prototype.updateItem = function(searchDataJson, setDataJson, callback) {
 	const action = query + setKeyArray.join() + ' WHERE ' + searchKeyArray.join();
 	console.log('action:' + action);
     this.connection.query(action, callback);
+};
+operate.prototype.showColumns = function(columnName, callback) {
+	let action;
+	if(columnName) {
+		action = 'SHOW COLUMNS FROM ' + this.table + ' LIKE "' + columnName + '"';
+	} else{
+		action = 'SHOW COLUMNS FROM ' + this.table;
+	}
+	this.connection.query(action, callback)
 }
 
 module.exports.operate = operate;

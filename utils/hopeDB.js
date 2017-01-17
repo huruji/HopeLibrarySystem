@@ -156,6 +156,15 @@ const bookDB ={
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
         });
+    },
+    showColumns: (columnName, callback) => {
+        bookOperate.showColumns(columnName, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback(rows);
+        });
     }
 }
 const equipDB ={

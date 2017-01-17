@@ -104,6 +104,12 @@ router.route("/bookadd").get(function(req,res){
 		res.redirect("/admin/login")
 		return;
 	}
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName=rows[0].adminName,
+            userImg=rows[0].adminImgSrc,
+            userPermission=rows[0].adminPermissions;
+
+	})
 	mysql_util.DBConnection.query("SELECT adminName,adminImgSrc,adminPermissions FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
 		if(err){
 			console.log(err);
