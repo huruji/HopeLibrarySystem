@@ -35,7 +35,7 @@ operate.prototype.delItem = function(dataJson, callback) {
 	const action = query + keyArray.join(' AND ');
     this.connection.query(action, callback)
 };
-operate.prototype.selectALL = function(callback) {
+operate.prototype.selectAll = function(callback) {
 	const action = 'SELECT * ' + 'FROM ' + this.table;
     this.connection.query(action, callback)
 };
