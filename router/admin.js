@@ -70,7 +70,7 @@ router.route("/").get(function(req,res){
                     let adminUser=rows;
                     let userPageNum=Math.ceil((adminUser.length+reader.length)/10);
                     let user=adminUser.concat(reader);
-                    setSession(req,{adminSign: true});
+                    setSession(req,{adminID:admin.adminID,adminSign: true});
                     res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:1,firstPath:"user",secondPath:''});
                 })
             })
@@ -154,7 +154,7 @@ router.route("/reset").get(function(req,res){
          	var userName=rows[0].adminName,
          	    userImg=rows[0].adminImgSrc,
          	    userPermission=rows[0].adminPermissions;
-				setSession(req,{adminSign: true});
+            setSession(req,{adminID:rows[0].adminID,adminSign: true});
          	res.render("admin/admin-reset",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
 	})
 }).post(function(req,res){
@@ -203,7 +203,7 @@ router.route("/modify").get(function(req,res){
 		var userName=rows[0].adminName,
 		    userImg=rows[0].adminImgSrc,
 		    userPermission=rows[0].adminPermissions;
-        setSession(req,{adminSign: true});
+        setSession(req,{adminID:rows[0].adminID,adminSign: true});
 		res.render("admin/admin-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:'account',secondPath:'modify'});
 	})
 }).post(function(req,res){
@@ -236,7 +236,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
                 res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:"user",secondPath:''});
             });
         } else if(userType == "admin"){
-            adminDB.selectMessage(userID, (row) => {
+            adminDB.selectMessage(userID, (rows) => {
                 setSession(req,{adminSign: true});
                 res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
             })
