@@ -180,6 +180,7 @@ router.route("/reset").get(function(req,res){
 	// 	var success={
 	// 		message:"修改成功",
 	// 	};
+	console.log('md5' + password_md5);
 		adminDB.resetPassword(req.session.adminID,password_md5,(message) => {
 		    res.send(message);
         })
