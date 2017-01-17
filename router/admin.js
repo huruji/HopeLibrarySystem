@@ -216,57 +216,5 @@ router.route("/modify").get(function(req,res){
     })
 });
 
-// 超级管理员修改用户信息页面
-router.route("/adminmodifyuser/:userID").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login");
-	}
-	var userType=req.params.userID.replace(/\d/g,""),
-	    userID=req.params.userID.replace(/\D/g,"");
-	console.log("uerType="+userType);
-	console.log("userID="+userID);
-    adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName=rows[0].adminName,
-            userImg=rows[0].adminImgSrc,
-            userPermission=rows[0].adminPermissions;
-        if(userType=="user"){
-            userDB.selectMessage(userID, (rows) => {
-                const hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-                setSession(req,{adminSign: true});
-                res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:"user",secondPath:''});
-            });
-        } else if(userType == "admin"){
-            adminDB.selectMessage(userID, (rows) => {
-                setSession(req,{adminSign: true});
-                res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
-            })
-        }
-    })
-}).post(function(req,res){
-	var userType=req.params.userID.replace(/\d/g,""),
-	    userID=req.params.userID.replace(/\D/g,"");
-	if(userType=="user"){
-	    const setDataJson = {
-            readerName: req.body.readerName,
-            readerSex: req.body.sex,
-            studentNumber: req.body.studentNumber,
-            readerMajor: req.body.readerMajor,
-            readerPhone: req.body.readerPhone,
-            readerEmail: req.body.readerEmail,
-            readerGroup: req.body.readerGroup
-        }
-        userDB.updateMessage(userID, setDataJson, (message) => {
-            res.send(message);
-        })
-	}else if(userType="admin"){
-		const setDataJson = {
-            adminName: req.body.readerName,
-            adminEmail:　req.body.readerEmail,
-            adminPermissions: req.body.permission
-        }
-        adminDB.updateMessage(userID, setDataJson, (message) => {
-            res.send(message);
-        })
-	}
-});
+
 module.exports=router;

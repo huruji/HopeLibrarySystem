@@ -10,47 +10,9 @@ const router=express.Router();
 
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
-
-
-// 超级管理员修改用户界面
-router.route("/userModify/:userID").get(function(req,res){
-    if(!req.session.userID){
-        res.redirect("/admin/login")
-    }else{
-        var userID=req.params.userID;
-        mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",userID,function(err,rows,fields){
-            if(err){
-                console.log(err);
-            }else{
-                var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-                setSession(req,{adminSign: true});
-                res.render("admin/adminModifyuser",{user:rows[0],hopeGroup:hopeGroup});
-            }
-        })
-    }
-}).post(function(req,res){
-    var name=req.body.readerName,
-        sex=req.body.sex,
-        number=req.body.studentNumber,
-        major=req.body.readerMajor,
-        phone=req.body.readerPhone,
-        email=req.body.readerEmail,
-        group=req.body.readerGroup,
-        userID=parseInt(req.params.userID);
-    var DBParams=[name,sex,group,number,major,phone,email,userID];
-    console.log(DBParams);
-    mysql_util.DBConnection.query("UPDATE hopereader SET readerName=?,readerSex=?,readerGroup=?,studentNumber=?,readerMajor=?,readerPhone=?,readerEmail=? WHERE readerID=?",DBParams,function(err,rows,fields){
-        if(err){
-            console.log(err);
-        }else{
-            var success={
-                message:"保存成功"
-            };
-            res.send(success);
-        }
-    })
-})
-
+const hopeDB = require('./../utils/hopeDB.js');
+const adminDB = hopeDB.adminDB;
+const userDB = hopeDB.userDB;
 
 // 超级管理员增加用户界面
 router.route("/useradd").get(function(req,res){
@@ -100,7 +62,7 @@ router.route("/useradd").get(function(req,res){
 
 /*用户分页*/
 router.route("/admin-user").get(function(req,res){
-    if(!req.cookies.adminId){
+    if(!req.session.adminID){
         res.redirect("/admin/login");
         return;
     }
@@ -149,85 +111,49 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
         userID=req.params.userID.replace(/\D/g,"");
     console.log("uerType="+userType);
     console.log("userID="+userID);
-    mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-        if(err){
-            console.log(err);
-            return;
-        }
-        var userName=rows[0].adminName;
-        var userImg=rows[0].adminImgSrc;
-        var userPermission=rows[0].adminPermissions;
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName=rows[0].adminName,
+            userImg=rows[0].adminImgSrc,
+            userPermission=rows[0].adminPermissions;
         if(userType=="user"){
-            console.log("user")
-            mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",userID,function(err,rows,fields){
-                if(err){
-                    console.log(err);
-                    return;
-                }
-                var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+            userDB.selectMessage(userID, (rows) => {
+                const hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
                 setSession(req,{adminSign: true});
                 res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:"user",secondPath:''});
             });
-
-        }else if(userType == "admin"){
-            console.log("admin")
-            mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",userID,function(err,rows,fields){
-                if(err){
-                    console.log(err);
-                    return;
-                }
+        } else if(userType == "admin"){
+            adminDB.selectMessage(userID, (rows) => {
                 setSession(req,{adminSign: true});
                 res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
-            });
+            })
         }
-    });
+    })
 }).post(function(req,res){
     var userType=req.params.userID.replace(/\d/g,""),
         userID=req.params.userID.replace(/\D/g,"");
     if(userType=="user"){
-        var mysqlParams=[req.body.readerName,
-            req.body.sex,
-            req.body.studentNumber,
-            req.body.readerMajor,
-            req.body.readerPhone,
-            req.body.readerEmail,
-            req.body.readerGroup,
-            userID];
-        console.log(mysqlParams)
-        var mysqlQuery=["UPDATE hopereader SET readerName=?,",
-            "readerSex=?,studentNumber=?,",
-            "readerMajor=?,readerPhone=?,",
-            "readerEmail=?,readerGroup=?",
-            " WHERE readerID=?"].join("")
-        mysql_util.DBConnection.query(mysqlQuery,mysqlParams,function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            var success={
-                message:"修改成功"
-            };
-            res.send(success);
-
+        const setDataJson = {
+            readerName: req.body.readerName,
+            readerSex: req.body.sex,
+            studentNumber: req.body.studentNumber,
+            readerMajor: req.body.readerMajor,
+            readerPhone: req.body.readerPhone,
+            readerEmail: req.body.readerEmail,
+            readerGroup: req.body.readerGroup
+        }
+        userDB.updateMessage(userID, setDataJson, (message) => {
+            res.send(message);
         })
     }else if(userType="admin"){
-        var mysqlParams=[req.body.readerName,
-            req.body.readerEmail,
-            req.body.permission,
-            userID];
-        console.log(mysqlParams);
-        mysql_util.DBConnection.query("UPDATE hopeadmin SET adminName=?,adminEmail=?,adminPermissions=? WHERE adminID=?",mysqlParams,function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            var success={
-                message:"修改成功"
-            };
-            res.send(success);
+        const setDataJson = {
+            adminName: req.body.readerName,
+            adminEmail:　req.body.readerEmail,
+            adminPermissions: req.body.permission
+        }
+        adminDB.updateMessage(userID, setDataJson, (message) => {
+            res.send(message);
         })
     }
-
 });
 
 //管理员删除用户
