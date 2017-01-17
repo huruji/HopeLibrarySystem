@@ -114,7 +114,7 @@ const userDB = {
         });
     },
     addItem: (setDataJson, callback) => {
-        userOperate.insertItem(setDadaJson, (err, rows, fields) => {
+        userOperate.insertItem(setDataJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
         });
@@ -152,7 +152,7 @@ const bookDB ={
         });
     },
     addItem: (setDataJson, callback) => {
-        bookOperate.insertItem(setDadaJson, (err, rows, fields) => {
+        bookOperate.insertItem(setDataJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
         });
@@ -217,7 +217,7 @@ const equipDB ={
         });
     },
     addItem: (setDataJson, callback) => {
-        equipOperate.insertItem(setDadaJson, (err, rows, fields) => {
+        equipOperate.insertItem(setDataJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
         });

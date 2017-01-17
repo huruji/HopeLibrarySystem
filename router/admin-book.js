@@ -86,7 +86,7 @@ router.route("/bookadd-img").post(function(req,res){
 	form.parse(req,function(err,fields,files){
 		console.log(files);
 		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/book"+req.cookies.adminId+Date.now()+extension;
+		var newName="/book"+req.session.adminID+Date.now()+extension;
 		var newPath=form.uploadDir+newName;
 		fs.renameSync(files.img.path,newPath);
 		var DBImgSrc="/img/book"+newName;
@@ -100,7 +100,7 @@ router.route("/bookadd-img").post(function(req,res){
 	})
 })
 router.route("/bookadd").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login")
 		return;
 	}
@@ -155,7 +155,7 @@ router.route("/admin-book").get(function(req,res){
             userPermission = rows[0].adminPermissions;
         let bookStart=(pageNum-1)*10;
         let bookEnd=pageNum*10;
-        bookDB.orderItems(bookLeft, bookStart, bookEnd, (rows) => {
+        bookDB.orderItems('bookLeft', bookStart, bookEnd, (rows) => {
             let book=rows;
             bookDB.countItems('bookNum', (rows) => {
                 let bookNum=Math.ceil(rows[0].bookNum/10);

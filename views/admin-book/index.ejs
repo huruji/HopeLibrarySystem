@@ -64,7 +64,7 @@
                     <span><a href="">...</a></span>
                     <span><a href="/admin/admin-book?pageTab=<%=bookNum-2%>"><%=bookNum-2%></a></span>
                     <span><a href="/admin/admin-book?pageTab=<%=bookNum-1%>"><%=bookNum-1%></a></span>
-                    <span <%if(bookNum==bookPage){%> class="page-cur"<%}%>><a href="/admin/admin-book?pageTab=<%=bookNum%>"><%=bookNum%></a></span>
+                    <span <%if(bookNum==bookPage){%> class="main-right-page-num-active"<%}%>><a href="/admin/admin-book?pageTab=<%=bookNum%>"><%=bookNum%></a></span>
                     <%}else{%>
                     <span><a href="/admin/admin-book?pageTab=1">1</a></span>
                     <%if(bookPage>3){%>
@@ -73,7 +73,7 @@
                     <%if(bookPage>=3){%>
                     <span><a href="/admin/admin-book?pageTab=<%=bookPage-1%>"><%=parseInt(bookPage)-1%></a></span>
                     <%}%>
-                    <span class="page-cur"><a href="/admin/admin-book?pageTab=<%=bookPage%>"><%=bookPage%></a></span>
+                    <span class="main-right-page-num-active"><a href="/admin/admin-book?pageTab=<%=bookPage%>"><%=bookPage%></a></span>
                     <%if(bookPage<(parseInt(bookNum)-1)){%>
                     <span><a href="/admin/admin-book?pageTab=<%=parseInt(bookPage)+1%>"><%=parseInt(bookPage)+1%></a></span>
                     <%}%>
