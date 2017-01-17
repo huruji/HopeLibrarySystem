@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/hopeDB.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/equipCheck.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/equipmodify.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/index-new.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/adminModifyuser1.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/index1.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/userAdd1.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="$PROJECT_DIR$/router/admin-book.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -471,7 +477,7 @@
       <workItem from="1484540643320" duration="912000" />
       <workItem from="1484584707972" duration="2196000" />
       <workItem from="1484632927800" duration="6518000" />
-      <workItem from="1484652324934" duration="3932000" />
+      <workItem from="1484652324934" duration="4051000" />
     </task>
     <task id="LOCAL-00001" summary="更新图书管理员页面">
       <created>1484112874589</created>
@@ -690,17 +696,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484656503870</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="图书管理员修改图书信息路由重构:bug:">
+      <created>1484657570250</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1484657570250</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65215000" />
+    <option name="totallyTimeSpent" value="65334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1522694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1522694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -769,7 +782,8 @@
     <MESSAGE value="修正部分管理员通用数据错误:bug:" />
     <MESSAGE value="将超级管理员修改用户信息路由转为super文件处理，删除部分无用路由:bug:" />
     <MESSAGE value="超级管理员增加用户路由重构:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="超级管理员增加用户路由重构:bug:" />
+    <MESSAGE value="图书管理员修改图书信息路由重构:bug:" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书管理员修改图书信息路由重构:bug:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
