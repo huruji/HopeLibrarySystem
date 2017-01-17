@@ -8,6 +8,12 @@ const fs = require("fs");
 const formidable = require("formidable");
 const url=require("url");
 const router=express.Router();
+
+const setSession = require('./../utils/set-session');
+const md5Pass = require('./../utils/md5-pass');
+const hopeDB = require('./../utils/hopeDB.js');
+const adminDB = hopeDB.adminDB;
+const bookDB = hopeDB.bookDB;
 //管理员修改图书信息
 router.route("/bookmodify-img/:bookID").post(function(req,res){
 	var bookID=req.params.bookID;
@@ -39,37 +45,35 @@ router.route("/bookmodify-img/:bookID").post(function(req,res){
 	});
 })
 router.route("/book-modify/:bookID").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
 	var bookID=req.params.bookID;
-	console.log(bookID,req.cookies.adminId);
-	mysql_util.DBConnection.query("SELECT * FROM hopebook,hopeadmin WHERE bookID=? AND adminID=?",[bookID,req.cookies.adminId],function(err,rows,fields){
-		if(err){
-			console.log(err);
-            return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-		var bookCate=["编程类","设计类","摄影类","网管类","人文类","软件教程类","博雅教育类","其他"];
-		res.render("admin-book/admin-book-modify",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'book',secondPath:'modify'});
-	});
+	adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName=rows[0].adminName,
+            userImg=rows[0].adminImgSrc,
+            userPermission=rows[0].adminPermissions;
+        bookDB.selectMessage(bookID, (rows) => {
+            let bookCate=["编程类","设计类","摄影类","网管类","人文类","软件教程类","博雅教育类","其他"];
+            res.render("admin-book/admin-book-modify",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'book',secondPath:'modify'});
+        });
+    });
 }).post(function(req,res){
-	console.log("aaaaa");
 	var bookID=req.params.bookID;
 	var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup,bookID];
 	console.log(DBParam);
-	mysql_util.DBConnection.query("UPDATE hopebook SET bookName=?,bookHopeID=?,bookAuthor=?,bookISBN=?,bookPress=?,bookCate=? WHERE bookID=?",DBParam,function(err,rows,fields){
-		if(err){
-			console.log(err);
-		}
-		var success={
-			message:"修改成功"
-		}
-		res.send(success);
-	});
+	let setDataJson = {
+	    bookName: req.body.bookName,
+        bookHopeID: req.body.hopeID,
+        bookAuthor: req.body.bookAuthor,
+        bookISBN: req.body.bookISBN,
+        bookPress: req.body.bookPress,
+        bookCate: req.body.bookGroup
+    }
+    bookDB.updateMessage(bookID, setDataJson, (message) => {
+        res.send(message);
+    });
 });
 
 router.route("/bookadd-img").post(function(req,res){
