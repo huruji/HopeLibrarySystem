@@ -63,7 +63,7 @@ const adminDB = {
             callback&&callback(message);
         });
     },
-    addAdmin: (setDadaJson, callback) => {
+    addItem: (setDadaJson, callback) => {
         adminOperate.insertItem(setDadaJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
@@ -113,7 +113,7 @@ const userDB = {
             callback&&callback(message);
         });
     },
-    addUser: (setDataJson, callback) => {
+    addItem: (setDataJson, callback) => {
         userOperate.insertItem(setDadaJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
@@ -151,6 +151,12 @@ const bookDB ={
             callback&&callback(message);
         });
     },
+    addItem: (setDataJson, callback) => {
+        bookOperate.insertItem(setDadaJson, (err, rows, fields) => {
+            const message = queryResult(err, '增加成功');
+            callback&&callback(message);
+        });
+    }
 }
 const equipDB ={
     selectAll: (callback) => {
@@ -166,7 +172,7 @@ const equipDB ={
         let dataJson = {
             equipID : equipID
         }
-        userOperate.selectItem(dataJson,(err, rows, fields) => {
+        equipOperate.selectItem(dataJson,(err, rows, fields) => {
             if(err) {
                 console.log(err);
                 return;
@@ -178,11 +184,17 @@ const equipDB ={
         const searchDataJson = {
             equipID : equipID
         };
-        userOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
+        equipOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
             const message = queryResult(err, '修改成功');
             callback&&callback(message);
         });
     },
+    addItem: (setDataJson, callback) => {
+        equipOperate.insertItem(setDadaJson, (err, rows, fields) => {
+            const message = queryResult(err, '增加成功');
+            callback&&callback(message);
+        });
+    }
 }
 
 

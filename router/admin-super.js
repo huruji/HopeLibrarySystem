@@ -36,7 +36,7 @@ router.route("/useradd").get(function(req,res){
             readerPassword:password_md5,
             readerGroup:req.body.hopeGroup
         }
-        userDB.addUser(setDataJson, (message) => {
+        userDB.addItem(setDataJson, (message) => {
             res.send(message);
         })
     }else{
@@ -53,7 +53,7 @@ router.route("/useradd").get(function(req,res){
             adminPassword: password_md5,
             adminPermissions: permission
         }
-        adminDB.addUser(setDataJson, (message) => {
+        adminDB.addItem(setDataJson, (message) => {
             res.send(message);
         });
     }
