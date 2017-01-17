@@ -39,6 +39,16 @@ operate.prototype.selectAll = function(callback) {
 	const action = 'SELECT * ' + 'FROM ' + this.table;
     this.connection.query(action, callback)
 };
+operate.prototype.selectExcept = function(dataJson, callback) {
+	const query = 'SELECT * FROM ' + this.table + ' WHERE ';
+    let keyArray = [];
+    for(let key in dataJson) {
+        let keyString = key + '!="' + dataJson[key] + '"';
+        keyArray.push(keyString);
+    }
+    const action = query + keyArray.join(' AND ');
+    this.connection.query(action, callback)
+};
 operate.prototype.selectItem = function(dataJson, callback) {
 	const query = 'SELECT * FROM ' + this.table + ' WHERE ';
 	let keyArray = [];

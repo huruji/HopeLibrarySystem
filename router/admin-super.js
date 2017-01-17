@@ -40,27 +40,24 @@ router.route("/useradd").get(function(req,res){
             res.send(message);
         })
     }else{
-        if(req.body.permission.indexOf("super")>=0){
+        if(req.body.permission.includes("super")){
             var permission="super";
-        }else if(req.body.permission.indexOf("book")>=0){
+        }else if(req.body.permission.includes("book")){
             var permission="book";
-        }else if(req.body.permission.indexOf("camera")>=0){
+        }else if(req.body.permission.includes("camera")){
             var permission="camera";
         }
-        var queryParams=[req.body.readerName,req.body.readerEmail,password_md5,permission];
-        var mysqlQuery="INSERT hopeadmin(adminName,adminEmail,adminPassword,adminPermissions) VALUES(?,?,?,?)";
-    }
-    mysql_util.DBConnection.query(mysqlQuery,queryParams,function(err,rows,fields){
-        if(err){
-            console.log(err);
-        }else{
-            var success={
-                message:"增加成功"
-            };
-            res.send(success);
+        let setDataJson = {
+            adminName: req.body.readerName,
+            adminEmail: req.body.readerEmail,
+            adminPassword: password_md5,
+            adminPermissions: permission
         }
-    })
-})
+        adminDB.addUser(setDataJson, (message) => {
+            res.send(message);
+        });
+    }
+});
 
 /*用户分页*/
 router.route("/admin-user").get(function(req,res){
@@ -72,34 +69,24 @@ router.route("/admin-user").get(function(req,res){
     if(!userPage){
         userPage=1;
     }
-    mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-        if(err){
-            console.log(err);
-            return;
-        }
-        var admin=rows[0];
-        mysql_util.DBConnection.query("SELECT * FROM hopereader",function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            var reader=rows;
-            mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID!=?",req.cookies.adminId,function(err,rows,fields){
-                if(err){
-                    console.log(err);
-                    return;
-                }
-                var adminUser=rows;
-                var userPageNum=Math.ceil((adminUser.length+reader.length)/10);
-                var userStart=(userPage-1)*10;
-                var userEnd=userPage*10;
-                var user=adminUser.concat(reader).splice(userStart,userEnd);
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        var userName=rows[0].adminName,
+            userImg=rows[0].adminImgSrc,
+            userPermission=rows[0].adminPermissions;
+        userDB.selectAll((rows) => {
+            let reader=rows;
+            adminDB.selectExceptID(req.session.adminID, (rows) => {
+                let adminUser=rows;
+                let userPageNum=Math.ceil((adminUser.length+reader.length)/10);
+                let userStart=(userPage-1)*10;
+                let userEnd=userPage*10;
+                let user=adminUser.concat(reader).splice(userStart,userEnd);
                 setSession(req,{adminSign: true});
                 res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:userPage,firstPath:'user',secondPath:'modify'});
             });
         });
     });
-})
+});
 
 
 
