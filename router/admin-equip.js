@@ -8,9 +8,15 @@ const formidable = require("formidable");
 const url=require("url");
 const router=express.Router();
 
-/*设备管理员图书分页*/
+const setSession = require('./../utils/set-session');
+const md5Pass = require('./../utils/md5-pass');
+const hopeDB = require('./../utils/hopeDB.js');
+const adminDB = hopeDB.adminDB;
+const equipDB = hopeDB.equipDB;
+
+/*设备管理员设备分页*/
 router.route("/admin-equip").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
@@ -18,51 +24,47 @@ router.route("/admin-equip").get(function(req,res){
 	if(!pageNum){
 		pageNum=1;
 	}
-	mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-		var pageStart=(pageNum-1)*10;
-		var pageEnd=pageNum*10;
-		var mysqlQuery=["SELECT equipName,equipID,adminName",
-		                " FROM hopeequip,hopeadmin",
-		                " WHERE hopeequip.equipAdminID=hopeadmin.adminID",
-		                " ORDER BY equipLeft LIMIT ?,?"].join("");
-		mysql_util.DBConnection.query(mysqlQuery,[pageStart,pageEnd],function(err,rows,fields){
-		    if(err){
-		    	console.log(err);
-		    	return;
-		    }
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName = rows[0].adminName,
+            userImg = rows[0].adminImgSrc,
+            userPermission = rows[0].adminPermissions;
+        let pageStart=(pageNum-1)*10;
+        let pageEnd=pageNum*10;
+        var mysqlQuery=["SELECT equipName,equipID,adminName",
+            " FROM hopeequip,hopeadmin",
+            " WHERE hopeequip.equipAdminID=hopeadmin.adminID",
+            " ORDER BY equipLeft LIMIT ?,?"].join("");
+        mysql_util.DBConnection.query(mysqlQuery,[pageStart,pageEnd],function(err,rows,fields){
+            if(err){
+                console.log(err);
+                return;
+            }
             var equip=rows;
-			mysql_util.DBConnection.query("SELECT COUNT(*) AS equipNum FROM hopeequip",function(err,rows,fields){
-				if(err){
-					console.log(err);
-					return;
-				}
-				var equipNum=Math.ceil(rows[0].equipNum/10);
-				mysql_util.DBConnection.query("SELECT readerName,borrowEquipID FROM hopereader,equipborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
-					if(err){
-						console.log(err);
-						return;
-					}
-					var borrower=[];
-					for(var i=0,max=equip.length;i<max;i++){
-						borrower[i]=0;
-						for(var j=0,max1=rows.length;j<max1;j++){
-							if(rows[j].borrowEquipID==equip[i].equipD){
-								borrower[i]=rows[j].readerName;
-							}
-						}
-					}
-					res.render("admin-equip/index",{userName:userName,userImg:userImg,userPermission:userPermission,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:pageNum,firstPath:'camera',secondPath:'modify'});
-		 		});
-			});
-    	});
-	});
+            mysql_util.DBConnection.query("SELECT COUNT(*) AS equipNum FROM hopeequip",function(err,rows,fields){
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                var equipNum=Math.ceil(rows[0].equipNum/10);
+                mysql_util.DBConnection.query("SELECT readerName,borrowEquipID FROM hopereader,equipborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    var borrower=[];
+                    for(var i=0,max=equip.length;i<max;i++){
+                        borrower[i]=0;
+                        for(var j=0,max1=rows.length;j<max1;j++){
+                            if(rows[j].borrowEquipID==equip[i].equipD){
+                                borrower[i]=rows[j].readerName;
+                            }
+                        }
+                    }
+                    res.render("admin-equip/index",{userName:userName,userImg:userImg,userPermission:userPermission,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:pageNum,firstPath:'camera',secondPath:'modify'});
+                });
+            });
+        });
+    });
 });
 
 
@@ -97,99 +99,82 @@ router.route("/equipmodify-img/:equipID").post(function(req,res){
 	});
 })
 router.route("/equipmodify/:equipID").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
 	var equipID=req.params.equipID;
-	mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-		mysql_util.DBConnection.query("SELECT equipHopeID,equipName,equipImgSrc,adminName FROM hopeequip,hopeadmin WHERE hopeequip.equipAdminID=hopeadmin.adminID AND equipID=?",equipID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-            	return;
-			}
-			res.render("admin-equip/admin-equip-modify",{equip:rows[0],userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'modify'});
-		});
-	});
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName = rows[0].adminName,
+            userImg = rows[0].adminImgSrc,
+            userPermission = rows[0].adminPermissions;
+        mysql_util.DBConnection.query("SELECT equipHopeID,equipName,equipImgSrc,adminName FROM hopeequip,hopeadmin WHERE hopeequip.equipAdminID=hopeadmin.adminID AND equipID=?",equipID,function(err,rows,fields){
+            if(err){
+                console.log(err);
+                return;
+            }
+            setSession(req,{adminSign: true});
+            res.render("admin-equip/admin-equip-modify",{equip:rows[0],userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'modify'});
+        });
+    });
 }).post(function(req,res){
-	console.log("aaaaa");
 	var equipID=req.params.equipID;
-    mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminName=?  AND adminPermissions='camera'",req.body.equipAdmin,function(err,rows,fields){
-    	if(err){
-    		console.log(err);
-    		console.log(typeof err);
-    		return;
-    	}
-    	if(rows.length<1){
-    		var err={
-    			code:2,
-    			message:"该管理员不存在"
-    		}
-    		res.send(err);
-    		return;
-    	}
-    	var adminID=rows[0].adminID;
-    	var DBParam=[req.body.equipName,
-	             	req.body.hopeID,
-	             	adminID,
-	             	equipID];
-    	mysql_util.DBConnection.query("UPDATE hopeequip SET equipName=?,equipHopeID=?,equipAdminID=? WHERE equipID=?",DBParam,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success={
-				message:"修改成功"
-			}
-			res.send(success);
-		});
-    });	
+	let dataJson = {
+		adminName: req.body.equipAdmin,
+        adminPermissions: 'camera'
+	}
+	adminDB.selectItem(dataJson, (rows) => {
+        if(rows.length<1){
+            var err={
+                code:2,
+                message:"该管理员不存在"
+            }
+            res.send(err);
+            return;
+        }
+        let setDataJson = {
+            equipName: req.body.equipName,
+            equipHopeID: req.body.hopeID,
+            equipAdminID: rows[0].adminID
+		}
+		equipDB.updateMessage(equipID, setDataJson, (message) => {
+            res.send(message);
+		})
+	})
 });
 
 router.route("/check").get(function(req,res){
-	if(!req.cookies.adminId){
+	if(!req.session.adminID){
 		res.redirect("/admin/login");
 		return;
 	}
-	mysql_util.DBConnection.query("SELECT * FROM hopeadmin WHERE adminID=?",req.cookies.adminId,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var userName=rows[0].adminName;
-		var userImg=rows[0].adminImgSrc;
-		var userPermission=rows[0].adminPermissions;
-		var mysqlQuery=["SELECT readerName,borrowTime,equipName,reservationText,borrowEquipID,adminName",
-		                " FROM hopereader,equipborrow,hopeequip,hopeadmin",
-		                " WHERE equipborrow.borrowEquipID=hopeequip.equipID",
-		                " AND equipborrow.reservation=0",
-		                " AND equipborrow.borrowUserID=hopereader.readerID",
-		                " AND hopeequip.equipAdminID=hopeadmin.adminID",
-		                " AND hopeadmin.adminID=?"].join("");
-		mysql_util.DBConnection.query(mysqlQuery,req.cookies.adminId,function(err,rows,fields){
-			if(err){
-				console.log(err);
-            	return;
-			}
-			rows.forEach(function(e){
-				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
-			});
-			res.render("admin-equip/admin-equip-check",{equip:rows,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'check'});
-		});
-	});
+    adminDB.selectMessage(req.session.adminID, (rows) => {
+        let userName = rows[0].adminName,
+            userImg = rows[0].adminImgSrc,
+            userPermission = rows[0].adminPermissions;
+        var mysqlQuery=["SELECT readerName,borrowTime,equipName,reservationText,borrowEquipID,adminName",
+            " FROM hopereader,equipborrow,hopeequip,hopeadmin",
+            " WHERE equipborrow.borrowEquipID=hopeequip.equipID",
+            " AND equipborrow.reservation=0",
+            " AND equipborrow.borrowUserID=hopereader.readerID",
+            " AND hopeequip.equipAdminID=hopeadmin.adminID",
+            " AND hopeadmin.adminID=?"].join("");
+        mysql_util.DBConnection.query(mysqlQuery,req.cookies.adminId,function(err,rows,fields){
+            if(err){
+                console.log(err);
+                return;
+            }
+            rows.forEach(function(e){
+                e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
+            });
+            res.render("admin-equip/admin-equip-check",{equip:rows,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'check'});
+        });
+    });
 }).post(function(req,res){
 	var equipID=req.body.equipID;
 	var check=req.body.check;
 	console.log(equipID,check);
 	if(check==="true"){
-		console.log("是");
 		mysql_util.DBConnection.query("UPDATE equipborrow SET reservation=1 WHERE borrowEquipID=?",equipID,function(err,rows,fields){
 			if(err){
 				console.log(err);

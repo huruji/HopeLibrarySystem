@@ -1,16 +1,16 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
-const bodyParser=require("body-parser");
 const crypto=require("crypto");
 const path = require("path");
 const fs = require("fs");
 const formidable = require("formidable");
 const router=express.Router();
-const jsonParser=bodyParser.json();
 
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
-
+const hopeDB = require('./../utils/hopeDB.js');
+const adminDB = hopeDB.adminDB;
+const bookDB = hopeDB.bookDB;
 // 用户登录
 router.route("/login").post(function(req,res){
 	var password_md5=md5Pass(req.body.password);

@@ -17,6 +17,15 @@ const adminDB = {
             callback&&callback(rows);
         });
     },
+    selectItem: (dataJson, callback) => {
+        adminOperate.selectItem(dataJson, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                retrun;
+            }
+            callback&&callback(rows);
+        })
+    },
     selectExceptID: (adminID, callback) => {
         let dataJson = {
             adminID: adminID
@@ -194,6 +203,15 @@ const equipDB ={
             }
             callback&&callback(rows);
         });
+    },
+    selectItem: (dataJson, callback) => {
+        equipOperate.selectItem(dataJson, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                retrun;
+            }
+            callback&&callback(rows);
+        })
     },
     selectMessage: (equipID, callback) => {
         let dataJson = {

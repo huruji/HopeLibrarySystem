@@ -56,6 +56,7 @@ router.route("/book-modify/:bookID").get(function(req,res){
             userPermission=rows[0].adminPermissions;
         bookDB.selectMessage(bookID, (rows) => {
             let bookCate=["编程类","设计类","摄影类","网管类","人文类","软件教程类","博雅教育类","其他"];
+            setSession(req,{adminSign: true});
             res.render("admin-book/admin-book-modify",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'book',secondPath:'modify'});
         });
     });
@@ -110,6 +111,7 @@ router.route("/bookadd").get(function(req,res){
             userPermission=rows[0].adminPermissions;
         bookDB.showColumns('bookCate', (rows) => {
             let bookCate=rows[0].Type.replace(/enum\(|\'|\)/g,"").split(",");
+            setSession(req,{adminSign: true});
             res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate,firstPath:'book',secondPath:'add'});
 		});
 	});
@@ -153,9 +155,9 @@ router.route("/admin-book").get(function(req,res){
         let userName = rows[0].adminName,
             userImg = rows[0].adminImgSrc,
             userPermission = rows[0].adminPermissions;
-        let bookStart=(pageNum-1)*10;
-        let bookEnd=pageNum*10;
-        bookDB.orderItems('bookLeft', bookStart, bookEnd, (rows) => {
+        let pageStart=(pageNum-1)*10;
+        let pageEnd=pageNum*10;
+        bookDB.orderItems('bookLeft', pageStart, pageEnd, (rows) => {
             let book=rows;
             bookDB.countItems('bookNum', (rows) => {
                 let bookNum=Math.ceil(rows[0].bookNum/10);
@@ -173,6 +175,7 @@ router.route("/admin-book").get(function(req,res){
                             }
                         }
                     }
+                    setSession(req,{adminSign: true});
                     res.render("admin-book/index",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum,firstPath:'book',secondPath:'modify'});
                 });
             })
