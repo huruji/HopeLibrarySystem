@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/book.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/book.js" afterPath="$PROJECT_DIR$/router/book.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/public/user/user-aside.ejs" afterPath="$PROJECT_DIR$/views/public/user/user-aside.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="$PROJECT_DIR$/utils/hopeDB.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -97,8 +95,8 @@
       <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="572">
+              <caret line="46" column="3" lean-forward="false" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -117,13 +115,12 @@
       <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="280" column="0" lean-forward="true" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="177" column="40" lean-forward="true" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
               <folding>
                 <element signature="e#425#2823#0" expanded="false" />
                 <element signature="e#2840#4602#0" expanded="false" />
-                <element signature="e#4618#6765#0" expanded="false" />
-                <element signature="e#6781#8405#0" expanded="false" />
+                <element signature="e#6800#8424#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -233,10 +230,10 @@
         <option value="$PROJECT_DIR$/router/admin-equip.js" />
         <option value="$PROJECT_DIR$/views/user/book.ejs" />
         <option value="$PROJECT_DIR$/utils/db-common.js" />
-        <option value="$PROJECT_DIR$/utils/hopeDB.js" />
         <option value="$PROJECT_DIR$/views/public/user/user-aside.ejs" />
-        <option value="$PROJECT_DIR$/router/book.js" />
         <option value="$PROJECT_DIR$/views/user/user-book.ejs" />
+        <option value="$PROJECT_DIR$/utils/hopeDB.js" />
+        <option value="$PROJECT_DIR$/router/book.js" />
       </list>
     </option>
   </component>
@@ -343,24 +340,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="book" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin-book" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,7 +517,7 @@
       <workItem from="1484661653951" duration="7460000" />
       <workItem from="1484722901449" duration="1206000" />
       <workItem from="1484812982080" duration="702000" />
-      <workItem from="1484820850889" duration="4172000" />
+      <workItem from="1484820850889" duration="4812000" />
     </task>
     <task id="LOCAL-00001" summary="更新图书管理员页面">
       <created>1484112874589</created>
@@ -820,11 +799,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484821634152</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="用户借阅书籍全部书籍页面重构完成:art:">
+      <created>1484825215236</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1484825215236</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79106000" />
+    <option name="totallyTimeSpent" value="79746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -877,7 +863,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="设备信息修改更新:art:" />
     <MESSAGE value="图书管理员修复完成:art:" />
     <MESSAGE value="readme修改:art:" />
     <MESSAGE value="超级管理员首页修改:art:" />
@@ -902,7 +887,8 @@
     <MESSAGE value="设备管理员部分路由修改完成:art:" />
     <MESSAGE value="数据库操作方法添加:art:" />
     <MESSAGE value="数据库操作方法bug修复:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据库操作方法bug修复:bug:" />
+    <MESSAGE value="用户借阅书籍全部书籍页面重构完成:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户借阅书籍全部书籍页面重构完成:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1150,19 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="280" column="0" lean-forward="true" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-          <folding>
-            <element signature="e#425#2823#0" expanded="false" />
-            <element signature="e#2840#4602#0" expanded="false" />
-            <element signature="e#4618#6765#0" expanded="false" />
-            <element signature="e#6781#8405#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/public/user/user-aside.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1205,14 +1178,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/book/book.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="69" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/book/bookCate.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-377">
@@ -1245,10 +1210,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/book/book.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="69" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="177" column="40" lean-forward="true" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
+          <folding>
+            <element signature="e#425#2823#0" expanded="false" />
+            <element signature="e#2840#4602#0" expanded="false" />
+            <element signature="e#6800#8424#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/book.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="572">
+          <caret line="46" column="3" lean-forward="false" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
           <folding />
         </state>
       </provider>

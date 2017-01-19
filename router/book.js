@@ -30,40 +30,21 @@ router.route("/").get(function(req,res){
         });
     });
 }).post(function(req,res){
-	console.log("post");
-	console.log(!req.headers.cookie);
-	console.log(req.cookies);
-	if(!req.cookies.userId){
-		var err={
-			code:10
-		};
-		res.send(err);
-	}else{
-		var borrowID=req.body.borrowID;
-		var userID=req.cookies.userId;
-		console.log(userID,borrowID);
-		mysql_util.DBConnection.query("SELECT bookLeft FROM hopebook WHERE bookID=?",[borrowID],function(err,rows,fields){
-			if(err){
-				console.log(err);
-			}else{
-				var left=rows[0].bookLeft-1;
-				console.log("left:"+left);
-				console.log(req.cookies.userId);
-                var userId=parseInt(req.cookies.userId);
-				mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=? WHERE bookID=?;INSERT bookborrow VALUES(DEFAULT,?,?,CURDATE(),DEFAULT,ADDDATE(CURDATE(),6));",[left,borrowID,borrowID,userId],function(err,rows,fields){
-					if(err){
-						console.log(err)
-					}else{
-						var success={
-							message:"借阅成功"
-						}
-						res.send(success);
-					}
-				})
-			}
-		})
-	}
-})
+    if(!req.session.userSign) {
+        res.redirect("/user/login");
+        return;
+    }
+    var bookID=req.body.borrowID;
+    var userID=req.session.userID;
+    bookDB.selectMessage(bookID, (rows) => {
+        const setDataJson = {
+            bookLeft: rows[0].bookLeft-1
+        }
+        bookDB.updateMessage(bookID, setDataJson, (message) => {
+            res.send(message);
+        }, '借阅成功')
+    });
+});
 
 router.route("/cate:cateID").get(function(req,res){
 	var groupID=req.params.cateID;

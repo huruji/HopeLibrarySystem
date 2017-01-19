@@ -169,12 +169,12 @@ const bookDB ={
             callback&&callback(rows);
         });
     },
-    updateMessage: (bookID, setDataJson, callback) => {
+    updateMessage: (bookID, setDataJson, callback, message = '修改成功') => {
         const searchDataJson = {
             bookID : bookID
         };
         bookOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, '修改成功');
+            const message = queryResult(err, message);
             callback&&callback(message);
         });
     },
