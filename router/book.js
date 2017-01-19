@@ -25,14 +25,31 @@ router.route("/").get(function(req,res){
             rows.forEach(function(ele) {
                 bookCate.push(ele.bookCate);
             });
-            bookDB.orderItems('bookID DESC', null, null, (rows) => {
+            bookDB.orderItems('bookLeft DESC,bookID DESC', 0, 20, (rows) => {
                 var book = rows;
                 setSession(req,{userSign:true,userID: req.session.userID});
                 res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:'',book:book,bookCate:bookCate});
             });
         });
     });
-}).post(function(req,res){
+}).post(function(req, res) {
+    let startNum=parseInt(req.body.bookNum);
+    let endNum = startNum+8;
+    bookDB.orderItems('bookLeft DESC,bookID DESC', startNum, endNum, (rows) => {
+        let book = rows;
+        bookDB.countItems('bookNum', (rows) => {
+            let bookNum = rows[0].bookNum;
+            let message={
+                book:book
+            }
+            if(endNum >= bookNum){
+                message.end = true;
+            }
+            res.send(message);
+        });
+    });
+});
+router.route('/borrow').post(function(req,res){
     if(!req.session.userSign) {
         res.redirect("/user/login");
         return;
@@ -48,6 +65,7 @@ router.route("/").get(function(req,res){
         }, '借阅成功')
     });
 });
+
 router.route("/cate/:cate").get(function(req, res){
     if(!req.session.userSign) {
         res.redirect("/user/login");

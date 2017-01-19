@@ -4,7 +4,6 @@
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/book.js" afterPath="$PROJECT_DIR$/router/book.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/db-common.js" afterPath="$PROJECT_DIR$/utils/db-common.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -72,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="69" column="74" lean-forward="false" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+            <state relative-caret-position="562">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db-common.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="db-common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/db-common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+            <state relative-caret-position="194">
+              <caret line="130" column="28" lean-forward="true" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -115,7 +114,7 @@
       <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
+            <state relative-caret-position="172">
               <caret line="210" column="37" lean-forward="false" selection-start-line="210" selection-start-column="37" selection-end-line="210" selection-end-column="37" />
               <folding>
                 <element signature="e#425#2823#0" expanded="false" />
@@ -190,6 +189,7 @@
       <find>addI</find>
       <find>cookie</find>
       <find>&lt;%</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -234,8 +234,8 @@
         <option value="$PROJECT_DIR$/views/user/index.ejs" />
         <option value="$PROJECT_DIR$/views/public/user/user-nav.ejs" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
-        <option value="$PROJECT_DIR$/router/book.js" />
         <option value="$PROJECT_DIR$/utils/db-common.js" />
+        <option value="$PROJECT_DIR$/router/book.js" />
       </list>
     </option>
   </component>
@@ -559,7 +559,7 @@
       <workItem from="1484661653951" duration="7460000" />
       <workItem from="1484722901449" duration="1206000" />
       <workItem from="1484812982080" duration="702000" />
-      <workItem from="1484820850889" duration="10298000" />
+      <workItem from="1484820850889" duration="12284000" />
     </task>
     <task id="LOCAL-00001" summary="更新图书管理员页面">
       <created>1484112874589</created>
@@ -862,11 +862,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484841153014</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="图书借阅分类界面以及修复部分数据库操作方法的bug:art: :bug:">
+      <created>1484842481614</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1484842481614</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85232000" />
+    <option name="totallyTimeSpent" value="87218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -919,7 +926,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="readme修改:art:" />
     <MESSAGE value="超级管理员首页修改:art:" />
     <MESSAGE value="超级管理员修改用户信息界面完成:art:" />
     <MESSAGE value="超级管理员增加用户信息界面完成:art:" />
@@ -944,7 +950,8 @@
     <MESSAGE value="用户借阅书籍全部书籍页面重构完成:art:" />
     <MESSAGE value="用户借阅书籍全部书籍路由重构和数据库更新记录添加自定义信息:art:" />
     <MESSAGE value="数据库操作方法添加:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据库操作方法添加:art:" />
+    <MESSAGE value="图书借阅分类界面以及修复部分数据库操作方法的bug:art: :bug:" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书借阅分类界面以及修复部分数据库操作方法的bug:art: :bug:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1199,14 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/book/bookCate.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/book/cate.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1219,14 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/book/book.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="69" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1249,26 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="63" lean-forward="false" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="210" column="37" lean-forward="false" selection-start-line="210" selection-start-column="37" selection-end-line="210" selection-end-column="37" />
-          <folding>
-            <element signature="e#425#2823#0" expanded="false" />
-            <element signature="e#2840#4602#0" expanded="false" />
-            <element signature="e#7133#8757#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/public/user/user-nav.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -1285,18 +1256,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/book.js">
+    <entry file="file://$PROJECT_DIR$/utils/db-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="69" column="74" lean-forward="false" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+        <state relative-caret-position="194">
+          <caret line="130" column="28" lean-forward="true" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/db-common.js">
+    <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+        <state relative-caret-position="260">
+          <caret line="10" column="63" lean-forward="false" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/book/bookCate.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-377">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/book/book.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="69" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="210" column="37" lean-forward="false" selection-start-line="210" selection-start-column="37" selection-end-line="210" selection-end-column="37" />
+          <folding>
+            <element signature="e#425#2823#0" expanded="false" />
+            <element signature="e#2840#4602#0" expanded="false" />
+            <element signature="e#7133#8757#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding />
         </state>
       </provider>
