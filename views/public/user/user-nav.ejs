@@ -12,5 +12,14 @@
         <li class="main-right-nav-list-item  <%if(secondPath=="reset"){%> main-right-nav-list-item-active <%}%>"><a
                     href="/user/reset">修改密码</a></li>
         <%}%>
+        <%if(firstPath=="borrow"){%>
+        <li class="main-right-nav-list-item  <%if(secondPath==""){%> main-right-nav-list-item-active <%}%>"><a
+        href="/book">全部</a></li>
+        <%for(var i = 0, max = bookCate.length; i < max; i++) { %>
+        <%var url = encodeURI(bookCate[i])%>
+        <li class="main-right-nav-list-item  <%if(secondPath== bookCate[i]) { %> main-right-nav-list-item-active <%}%>"><a
+        href="/book/cate/<%= url %>"> <%= bookCate[i] %> </a></li>
+        <%}%>
+        <%}%>
     </ul>
 </nav>

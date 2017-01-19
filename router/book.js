@@ -21,11 +21,14 @@ router.route("/").get(function(req,res){
         var userName=rows[0].readerName;
         var userPermission="user";
         userDB.query('SELECT bookCate FROM hopebook GROUP BY bookCate', (rows) => {
-            var bookCate = rows;
+            var bookCate = [];
+            rows.forEach(function(ele) {
+                bookCate.push(ele.bookCate);
+            });
             bookDB.orderItems('bookID DESC', null, null, (rows) => {
                 var book = rows;
                 setSession(req,{userSign:true,userID: req.session.userID});
-                res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',book:book});
+                res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:'',book:book,bookCate:bookCate});
             });
         });
     });
@@ -45,7 +48,26 @@ router.route("/").get(function(req,res){
         }, '借阅成功')
     });
 });
-
+router.route("/cate/:cate").get(function(req, res){
+    if(!req.session.userSign) {
+        res.redirect("/user/login");
+        return;
+    }
+    let bookCate = decodeURI(req.params.cate);
+    let userId = req.session.userID;
+    userDB.selectMessage(userId, (rows) => {
+        var userImg = rows[0].userImgSrc;
+        var userName = rows[0].readerName;
+        var userPermission = "user";
+        userDB.query('SELECT bookCate FROM hopebook GROUP BY bookCate', (rows) => {
+            var bookCate = [];
+            rows.forEach(function (ele) {
+                bookCate.push(ele.bookCate);
+            });
+            bookDB
+        })
+    })
+});
 router.route("/cate:cateID").get(function(req,res){
 	var groupID=req.params.cateID;
 	console.log(groupID)

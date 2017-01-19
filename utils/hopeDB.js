@@ -202,6 +202,15 @@ const bookDB ={
             callback&&callback(rows);
         })
     },
+    orderSearchItems: (searchDataJson, orderColumn, start, end, callback ) => {
+        bookOperate.orderSearchItems(searchDataJson, orderColumn, start, end, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        })
+    },
     countItems: (columnName, callback) => {
         bookOperate.countItems(columnName, (err, rows, fields) => {
             if(err) {

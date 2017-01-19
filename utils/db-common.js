@@ -81,7 +81,7 @@ operate.prototype.updateItem = function(searchDataJson, setDataJson, callback) {
 		let keyString = key + '="' + searchDataJson[key] + '"';
 		searchKeyArray.push(keyString);
 	}
-	const action = query + setKeyArray.join() + ' WHERE ' + searchKeyArray.join();
+	const action = query + setKeyArray.join() + ' WHERE ' + searchKeyArray.join(' AND ');
 	console.log('action:' + action);
     this.connection.query(action, callback);
 };
@@ -98,6 +98,21 @@ operate.prototype.orderItems = function(orderColumn, start, end, callback) {
     let action = 'SELECT * FROM ' + this.table + ' ORDER BY ' + orderColumn;
     if(start && end) {
         action = action + ' LIMIT ' + start + ',' + end;
+    }
+    this.connection.query(action, callback);
+};
+operate.prototype.orderSearchItems = function(searchDataJson, orderColumn, start, end, callback) {
+    let searchKeyArray = [];
+    let action = 'SELECT * FROM ' + this.table + ' ORDER BY ' + orderColumn;
+    if(start && end) {
+        action = action + ' LIMIT ' + start + ',' + end;
+    }
+    if(searchDataJson) {
+        for(let key in searchDataJson) {
+            let keyString = key + '="' + searchDataJson[key] + '"';
+            searchKeyArray.push(keyString);
+        }
+        action = action + ' WHERE ' + searchKeyArray.join(' AND ');
     }
     this.connection.query(action, callback);
 };
