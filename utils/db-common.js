@@ -105,5 +105,9 @@ operate.prototype.countItems =function(columnName, callback) {
     const action = 'SELECT COUNT(*) AS ' + columnName +' FROM ' + this.table;
     this.connection.query(action, callback);
 }
+operate.prototype.query = function(query, callback) {
+	const action = query;
+	this.connection.query(query, callback);
+}
 
 module.exports.operate = operate;

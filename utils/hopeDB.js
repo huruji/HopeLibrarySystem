@@ -77,6 +77,15 @@ const adminDB = {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
         });
+    },
+    query: (query, callback) => {
+        adminOperate.query(query, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        });
     }
 };
 const userDB = {
@@ -126,6 +135,15 @@ const userDB = {
         userOperate.insertItem(setDataJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
+        });
+    },
+    query: (query, callback) => {
+        adminOperate.query(query, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
         });
     }
 };
@@ -192,6 +210,15 @@ const bookDB ={
             }
             callback(rows);
         })
+    },
+    query: (query, callback) => {
+        adminOperate.query(query, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        });
     }
 }
 const equipDB ={
@@ -238,6 +265,15 @@ const equipDB ={
         equipOperate.insertItem(setDataJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
             callback&&callback(message);
+        });
+    },
+    query: (query, callback) => {
+        adminOperate.query(query, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
         });
     }
 }

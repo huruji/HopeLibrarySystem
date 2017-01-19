@@ -3,6 +3,13 @@ const mysql_util=require("./mysql_util");
 const bodyParser=require("body-parser");
 const router=express.Router();
 
+const setSession = require('./../utils/set-session');
+const md5Pass = require('./../utils/md5-pass');
+const hopeDB = require('./../utils/hopeDB.js');
+const adminDB = hopeDB.adminDB;
+const userDB = hopeDB.userDB;
+const bookDB = hopeDB.bookDB;
+
 router.route("/").get(function(req,res){
 	mysql_util.DBConnection.query("SELECT bookCate FROM hopebook GROUP BY bookCate",function(err,rows,fields){
 		if(err){
