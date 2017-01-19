@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/user/book.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/book.js" afterPath="$PROJECT_DIR$/router/book.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/db-common.js" afterPath="$PROJECT_DIR$/utils/db-common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="$PROJECT_DIR$/utils/hopeDB.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -87,10 +84,13 @@
       <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="274" column="13" lean-forward="true" selection-start-line="274" selection-start-column="13" selection-end-line="274" selection-end-column="13" />
+            <state relative-caret-position="162">
+              <caret line="222" column="1" lean-forward="true" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="1" />
               <folding>
                 <element signature="e#425#2823#0" expanded="false" />
+                <element signature="e#2840#4602#0" expanded="false" />
+                <element signature="e#4618#6765#0" expanded="false" />
+                <element signature="e#6781#8405#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -457,7 +457,7 @@
       <workItem from="1484661653951" duration="7460000" />
       <workItem from="1484722901449" duration="1206000" />
       <workItem from="1484812982080" duration="702000" />
-      <workItem from="1484820850889" duration="670000" />
+      <workItem from="1484820850889" duration="758000" />
     </task>
     <task id="LOCAL-00001" summary="更新图书管理员页面">
       <created>1484112874589</created>
@@ -725,11 +725,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484667789795</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="数据库操作方法添加:art:">
+      <created>1484821544749</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1484821544749</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75604000" />
+    <option name="totallyTimeSpent" value="75692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -782,7 +789,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="设备管理员首页更新:art:" />
     <MESSAGE value="设备管理员更新:art:" />
     <MESSAGE value="设备信息修改更新:art:" />
     <MESSAGE value="图书管理员修复完成:art:" />
@@ -807,7 +813,8 @@
     <MESSAGE value="图书管理员路由重构完成:art:" />
     <MESSAGE value="修正图书管理员部分测试出现的bug包括视图部分:bug:" />
     <MESSAGE value="设备管理员部分路由修改完成:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="设备管理员部分路由修改完成:art:" />
+    <MESSAGE value="数据库操作方法添加:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库操作方法添加:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1143,10 +1150,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="274" column="13" lean-forward="true" selection-start-line="274" selection-start-column="13" selection-end-line="274" selection-end-column="13" />
+        <state relative-caret-position="162">
+          <caret line="222" column="1" lean-forward="true" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="1" />
           <folding>
             <element signature="e#425#2823#0" expanded="false" />
+            <element signature="e#2840#4602#0" expanded="false" />
+            <element signature="e#4618#6765#0" expanded="false" />
+            <element signature="e#6781#8405#0" expanded="false" />
           </folding>
         </state>
       </provider>

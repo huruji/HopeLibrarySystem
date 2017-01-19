@@ -138,7 +138,7 @@ const userDB = {
         });
     },
     query: (query, callback) => {
-        adminOperate.query(query, (err, rows, fields) => {
+        userOperate.query(query, (err, rows, fields) => {
             if(err) {
                 console.log(err);
                 return;
@@ -212,7 +212,7 @@ const bookDB ={
         })
     },
     query: (query, callback) => {
-        adminOperate.query(query, (err, rows, fields) => {
+        bookOperate.query(query, (err, rows, fields) => {
             if(err) {
                 console.log(err);
                 return;
@@ -268,7 +268,7 @@ const equipDB ={
         });
     },
     query: (query, callback) => {
-        adminOperate.query(query, (err, rows, fields) => {
+        equipOperate.query(query, (err, rows, fields) => {
             if(err) {
                 console.log(err);
                 return;
