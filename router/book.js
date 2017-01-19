@@ -53,18 +53,24 @@ router.route("/cate/:cate").get(function(req, res){
         res.redirect("/user/login");
         return;
     }
-    let bookCate = decodeURI(req.params.cate);
+    let bookCateCurrent = decodeURI(req.params.cate);
     let userId = req.session.userID;
     userDB.selectMessage(userId, (rows) => {
         var userImg = rows[0].userImgSrc;
         var userName = rows[0].readerName;
         var userPermission = "user";
         userDB.query('SELECT bookCate FROM hopebook GROUP BY bookCate', (rows) => {
-            var bookCate = [];
+            let bookCate = [];
             rows.forEach(function (ele) {
                 bookCate.push(ele.bookCate);
             });
-            bookDB
+            let searchDataJson = {
+                bookCate: bookCateCurrent
+            }
+            bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC', 0, 20, (rows) => {
+                let book = rows;
+                res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:bookCateCurrent,book:book,bookCate:bookCate});
+            })
         })
     })
 });
