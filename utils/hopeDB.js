@@ -220,6 +220,15 @@ const bookDB ={
             callback(rows);
         })
     },
+    countSearchItems: (searchDataJson, columnName, callback) => {
+        bookOperate.countSearchItems(searchDataJson, columnName, (err, rows, callback) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback(rows);
+        })
+    },
     query: (query, callback) => {
         bookOperate.query(query, (err, rows, fields) => {
             if(err) {

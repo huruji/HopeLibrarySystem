@@ -132,7 +132,19 @@ operate.prototype.countItems =function(columnName, callback) {
     const action = 'SELECT COUNT(*) AS ' + columnName +' FROM ' + this.table;
     console.log('action:'+action);
     this.connection.query(action, callback);
-}
+};
+operate.prototype.countSearchItems = function(searchDataJson, columnName, callback) {
+	let action = 'SELECT COUNT(*) AS ' + columnName +' FROM ' + this.table;
+    let searchKeyArray = [];
+	if(searchDataJson) {
+        for(let key in searchDataJson) {
+            let keyString = key + '="' + searchDataJson[key] + '"';
+            searchKeyArray.push(keyString);
+        }
+        action = action + ' WHERE ' + searchKeyArray.join(' AND ');
+	};
+	this.connection.query(action, callback);
+};
 operate.prototype.query = function(query, callback) {
 	const action = query;
     console.log('action:'+action);

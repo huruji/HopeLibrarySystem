@@ -85,13 +85,38 @@ router.route("/cate/:cate").get(function(req, res){
             let searchDataJson = {
                 bookCate: bookCateCurrent
             }
-            bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC', 0, 20, (rows) => {
+            bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', 0, 20, (rows) => {
                 let book = rows;
                 res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:bookCateCurrent,book:book,bookCate:bookCate});
             })
         })
     })
-});
+}).post(function(req, res) {
+    let startNum = parseInt(req.body.bookNum);
+    let endNum = startNum+8;
+    let bookCateCurrent = decodeURI(req.params.bookCate);
+    let searchDataJson = {
+        bookCate: bookCateCurrent
+    }
+    bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', startNum, endNum, (rows) => {
+        let book = rows;
+        bookDB.
+        res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:bookCateCurrent,book:book,bookCate:bookCate});
+    })
+    bookDB.orderItems('bookLeft DESC,bookID DESC', startNum, endNum, (rows) => {
+        let book = rows;
+        bookDB.countItems('bookNum', (rows) => {
+            let bookNum = rows[0].bookNum;
+            let message={
+                book:book
+            }
+            if(endNum >= bookNum){
+                message.end = true;
+            }
+            res.send(message);
+        });
+    });
+})
 router.route("/cate:cateID").get(function(req,res){
 	var groupID=req.params.cateID;
 	console.log(groupID)
