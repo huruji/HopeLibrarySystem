@@ -56,17 +56,17 @@ router.route('/borrow').post(function(req,res){
     var userID=req.session.userID;
     bookDB.selectMessage(bookID, (rows) => {
         const bookLeft = rows[0].bookLeft - 1;
-        const setDataJson = {
-            borrowBookID: bookID,
-            borrowUserID: userID,
-            borrowTime: 'CURDATE()',
-            returnBefore: 'ADDDATE(CURDATE(),30)'
-        };
-        borrowDB.addItem(setDataJson,(message) => {
+        const query = 'INSERT bookBorrow SET borrowBookID='
+                      + bookID
+                      + ',borrowUserID='
+                      + userID
+                      + ',borrowTime=CURDATE(),returnBefore=ADDDATE(CURDATE(),30)';
+        borrowDB.query(query, (rows) => {
             const setDataJson = {
                 bookLeft: bookLeft
             };
             bookDB.updateMessage(bookID, setDataJson, (message) => {
+                res.send(message);
             }, '借阅成功');
         });
     });

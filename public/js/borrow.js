@@ -16,6 +16,7 @@
                     }else{
                         errMsg=response.message;
                     }
+                    console.dir(response);
                 }
         			layer.alert(errMsg,{
         				skin: 'layui-layer-molv',
