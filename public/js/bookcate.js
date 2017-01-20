@@ -36,7 +36,7 @@
                 }
                 if(response.end){
                         var dom = '<p style="text-align:center;margin-bottom:15px">童鞋，工作室已经没有该类书籍了哦！</p>';
-                        $(".main-right-borrow-list").append(dom);
+                        $(".main-right-borrow").append(dom);
                         ajaxWhe = false;
                     }
                 },
