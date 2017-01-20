@@ -4,9 +4,9 @@ const router=express.Router();
 
 const setSession = require('./../utils/set-session');
 const hopeDB = require('./../utils/hopeDB.js');
-const adminDB = hopeDB.adminDB;
 const userDB = hopeDB.userDB;
 const bookDB = hopeDB.bookDB;
+const borrowDB = hopeDB.borrowDB;
 
 router.route("/").get(function(req,res){
     if(!req.session.userSign) {
@@ -55,12 +55,20 @@ router.route('/borrow').post(function(req,res){
     var bookID=req.body.borrowID;
     var userID=req.session.userID;
     bookDB.selectMessage(bookID, (rows) => {
+        const bookLeft = rows[0].bookLeft - 1;
         const setDataJson = {
-            bookLeft: rows[0].bookLeft-1
-        }
-        bookDB.updateMessage(bookID, setDataJson, (message) => {
-            res.send(message);
-        }, '借阅成功')
+            borrowBookID: bookID,
+            borrowUserID: userID,
+            borrowTime: 'CURDATE()',
+            returnBefore: 'ADDDATE(CURDATE(),30)'
+        };
+        borrowDB.addItem(setDataJson,(message) => {
+            const setDataJson = {
+                bookLeft: bookLeft
+            };
+            bookDB.updateMessage(bookID, setDataJson, (message) => {
+            }, '借阅成功');
+        });
     });
 });
 

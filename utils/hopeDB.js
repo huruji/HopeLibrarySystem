@@ -303,6 +303,15 @@ const borrowDB = {
             callback&&callback(message);
         });
     },
+    query: (query, callback) => {
+        borrowOperate.query(query, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        });
+    }
 };
 
 function queryResult(err, mes,callback) {
@@ -320,5 +329,6 @@ module.exports = {
     adminDB: adminDB,
     userDB: userDB,
     bookDB: bookDB,
-    equipDB: equipDB
+    equipDB: equipDB,
+    borrowDB: borrowDB
 };
