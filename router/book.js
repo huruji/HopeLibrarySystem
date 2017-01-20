@@ -1,10 +1,8 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
-const bodyParser=require("body-parser");
 const router=express.Router();
 
 const setSession = require('./../utils/set-session');
-const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
 const adminDB = hopeDB.adminDB;
 const userDB = hopeDB.userDB;
@@ -94,83 +92,25 @@ router.route("/cate/:cate").get(function(req, res){
 }).post(function(req, res) {
     let startNum = parseInt(req.body.bookNum);
     let endNum = startNum+8;
-    let bookCateCurrent = decodeURI(req.params.bookCate);
+    let bookCateCurrent = decodeURI(req.params.cate);
     let searchDataJson = {
         bookCate: bookCateCurrent
-    }
+    };
     bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', startNum, endNum, (rows) => {
         let book = rows;
-        bookDB.
-        res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:bookCateCurrent,book:book,bookCate:bookCate});
-    })
-    bookDB.orderItems('bookLeft DESC,bookID DESC', startNum, endNum, (rows) => {
-        let book = rows;
-        bookDB.countItems('bookNum', (rows) => {
+        bookDB.countSearchItems(searchDataJson, 'bookNum', (rows) => {
             let bookNum = rows[0].bookNum;
             let message={
                 book:book
-            }
+            };
             if(endNum >= bookNum){
                 message.end = true;
             }
             res.send(message);
         });
     });
-})
-router.route("/cate:cateID").get(function(req,res){
-	var groupID=req.params.cateID;
-	console.log(groupID)
-	mysql_util.DBConnection.query("SELECT  DISTINCT bookCate FROM hopebook ORDER BY bookCate",function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		console.log(rows[0].bookCate);
-		var cateArr=rows;
-		mysql_util.DBConnection.query("SELECT * FROM hopebook WHERE bookCate=?  ORDER BY bookLeft DESC LIMIT 0,30",cateArr[groupID].bookCate,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			res.render("book/cate",{book:rows,cate:cateArr[groupID].bookCate});
-		})
-	})
-}).post(function(req,res){
-	var groupID=req.params.cateID;
-	var startNum=parseInt(req.body.bookNum);
-	var endNum = startNum+5;
-	console.log(startNum,endNum);
-	mysql_util.DBConnection.query("SELECT  DISTINCT bookCate FROM hopebook ORDER BY bookCate",function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var cateArr=rows;
-		console.log("cateArr[groupID]" + cateArr[groupID]);
-		mysql_util.DBConnection.query("SELECT COUNT(*) AS bookCount FROM hopebook WHERE bookCate=?",cateArr[groupID].bookCate,function(err,rows,fields){
-			
-			var bookNum = rows[0].bookCount;
-			console.log("bookNum:"+bookNum);
-			console.log("typeof" + typeof bookNum)
-			mysql_util.DBConnection.query("SELECT * FROM hopebook WHERE bookCate=?  ORDER BY bookLeft DESC LIMIT ?,5",[cateArr[groupID].bookCate,startNum],function(err,rows,fields){
-				if(err){
-					console.log(err);
-					return;
-				}
-				var success={
-					book:rows
-				}
-				console.log(success.book.length);
-				console.log("大小:"+ (endNum >= bookNum));
-				if(endNum >= bookNum){
-					success.end = true;
-				}
-				res.send(success);
-			})
-		})
-	})
-	
-})
+});
+
 
 
 module.exports=router;

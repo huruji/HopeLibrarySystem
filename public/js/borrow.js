@@ -1,18 +1,14 @@
 /*用户借阅的函数*/
-
 (function(global,$){
-	$(".borrow-btn").click(function(){
-		var borrowID=$(this).attr("borrowID");
+	$(".js-borrow-btn").click(function(){
+		var borrowID=$(this).attr("data-borrowID");
         console.log(borrowID);
 		$.ajax({
         	dataType:"json",
         	async:true,
         	data:{"borrowID":borrowID},
         	type:"POST",
-            url:"/book",
-        	beforeSend:function(){
-
-        	},
+            url:"/book/borrow",
         	success:function(response){
                 if(response){
                     if(response.code==10){
@@ -28,9 +24,7 @@
         			});
                     setTimeout(function(){
                         location.assign(location.href);
-                    },500)
-                    
-                    
+                    },500);
         		},
         	error:function(){
                 layer.alert("请求失败",{

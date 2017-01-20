@@ -6,6 +6,7 @@ const adminOperate = new dbCommon.operate(connection, 'hopeadmin');
 const userOperate = new dbCommon.operate(connection, 'hopereader');
 const bookOperate = new dbCommon.operate(connection, 'hopebook');
 const equipOperate = new dbCommon.operate(connection, 'hopeequip');
+const borrowOperate = new dbCommon.operate(connection, 'bookBorrow');
 
 const adminDB = {
     selectAll: (callback) => {
@@ -174,7 +175,7 @@ const bookDB ={
             bookID : bookID
         };
         bookOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, message);
+            message = queryResult(err, message);
             callback&&callback(message);
         });
     },
@@ -190,7 +191,7 @@ const bookDB ={
                 console.log(err);
                 return;
             }
-            callback(rows);
+            callback&&callback(rows);
         });
     },
     orderItems: (columnName, start, end, callback) => {
@@ -209,7 +210,7 @@ const bookDB ={
                 return;
             }
             callback&&callback(rows);
-        })
+        });
     },
     countItems: (columnName, callback) => {
         bookOperate.countItems(columnName, (err, rows, fields) => {
@@ -217,16 +218,16 @@ const bookDB ={
                 console.log(err);
                 return;
             }
-            callback(rows);
+            callback&&callback(rows);
         })
     },
     countSearchItems: (searchDataJson, columnName, callback) => {
-        bookOperate.countSearchItems(searchDataJson, columnName, (err, rows, callback) => {
+        bookOperate.countSearchItems(searchDataJson, columnName, (err, rows, fields) => {
             if(err) {
                 console.log(err);
                 return;
             }
-            callback(rows);
+            callback&&callback(rows);
         })
     },
     query: (query, callback) => {
@@ -238,7 +239,7 @@ const bookDB ={
             callback&&callback(rows);
         });
     }
-}
+};
 const equipDB ={
     selectAll: (callback) => {
         equipOperate.selectAll((err, rows, fields) => {
@@ -294,8 +295,15 @@ const equipDB ={
             callback&&callback(rows);
         });
     }
-}
-
+};
+const borrowDB = {
+    addItem: (setDadaJson, callback) => {
+        borrowOperate.insertItem(setDadaJson, (err, rows, fields) => {
+            const message = queryResult(err, '增加成功');
+            callback&&callback(message);
+        });
+    },
+};
 
 function queryResult(err, mes,callback) {
     if(err) {
@@ -307,7 +315,7 @@ function queryResult(err, mes,callback) {
     };
     callback&&callback();
     return message;
-};
+}
 module.exports = {
     adminDB: adminDB,
     userDB: userDB,
