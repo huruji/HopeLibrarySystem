@@ -1,10 +1,15 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
 const router=express.Router();
-const bodyParser=require("body-parser");
 const util = require("util");
 const nodemailer = require("nodemailer");
 const config=require("./../config");
+
+const setSession = require('./../utils/set-session');
+const hopeDB = require('./../utils/hopeDB.js');
+const userDB = hopeDB.userDB;
+const equipDB = hopeDB.equipDB;
+const borrowDB = hopeDB.borrowDB;
 
 router.route("/").get(function(req,res){
 	mysql_util.DBConnection.query("SELECT * FROM hopeequip ORDER BY equipLeft DESC LIMIT 0,20",function(err,rows,fields){

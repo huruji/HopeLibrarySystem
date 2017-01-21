@@ -286,6 +286,24 @@ const equipDB ={
             callback&&callback(message);
         });
     },
+    orderItems: (columnName, start, end, callback) => {
+        equipOperate.orderItems(columnName, start, end, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        })
+    },
+    orderSearchItems: (searchDataJson, orderColumn, start, end, callback ) => {
+        equipOperate.orderSearchItems(searchDataJson, orderColumn, start, end, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        });
+    },
     query: (query, callback) => {
         equipOperate.query(query, (err, rows, fields) => {
             if(err) {

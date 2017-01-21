@@ -13,7 +13,6 @@
             data:{"bookNum":bookNum},
             type:"POST",
             beforeSend:function(){
-
             },
             success:function(response){
                 console.log("response.book.length:"+response.book.length);
