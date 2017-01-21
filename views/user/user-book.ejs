@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/user/user-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/user/user-nav.ejs") %>
+            <% if( book.length > 0) { %>
+            <section class="main-right-borrow">
+                <ul class="main-right-borrow-list clearfix">
+                    <% for(var i = 0, max = book.length; i < max; i++) {%>
+                    <li class="main-right-borrow-list-item">
+                        <div class="main-right-borrow-list-item-img">
+                            <img src="<%= book[i].bookImgSrc %>" alt="">
+                        </div>
+                        <div class="main-right-borrow-list-item-message">
+                            <h4> <%= book[i].bookName %> </h4>
+                            <p>编号：<%= book[i].bookHopeID %> </p>
+                            <% if(book[i].bookLeft <= 0) { %>
+                            <button disabled="disabled">已借出</button>
+                            <% } else {%>
+                            <button data-borrowID=<%= book[i].bookID%> class="js-borrow-btn">借阅</button>
+                            <% } %>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </section>
+            <% } else { %>
+            <section class="main-right-table">
+                <table>
+                    <thead>
+                    <th class="t-10 center">当前暂无图书</th>
+                    </thead>
+                </table>
+            </section>
+            <% } %>
+        </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/equip-reservation.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/public/logout.js"></script>
+</body>
+</html>
