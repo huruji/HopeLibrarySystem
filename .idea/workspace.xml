@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="图书借阅修复js文件链接错误的bug:bug:">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+    <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/github.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/login-password.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/login-username.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/login-bg.jpg" afterPath="$PROJECT_DIR$/public/img/login-bg.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -407,14 +410,7 @@
       <workItem from="1484924084510" duration="4697000" />
       <workItem from="1484985791314" duration="5925000" />
       <workItem from="1484995576036" duration="2000" />
-      <workItem from="1485008294428" duration="1973000" />
-    </task>
-    <task id="LOCAL-00012" summary="设备信息修改更新:art:">
-      <created>1484122682682</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1484122682682</updated>
+      <workItem from="1485008294428" duration="2155000" />
     </task>
     <task id="LOCAL-00013" summary="图书管理员修复完成:art:">
       <created>1484125654068</created>
@@ -752,17 +748,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484995225003</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="首页重定向为用户登录页:bug:">
+      <created>1485016998421</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1485016998422</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103632000" />
+    <option name="totallyTimeSpent" value="103814000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -809,7 +812,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="图书管理员修改图书信息路由重构:bug:" />
     <MESSAGE value="删除部分无用视图:art:" />
     <MESSAGE value="修正添加数据的方法以做到更加通用:art:" />
     <MESSAGE value="增加显示字段信息的数据库函数:art:" />
@@ -834,7 +836,8 @@
     <MESSAGE value="删除无用文件及文件夹:bug:" />
     <MESSAGE value="图书借阅修复部分bug:bug:" />
     <MESSAGE value="图书借阅修复js文件链接错误的bug:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="图书借阅修复js文件链接错误的bug:bug:" />
+    <MESSAGE value="首页重定向为用户登录页:bug:" />
+    <option name="LAST_COMMIT_MESSAGE" value="首页重定向为用户登录页:bug:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
