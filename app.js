@@ -36,11 +36,11 @@ app.use("/admin",routerAdmin,routerAdminSuper,routerAdminBook,routerAdminEquip);
 
 app.get("/",function(req,res){
 	res.redirect('/user/login');
-})
+});
 emailSchedule();
 app.listen(config.server.port,function(){
 	console.log("listening port 3000");
-})
+});
 
 
 
