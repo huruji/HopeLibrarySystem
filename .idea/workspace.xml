@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/equip-reservation.js" afterPath="$PROJECT_DIR$/public/js/equip-reservation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/equip.js" afterPath="$PROJECT_DIR$/router/equip.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,8 +47,8 @@
             <file leaf-file-name="equip.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/router/equip.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="52">
-                    <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+                  <state relative-caret-position="388">
+                    <caret line="108" column="11" lean-forward="true" selection-start-line="108" selection-start-column="11" selection-end-line="108" selection-end-column="11" />
                     <folding />
                   </state>
                 </provider>
@@ -71,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/book.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
-              <caret line="28" column="142" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="142" />
+              <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -91,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-equip.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-equip.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
@@ -124,11 +125,12 @@
       <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="301" column="23" lean-forward="true" selection-start-line="301" selection-start-column="23" selection-end-line="301" selection-end-column="23" />
+            <state relative-caret-position="584">
+              <caret line="332" column="2" lean-forward="true" selection-start-line="332" selection-start-column="2" selection-end-line="332" selection-end-column="2" />
               <folding>
                 <element signature="e#495#2893#0" expanded="false" />
                 <element signature="e#2910#4672#0" expanded="false" />
+                <element signature="e#4688#7508#0" expanded="false" />
                 <element signature="e#9790#10264#0" expanded="false" />
                 <element signature="n#!!block;n#queryResult#0" expanded="false" />
               </folding>
@@ -231,12 +233,12 @@
         <option value="$PROJECT_DIR$/router/book.js" />
         <option value="$PROJECT_DIR$/public/js/bookcate.js" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
-        <option value="$PROJECT_DIR$/router/equip.js" />
         <option value="$PROJECT_DIR$/views/public/user/user-aside.ejs" />
         <option value="$PROJECT_DIR$/views/public/user/user-nav.ejs" />
         <option value="$PROJECT_DIR$/views/user/user-book.ejs" />
         <option value="$PROJECT_DIR$/views/user/user-equip.ejs" />
         <option value="$PROJECT_DIR$/public/js/equip-reservation.js" />
+        <option value="$PROJECT_DIR$/router/equip.js" />
       </list>
     </option>
   </component>
@@ -262,9 +264,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -304,43 +307,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="equip" />
+              <option name="myItemId" value="router" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -481,14 +448,7 @@
       <workItem from="1484820850889" duration="12614000" />
       <workItem from="1484920500866" duration="3487000" />
       <workItem from="1484924084510" duration="4697000" />
-      <workItem from="1484985791314" duration="2768000" />
-    </task>
-    <task id="LOCAL-00008" summary="图书管理员账户密码后端路由、前端页面修改完成">
-      <created>1484117909643</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1484117909643</updated>
+      <workItem from="1484985791314" duration="4449000" />
     </task>
     <task id="LOCAL-00009" summary="删除部分路由不用的代码（之前已经注释）:fire:">
       <created>1484118203301</created>
@@ -826,17 +786,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484991818199</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="设备预约视图层js文件修复:bug:">
+      <created>1484991920678</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1484991920678</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98500000" />
+    <option name="totallyTimeSpent" value="100181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="676" y="0" width="697" height="745" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03671072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1159,6 +1126,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
           <caret line="102" column="27" lean-forward="false" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="27" />
+          <folding>
+            <element signature="e#7553#8752#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1183,39 +1153,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="301" column="23" lean-forward="true" selection-start-line="301" selection-start-column="23" selection-end-line="301" selection-end-column="23" />
-          <folding>
-            <element signature="e#495#2893#0" expanded="false" />
-            <element signature="e#2910#4672#0" expanded="false" />
-            <element signature="e#9790#10264#0" expanded="false" />
-            <element signature="n#!!block;n#queryResult#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="28" column="142" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="142" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/public/user/user-aside.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="14" column="65" lean-forward="false" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/equip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1244,6 +1185,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/equip-reservation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding>
+            <marker date="1484991879940" expanded="true" signature="1013:1038" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -1252,13 +1203,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/equip-reservation.js">
+    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        <state relative-caret-position="584">
+          <caret line="332" column="2" lean-forward="true" selection-start-line="332" selection-start-column="2" selection-end-line="332" selection-end-column="2" />
           <folding>
-            <marker date="1484991879940" expanded="true" signature="1013:1038" ph="..." />
+            <element signature="e#495#2893#0" expanded="false" />
+            <element signature="e#2910#4672#0" expanded="false" />
+            <element signature="e#4688#7508#0" expanded="false" />
+            <element signature="e#9790#10264#0" expanded="false" />
+            <element signature="n#!!block;n#queryResult#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/equip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="108" column="11" lean-forward="true" selection-start-line="108" selection-start-column="11" selection-end-line="108" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

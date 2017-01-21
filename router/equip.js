@@ -27,93 +27,86 @@ router.route("/").get(function(req,res){
         });
     });
 });
-
-
 router.route("/equipemail").post(function(req,res){
-	var equipID=parseInt(req.body.equipID);
-	console.log(equipID);
-	var mysqlQuery = ["SELECT adminName,equipName",
+	let equipID=parseInt(req.body.equipID);
+	let query = ["SELECT adminName,equipName",
 	                  " FROM hopeadmin,hopeequip",
 	                  " WHERE hopeadmin.adminID=hopeequip.equipAdminID",
-	                  " AND hopeequip.equipID =?"].join("");
-	if(!req.cookies.userId){
-		var noLogin = {
+	                  " AND hopeequip.equipID =" + equipID].join("");
+	if(!req.session.userSign){
+		let noLogin = {
 			noLogin:true,
 			code:4
 		}
 		res.send(noLogin);
 		return;
 	}
-	mysql_util.DBConnection.query("SELECT adminName,equipName FROM hopeadmin,hopeequip WHERE hopeadmin.adminID=hopeequip.equipAdminID AND hopeequip.equipID = ?",equipID,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var success = {
-			adminName:rows[0].adminName,
-			equipName:rows[0].equipName
-		}
-		res.send(success);
-	})
-})
+	equipDB.query(query, (rows) => {
+        let message = {
+            adminName:rows[0].adminName,
+            equipName:rows[0].equipName
+        };
+        res.send(message);
+    });
+});
 
 router.route("/equipreservation").post(function(req,res){
-	var equipID=parseInt(req.body.equipID);
-	var info = req.body.info;
-	mysql_util.DBConnection.query("UPDATE hopeequip SET equipLeft=0 WHERE equipID = ?",equipID,function(err,rows,fields){
-		if(err){
-			console.log(err);
-			return;
-		}
-		var mysqlQuery = "INSERT equipborrow Values(DEFAULT,?,?,CURDATE(),DEFAULT,ADDDATE(CURDATE(),3),DEFAULT,?)";
-		mysql_util.DBConnection.query(mysqlQuery,[equipID,req.cookies.userId,info],function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var mysqlQuery = ["SELECT adminName,equipName,adminEmail,readerName",
-			                  " FROM hopeadmin,hopeequip,hopereader",
-			                  " WHERE hopeadmin.adminID=hopeequip.equipAdminID",
-			                  " AND hopeequip.equipID = ?",
-			                  " AND hopereader.readerID=?"].join("");
-			mysql_util.DBConnection.query(mysqlQuery,[equipID,req.cookies.userId],function(err,rows,fields){
-				if(err){
-					console.log(err);
-					return;
-				}
-				var adminEmail = rows[0].adminEmail;
-				var readerName = rows[0].readerName;
-				var equipName = rows[0].equipName;
-				var adminName = rows[0].adminName;
-				var transporter = nodemailer.createTransport({
-					host:config.email.transportOptions.host,
-					port:config.email.transportOptions.port,
-					secure:config.email.transportOptions.secure,
-					auth:{
-						user:config.email.userEmail,
-						pass:config.email.userEmailPassWord
-					}
-				});
-				var emailHTML=util.format(config.reservationEmail.emailHTML,adminName,readerName,equipName,info);
-				var mailoption = {
-					from:config.email.userEmail,
-					to:adminEmail,
-					subject:config.reservationEmail.emailSubject,
-					html:emailHTML
-				}
-				transporter.sendMail(mailoption,function(err,info){
-					if(err){
-						console.log(err);
-						return;
-					}
-					console.log(info.response);
-				})
-            	var success = {
-            		message:"预约成功，请等待审核!"
-            	};
-            	res.send(success);
-			})
-		})
-	})
-})
+	let equipID=parseInt(req.body.equipID);
+    let userID=req.session.userID;
+	let info = req.body.info;
+	let setDataJson = {
+        equipLeft: 0
+    };
+	equipDB.updateMessage(equipID, setDataJson, (message) => {
+        const query = 'INSERT equipborrow SET borrowEquipID='
+            + equipID
+            + ',borrowUserID='
+            + userID
+            + ',borrowTime=CURDATE(),returnBefore=ADDDATE(CURDATE(),30)'
+            + ',reservationText= '
+            + 'info';
+        equipDB.query(query, (rows) => {
+            const query = 'SELECT adminName,equipName,adminEmail,readerName'
+                         + ' FROM hopeadmin,hopeequip,hopereader'
+                         + ' WHERE hopeadmin.adminID=hopeequip.equipAdminID'
+                         + ' AND hopeequip.equipID ='
+                         + equipID
+                         + ' AND hopereader.readerID='
+                         + userID;
+            equipDB.query(query, (rows) => {
+                const adminEmail = rows[0].adminEmail;
+                const readerName = rows[0].readerName;
+                const equipName = rows[0].equipName;
+                const adminName = rows[0].adminName;
+                const transporter = nodemailer.createTransport({
+                    host:config.email.transportOptions.host,
+                    port:config.email.transportOptions.port,
+                    secure:config.email.transportOptions.secure,
+                    auth:{
+                        user:config.email.userEmail,
+                        pass:config.email.userEmailPassWord
+                    }
+                });
+                const emailHTML=util.format(config.reservationEmail.emailHTML,adminName,readerName,equipName,info);
+                const mailoption = {
+                    from:config.email.userEmail,
+                    to:adminEmail,
+                    subject:config.reservationEmail.emailSubject,
+                    html:emailHTML
+                };
+                transporter.sendMail(mailoption,function(err,info){
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    console.log(info.response);
+                });
+                const message = {
+                    message:"预约成功，请等待审核!"
+                };
+                res.send(message);
+            });
+        });
+    });
+});
 module.exports=router;
