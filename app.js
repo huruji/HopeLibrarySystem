@@ -35,7 +35,7 @@ app.use("/equip",routerEquip);
 app.use("/admin",routerAdmin,routerAdminSuper,routerAdminBook,routerAdminEquip);
 
 app.get("/",function(req,res){
-	res.render("public/front/index")
+	res.redirect('/user/login');
 })
 emailSchedule();
 app.listen(config.server.port,function(){

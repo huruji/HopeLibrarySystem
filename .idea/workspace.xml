@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/user/user-book.ejs" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/book/book.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/book/bookCate.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/book/cate.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/book/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/equip/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/back/footer.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/back/header.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/back/sidebar.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/back/user-nav.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/back/userinfo.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/front/footer.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/front/header.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/front/index.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-book.ejs" afterPath="$PROJECT_DIR$/views/user/user-book.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -77,18 +65,38 @@
       <file leaf-file-name="user-book.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="70" />
+            <state relative-caret-position="348">
+              <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="37" column="32" lean-forward="false" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="52">
               <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="email-schedule.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/email-schedule.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,7 +105,7 @@
       <file leaf-file-name="user-equip.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="-130">
               <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="98" />
               <folding />
             </state>
@@ -220,7 +228,6 @@
         <option value="$PROJECT_DIR$/utils/md5-pass.js" />
         <option value="$PROJECT_DIR$/utils/check-login.js" />
         <option value="$PROJECT_DIR$/utils/set-session.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/utils/dbhope.js" />
         <option value="$PROJECT_DIR$/router/admin.js" />
         <option value="$PROJECT_DIR$/router/admin-super.js" />
@@ -237,10 +244,11 @@
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
         <option value="$PROJECT_DIR$/views/public/user/user-aside.ejs" />
         <option value="$PROJECT_DIR$/views/public/user/user-nav.ejs" />
-        <option value="$PROJECT_DIR$/views/user/user-book.ejs" />
         <option value="$PROJECT_DIR$/views/user/user-equip.ejs" />
         <option value="$PROJECT_DIR$/public/js/equip-reservation.js" />
         <option value="$PROJECT_DIR$/router/equip.js" />
+        <option value="$PROJECT_DIR$/views/user/user-book.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -296,20 +304,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="router" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -450,14 +444,7 @@
       <workItem from="1484820850889" duration="12614000" />
       <workItem from="1484920500866" duration="3487000" />
       <workItem from="1484924084510" duration="4697000" />
-      <workItem from="1484985791314" duration="4745000" />
-    </task>
-    <task id="LOCAL-00010" summary="设备管理员首页更新:art:">
-      <created>1484119361915</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1484119361915</updated>
+      <workItem from="1484985791314" duration="5546000" />
     </task>
     <task id="LOCAL-00011" summary="设备管理员更新:art:">
       <created>1484121393793</created>
@@ -795,17 +782,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484993851987</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="删除无用文件及文件夹:bug:">
+      <created>1484994140198</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1484994140198</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100477000" />
+    <option name="totallyTimeSpent" value="101278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -852,7 +846,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修正部分管理员通用数据错误:bug:" />
     <MESSAGE value="将超级管理员修改用户信息路由转为super文件处理，删除部分无用路由:bug:" />
     <MESSAGE value="超级管理员增加用户路由重构:bug:" />
     <MESSAGE value="图书管理员修改图书信息路由重构:bug:" />
@@ -877,7 +870,8 @@
     <MESSAGE value="设备预约视图层修复:bug:" />
     <MESSAGE value="设备预约视图层js文件修复:bug:" />
     <MESSAGE value="设备预约dialog层样式修复:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="设备预约dialog层样式修复:bug:" />
+    <MESSAGE value="删除无用文件及文件夹:bug:" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除无用文件及文件夹:bug:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -892,7 +886,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/admin-equip/index-new.ejs" />
     <entry file="file://$PROJECT_DIR$/views/admin-equip/equipmodify.ejs" />
     <entry file="file://$PROJECT_DIR$/public/js/equipCheck.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1014,13 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
           <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1179,14 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/equip-reservation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -1194,14 +1172,6 @@
           <folding>
             <marker date="1484991879940" expanded="true" signature="1013:1038" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="98" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1227,10 +1197,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/router/email-schedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/book.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="52">
           <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-130">
+          <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="37" column="32" lean-forward="false" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
           <folding />
         </state>
       </provider>
