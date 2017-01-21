@@ -4,7 +4,6 @@
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/equip-reservation.js" afterPath="$PROJECT_DIR$/public/js/equip-reservation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-equip.ejs" afterPath="$PROJECT_DIR$/views/user/user-equip.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,10 +26,10 @@
             <file leaf-file-name="equip-reservation.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/public/js/equip-reservation.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="286">
-                    <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+                  <state relative-caret-position="26">
+                    <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
                     <folding>
-                      <marker date="1484991783950" expanded="true" signature="1010:1035" ph="..." />
+                      <marker date="1484991879940" expanded="true" signature="1013:1038" ph="..." />
                     </folding>
                   </state>
                 </provider>
@@ -95,8 +94,8 @@
       <file leaf-file-name="user-equip.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="338">
+              <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -263,10 +262,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -483,14 +481,7 @@
       <workItem from="1484820850889" duration="12614000" />
       <workItem from="1484920500866" duration="3487000" />
       <workItem from="1484924084510" duration="4697000" />
-      <workItem from="1484985791314" duration="2654000" />
-    </task>
-    <task id="LOCAL-00007" summary="图书管理员账户密码后端路由、前端页面修改完成">
-      <created>1484117841715</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1484117841715</updated>
+      <workItem from="1484985791314" duration="2768000" />
     </task>
     <task id="LOCAL-00008" summary="图书管理员账户密码后端路由、前端页面修改完成">
       <created>1484117909643</created>
@@ -828,17 +819,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484991605878</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="设备预约视图层js文件修复:bug:">
+      <created>1484991818199</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1484991818199</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98386000" />
+    <option name="totallyTimeSpent" value="98500000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="676" y="0" width="697" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.01830161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03671072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -885,7 +883,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修正数据库文件的部分bug:bug:" />
     <MESSAGE value="管理员数据库部分重构:art:" />
     <MESSAGE value="修正部分管理员通用数据错误:bug:" />
     <MESSAGE value="将超级管理员修改用户信息路由转为super文件处理，删除部分无用路由:bug:" />
@@ -910,7 +907,8 @@
     <MESSAGE value="数据库操作方法部署:rocket:" />
     <MESSAGE value="设备预约视图层修复:rocket:" />
     <MESSAGE value="设备预约视图层修复:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="设备预约视图层修复:bug:" />
+    <MESSAGE value="设备预约视图层js文件修复:bug:" />
+    <option name="LAST_COMMIT_MESSAGE" value="设备预约视图层js文件修复:bug:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1246,21 +1244,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/equip-reservation.js">
+    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-          <folding>
-            <marker date="1484991783950" expanded="true" signature="1010:1035" ph="..." />
-          </folding>
+        <state relative-caret-position="338">
+          <caret line="25" column="98" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="98" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
+    <entry file="file://$PROJECT_DIR$/public/js/equip-reservation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="26">
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding>
+            <marker date="1484991879940" expanded="true" signature="1013:1038" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
