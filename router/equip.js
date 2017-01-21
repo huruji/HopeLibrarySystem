@@ -9,18 +9,24 @@ const setSession = require('./../utils/set-session');
 const hopeDB = require('./../utils/hopeDB.js');
 const userDB = hopeDB.userDB;
 const equipDB = hopeDB.equipDB;
-const borrowDB = hopeDB.borrowDB;
 
 router.route("/").get(function(req,res){
-	mysql_util.DBConnection.query("SELECT * FROM hopeequip ORDER BY equipLeft DESC LIMIT 0,20",function(err,rows,fields){
-		if(err){
-			res.send("出错了，请联系管理员");
-			return;
-		}
-		var equip=rows;
-		res.render("equip/index",{"equip":equip});
-	});
-})
+    if(!req.session.userSign) {
+        res.redirect("/user/login");
+        return;
+    }
+    let userId = req.session.userID;
+    userDB.selectMessage(userId, (rows) => {
+        var userImg = rows[0].userImgSrc;
+        var userName = rows[0].readerName;
+        var userPermission = "user";
+        equipDB.orderItems('equipLeft DESC,equipID DESC', 0, 20, (rows) => {
+            let equip = rows;
+            setSession(req,{userSign:true,userID: req.session.userID});
+            res.render("user/user-equip",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'reservation',secondPath:'',equip:equip});
+        });
+    });
+});
 
 
 router.route("/equipemail").post(function(req,res){

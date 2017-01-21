@@ -21,5 +21,9 @@
         href="/book/cate/<%= url %>"> <%= bookCate[i] %> </a></li>
         <%}%>
         <%}%>
+        <%if(firstPath=="borrow"){%>
+        <li class="main-right-nav-list-item  <%if(secondPath==""){%> main-right-nav-list-item-active <%}%>"><a
+                    href="/equip">全部</a></li>
+        <%}%>
     </ul>
 </nav>
