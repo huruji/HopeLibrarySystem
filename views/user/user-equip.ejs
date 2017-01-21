@@ -23,7 +23,7 @@
                             <% if(equip[i].equipLeft <= 0) { %>
                             <button disabled="disabled">已借出</button>
                             <% } else {%>
-                            <button data-borrowID=<%= equip[i].equipID%> class="js-borrow-btn">预约</button>
+                            <button data-reservationID=<%= equip[i].equipID%> class="js-borrow-btn">预约</button>
                             <% } %>
                         </div>
                     </li>

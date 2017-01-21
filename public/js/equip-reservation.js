@@ -1,7 +1,7 @@
 
 (function(global,$){
 	$(".borrow-btn").click(function(){
-		var equipID=$(this).attr("data-equipID");
+		var equipID=$(this).attr("data-reservationID");
 		$.ajax({
         	dataType:"json",
         	async:true,
