@@ -1,6 +1,5 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
-const bodyParser=require("body-parser");
 const crypto=require("crypto");
 const fs = require("fs");
 const path = require("path");
@@ -11,15 +10,14 @@ const router=express.Router();
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const adminDB = hopeDB.adminDB;
-const userDB = hopeDB.userDB;
+const [adminDB, userDB] = [hopeDB.adminDB, hopeDB.userDB];
 
 // 管理员登录页面
 router.route("/login").post(function(req,res){
 	var password_md5=md5Pass(req.body.password);
 	mysql_util.DBConnection.query("SELECT adminID,adminName,adminPassword FROM hopeadmin WHERE adminName=? AND adminPassword=?",[req.body.username,password_md5],function(err,rows,fields){
 		if(err){
-			var error={
+			const error={
 				code:3,
 				message:"服务端异常，请稍后再试或者联系管理员"
 			};
@@ -27,7 +25,7 @@ router.route("/login").post(function(req,res){
 			res.send(error)
 		}else{
 			if(rows.length==0){
-				var error={
+				const error={
 					code:2,
 					message:"用户名或密码错误"
 				};
@@ -37,7 +35,7 @@ router.route("/login").post(function(req,res){
 					maxAge: 30 * 60 * 1000,
                     path: '/',
 				});
-				var success={
+				const success={
 					code:0,
 					message:"成功",
 					userId:rows[0].adminID
@@ -56,43 +54,44 @@ router.route("/login").post(function(req,res){
 });
 //管理员首页
 router.route("/").get(function(req,res){
-	if(!req.session.adminID){
+	if(!req.session.adminID || !req.session.adminSign){
 		res.redirect("/admin/login");
 		return;
 	}
-    var adminID = req.session.adminID;
+    const adminID = req.session.adminID;
 	adminDB.selectMessage(adminID, (rows) => {
-        let admin=rows[0];
-        if(rows[0].adminPermissions=="super"){
+        const admin=rows[0];
+        if(admin.adminPermissions=="super"){
             userDB.selectAll((rows) => {
                 let reader=rows;
                 adminDB.selectAll((rows) => {
                     let adminUser=rows;
                     let userPageNum=Math.ceil((adminUser.length+reader.length)/10);
                     let user=adminUser.concat(reader);
+                    const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
                     setSession(req,{adminID:admin.adminID,adminSign: true});
-                    res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:1,firstPath:"user",secondPath:''});
+                    res.render("admin-super/index",{userName,userImg,userPermission,firstPath:"user",secondPath:'',user,userPageNum,userPage:1});
                 })
             })
-        }else if(rows[0].adminPermissions=="camera"){
+        }else if(admin.adminPermissions=="camera"){
             mysql_util.DBConnection.query("SELECT equipName,equipID,adminName FROM hopeequip,hopeadmin WHERE hopeequip.equipAdminID=hopeadmin.adminID ORDER BY equipLeft",req.cookies.adminId,function(err,rows,fields){
                 if(err){
                     console.log(err);
                     return;
                 }
-                var equip=rows;
+                const equip=rows;
                 mysql_util.DBConnection.query("SELECT COUNT(*) AS equipNum FROM hopeequip",function(err,rows,fields){
                     if(err){
                         console.log(err);
                         return;
                     }
-                    var equipNum=Math.ceil(rows[0].equipNum/10);
+                    const equipNum=Math.ceil(rows[0].equipNum/10);
                     mysql_util.DBConnection.query("SELECT readerName,borrowEquipID FROM hopereader,equipborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
                         if(err){
                             console.log(err);
                             return;
                         }
-                        var borrower=[];
+                        let borrower=[];
                         for(var i=0,max=equip.length;i<max;i++){
                             borrower[i]=0;
                             for(var j=0,max1=rows.length;j<max1;j++){
@@ -101,39 +100,41 @@ router.route("/").get(function(req,res){
                                 }
                             }
                         }
-                        setSession(req,{adminSign: true});
-                        res.render("admin-equip/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1,firstPath:'camera',secondPath:''});
+                        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+                        setSession(req,{adminID:admin.adminID,adminSign: true});
+                        res.render("admin-equip/index",{userName,userImg,userPermission,firstPath:'camera',secondPath:'',equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1});
                     })
                 })
             });
-        }else if(rows[0].adminPermissions=="book"){
+        }else if(admin.adminPermissions=="book"){
             mysql_util.DBConnection.query("SELECT * FROM hopebook ORDER BY bookLeft",function(err,rows,fields){
                 if(err){
                     console.log(err);
                 }else{
-                    var book=rows;
+                    const book=rows;
                     mysql_util.DBConnection.query("SELECT COUNT(*) AS bookNum FROM hopebook",function(err,rows,fields){
                         if(err){
                             console.log(err);
                             return;
                         }
-                        var bookNum=Math.ceil(rows[0].bookNum/10);
+                        const bookNum=Math.ceil(rows[0].bookNum/10);
                         console.log("bookNum:"+bookNum)
                         mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopereader,bookborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
                             if(err){
                                 console.log(err);
                             }else{
-                                var borrower=[];
-                                for(var i=0,max=book.length;i<max;i++){
+                                let borrower=[];
+                                for(let i=0, max=book.length; i<max; i++){
                                     borrower[i]=0;
-                                    for(var j=0,max1=rows.length;j<max1;j++){
+                                    for(let j=0,max1=rows.length;j<max1;j++){
                                         if(rows[j].borrowBookID==book[i].bookID){
                                             borrower[i]=rows[j].readerName;
                                         }
                                     }
                                 }
-                                setSession(req,{adminSign: true});
-                                res.render("admin-book/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,book:book,borrower:borrower,bookNum:bookNum,bookPage:1,firstPath:'book',secondPath:''});
+                                const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+                                setSession(req,{adminID:admin.adminID,adminSign: true});
+                                res.render("admin-book/index",{userName,userImg,userPermission,firstPath:'book',secondPath:'',book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
                             }
                         })
                     })
@@ -146,19 +147,18 @@ router.route("/").get(function(req,res){
 
 // 管理员修改密码界面
 router.route("/reset").get(function(req,res){
-	if(!req.session.adminID){
+    if(!req.session.adminID || !req.session.adminSign){
 		res.redirect("/admin/login");
 		return;
 	}
 	adminDB.selectMessage(req.session.adminID, (rows) => {
-         	var userName=rows[0].adminName,
-         	    userImg=rows[0].adminImgSrc,
-         	    userPermission=rows[0].adminPermissions;
-            setSession(req,{adminID:rows[0].adminID,adminSign: true});
-         	res.render("admin/admin-reset",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
+	    const admin = rows[0];
+	    const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+        setSession(req,{adminID:admin.adminID,adminSign: true});
+        res.render("admin/admin-reset",{userName,userImg,userPermission,firstPath:'account',secondPath:'reset'});
 	})
 }).post(function(req,res){
-	var password_md5 = md5Pass(req.body.password);
+	const password_md5 = md5Pass(req.body.password);
 		adminDB.resetPassword(req.session.adminID,password_md5,(message) => {
 		    res.send(message);
         });
@@ -195,19 +195,18 @@ router.route("/modify-img").post(function(req,res){
 })
 //管理员修改信息
 router.route("/modify").get(function(req,res){
-	if(!req.session.adminID){
+    if(!req.session.adminID || !req.session.adminSign){
 		res.redirect("/admin/login");
 		return;
 	}
     adminDB.selectMessage(req.session.adminID, (rows) => {
-		var userName=rows[0].adminName,
-		    userImg=rows[0].adminImgSrc,
-		    userPermission=rows[0].adminPermissions;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
         setSession(req,{adminID:rows[0].adminID,adminSign: true});
-		res.render("admin/admin-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:'account',secondPath:'modify'});
+		res.render("admin/admin-modify",{userName,userImg,userPermission,firstPath:'account',secondPath:'modify',user:admin});
 	})
 }).post(function(req,res){
-    if(!req.session.adminID){
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
         return;
     }
