@@ -138,6 +138,15 @@ const userDB = {
             callback&&callback(message);
         });
     },
+    delItem: (userID, callback) => {
+        let searchDataJson = {
+            readerID : userID
+        };
+      userOperate.delItem(searchDataJson, (err, rows, fields) => {
+          const message = queryResult(err, '删除成功');
+          callback&&callback(message);
+      });
+    },
     query: (query, callback) => {
         userOperate.query(query, (err, rows, fields) => {
             if(err) {
@@ -161,7 +170,7 @@ const bookDB ={
     selectMessage: (bookID, callback) => {
         let dataJson = {
             bookID : bookID
-        }
+        };
         bookOperate.selectItem(dataJson,(err, rows, fields) => {
             if(err) {
                 console.log(err);

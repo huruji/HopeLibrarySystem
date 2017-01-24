@@ -81,37 +81,32 @@ router.route("/admin-user").get(function(req,res){
     });
 });
 
-
-
-
 // 超级管理员修改用户信息页面
 router.route("/adminmodifyuser/:userID").get(function(req,res){
     if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
     }
-    var userType=req.params.userID.replace(/\d/g,""),
+    let userType=req.params.userID.replace(/\d/g,""),
         userID=req.params.userID.replace(/\D/g,"");
-    console.log("uerType="+userType);
-    console.log("userID="+userID);
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName=rows[0].adminName,
-            userImg=rows[0].adminImgSrc,
-            userPermission=rows[0].adminPermissions;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
         if(userType=="user"){
             userDB.selectMessage(userID, (rows) => {
+                const user = rows[0];
                 const hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-                setSession(req,{adminSign: true});
-                res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:"user",secondPath:''});
+                setSession(req,{adminID:admin.adminID,adminSign: true});
+                res.render("admin-super/admin-super-modify-user",{userName,userImg,userPermission,firstPath:"user",secondPath:'',user,hopeGroup});
             });
         } else if(userType == "admin"){
             adminDB.selectMessage(userID, (rows) => {
-                setSession(req,{adminSign: true});
-                res.render("admin-super/admin-super-modify-user",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
+                setSession(req,{adminID:admin.adminID,adminSign: true});
+                res.render("admin-super/admin-super-modify-user",{userNameuserImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
             })
         }
     })
 }).post(function(req,res){
-    var userType=req.params.userID.replace(/\d/g,""),
+    let userType=req.params.userID.replace(/\d/g,""),
         userID=req.params.userID.replace(/\D/g,"");
     if(userType=="user"){
         const setDataJson = {
@@ -122,7 +117,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
             readerPhone: req.body.readerPhone,
             readerEmail: req.body.readerEmail,
             readerGroup: req.body.readerGroup
-        }
+        };
         userDB.updateMessage(userID, setDataJson, (message) => {
             res.send(message);
         })
@@ -131,7 +126,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
             adminName: req.body.readerName,
             adminEmail:　req.body.readerEmail,
             adminPermissions: req.body.permission
-        }
+        };
         adminDB.updateMessage(userID, setDataJson, (message) => {
             res.send(message);
         })
@@ -140,28 +135,27 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
 
 //管理员删除用户
 router.route("/admindropuser").post(function(req,res){
-    var userType=req.body.dropData.replace(/\d/g,""),
+    let userType=req.body.dropData.replace(/\d/g,""),
         userID=req.body.dropData.replace(/\D/g,"");
     if(userType=="user"){
         mysql_util.DBConnection.query("SELECT * FROM bookborrow WHERE returnWhe=0 AND borrowUserID=?",userID,function(err,rows,fields){
             if(err){
                 console.log(err);
-                return;
             }else if(rows.length>0){
-                var success={
+                const success={
                     message:"当前用户还有书未归还，不能删除",
                     code:2,
-                }
+                };
                 res.send(success);
             }else{
                 mysql_util.DBConnection.query("SELECT * FROM equipborrow WHERE returnWhe=0 AND borrowUserID=?",userID,function(err,rows,fields){
                     if(err){
                         console.log(err);
                     }else if(rows.length>0){
-                        var success={
+                        const success={
                             message:"当前用户还有设备未归还，不能删除",
                             code:2
-                        }
+                        };
                         res.send(success);
                     }else{
                         mysql_util.DBConnection.query("DELETE FROM hopereader WHERE readerID=?",userID,function(err,rows,fields){
