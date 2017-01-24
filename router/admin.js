@@ -10,41 +10,39 @@ const router=express.Router();
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const [adminDB, userDB] = [hopeDB.adminDB, hopeDB.userDB];
+const [adminDB, userDB, bookDB, equipDB] = [hopeDB.adminDB, hopeDB.userDB, hopeDB.bookDB, hopeDB.equipDB];
 
 // 管理员登录页面
 router.route("/login").post(function(req,res){
-	var password_md5=md5Pass(req.body.password);
-	mysql_util.DBConnection.query("SELECT adminID,adminName,adminPassword FROM hopeadmin WHERE adminName=? AND adminPassword=?",[req.body.username,password_md5],function(err,rows,fields){
-		if(err){
-			const error={
-				code:3,
-				message:"服务端异常，请稍后再试或者联系管理员"
-			};
-			console.log(err);
-			res.send(error)
-		}else{
-			if(rows.length==0){
-				const error={
-					code:2,
-					message:"用户名或密码错误"
-				};
-				res.send(error)
-			}else{
-				res.cookie("adminId",rows[0].adminID,{
-					maxAge: 30 * 60 * 1000,
-                    path: '/',
-				});
-				const success={
-					code:0,
-					message:"成功",
-					userId:rows[0].adminID
-				}
-                setSession(req,{adminID:rows[0].adminID,adminSign: true});
-				res.send(success);
-			}
-		}
-	})
+	const password_md5=md5Pass(req.body.password);
+	const userName = req.body.username;
+	const query = 'SELECT * FROM hopeadmin'
+                  + ' WHERE adminName='
+                  + mysql_util.escape(userName)
+                  + ' AND adminPassword='
+                  + password_md5;
+	adminDB.selectMessage(query,(rows) => {
+	    const admin = rows[0];
+        if(rows.length==0){
+            const error={
+                code:2,
+                message:"用户名或密码错误"
+            };
+            res.send(error)
+        }else{
+            res.cookie("adminId",rows[0].adminID,{
+                maxAge: 30 * 60 * 1000,
+                path: '/',
+            });
+            const message ={
+                code:0,
+                message:"成功",
+                userId:rows[0].adminID
+            };
+            setSession(req,{adminID:admin.adminID,adminSign: true});
+            res.send(message);
+        }
+    });
 }).get(function(req,res){
     if(req.session.adminSign){
         res.redirect('/admin');
@@ -74,27 +72,21 @@ router.route("/").get(function(req,res){
                 })
             })
         }else if(admin.adminPermissions=="camera"){
-            mysql_util.DBConnection.query("SELECT equipName,equipID,adminName FROM hopeequip,hopeadmin WHERE hopeequip.equipAdminID=hopeadmin.adminID ORDER BY equipLeft",req.cookies.adminId,function(err,rows,fields){
-                if(err){
-                    console.log(err);
-                    return;
-                }
+            const query = 'SELECT equipName,equipID,adminName FROM'
+                          + ' hopeequip,hopeadmin WHERE'
+                          + ' hopeequip.equipAdminID=hopeadmin.adminID ORDER BY equipLeft';
+            equipDB.query(query, (rows) => {
                 const equip=rows;
-                mysql_util.DBConnection.query("SELECT COUNT(*) AS equipNum FROM hopeequip",function(err,rows,fields){
-                    if(err){
-                        console.log(err);
-                        return;
-                    }
+                equipDB.countItems('equipNum', (rows) => {
                     const equipNum=Math.ceil(rows[0].equipNum/10);
-                    mysql_util.DBConnection.query("SELECT readerName,borrowEquipID FROM hopereader,equipborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
-                        if(err){
-                            console.log(err);
-                            return;
-                        }
+                    const query = 'SELECT readerName,borrowEquipID FROM'
+                                  + ' hopereader,equipborrow WHERE'
+                                  + ' borrowUserID=readerID AND returnWhe=0';
+                    equipDB.query(query, (rows) => {
                         let borrower=[];
-                        for(var i=0,max=equip.length;i<max;i++){
+                        for(let i=0,max=equip.length;i<max;i++){
                             borrower[i]=0;
-                            for(var j=0,max1=rows.length;j<max1;j++){
+                            for(let j=0,max1=rows.length;j<max1;j++){
                                 if(rows[j].borrowEquipID==equip[i].equipD){
                                     borrower[i]=rows[j].readerName;
                                 }
@@ -103,46 +95,36 @@ router.route("/").get(function(req,res){
                         const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
                         setSession(req,{adminID:admin.adminID,adminSign: true});
                         res.render("admin-equip/index",{userName,userImg,userPermission,firstPath:'camera',secondPath:'',equip:equip,borrower:borrower,equipNum:equipNum,equipPage:1});
-                    })
-                })
+                    });
+                });
             });
         }else if(admin.adminPermissions=="book"){
-            mysql_util.DBConnection.query("SELECT * FROM hopebook ORDER BY bookLeft",function(err,rows,fields){
-                if(err){
-                    console.log(err);
-                }else{
-                    const book=rows;
-                    mysql_util.DBConnection.query("SELECT COUNT(*) AS bookNum FROM hopebook",function(err,rows,fields){
-                        if(err){
-                            console.log(err);
-                            return;
-                        }
-                        const bookNum=Math.ceil(rows[0].bookNum/10);
-                        console.log("bookNum:"+bookNum)
-                        mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopereader,bookborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
-                            if(err){
-                                console.log(err);
-                            }else{
-                                let borrower=[];
-                                for(let i=0, max=book.length; i<max; i++){
-                                    borrower[i]=0;
-                                    for(let j=0,max1=rows.length;j<max1;j++){
-                                        if(rows[j].borrowBookID==book[i].bookID){
-                                            borrower[i]=rows[j].readerName;
-                                        }
-                                    }
+            bookDB.orderItems('bookLeft', null, null, (rows) => {
+                const book = rows;
+                bookDB.countItems('bookNum', (rows) => {
+                    const bookNum = Math.ceil(rows[0].bookNum/10);
+                    const query = 'SELECT readerName,borrowBookID FROM'
+                                  + ' hopereader,bookborrow WHERE'
+                                  + ' borrowUserID=readerID AND returnWhe=0';
+                    bookDB.query(query, (rows) => {
+                        let borrower=[];
+                        for(let i=0, max=book.length; i<max; i++){
+                            borrower[i]=0;
+                            for(let j=0,max1=rows.length;j<max1;j++){
+                                if(rows[j].borrowBookID==book[i].bookID){
+                                    borrower[i]=rows[j].readerName;
                                 }
-                                const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
-                                setSession(req,{adminID:admin.adminID,adminSign: true});
-                                res.render("admin-book/index",{userName,userImg,userPermission,firstPath:'book',secondPath:'',book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
                             }
-                        })
-                    })
-                }
+                        }
+                        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+                        setSession(req,{adminID:admin.adminID,adminSign: true});
+                        res.render("admin-book/index",{userName,userImg,userPermission,firstPath:'book',secondPath:'',book:book,borrower:borrower,bookNum:bookNum,bookPage:1});
+                    });
+                });
             });
         }
-    })
-})
+    });
+});
 
 
 // 管理员修改密码界面
@@ -212,7 +194,7 @@ router.route("/modify").get(function(req,res){
     }
     adminDB.updateMessage(req.session.adminID, {adminEmail:req.body.readerEmail}, (message) => {
         res.send(message);
-    })
+    });
 });
 
 

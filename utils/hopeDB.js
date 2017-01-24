@@ -304,6 +304,15 @@ const equipDB ={
             callback&&callback(rows);
         });
     },
+    countItems: (columnName, callback) => {
+        equipOperate.countItems(columnName, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        })
+    },
     query: (query, callback) => {
         equipOperate.query(query, (err, rows, fields) => {
             if(err) {

@@ -1,6 +1,5 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
-const bodyParser=require("body-parser");
 const crypto=require("crypto");
 const fs = require("fs");
 const path = require("path");
@@ -11,8 +10,7 @@ const router=express.Router();
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const adminDB = hopeDB.adminDB;
-const userDB = hopeDB.userDB;
+const [adminDB, userDB] = [hopeDB.adminDB, hopeDB.userDB];
 
 // 超级管理员增加用户界面
 router.route("/useradd").get(function(req,res){
