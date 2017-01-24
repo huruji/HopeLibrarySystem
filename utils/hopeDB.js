@@ -102,7 +102,7 @@ const userDB = {
     selectMessage: (userID, callback) => {
         let dataJson = {
             readerID : userID
-        }
+        };
         userOperate.selectItem(dataJson,(err, rows, fields) => {
             if(err) {
                 console.log(err);

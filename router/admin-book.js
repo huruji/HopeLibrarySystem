@@ -10,10 +10,8 @@ const url=require("url");
 const router=express.Router();
 
 const setSession = require('./../utils/set-session');
-const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const adminDB = hopeDB.adminDB;
-const bookDB = hopeDB.bookDB;
+const [adminDB, bookDB] = [hopeDB.adminDB, hopeDB.bookDB];
 //管理员修改图书信息
 router.route("/bookmodify-img/:bookID").post(function(req,res){
 	var bookID=req.params.bookID;
@@ -43,26 +41,25 @@ router.route("/bookmodify-img/:bookID").post(function(req,res){
 			res.send(success);
 		})
 	});
-})
+});
 router.route("/book-modify/:bookID").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login");
-		return;
-	}
-	var bookID=req.params.bookID;
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
+	let bookID=req.params.bookID;
 	adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName=rows[0].adminName,
-            userImg=rows[0].adminImgSrc,
-            userPermission=rows[0].adminPermissions;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
         bookDB.selectMessage(bookID, (rows) => {
+            const book = rows[0];
             let bookCate=["编程类","设计类","摄影类","网管类","人文类","软件教程类","博雅教育类","其他"];
-            setSession(req,{adminSign: true});
-            res.render("admin-book/admin-book-modify",{book:rows[0],bookCate:bookCate,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'book',secondPath:'modify'});
+            setSession(req,{adminID:admin.adminID,adminSign: true});
+            res.render("admin-book/admin-book-modify",{userName,userImg,userPermission,firstPath:'book',secondPath:'modify',book,bookCate});
         });
     });
 }).post(function(req,res){
-	var bookID=req.params.bookID;
-	var DBParam=[req.body.bookName,req.body.hopeID,req.body.bookAuthor,req.body.bookISBN,req.body.bookPress,req.body.bookGroup,bookID];
+	const bookID=req.params.bookID;
 	console.log(DBParam);
 	let setDataJson = {
 	    bookName: req.body.bookName,
@@ -71,7 +68,7 @@ router.route("/book-modify/:bookID").get(function(req,res){
         bookISBN: req.body.bookISBN,
         bookPress: req.body.bookPress,
         bookCate: req.body.bookGroup
-    }
+    };
     bookDB.updateMessage(bookID, setDataJson, (message) => {
         res.send(message);
     });
@@ -99,20 +96,19 @@ router.route("/bookadd-img").post(function(req,res){
 			src:imgSrc
 		})
 	})
-})
+});
 router.route("/bookadd").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login")
-		return;
-	}
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName=rows[0].adminName,
-            userImg=rows[0].adminImgSrc,
-            userPermission=rows[0].adminPermissions;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
         bookDB.showColumns('bookCate', (rows) => {
             let bookCate=rows[0].Type.replace(/enum\(|\'|\)/g,"").split(",");
-            setSession(req,{adminSign: true});
-            res.render("admin-book/admin-book-add",{userName:userName,userImg:userImg,userPermission:userPermission,bookCate:bookCate,firstPath:'book',secondPath:'add'});
+            setSession(req,{adminID:admin.adminID,adminSign: true});
+            res.render("admin-book/admin-book-add",{userName,userImg,userPermission,firstPath:'book',secondPath:'add',bookCate});
 		});
 	});
 }).post(function(req,res){
@@ -143,43 +139,38 @@ router.route("/bookadd").get(function(req,res){
 });
 /*图书管理员图书分页*/
 router.route("/admin-book").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login");
-		return;
-	}
-	let pageNum=req.query.pageTab;
-	if(!pageNum){
-		pageNum=1;
-	}
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
+	let pageNum=req.query.pageTab || 1;
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName = rows[0].adminName,
-            userImg = rows[0].adminImgSrc,
-            userPermission = rows[0].adminPermissions;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
         let pageStart=(pageNum-1)*10;
         let pageEnd=pageNum*10;
         bookDB.orderItems('bookLeft', pageStart, pageEnd, (rows) => {
             let book=rows;
             bookDB.countItems('bookNum', (rows) => {
-                let bookNum=Math.ceil(rows[0].bookNum/10);
-                mysql_util.DBConnection.query("SELECT readerName,borrowBookID FROM hopereader,bookborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
-                    if(err){
-                        console.log(err);
-                        return;
-                    }
-                    var borrower=[];
-                    for(var i=0,max=book.length;i<max;i++){
+                let bookNum = Math.ceil(rows[0].bookNum/10);
+                const query = 'SELECT readerName,borrowBookID'
+                              + ' FROM hopereader,bookborrow'
+                              + ' WHERE borrowUserID=readerID AND returnWhe=0';
+                bookDB.query(query, (rows) => {
+                    let borrower=[];
+                    for(let i=0,max=book.length;i<max;i++){
                         borrower[i]=0;
-                        for(var j=0,max1=rows.length;j<max1;j++){
+                        for(let j=0,max1=rows.length;j<max1;j++){
                             if(rows[j].borrowBookID==book[i].bookID){
                                 borrower[i]=rows[j].readerName;
                             }
                         }
                     }
-                    setSession(req,{adminSign: true});
-                    res.render("admin-book/index",{userName:userName,userImg:userImg,userPermission:userPermission,book:book,borrower:borrower,bookNum:bookNum,bookPage:pageNum,firstPath:'book',secondPath:'modify'});
+                    setSession(req,{adminID:admin.adminID,adminSign: true});
+                    res.render("admin-book/index",{userName,userImg,userPermission,firstPath:'book',secondPath:'modify',book,borrower,bookNum,bookPage:pageNum});
                 });
-            })
-        })
+            });
+        });
     });
 });
 

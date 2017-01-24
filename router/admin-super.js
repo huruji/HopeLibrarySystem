@@ -129,7 +129,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
         };
         adminDB.updateMessage(userID, setDataJson, (message) => {
             res.send(message);
-        })
+        });
     }
 });
 
@@ -163,7 +163,7 @@ router.route("/admindropuser").post(function(req,res){
                                 console.log(err);
                                 return;
                             }
-                            var success={
+                            const success={
                                 message:"删除用户成功",
                             };
                             res.send(success);

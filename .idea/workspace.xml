@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="$PROJECT_DIR$/router/admin-book.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-super.js" afterPath="$PROJECT_DIR$/router/admin-super.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="$PROJECT_DIR$/utils/hopeDB.js" />
     </list>
@@ -27,8 +28,8 @@
             <file leaf-file-name="admin-super.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/router/admin-super.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="227">
-                    <caret line="157" column="26" lean-forward="false" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="26" />
+                  <state relative-caret-position="494">
+                    <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="64" />
                     <folding>
                       <element signature="e#1167#1480#0" expanded="false" />
                     </folding>
@@ -77,20 +78,20 @@
       <file leaf-file-name="db-common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/db-common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3406">
+            <state relative-caret-position="2834">
               <caret line="149" column="9" lean-forward="false" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="133" column="6" lean-forward="false" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="6" />
+            <state relative-caret-position="457">
+              <caret line="112" column="6" lean-forward="false" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
               <folding>
-                <element signature="e#10338#10812#0" expanded="false" />
+                <element signature="e#10339#10813#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -116,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/admin-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4082">
-              <caret line="157" column="8" lean-forward="false" selection-start-line="157" selection-start-column="8" selection-end-line="158" selection-end-column="31" />
+            <state relative-caret-position="1068">
+              <caret line="172" column="11" lean-forward="false" selection-start-line="172" selection-start-column="11" selection-end-line="172" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -196,7 +197,6 @@
         <option value="$PROJECT_DIR$/utils/dbhope.js" />
         <option value="$PROJECT_DIR$/views/admin-book/index.ejs" />
         <option value="$PROJECT_DIR$/router/user.js" />
-        <option value="$PROJECT_DIR$/router/admin-book.js" />
         <option value="$PROJECT_DIR$/views/user/book.ejs" />
         <option value="$PROJECT_DIR$/views/user/index.ejs" />
         <option value="$PROJECT_DIR$/utils/db-common.js" />
@@ -213,8 +213,9 @@
         <option value="$PROJECT_DIR$/views/user/user-book.ejs" />
         <option value="$PROJECT_DIR$/router/admin-equip.js" />
         <option value="$PROJECT_DIR$/router/admin.js" />
-        <option value="$PROJECT_DIR$/router/admin-super.js" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
+        <option value="$PROJECT_DIR$/router/admin-super.js" />
+        <option value="$PROJECT_DIR$/router/admin-book.js" />
       </list>
     </option>
   </component>
@@ -443,14 +444,7 @@
       <workItem from="1484995576036" duration="2000" />
       <workItem from="1485008294428" duration="3716000" />
       <workItem from="1485245951515" duration="5175000" />
-      <workItem from="1485274467302" duration="548000" />
-    </task>
-    <task id="LOCAL-00020" summary="验证从cookie改为session:art:">
-      <created>1484239046819</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1484239046819</updated>
+      <workItem from="1485274467302" duration="1631000" />
     </task>
     <task id="LOCAL-00021" summary="将超级管理员功能分离出来单独成为一个路由文件处理:art:">
       <created>1484239415798</created>
@@ -788,17 +782,24 @@
       <option name="project" value="LOCAL" />
       <updated>1485250427109</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="数据库删除方法增加:rocket:">
+      <created>1485275048742</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1485275048743</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111098000" />
+    <option name="totallyTimeSpent" value="112181000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14275256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.016837481" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -845,7 +846,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="用户借阅书籍全部书籍页面重构完成:art:" />
     <MESSAGE value="用户借阅书籍全部书籍路由重构和数据库更新记录添加自定义信息:art:" />
     <MESSAGE value="数据库操作方法添加:art:" />
     <MESSAGE value="图书借阅分类界面以及修复部分数据库操作方法的bug:art: :bug:" />
@@ -870,7 +870,8 @@
     <MESSAGE value="管理员共同部分开始逐渐推进es6的部署，简化代码:rocket:" />
     <MESSAGE value="管理员共同部分部署新的数据库代码:rocket:" />
     <MESSAGE value="管理员登录bug修复:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="管理员登录bug修复:bug:" />
+    <MESSAGE value="数据库删除方法增加:rocket:" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库删除方法增加:rocket:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1141,14 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4082">
-          <caret line="157" column="8" lean-forward="false" selection-start-line="157" selection-start-column="8" selection-end-line="158" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1165,16 +1158,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="157" column="26" lean-forward="false" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="26" />
-          <folding>
-            <element signature="e#1167#1480#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -1185,7 +1168,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/db-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3406">
+        <state relative-caret-position="2834">
           <caret line="149" column="9" lean-forward="false" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
           <folding />
         </state>
@@ -1193,11 +1176,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="133" column="6" lean-forward="false" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="6" />
+        <state relative-caret-position="457">
+          <caret line="112" column="6" lean-forward="false" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
           <folding>
-            <element signature="e#10338#10812#0" expanded="false" />
+            <element signature="e#10339#10813#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="64" />
+          <folding>
+            <element signature="e#1167#1480#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1068">
+          <caret line="172" column="11" lean-forward="false" selection-start-line="172" selection-start-column="11" selection-end-line="172" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
