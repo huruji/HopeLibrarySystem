@@ -1,6 +1,5 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
-const bodyParser=require("body-parser");
 const crypto=require("crypto");
 const path = require("path");
 const fs = require("fs");
@@ -9,58 +8,46 @@ const url=require("url");
 const router=express.Router();
 
 const setSession = require('./../utils/set-session');
-const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const adminDB = hopeDB.adminDB;
-const equipDB = hopeDB.equipDB;
+const [adminDB, equipDB] = [hopeDB.adminDB, hopeDB.equipDB];
 
 /*设备管理员设备分页*/
 router.route("/admin-equip").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login");
-		return;
-	}
-	var pageNum=req.query.pageTab;
-	if(!pageNum){
-		pageNum=1;
-	}
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
+	let pageNum = req.query.pageTab || 1;
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName = rows[0].adminName,
-            userImg = rows[0].adminImgSrc,
-            userPermission = rows[0].adminPermissions;
-        let pageStart=(pageNum-1)*10;
-        let pageEnd=pageNum*10;
-        var mysqlQuery=["SELECT equipName,equipID,adminName",
-            " FROM hopeequip,hopeadmin",
-            " WHERE hopeequip.equipAdminID=hopeadmin.adminID",
-            " ORDER BY equipLeft LIMIT ?,?"].join("");
-        mysql_util.DBConnection.query(mysqlQuery,[pageStart,pageEnd],function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            var equip=rows;
-            mysql_util.DBConnection.query("SELECT COUNT(*) AS equipNum FROM hopeequip",function(err,rows,fields){
-                if(err){
-                    console.log(err);
-                    return;
-                }
-                var equipNum=Math.ceil(rows[0].equipNum/10);
-                mysql_util.DBConnection.query("SELECT readerName,borrowEquipID FROM hopereader,equipborrow WHERE borrowUserID=readerID AND returnWhe=0",function(err,rows,fields){
-                    if(err){
-                        console.log(err);
-                        return;
-                    }
-                    var borrower=[];
-                    for(var i=0,max=equip.length;i<max;i++){
-                        borrower[i]=0;
-                        for(var j=0,max1=rows.length;j<max1;j++){
-                            if(rows[j].borrowEquipID==equip[i].equipD){
-                                borrower[i]=rows[j].readerName;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+        let pageStart = (pageNum-1)*10;
+        let pageEnd = pageNum*10;
+        const query = 'SELECT equipName,equipID,adminName'
+                      + ' FROM hopeequip,hopeadmin'
+                      + ' WHERE hopeequip.equipAdminID=hopeadmin.adminID'
+                      + ' ORDER BY equipLeft LIMIT '
+                      + mysql_util.DBConnection.escape(pageStart)
+                      + ','
+                      + mysql_util.DBConnection.escape(pageEnd);
+        equipDB.query(query, (rows) => {
+            const equip = rows;
+            equipDB.countItems('equipNum', (rows) => {
+                const equipNum=Math.ceil(rows[0].equipNum/10);
+                const query = 'SELECT readerName,borrowEquipID'
+                              + ' FROM hopereader,equipborrow'
+                              + ' WHERE borrowUserID=readerID AND returnWhe=0';
+                equipDB.query(query, (rows) => {
+                    let borrower = [];
+                    for(let i = 0, max = equip.length; i < max; i++){
+                        borrower[i] = 0;
+                        for(let j = 0, max1 = rows.length; j < max1;j++){
+                            if(rows[j].borrowEquipID == equip[i].equipD){
+                                borrower[i] = rows[j].readerName;
                             }
                         }
                     }
-                    res.render("admin-equip/index",{userName:userName,userImg:userImg,userPermission:userPermission,equip:equip,borrower:borrower,equipNum:equipNum,equipPage:pageNum,firstPath:'camera',secondPath:'modify'});
+                    res.render("admin-equip/index",{userName,userImg,userPermission,firstPath:'camera',secondPath:'modify',equip,borrower,equipNum,equipPage:pageNum});
                 });
             });
         });
@@ -99,36 +86,36 @@ router.route("/equipmodify-img/:equipID").post(function(req,res){
 	});
 })
 router.route("/equipmodify/:equipID").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login");
-		return;
-	}
-	var equipID=req.params.equipID;
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
+    const equipID=req.params.equipID;
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName = rows[0].adminName,
-            userImg = rows[0].adminImgSrc,
-            userPermission = rows[0].adminPermissions;
-        mysql_util.DBConnection.query("SELECT equipHopeID,equipName,equipImgSrc,adminName FROM hopeequip,hopeadmin WHERE hopeequip.equipAdminID=hopeadmin.adminID AND equipID=?",equipID,function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            setSession(req,{adminSign: true});
-            res.render("admin-equip/admin-equip-modify",{equip:rows[0],userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'modify'});
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+        const query = 'SELECT equipHopeID,equipName,equipImgSrc,adminName'
+                      + ' FROM hopeequip,hopeadmin'
+                      + ' WHERE hopeequip.equipAdminID=hopeadmin.adminID AND equipID='
+                      + mysql_util.DBConnection.escape(equipID);
+        equipDB.query(query, (rows) => {
+           const equip = rows[0];
+           setSession(req,{adminID:admin.adminID,adminSign: true});
+           res.render("admin-equip/admin-equip-modify",{userName,userImg,userPermission,firstPath:'camera',secondPath:'modify',equip});
         });
     });
 }).post(function(req,res){
-	var equipID=req.params.equipID;
-	let dataJson = {
+	const equipID=req.params.equipID;
+	const dataJson = {
 		adminName: req.body.equipAdmin,
         adminPermissions: 'camera'
-	}
+	};
 	adminDB.selectItem(dataJson, (rows) => {
         if(rows.length<1){
-            var err={
+            let err={
                 code:2,
                 message:"该管理员不存在"
-            }
+            };
             res.send(err);
             return;
         }
@@ -136,7 +123,7 @@ router.route("/equipmodify/:equipID").get(function(req,res){
             equipName: req.body.equipName,
             equipHopeID: req.body.hopeID,
             equipAdminID: rows[0].adminID
-		}
+		};
 		equipDB.updateMessage(equipID, setDataJson, (message) => {
             res.send(message);
 		})
@@ -144,68 +131,54 @@ router.route("/equipmodify/:equipID").get(function(req,res){
 });
 
 router.route("/check").get(function(req,res){
-	if(!req.session.adminID){
-		res.redirect("/admin/login");
-		return;
-	}
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        let userName = rows[0].adminName,
-            userImg = rows[0].adminImgSrc,
-            userPermission = rows[0].adminPermissions;
-        var mysqlQuery=["SELECT readerName,borrowTime,equipName,reservationText,borrowEquipID,adminName",
-            " FROM hopereader,equipborrow,hopeequip,hopeadmin",
-            " WHERE equipborrow.borrowEquipID=hopeequip.equipID",
-            " AND equipborrow.reservation=0",
-            " AND equipborrow.borrowUserID=hopereader.readerID",
-            " AND hopeequip.equipAdminID=hopeadmin.adminID",
-            " AND hopeadmin.adminID=?"].join("");
-        mysql_util.DBConnection.query(mysqlQuery,req.cookies.adminId,function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            rows.forEach(function(e){
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+        const query = "SELECT readerName,borrowTime,equipName,reservationText,borrowEquipID,adminName"
+                      + " FROM hopereader,equipborrow,hopeequip,hopeadmin"
+                      + " WHERE equipborrow.borrowEquipID=hopeequip.equipID"
+                      + " AND equipborrow.reservation=0"
+                      + " AND equipborrow.borrowUserID=hopereader.readerID"
+                      + " AND hopeequip.equipAdminID=hopeadmin.adminID"
+                      + " AND hopeadmin.adminID="
+                      + mysql_util.DBConnection.escape(req.session.adminID);
+        equipDB.query(query, (rows) => {
+            let equip = rows;
+            equip.forEach(function(e){
                 e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
             });
-            res.render("admin-equip/admin-equip-check",{equip:rows,userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'camera',secondPath:'check'});
+            res.render("admin-equip/admin-equip-check",{userName,userImg,userPermission,firstPath:'camera',secondPath:'check',equip});
         });
     });
 }).post(function(req,res){
-	var equipID=req.body.equipID;
-	var check=req.body.check;
-	console.log(equipID,check);
+	const equipID=req.body.equipID;
+	const check=req.body.check;
 	if(check==="true"){
-		mysql_util.DBConnection.query("UPDATE equipborrow SET reservation=1 WHERE borrowEquipID=?",equipID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success = {
-				message:"操作成功"
-			}
-			res.send(success)
-		})
+	    const query = 'UPDATE equipborrow SET reservation=1 WHERE borrowEquipID=' + mysql_util.DBConnection.escape(equipID);
+	    equipDB.query(query, (rows) => {
+            const message = {
+                message:"操作成功"
+            };
+            res.send(message)
+        });
 	}else if(check==="false"){
-		console.log("否");
-		mysql_util.DBConnection.query("UPDATE  hopeequip SET equipLeft=1 WHERE equipID=?",equipID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			mysql_util.DBConnection.query("DELETE FROM equipborrow WHERE borrowEquipID=?",equipID,function(err,rows,fields){
-				if(err){
-					console.log(err);
-					return;
-				}
-				var success = {
-					message:"操作成功"
-				};
-				res.send(success);
-			})
-
-		})
+	    const setDataJson = {
+	        equipLeft: 1
+        };
+	    equipDB.updateMessage(equipID,(message) => {
+	        const query = 'DELETE FROM equipborrow WHERE borrowEquipID=' + mysql_util.DBConnection.escape(equipID);
+	        equipDB.query(query, (rows) => {
+                const message = {
+                    message:"操作成功"
+                };
+                res.send(message);
+            })
+        });
 	}
-		
-})
+});
 
 module.exports=router;

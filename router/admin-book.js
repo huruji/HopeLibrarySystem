@@ -1,10 +1,8 @@
 const express=require("express");
 const mysql_util=require("./mysql_util");
-const bodyParser=require("body-parser");
 const crypto=require("crypto");
 const path = require("path");
 const fs = require("fs");
-
 const formidable = require("formidable");
 const url=require("url");
 const router=express.Router();
