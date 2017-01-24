@@ -14,43 +14,42 @@ const [adminDB, userDB] = [hopeDB.adminDB, hopeDB.userDB];
 
 // 超级管理员增加用户界面
 router.route("/useradd").get(function(req,res){
-    if(!req.session.adminID){
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
         return;
     }
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        var userName=rows[0].adminName,
-            userImg=rows[0].adminImgSrc,
-            userPermission=rows[0].adminPermissions;
-        setSession(req,{adminSign: true});
-        res.render("admin-super/admin-super-add-user",{userName:userName,userImg:userImg,userPermission:userPermission,firstPath:'user',secondPath:'add'});
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+        setSession(req,{adminID:admin.adminID,adminSign: true});
+        res.render("admin-super/admin-super-add-user",{userName,userImg,userPermission,firstPath:'user',secondPath:'add'});
     });
 }).post(function(req,res){
-    var password_md5=md5Pass(req.body.password);
+    const password_md5=md5Pass(req.body.password);
     if(req.body.permission=="user"){
         let setDataJson = {
             readerName:req.body.readerName,
             readerEmail:req.body.readerEmail,
             readerPassword:password_md5,
             readerGroup:req.body.hopeGroup
-        }
+        };
         userDB.addItem(setDataJson, (message) => {
             res.send(message);
         })
     }else{
         if(req.body.permission.includes("super")){
-            var permission="super";
+            const permission="super";
         }else if(req.body.permission.includes("book")){
-            var permission="book";
+            const permission="book";
         }else if(req.body.permission.includes("camera")){
-            var permission="camera";
+            const permission="camera";
         }
         let setDataJson = {
             adminName: req.body.readerName,
             adminEmail: req.body.readerEmail,
             adminPassword: password_md5,
             adminPermissions: permission
-        }
+        };
         adminDB.addItem(setDataJson, (message) => {
             res.send(message);
         });
@@ -59,18 +58,14 @@ router.route("/useradd").get(function(req,res){
 
 /*用户分页*/
 router.route("/admin-user").get(function(req,res){
-    if(!req.session.adminID){
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
         return;
     }
-    var userPage=req.query.pageTab;
-    if(!userPage){
-        userPage=1;
-    }
+    let userPage=req.query.pageTab || 1;
     adminDB.selectMessage(req.session.adminID, (rows) => {
-        var userName=rows[0].adminName,
-            userImg=rows[0].adminImgSrc,
-            userPermission=rows[0].adminPermissions;
+        const admin = rows[0];
+        const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
         userDB.selectAll((rows) => {
             let reader=rows;
             adminDB.selectExceptID(req.session.adminID, (rows) => {
@@ -79,8 +74,8 @@ router.route("/admin-user").get(function(req,res){
                 let userStart=(userPage-1)*10;
                 let userEnd=userPage*10;
                 let user=adminUser.concat(reader).splice(userStart,userEnd);
-                setSession(req,{adminSign: true});
-                res.render("admin-super/index",{userName:admin.adminName,userImg:admin.adminImgSrc,userPermission:admin.adminPermissions,user:user,userPageNum:userPageNum,userPage:userPage,firstPath:'user',secondPath:'modify'});
+                setSession(req,{adminID:admin.adminID,adminSign: true});
+                res.render("admin-super/index",{userName,userImg,userPermission,firstPath:'user',secondPath:'modify',user,userPageNum,userPage});
             });
         });
     });
@@ -91,7 +86,7 @@ router.route("/admin-user").get(function(req,res){
 
 // 超级管理员修改用户信息页面
 router.route("/adminmodifyuser/:userID").get(function(req,res){
-    if(!req.session.adminID){
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
     }
     var userType=req.params.userID.replace(/\d/g,""),

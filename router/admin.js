@@ -18,10 +18,11 @@ router.route("/login").post(function(req,res){
 	const userName = req.body.username;
 	const query = 'SELECT * FROM hopeadmin'
                   + ' WHERE adminName='
-                  + mysql_util.escape(userName)
-                  + ' AND adminPassword='
-                  + password_md5;
-	adminDB.selectMessage(query,(rows) => {
+                  + mysql_util.DBConnection.escape(userName)
+                  + ' AND adminPassword="'
+                  + password_md5
+                  + '"';
+	adminDB.query(query,(rows) => {
 	    const admin = rows[0];
         if(rows.length==0){
             const error={
