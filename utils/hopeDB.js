@@ -339,6 +339,15 @@ const borrowDB = {
             callback&&callback(message);
         });
     },
+    updateMessage: (borrowID, setDataJson, callback) => {
+        const searchDataJson = {
+            borrowID : borrowID
+        };
+        borrowOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
+            const message = queryResult(err, '修改成功');
+            callback&&callback(message);
+        });
+    },
     query: (query, callback) => {
         borrowOperate.query(query, (err, rows, fields) => {
             if(err) {

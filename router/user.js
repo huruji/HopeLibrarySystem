@@ -9,42 +9,38 @@ const router=express.Router();
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const adminDB = hopeDB.adminDB;
-const bookDB = hopeDB.bookDB;
+const [userDB, bookDB, borrowDB] = [hopeDB.userDB, hopeDB.bookDB, hopeDB.borrowDB];
 // 用户登录
 router.route("/login").post(function(req,res){
-	var password_md5=md5Pass(req.body.password);
-	mysql_util.DBConnection.query("SELECT readerID,readerName,readerPassword FROM hopereader WHERE readerName=? AND readerPassword=?",[req.body.username,password_md5],function(err,rows,fields){
-		if(err){
-			var error={
-				code:3,
-				message:"服务端异常，请稍后再试或者联系管理员"
-			};
-			res.send(error)
-		}else{
-			if(rows.length==0){
-				var error={
-					code:2,
-					message:"用户名或密码错误"
-				};
-				res.send(error)
-			}else{
-				console.log(rows[0].readerID);
-				res.cookie("userId",rows[0].readerID,{
-					maxAge: 30 * 60 * 1000,
-                    path: '/',
-                    httpOnly: true
-				});
-				var success={
-					code:0,
-					message:"成功",
-					userId:rows[0].readerID
-				}
-                setSession(req,{userID: rows[0].readerID,userSign: true});
-				res.send(success);
-			}
-		}
-	})
+	const password_md5=md5Pass(req.body.password);
+	const userName = req.body.username;
+	const query = 'SELECT * FROM hopereader'
+	              + ' WHERE readerName='
+		          + mysql_util.DBConnection.escape(userName)
+	              + 'AND readerPassword='
+		          + password_md5;
+	userDB.query(query, (rows) => {
+        const user = rows[0];
+        if(rows.length==0){
+            const error={
+                code:2,
+                message:"用户名或密码错误"
+            };
+            res.send(error)
+        }else {
+            res.cookie("userId", rows[0].readerID, {
+                maxAge: 30 * 60 * 1000,
+                path: '/',
+            });
+            const message = {
+                code: 0,
+                message: "成功",
+                userId: user.readerID
+            };
+            setSession(req, {userID: user.readerID, userSign: true});
+            res.send(message);
+        }
+	});
 }).get(function(req,res){
     if(req.session.userSign) {
         console.log("req.session:" + req.session);
@@ -55,45 +51,41 @@ router.route("/login").post(function(req,res){
 })
 // 用户首页界面
 router.route("/").get(function(req,res){
-    if(!req.session.userSign){
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/user/login");
-    }else{
-        var userId=req.session.userID;
-        mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",userId,function(err,rows,fields){
-            if(err){
-                console.log(err)
-            }else{
-                var userImg=rows[0].userImgSrc;
-                var userName=rows[0].readerName;
-                var userPermission="user";
-                var mysqlQuery=["SELECT bookName,borrowTime,bookID,borrowID,returnBefore",
-                    " FROM hopebook,hopereader,bookborrow",
-                    " WHERE hopebook.bookID=bookborrow.borrowBookID",
-                    " AND hopereader.readerID=bookborrow.borrowUserID",
-                    " AND returnWhe=0",
-                    " AND readerID=?"].join("");
-                mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
-                    if(err){
-                        console.log(err);
-                        return;
-                    }
-                    for(var i=0,max=rows.length;i<max;i++){
-                        rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
-                        rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
-                    }
-                    setSession(req,{userSign:true});
-                    res.render("user/index",{book:rows,userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'book'});
-                })
-            }
-        })
-
+        return;
     }
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
+        const query = "SELECT bookName,borrowTime,bookID,borrowID,returnBefore"
+                      + " FROM hopebook,hopereader,bookborrow"
+                      + " WHERE hopebook.bookID=bookborrow.borrowBookID"
+                      + " AND hopereader.readerID=bookborrow.borrowUserID"
+                      + " AND returnWhe=0"
+                      + " AND readerID="
+                      + userID;
+        userDB.query(query, (rows) => {
+            const book = rows;
+            for(let i=0,max=rows.length;i<max;i++){
+                rows[i].returnBefore=rows[i].returnBefore.getFullYear()+"-"+(parseInt(rows[i].returnBefore.getMonth())+1)+"-"+rows[i].returnBefore.getDate();
+                rows[i].borrowTime=rows[i].borrowTime.getFullYear()+"-"+(parseInt(rows[i].borrowTime.getMonth())+1)+"-"+rows[i].borrowTime.getDate();
+            }
+            setSession(req, {userID: user.readerID, userSign: true});
+            res.render("user/index",{userName,userImg,userPermission,firstPath:'book',secondPath:'',book});
+        })
+    });
 }).post(function(req,res){
-    if(!req.session.userSign){
-        res.redirect("/user/login");
-    }else{
-        var bookID=req.body.bookID,
-            borrowID=req.body.borrowID;
+    const [bookID, borrowID] = [req.body.bookID, req.body.borrowID];
+    bookDB.selectMessage(bookID, (rows) => {
+        const book = rows[0];
+        const bookLeft = book.bookLeft + 1;
+        const setDataJson = {bookLeft}
+        bookDB.updateMessage(bookID, setDataJson, (message) => {
+            borrowDB.updateMessage()
+        });
+    });
         mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=bookLeft+1 WHERE bookID=?;UPDATE bookborrow SET returnWhe=1 WHERE borrowID=?",[bookID,borrowID],function(err,rows,fields){
             if(err){
                 console.log(err);
@@ -104,7 +96,6 @@ router.route("/").get(function(req,res){
             };
             res.send(success);
         })
-    }
 })
 
 // 用户重置密码
