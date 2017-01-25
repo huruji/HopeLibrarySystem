@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="$PROJECT_DIR$/router/admin-book.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-equip.js" afterPath="$PROJECT_DIR$/router/admin-equip.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,53 +17,13 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="admin-equip.js" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="4706">
-                    <caret line="181" column="3" lean-forward="false" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="admin-super.js" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/router/admin-super.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="494">
-                    <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="64" />
-                    <folding>
-                      <element signature="e#1167#1480#0" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="user-book.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
+            <state relative-caret-position="338">
               <caret line="13" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
@@ -95,7 +53,7 @@
       <file leaf-file-name="db-common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/db-common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2834">
+            <state relative-caret-position="3874">
               <caret line="149" column="9" lean-forward="false" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
               <folding />
             </state>
@@ -105,7 +63,7 @@
       <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
+            <state relative-caret-position="2912">
               <caret line="112" column="6" lean-forward="false" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
               <folding>
                 <element signature="e#10339#10813#0" expanded="false" />
@@ -127,8 +85,8 @@
       <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/admin-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="166" column="76" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="76" />
+            <state relative-caret-position="1040">
+              <caret line="166" column="76" lean-forward="false" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -248,9 +206,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -268,7 +227,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -281,43 +239,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="router" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HopeLibrarySystemUE" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/blogue" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -453,14 +384,8 @@
       <workItem from="1484995576036" duration="2000" />
       <workItem from="1485008294428" duration="3716000" />
       <workItem from="1485245951515" duration="5175000" />
-      <workItem from="1485274467302" duration="4284000" />
-    </task>
-    <task id="LOCAL-00022" summary="webstorm ES6环境配置以适应新的代码:art:">
-      <created>1484455001034</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1484455001034</updated>
+      <workItem from="1485274467302" duration="4335000" />
+      <workItem from="1485326995795" duration="793000" />
     </task>
     <task id="LOCAL-00023" summary="webstorm ES6环境配置以适应新的代码:art:">
       <created>1484455169585</created>
@@ -798,34 +723,41 @@
       <option name="project" value="LOCAL" />
       <updated>1485276156574</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="设备管理员页面es6推进暂时完成:art:">
+      <created>1485279219636</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1485279219636</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114834000" />
+    <option name="totallyTimeSpent" value="115678000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="676" y="0" width="697" height="745" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19236417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18594436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -855,7 +787,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="数据库操作方法添加:art:" />
     <MESSAGE value="图书借阅分类界面以及修复部分数据库操作方法的bug:art: :bug:" />
     <MESSAGE value="图书借阅全部图书界面滑动加载部分后端完成:art:" />
     <MESSAGE value="数据库操作方法添加:rocket:" />
@@ -880,7 +811,8 @@
     <MESSAGE value="管理员登录bug修复:bug:" />
     <MESSAGE value="数据库删除方法增加:rocket:" />
     <MESSAGE value="图书管理员页面es6推进暂时完成:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="图书管理员页面es6推进暂时完成:art:" />
+    <MESSAGE value="设备管理员页面es6推进暂时完成:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="设备管理员页面es6推进暂时完成:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1085,7 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1378">
           <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1161,7 +1091,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/db-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2834">
+        <state relative-caret-position="3874">
           <caret line="149" column="9" lean-forward="false" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
           <folding />
         </state>
@@ -1169,7 +1099,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
+        <state relative-caret-position="2912">
           <caret line="112" column="6" lean-forward="false" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
           <folding>
             <element signature="e#10339#10813#0" expanded="false" />
@@ -1189,24 +1119,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
-          <caret line="166" column="76" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="76" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4706">
-          <caret line="181" column="3" lean-forward="false" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
+        <state relative-caret-position="130">
+          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="166" column="76" lean-forward="false" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="76" />
           <folding />
         </state>
       </provider>
