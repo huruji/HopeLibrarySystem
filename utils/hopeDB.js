@@ -7,6 +7,7 @@ const userOperate = new dbCommon.operate(connection, 'hopereader');
 const bookOperate = new dbCommon.operate(connection, 'hopebook');
 const equipOperate = new dbCommon.operate(connection, 'hopeequip');
 const borrowOperate = new dbCommon.operate(connection, 'bookBorrow');
+const reservateOperate = new dbCommon.operate(connection, 'equipborrow');
 
 const adminDB = {
     selectAll: (callback) => {
@@ -280,12 +281,12 @@ const equipDB ={
             callback&&callback(rows);
         });
     },
-    updateMessage: (equipID, setDataJson, callback) => {
+    updateMessage: (equipID, setDataJson, callback, message = '修改成功') => {
         const searchDataJson = {
             equipID : equipID
         };
         equipOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, '修改成功');
+            const message = queryResult(err, message);
             callback&&callback(message);
         });
     },
@@ -358,6 +359,32 @@ const borrowDB = {
         });
     }
 };
+const reservateDB = {
+    addItem: (setDadaJson, callback) => {
+        reservateOperate.insertItem(setDadaJson, (err, rows, fields) => {
+            const message = queryResult(err, '增加成功');
+            callback&&callback(message);
+        });
+    },
+    updateMessage: (borrowID, setDataJson, callback,  message = '修改成功') => {
+        const searchDataJson = {
+            borrowID : borrowID
+        };
+        reservateOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
+            const message = queryResult(err, message);
+            callback&&callback(message);
+        });
+    },
+    query: (query, callback) => {
+        reservateOperate.query(query, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            callback&&callback(rows);
+        });
+    }
+};
 
 function queryResult(err, mes,callback) {
     if(err) {
@@ -375,5 +402,6 @@ module.exports = {
     userDB: userDB,
     bookDB: bookDB,
     equipDB: equipDB,
-    borrowDB: borrowDB
+    borrowDB: borrowDB,
+    reservateDB: reservateDB
 };

@@ -9,7 +9,7 @@ const router=express.Router();
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const [userDB, bookDB, borrowDB] = [hopeDB.userDB, hopeDB.bookDB, hopeDB.borrowDB];
+const [userDB, bookDB, equipDB, borrowDB, reservateDB] = [hopeDB.userDB, hopeDB.bookDB, hopeDB.equipDB, hopeDB.borrowDB, hopeDB.reservateDB];
 // 用户登录
 router.route("/login").post(function(req,res){
 	const password_md5=md5Pass(req.body.password);
@@ -146,7 +146,7 @@ router.route("/modify-img").post(function(req,res){
 });
 //用户更换信息
 router.route("/modify").get(function(req,res){
-    if(!req.session.adminID || !req.session.adminSign){
+    if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;
     }
@@ -159,59 +159,51 @@ router.route("/modify").get(function(req,res){
         res.render("user/user-modify",{userName,userImg,userPermission,firstPath:'account',secondPath:'modify',user,hopeGroup});
     });
 }).post(function(req,res){
-	var mysqlQuery=["UPDATE hopereader SET readerSex=?,",
-	                "studentNumber=?,readerMajor=?,",
-	                "readerPhone=?,readerEmail=?,readerGroup=?",
-	                " WHERE readerID=?"].join("");
-	mysql_util.DBConnection.query(mysqlQuery,[req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,req.session.ID],function(err,rows,fields){
-		if(err){
-			console.log(err);
-		}else{
-			console.log("chenggon")
-			var success={
-				message:"保存成功"
-			};
-			res.send(success);
-		}
-	})
-})
+	const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup];
+	const setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup};
+	userDB.updateMessage(req.session.userID, setDataJson, (message) => {
+	    res.send(message);
+    });
+});
 
 
 // 用户预约设备界面
 router.route("/reservation").get(function(req,res){
-	if(!req.session.userSign){
-		res.redirect("/user/login");
-		return;
-	}
-	mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
-		if(err){
-			console.log(err)
-		}
-		var userName=rows[0].readerName;
-		var userImg=rows[0].userImgSrc;
-		var userPermission="user";
-		var mysqlQuery=["SELECT equipName,borrowID,borrowTime,returnBefore,reservation,borrowEquipID",
-		                " FROM hopeequip,equipborrow",
-		                " WHERE returnWhe=0",
-		                " AND hopeequip.equipID=equipborrow.borrowEquipID",
-		                " AND borrowUserID=?"].join("")
-		mysql_util.DBConnection.query(mysqlQuery,req.cookies.userId,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			rows.forEach(function(e){
-				e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
-				e.returnBefore = e.returnBefore.getFullYear()+"-"+e.returnBefore.getMonth()+"-"+e.returnBefore.getDate();
-			});
-			setSession(req, {userSign:true})
-			res.render("user/reservation",{userName:userName,userImg:userImg,userPermission:userPermission,equip:rows,firstPath:'camera'});
-		})
-	})
+    if(!req.session.userID || !req.session.userSign){
+        res.redirect("/user/login");
+        return;
+    }
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
+        const query = 'SELECT equipName,borrowID,borrowTime,returnBefore,reservation,borrowEquipID'
+                      + ' FROM hopeequip,equipborrow'
+                      + ' WHERE returnWhe=0'
+                      + ' AND hopeequip.equipID=equipborrow.borrowEquipID'
+                      + ' AND borrowUserID='
+                      + userID;
+        userDB.query(query, (rows) => {
+            const equip = rows;
+            equip.forEach(function(e){
+                e.borrowTime = e.borrowTime.getFullYear()+"-"+e.borrowTime.getMonth()+"-"+e.borrowTime.getDate();
+                e.returnBefore = e.returnBefore.getFullYear()+"-"+e.returnBefore.getMonth()+"-"+e.returnBefore.getDate();
+            });
+            setSession(req, {userID: user.readerID, userSign: true});
+            res.render("user/reservation",{userName,userImg,userPermission,firstPath:'camera',secondPath: '',equip});
+        })
+    });
 }).post(function(req,res){
-	var equipID=parseInt(req.body.equipID),
-		borrowID=parseInt(req.body.borrowID);
-		console.log(equipID,borrowID);
+    const [equipID, borrowID] = [parseInt(req.body.equipID), parseInt(req.body.borrowID)];
+    const setDataJson = {
+        returnWhe: 1
+    };
+    reservateDB.updateMessage(borrowID, setDataJson, (message) => {
+        const setDataJson = {
+            equipLeft: 1
+        };
+        equipDB.updateMessage(equipID, setDataJson, )
+    });
 		mysql_util.DBConnection.query("UPDATE equipborrow SET returnWhe=1 WHERE borrowID=?",borrowID,function(err,rows,fields){
 			if(err){
 				console.log(err);
