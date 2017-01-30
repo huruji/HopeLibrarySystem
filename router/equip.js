@@ -7,42 +7,33 @@ const config=require("./../config");
 
 const setSession = require('./../utils/set-session');
 const hopeDB = require('./../utils/hopeDB.js');
-const userDB = hopeDB.userDB;
-const equipDB = hopeDB.equipDB;
+const [userDB, equipDB] = [hopeDB.userDB, hopeDB.equipDB];
 
 router.route("/").get(function(req,res){
-    if(!req.session.userSign) {
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/user/login");
         return;
     }
-    let userId = req.session.userID;
-    userDB.selectMessage(userId, (rows) => {
-        var userImg = rows[0].userImgSrc;
-        var userName = rows[0].readerName;
-        var userPermission = "user";
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
         equipDB.orderItems('equipLeft DESC,equipID DESC', 0, 20, (rows) => {
-            let equip = rows;
-            setSession(req,{userSign:true,userID: req.session.userID});
+            const equip = rows;
+            setSession(req, {userID: user.readerID, userSign: true});
             res.render("user/user-equip",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'reservation',secondPath:'',equip:equip});
         });
     });
 });
 router.route("/equipemail").post(function(req,res){
-	let equipID=parseInt(req.body.equipID);
-	let query = ["SELECT adminName,equipName",
-	                  " FROM hopeadmin,hopeequip",
-	                  " WHERE hopeadmin.adminID=hopeequip.equipAdminID",
-	                  " AND hopeequip.equipID =" + equipID].join("");
-	if(!req.session.userSign){
-		let noLogin = {
-			noLogin:true,
-			code:4
-		}
-		res.send(noLogin);
-		return;
-	}
+	const equipID=parseInt(req.body.equipID);
+	const query = 'SELECT adminName,equipName'
+                  + ' FROM hopeadmin,hopeequip'
+                  + ' WHERE hopeadmin.adminID=hopeequip.equipAdminID'
+                  + ' AND hopeequip.equipID ='
+                  + mysql_util.DBConnection.escape(equipID);
 	equipDB.query(query, (rows) => {
-        let message = {
+        const message = {
             adminName:rows[0].adminName,
             equipName:rows[0].equipName
         };
