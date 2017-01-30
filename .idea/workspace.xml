@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/user.js" afterPath="$PROJECT_DIR$/router/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/book.js" afterPath="$PROJECT_DIR$/router/book.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,31 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysql_util.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/mysql_util.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="8" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="md5-pass.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/md5-pass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5408">
-              <caret line="208" column="3" lean-forward="false" selection-start-line="208" selection-start-column="3" selection-end-line="208" selection-end-column="3" />
+            <state relative-caret-position="338">
+              <caret line="61" column="36" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="61" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -99,38 +79,49 @@
       <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2938">
+            <state relative-caret-position="1794">
               <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="125" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reservation.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/user/reservation.ejs">
+      <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/admin-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="253">
+              <caret line="146" column="113" lean-forward="true" selection-start-line="145" selection-start-column="7" selection-end-line="146" selection-end-column="113" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.js">
+      <file leaf-file-name="admin-equip.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="1" />
-              <folding>
-                <marker date="1478425337287" expanded="true" signature="379:395" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="484:539" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="589:638" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="685:734" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="782:831" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="909:958" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="1007:1056" ph="..." />
-                <marker date="1478425337287" expanded="true" signature="1105:1154" ph="..." />
-              </folding>
+            <state relative-caret-position="-4193">
+              <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-super.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/admin-super.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2789">
+              <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/router/book.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2808">
+              <caret line="111" column="13" lean-forward="true" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -195,7 +186,6 @@
         <option value="$PROJECT_DIR$/views/user/index.ejs" />
         <option value="$PROJECT_DIR$/utils/db-common.js" />
         <option value="$PROJECT_DIR$/public/js/borrow.js" />
-        <option value="$PROJECT_DIR$/router/book.js" />
         <option value="$PROJECT_DIR$/public/js/bookcate.js" />
         <option value="$PROJECT_DIR$/views/public/user/user-aside.ejs" />
         <option value="$PROJECT_DIR$/views/public/user/user-nav.ejs" />
@@ -212,6 +202,7 @@
         <option value="$PROJECT_DIR$/utils/set-session.js" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
         <option value="$PROJECT_DIR$/router/user.js" />
+        <option value="$PROJECT_DIR$/router/book.js" />
       </list>
     </option>
   </component>
@@ -237,9 +228,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -445,14 +437,7 @@
       <workItem from="1485274467302" duration="4335000" />
       <workItem from="1485326995795" duration="4690000" />
       <workItem from="1485415526845" duration="2214000" />
-      <workItem from="1485780587284" duration="2709000" />
-    </task>
-    <task id="LOCAL-00027" summary="管理员数据库部分重构:art:">
-      <created>1484645717957</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1484645717957</updated>
+      <workItem from="1485780587284" duration="3737000" />
     </task>
     <task id="LOCAL-00028" summary="修正部分管理员通用数据错误:bug:">
       <created>1484647013667</created>
@@ -790,17 +775,24 @@
       <option name="project" value="LOCAL" />
       <updated>1485785601642</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="用户ES6推进完成:art:">
+      <created>1485785704607</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1485785704607</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124498000" />
+    <option name="totallyTimeSpent" value="125526000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="676" y="0" width="697" height="745" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19089574" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13689604" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -847,7 +839,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="数据库操作借阅表的方法添加:rocket:" />
     <MESSAGE value="图书借阅流程重构完毕:rocket:" />
     <MESSAGE value="滑动加载样式修复:bug:" />
     <MESSAGE value="数据库操作方法部署:rocket:" />
@@ -872,7 +863,8 @@
     <MESSAGE value="借阅数据表操作方法增加:art:" />
     <MESSAGE value="用户ES6推进:art:" />
     <MESSAGE value="数据库方法添加:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据库方法添加:art:" />
+    <MESSAGE value="用户ES6推进完成:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户ES6推进完成:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1039,13 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1378">
-          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -1078,20 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3874">
           <caret line="149" column="9" lean-forward="false" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1168,25 +1139,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1118">
           <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2938">
-          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="125" />
           <folding />
         </state>
       </provider>
@@ -1204,10 +1160,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1794">
+          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4193">
+          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2789">
+          <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="146" column="113" lean-forward="true" selection-start-line="145" selection-start-column="7" selection-end-line="146" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5408">
-          <caret line="208" column="3" lean-forward="false" selection-start-line="208" selection-start-column="3" selection-end-line="208" selection-end-column="3" />
+        <state relative-caret-position="338">
+          <caret line="61" column="36" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="61" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2808">
+          <caret line="111" column="13" lean-forward="true" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
           <folding />
         </state>
       </provider>

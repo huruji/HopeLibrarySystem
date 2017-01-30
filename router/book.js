@@ -9,26 +9,26 @@ const bookDB = hopeDB.bookDB;
 const borrowDB = hopeDB.borrowDB;
 
 router.route("/").get(function(req,res){
-    if(!req.session.userSign) {
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/user/login");
         return;
     }
-    let userId = req.session.userID;
-    userDB.selectMessage(userId, (rows) => {
-        var userImg=rows[0].userImgSrc;
-        var userName=rows[0].readerName;
-        var userPermission="user";
-        userDB.query('SELECT bookCate FROM hopebook GROUP BY bookCate', (rows) => {
-            var bookCate = [];
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
+        const query = 'SELECT bookCate FROM hopebook GROUP BY bookCate';
+        bookDB.query(query, (rows) => {
+            const bookCate = [];
             rows.forEach(function(ele) {
                 bookCate.push(ele.bookCate);
             });
             bookDB.orderItems('bookLeft DESC,bookID DESC', 0, 20, (rows) => {
-                var book = rows;
+                const book = rows;
                 setSession(req,{userSign:true,userID: req.session.userID});
-                res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:'',book:book,bookCate:bookCate});
+                res.render("user/user-book",{userName,userImg,userPermission,firstPath:'borrow',secondPath:'',book,bookCate});
             });
-        });
+        })
     });
 }).post(function(req, res) {
     let startNum=parseInt(req.body.bookNum);
@@ -39,7 +39,7 @@ router.route("/").get(function(req,res){
             let bookNum = rows[0].bookNum;
             let message={
                 book:book
-            }
+            };
             if(endNum >= bookNum){
                 message.end = true;
             }
@@ -48,12 +48,8 @@ router.route("/").get(function(req,res){
     });
 });
 router.route('/borrow').post(function(req,res){
-    if(!req.session.userSign) {
-        res.redirect("/user/login");
-        return;
-    }
-    var bookID=req.body.borrowID;
-    var userID=req.session.userID;
+    const bookID = req.body.borrowID;
+    const userID = req.session.userID;
     bookDB.selectMessage(bookID, (rows) => {
         const bookLeft = rows[0].bookLeft - 1;
         const query = 'INSERT bookBorrow SET borrowBookID='
@@ -73,42 +69,42 @@ router.route('/borrow').post(function(req,res){
 });
 
 router.route("/cate/:cate").get(function(req, res){
-    if(!req.session.userSign) {
+    if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/user/login");
         return;
     }
-    let bookCateCurrent = decodeURI(req.params.cate);
-    let userId = req.session.userID;
-    userDB.selectMessage(userId, (rows) => {
-        var userImg = rows[0].userImgSrc;
-        var userName = rows[0].readerName;
-        var userPermission = "user";
-        userDB.query('SELECT bookCate FROM hopebook GROUP BY bookCate', (rows) => {
-            let bookCate = [];
-            rows.forEach(function (ele) {
+    const bookCateCurrent = decodeURI(req.params.cate);
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
+        const query = 'SELECT bookCate FROM hopebook GROUP BY bookCate';
+        bookDB.query(query, (rows) => {
+            const bookCate = [];
+            rows.forEach(function(ele) {
                 bookCate.push(ele.bookCate);
             });
-            let searchDataJson = {
+            const searchDataJson = {
                 bookCate: bookCateCurrent
-            }
+            };
             bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', 0, 20, (rows) => {
-                let book = rows;
-                res.render("user/user-book",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'borrow',secondPath:bookCateCurrent,book:book,bookCate:bookCate});
-            })
-        })
-    })
+                const book = rows;
+                res.render("user/user-book",{userName,userImg,userPermission:,firstPath,secondPath:bookCateCurrent,book,bookCate});
+            });
+        });
+    });
 }).post(function(req, res) {
-    let startNum = parseInt(req.body.bookNum);
-    let endNum = startNum+8;
-    let bookCateCurrent = decodeURI(req.params.cate);
-    let searchDataJson = {
+    const startNum = parseInt(req.body.bookNum);
+    const endNum = startNum+8;
+    const bookCateCurrent = decodeURI(req.params.cate);
+    const searchDataJson = {
         bookCate: bookCateCurrent
     };
     bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', startNum, endNum, (rows) => {
-        let book = rows;
+        const book = rows;
         bookDB.countSearchItems(searchDataJson, 'bookNum', (rows) => {
-            let bookNum = rows[0].bookNum;
-            let message={
+            const bookNum = rows[0].bookNum;
+            const message={
                 book:book
             };
             if(endNum >= bookNum){
