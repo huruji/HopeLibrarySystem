@@ -202,24 +202,9 @@ router.route("/reservation").get(function(req,res){
         const setDataJson = {
             equipLeft: 1
         };
-        equipDB.updateMessage(equipID, setDataJson, )
+        equipDB.updateMessage(equipID, setDataJson, (message) => {
+            res.send(message);
+        }, '归还成功');
     });
-		mysql_util.DBConnection.query("UPDATE equipborrow SET returnWhe=1 WHERE borrowID=?",borrowID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			mysql_util.DBConnection.query("UPDATE hopeequip SET equipLeft=1 WHERE equipID=?",equipID,function(err,rows,fields){
-				if(err){
-					console.log(err);
-					return;
-				}
-				var success={
-					message:"归还成功"
-				};
-				res.send(success);
-			})
-				
-		})
-})
+});
 module.exports=router;
