@@ -89,7 +89,7 @@ router.route("/cate/:cate").get(function(req, res){
             };
             bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', 0, 20, (rows) => {
                 const book = rows;
-                res.render("user/user-book",{userName,userImg,userPermission:,firstPath,secondPath:bookCateCurrent,book,bookCate});
+                res.render("user/user-book",{userName,userImg,userPermission,firstPath,secondPath:bookCateCurrent,book,bookCate});
             });
         });
     });

@@ -119,8 +119,8 @@
       <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2808">
-              <caret line="111" column="13" lean-forward="true" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
+            <state relative-caret-position="418">
+              <caret line="91" column="90" lean-forward="false" selection-start-line="91" selection-start-column="90" selection-end-line="91" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -437,14 +437,7 @@
       <workItem from="1485274467302" duration="4335000" />
       <workItem from="1485326995795" duration="4690000" />
       <workItem from="1485415526845" duration="2214000" />
-      <workItem from="1485780587284" duration="3737000" />
-    </task>
-    <task id="LOCAL-00028" summary="修正部分管理员通用数据错误:bug:">
-      <created>1484647013667</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1484647013667</updated>
+      <workItem from="1485780587284" duration="3789000" />
     </task>
     <task id="LOCAL-00029" summary="将超级管理员修改用户信息路由转为super文件处理，删除部分无用路由:bug:">
       <created>1484647521905</created>
@@ -782,11 +775,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485785704607</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="用户界面的书籍显示完成:art:">
+      <created>1485786730342</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1485786730342</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125526000" />
+    <option name="totallyTimeSpent" value="125578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -839,7 +839,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="图书借阅流程重构完毕:rocket:" />
     <MESSAGE value="滑动加载样式修复:bug:" />
     <MESSAGE value="数据库操作方法部署:rocket:" />
     <MESSAGE value="设备预约视图层修复:rocket:" />
@@ -864,7 +863,8 @@
     <MESSAGE value="用户ES6推进:art:" />
     <MESSAGE value="数据库方法添加:art:" />
     <MESSAGE value="用户ES6推进完成:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户ES6推进完成:art:" />
+    <MESSAGE value="用户界面的书籍显示完成:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户界面的书籍显示完成:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1202,8 +1202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/book.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2808">
-          <caret line="111" column="13" lean-forward="true" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
+        <state relative-caret-position="418">
+          <caret line="91" column="90" lean-forward="false" selection-start-line="91" selection-start-column="90" selection-end-line="91" selection-end-column="90" />
           <folding />
         </state>
       </provider>
