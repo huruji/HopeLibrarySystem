@@ -339,12 +339,12 @@ const borrowDB = {
             callback&&callback(message);
         });
     },
-    updateMessage: (borrowID, setDataJson, callback) => {
+    updateMessage: (borrowID, setDataJson, callback,  message = '修改成功') => {
         const searchDataJson = {
             borrowID : borrowID
         };
         borrowOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, '修改成功');
+            const message = queryResult(err, message);
             callback&&callback(message);
         });
     },

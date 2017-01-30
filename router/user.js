@@ -81,74 +81,38 @@ router.route("/").get(function(req,res){
     bookDB.selectMessage(bookID, (rows) => {
         const book = rows[0];
         const bookLeft = book.bookLeft + 1;
-        const setDataJson = {bookLeft}
+        const setDataJson = {bookLeft};
         bookDB.updateMessage(bookID, setDataJson, (message) => {
-            borrowDB.updateMessage()
+            const setDataJson = {
+                returnWhe: 1
+            };
+            borrowDB.updateMessage(borrowID, setDataJson, (message) => {
+                res.send(message);
+            }, '归还成功')
         });
     });
-        mysql_util.DBConnection.query("UPDATE hopebook SET bookLeft=bookLeft+1 WHERE bookID=?;UPDATE bookborrow SET returnWhe=1 WHERE borrowID=?",[bookID,borrowID],function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }
-            var success={
-                message:"归还成功"
-            };
-            res.send(success);
-        })
-})
+});
 
 // 用户重置密码
 router.route("/reset").post(function(req,res){
-	var password_md5 = md5Pass(req.body.password);
-	var userId=req.session.userID;
-	mysql_util.DBConnection.query("UPDATE hopereader SET readerPassword=? WHERE readerID=?;",[password_md5,userId],function(err,rows,fields){
-		if(err){
-			var error={
-				code:3,
-				message:"服务端异常，请稍后再试或者联系管理员"
-			};
-			res.send(error)
-		}else{
-			var success={
-				code:0,
-				message:"修改成功",
-				userId:userId
-			}
-			res.send(success);
-		}
-	})
+	const password_md5 = md5Pass(req.body.password);
+	const userID = req.session.userID;
+	userDB.resetPassword(userID, password_md5, (message) => {
+	    res.send(message);
+    });
 }).get(function(req,res){
-	if(!req.session.userSign){
-		res.redirect("/user/login");
-	}else{
-		mysql_util.DBConnection.query("SELECT userImgSrc,readerName FROM hopereader WHERE readerID=?",req.session.userID,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-				var userImg=rows[0].userImgSrc;
-				var userName=rows[0].readerName;
-				var userPermission="user";
-                setSession(req,{userSign: true});
-	            res.render("user/user-reset",{userImg:userImg,userName:userName,userPermission:userPermission,firstPath:'account',secondPath:'reset'});
-		})
-	}
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/user/login");
+        return;
+    }
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
+        setSession(req, {userID: user.readerID, userSign: true});
+        res.render("user/user-reset",{userName,userImg,userPermission,firstPath:'account',secondPath:'reset'});
+    });
 });
-
-router.route("/borrow").post(function(req,res){
-	console.log("post");
-	console.log(!req.headers.cookie);
-	if(!req.headers.cookie){
-		var err={
-			code:10
-		};
-		res.send(err);
-	}
-})
-
-
-
 
 
 // 用户更换头像
@@ -182,29 +146,19 @@ router.route("/modify-img").post(function(req,res){
 });
 //用户更换信息
 router.route("/modify").get(function(req,res){
-	if(!req.session.userSign){
-		res.redirect("/user/login");
-	}else{
-		console.log('user modify');
-		mysql_util.DBConnection.query("SELECT * FROM hopereader WHERE readerID=?",req.cookies.userId,function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-				var hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
-				var userName=rows[0].readerName;
-				var userImg=rows[0].userImgSrc;
-				var userPermission="user";
-				setSession(req, {userSign: true});
-				res.render("user/user-modify",{userName:userName,userImg:userImg,userPermission:userPermission,user:rows[0],hopeGroup:hopeGroup,firstPath:'account',secondPath:'modify'});
-		})
-	}
-}).post(function(req,res){
-    if(!req.session.userSign) {
-        res.redirect('/user/login');
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/user/login");
         return;
     }
-	console.log("post modify");
+    const userID = req.session.userID;
+    userDB.selectMessage(userID, (rows) => {
+        const user = rows[0];
+        const [userName, userImg, userPermission] = [user.readerName, user.userImgSrc, 'user'];
+        const hopeGroup=["网管组","编程组","设计组","前端组","数码组"];
+        setSession(req, {userID: user.readerID, userSign: true});
+        res.render("user/user-modify",{userName,userImg,userPermission,firstPath:'account',secondPath:'modify',user,hopeGroup});
+    });
+}).post(function(req,res){
 	var mysqlQuery=["UPDATE hopereader SET readerSex=?,",
 	                "studentNumber=?,readerMajor=?,",
 	                "readerPhone=?,readerEmail=?,readerGroup=?",
