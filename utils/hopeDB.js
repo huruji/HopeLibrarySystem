@@ -31,7 +31,7 @@ const adminDB = {
     selectExceptID: (adminID, callback) => {
         let dataJson = {
             adminID: adminID
-        }
+        };
         adminOperate.selectExcept(dataJson, (err, rows, fields) => {
             if(err) {
                 console.log(err);
@@ -43,7 +43,7 @@ const adminDB = {
     selectMessage : (adminID,callback) => {
         let dataJson = {
             adminID: adminID
-        }
+        };
         adminOperate.selectItem(dataJson, (err, rows, fields) => {
             if(err) {
                 console.log(err);
