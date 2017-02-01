@@ -14,7 +14,7 @@ const routerAdminBook = require("./router/admin-book");
 const routerAdminEquip = require("./router/admin-equip");
 const routerAdminSuper = require("./router/admin-super");
 const emailSchedule = require("./router/email-schedule");
-
+const setSession = require('./utils/set-session');
 
 const app = express();
 
@@ -36,6 +36,10 @@ app.use("/admin",routerAdmin,routerAdminSuper,routerAdminBook,routerAdminEquip);
 
 app.get("/",function(req,res){
 	res.redirect('/user/login');
+});
+app.get("/logout", function(req, res) {
+    setSession(req,{userSign:false,userID:'',adminSign:false,adminID:''});
+    res.redirect('/');
 });
 emailSchedule();
 app.listen(config.server.port,function(){

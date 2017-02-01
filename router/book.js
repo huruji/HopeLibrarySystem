@@ -9,7 +9,7 @@ const bookDB = hopeDB.bookDB;
 const borrowDB = hopeDB.borrowDB;
 
 router.route("/").get(function(req,res){
-    if(!req.session.adminID || !req.session.adminSign){
+    if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;
     }
@@ -69,7 +69,7 @@ router.route('/borrow').post(function(req,res){
 });
 
 router.route("/cate/:cate").get(function(req, res){
-    if(!req.session.adminID || !req.session.adminSign){
+    if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;
     }
@@ -89,7 +89,7 @@ router.route("/cate/:cate").get(function(req, res){
             };
             bookDB.orderSearchItems(searchDataJson, 'bookLeft DESC, bookID DESC', 0, 20, (rows) => {
                 const book = rows;
-                res.render("user/user-book",{userName,userImg,userPermission,firstPath,secondPath:bookCateCurrent,book,bookCate});
+                res.render("user/user-book",{userName,userImg,userPermission,firstPath:'borrow',secondPath:bookCateCurrent,book,bookCate});
             });
         });
     });

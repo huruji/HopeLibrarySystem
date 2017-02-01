@@ -10,7 +10,7 @@ const hopeDB = require('./../utils/hopeDB.js');
 const [userDB, equipDB] = [hopeDB.userDB, hopeDB.equipDB];
 
 router.route("/").get(function(req,res){
-    if(!req.session.adminID || !req.session.adminSign){
+    if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;
     }

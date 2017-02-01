@@ -17,8 +17,9 @@ router.route("/login").post(function(req,res){
 	const query = 'SELECT * FROM hopereader'
 	              + ' WHERE readerName='
 		          + mysql_util.DBConnection.escape(userName)
-	              + 'AND readerPassword='
-		          + password_md5;
+	              + 'AND readerPassword= "'
+		          + password_md5
+                  + '"';
 	userDB.query(query, (rows) => {
         const user = rows[0];
         if(rows.length==0){
@@ -51,7 +52,7 @@ router.route("/login").post(function(req,res){
 })
 // 用户首页界面
 router.route("/").get(function(req,res){
-    if(!req.session.adminID || !req.session.adminSign){
+    if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;
     }
@@ -101,7 +102,7 @@ router.route("/reset").post(function(req,res){
 	    res.send(message);
     });
 }).get(function(req,res){
-    if(!req.session.adminID || !req.session.adminSign){
+    if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;
     }
