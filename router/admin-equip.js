@@ -56,35 +56,6 @@ router.route("/admin-equip").get(function(req,res){
 
 
 //管理员修改设备信息
-
-router.route("/equipmodify-img/:equipID").post(function(req,res){
-	var equipID=req.params.equipID;
-	var form = new formidable.IncomingForm();
-	form.encoding = "utf-8";
-	form.uploadDir =path.join("./","public/img/equip");
-	form.keepExtensions=true;
-	form.maxFieldsSize=2*1024*1024;
-	form.parse(req,function(err,fields,files){
-		console.log(files);
-		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/equip"+equipID+Date.now()+extension;
-		var newPath=form.uploadDir+newName;
-		fs.renameSync(files.img.path,newPath);
-		var DBImgSrc="/img/equip"+newName;
-		var mysqlQuery="UPDATE hopeequip SET equipImgSrc=? WHERE equipID=?";
-		console.log(mysqlQuery);
-		mysql_util.DBConnection.query(mysqlQuery,[DBImgSrc,equipID],function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success={
-				code:1
-			}
-			res.send(success);
-		})
-	});
-})
 router.route("/equipmodify/:equipID").get(function(req,res){
     if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
@@ -122,7 +93,7 @@ router.route("/equipmodify/:equipID").get(function(req,res){
         let setDataJson;
         let equipImgSrc = req.body.equipImgSrc.toString();
         if(equipImgSrc.includes('temp')) {
-            const equipkImgSrc = equipImgSrc.replace(/temp/g, 'book');
+            const equipImgSrc = equipImgSrc.replace(/temp/g, 'book');
             const oldPath = path.join('./public', equipImgSrc);
             const newPath = path.join('./public', equipImgSrc);
             fs.renameSync(oldPath, newPath);
@@ -141,8 +112,8 @@ router.route("/equipmodify/:equipID").get(function(req,res){
         }
 		equipDB.updateMessage(equipID, setDataJson, (message) => {
             res.send(message);
-		})
-	})
+		});
+	});
 });
 
 router.route("/check").get(function(req,res){
@@ -178,7 +149,7 @@ router.route("/check").get(function(req,res){
             const message = {
                 message:"操作成功"
             };
-            res.send(message)
+            res.send(message);
         });
 	}else if(check==="false"){
 	    const setDataJson = {
@@ -191,7 +162,7 @@ router.route("/check").get(function(req,res){
                     message:"操作成功"
                 };
                 res.send(message);
-            })
+            });
         });
 	}
 });
