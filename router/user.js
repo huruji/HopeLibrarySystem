@@ -160,8 +160,19 @@ router.route("/modify").get(function(req,res){
         res.render("user/user-modify",{userName,userImg,userPermission,firstPath:'account',secondPath:'modify',user,hopeGroup});
     });
 }).post(function(req,res){
-	const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup];
-	const setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup};
+    let setDataJson;
+    let readerImgSrc = req.body.readerImgSrc.toString();
+    if(readerImgSrc.includes('temp')) {
+        const userImgSrc = readerImgSrc.replace(/temp/g, 'user');
+        const oldPath = path.join('./public', userImgSrc);
+        const newPath = path.join('./public', userImgSrc);
+        fs.renameSync(oldPath, newPath);
+        const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,readerImgSrc] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,userImgSrc];
+        setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,readerImgSrc};
+    }else{
+        const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup];
+        setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup};
+    }
 	userDB.updateMessage(req.session.userID, setDataJson, (message) => {
 	    res.send(message);
     });
