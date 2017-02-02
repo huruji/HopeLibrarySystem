@@ -8,7 +8,7 @@
         var readerMajor=$.trim($("#readerMajor").val());
         var readerGroup=$.trim($(":radio[name=hopeGroup]:checked").parent().text());
         var readerName=$.trim($("#readerName"));
-        var readerImgSrc = $('#js-upload-img').attr('arc');
+        var readerImgSrc = $('#js-upload-img').attr('src');
         $.ajax({
             dataType:"json",
             async:true,

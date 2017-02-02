@@ -4,7 +4,6 @@
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/userModify.js" afterPath="$PROJECT_DIR$/public/js/userModify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/user.js" afterPath="$PROJECT_DIR$/router/user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userModify.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userModify.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/userModify.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" column="213" lean-forward="false" selection-start-line="14" selection-start-column="213" selection-end-line="14" selection-end-column="213" />
+            <state relative-caret-position="260">
+              <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -94,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
+            <state relative-caret-position="744">
               <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
               <folding />
             </state>
@@ -249,8 +248,8 @@
         <option value="$PROJECT_DIR$/router/admin-book.js" />
         <option value="$PROJECT_DIR$/public/js/modifyequip.js" />
         <option value="$PROJECT_DIR$/router/admin-equip.js" />
-        <option value="$PROJECT_DIR$/public/js/userModify.js" />
         <option value="$PROJECT_DIR$/router/user.js" />
+        <option value="$PROJECT_DIR$/public/js/userModify.js" />
       </list>
     </option>
   </component>
@@ -613,14 +612,7 @@
       <workItem from="1485944427822" duration="4456000" />
       <workItem from="1486005694512" duration="1737000" />
       <workItem from="1486028447557" duration="9958000" />
-      <workItem from="1486044673976" duration="1882000" />
-    </task>
-    <task id="LOCAL-00044" summary="图书借阅分类界面以及修复部分数据库操作方法的bug:art: :bug:">
-      <created>1484842481614</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1484842481614</updated>
+      <workItem from="1486044673976" duration="2068000" />
     </task>
     <task id="LOCAL-00045" summary="图书借阅全部图书界面滑动加载部分后端完成:art:">
       <created>1484845016489</created>
@@ -958,11 +950,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486045898288</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="用户修改图片信息上传图片修改:art:">
+      <created>1486046579342</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1486046579342</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146989000" />
+    <option name="totallyTimeSpent" value="147175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1015,7 +1014,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="图书借阅滑动加载js文件修复:bug:" />
     <MESSAGE value="管理员共同部分开始逐渐推进es6的部署，简化代码:rocket:" />
     <MESSAGE value="管理员共同部分部署新的数据库代码:rocket:" />
     <MESSAGE value="管理员登录bug修复:bug:" />
@@ -1040,7 +1038,8 @@
     <MESSAGE value="增加图书路由图片上传修改完成:art:" />
     <MESSAGE value="图书管理员修改图片信息上传图片修改:art:" />
     <MESSAGE value="设备管理员修改图片信息上传图片修改:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="设备管理员修改图片信息上传图片修改:art:" />
+    <MESSAGE value="用户修改图片信息上传图片修改:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户修改图片信息上传图片修改:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1408,16 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/userModify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="213" lean-forward="false" selection-start-line="14" selection-start-column="213" selection-end-line="14" selection-end-column="213" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/public.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -1436,9 +1425,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
+        <state relative-caret-position="744">
           <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/userModify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
