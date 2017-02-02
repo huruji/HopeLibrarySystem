@@ -119,11 +119,26 @@ router.route("/equipmodify/:equipID").get(function(req,res){
             res.send(err);
             return;
         }
-        let setDataJson = {
-            equipName: req.body.equipName,
-            equipHopeID: req.body.hopeID,
-            equipAdminID: rows[0].adminID
-		};
+        let setDataJson;
+        let equipImgSrc = req.body.equipImgSrc.toString();
+        if(equipImgSrc.includes('temp')) {
+            const equipkImgSrc = equipImgSrc.replace(/temp/g, 'book');
+            const oldPath = path.join('./public', equipImgSrc);
+            const newPath = path.join('./public', equipImgSrc);
+            fs.renameSync(oldPath, newPath);
+            setDataJson = {
+                equipName: req.body.equipName,
+                equipHopeID: req.body.hopeID,
+                equipAdminID: rows[0].adminID,
+                equipImgSrc
+            }
+        }else{
+            setDataJson = {
+                equipName: req.body.equipName,
+                equipHopeID: req.body.hopeID,
+                equipAdminID: rows[0].adminID
+            };
+        }
 		equipDB.updateMessage(equipID, setDataJson, (message) => {
             res.send(message);
 		})
