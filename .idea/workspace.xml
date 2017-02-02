@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/userModify.js" afterPath="$PROJECT_DIR$/public/js/userModify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="$PROJECT_DIR$/router/admin-book.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-equip.js" afterPath="$PROJECT_DIR$/router/admin-equip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin.js" afterPath="$PROJECT_DIR$/router/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/user.js" afterPath="$PROJECT_DIR$/router/user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +29,8 @@
             <file leaf-file-name="admin.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/router/admin.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="91">
-                    <caret line="166" column="20" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="20" />
+                  <state relative-caret-position="181">
+                    <caret line="165" column="56" lean-forward="true" selection-start-line="165" selection-start-column="56" selection-end-line="165" selection-end-column="56" />
                     <folding />
                   </state>
                 </provider>
@@ -81,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userModify.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userModify.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/userModify.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
@@ -93,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+            <state relative-caret-position="276">
+              <caret line="167" column="60" lean-forward="true" selection-start-line="167" selection-start-column="60" selection-end-line="167" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -138,8 +141,8 @@
       <file leaf-file-name="admin-equip.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2964">
-              <caret line="114" column="11" lean-forward="false" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
+            <state relative-caret-position="234">
+              <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -158,8 +161,8 @@
       <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/admin-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="85" column="5" lean-forward="true" selection-start-line="60" selection-start-column="4" selection-end-line="85" selection-end-column="5" />
+            <state relative-caret-position="350">
+              <caret line="133" column="58" lean-forward="true" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -189,8 +192,8 @@
       <find>cookie</find>
       <find>&lt;%</find>
       <find>count</find>
-      <find>add</find>
       <find>modify</find>
+      <find>add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -229,7 +232,6 @@
         <option value="$PROJECT_DIR$/public/js/form-reset.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/router/public.js" />
-        <option value="$PROJECT_DIR$/router/admin.js" />
         <option value="$PROJECT_DIR$/views/public/form-btn.ejs" />
         <option value="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
         <option value="$PROJECT_DIR$/public/js/reset.js" />
@@ -245,11 +247,12 @@
         <option value="$PROJECT_DIR$/views/user/user-modify.ejs" />
         <option value="$PROJECT_DIR$/public/js/addBook.js" />
         <option value="$PROJECT_DIR$/public/js/modifybook.js" />
-        <option value="$PROJECT_DIR$/router/admin-book.js" />
         <option value="$PROJECT_DIR$/public/js/modifyequip.js" />
-        <option value="$PROJECT_DIR$/router/admin-equip.js" />
-        <option value="$PROJECT_DIR$/router/user.js" />
         <option value="$PROJECT_DIR$/public/js/userModify.js" />
+        <option value="$PROJECT_DIR$/router/admin-equip.js" />
+        <option value="$PROJECT_DIR$/router/admin-book.js" />
+        <option value="$PROJECT_DIR$/router/admin.js" />
+        <option value="$PROJECT_DIR$/router/user.js" />
       </list>
     </option>
   </component>
@@ -612,14 +615,7 @@
       <workItem from="1485944427822" duration="4456000" />
       <workItem from="1486005694512" duration="1737000" />
       <workItem from="1486028447557" duration="9958000" />
-      <workItem from="1486044673976" duration="2068000" />
-    </task>
-    <task id="LOCAL-00045" summary="图书借阅全部图书界面滑动加载部分后端完成:art:">
-      <created>1484845016489</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1484845016489</updated>
+      <workItem from="1486044673976" duration="3658000" />
     </task>
     <task id="LOCAL-00046" summary="数据库操作方法添加:rocket:">
       <created>1484922178177</created>
@@ -957,11 +953,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486046579342</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="用户修改图片信息上传图片修改:art:">
+      <created>1486046767024</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1486046767024</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147175000" />
+    <option name="totallyTimeSpent" value="148765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1213,7 +1216,7 @@
         <state relative-caret-position="444">
           <caret line="115" column="17" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="115" selection-end-column="17" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1297,14 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="166" column="20" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/admin-modify.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -1383,14 +1378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2964">
-          <caret line="114" column="11" lean-forward="false" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/email-schedule.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2910">
@@ -1415,22 +1402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="60" selection-start-column="4" selection-end-line="85" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/userModify.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1438,6 +1409,38 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="133" column="58" lean-forward="true" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="165" column="56" lean-forward="true" selection-start-line="165" selection-start-column="56" selection-end-line="165" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="167" column="60" lean-forward="true" selection-start-line="167" selection-start-column="60" selection-end-line="167" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>

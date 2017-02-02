@@ -59,10 +59,10 @@ router.route("/book-modify/:bookID").get(function(req,res){
 }).post(function(req,res){
 	const bookID=req.params.bookID;
     let setDataJson;
-    let bookImgSrc = req.body.bookImgSrc.toString();
+    const tempImgSrc = req.body.bookImgSrc.toString();
     if(bookImgSrc.includes('temp')) {
-        const bookImgSrc = bookImgSrc.replace(/temp/g, 'book');
-        const oldPath = path.join('./public', bookImgSrc);
+        const bookImgSrc = tempImgSrc.replace(/temp/g, 'book');
+        const oldPath = path.join('./public', tempImgSrc);
         const newPath = path.join('./public', bookImgSrc);
         fs.renameSync(oldPath, newPath);
         setDataJson = {
@@ -128,10 +128,10 @@ router.route("/bookadd").get(function(req,res){
 	});
 }).post(function(req,res){
 	let setDataJson;
-	let bookImgSrc = req.body.bookImgSrc.toString();
-    if(bookImgSrc.includes('temp')) {
-        const bookImgSrc = bookImgSrc.replace(/temp/g, 'book');
-        const oldPath = path.join('./public', bookImgSrc);
+	const tempImgSrc = req.body.bookImgSrc.toString();
+    if(tempImgSrc.includes('temp')) {
+        const bookImgSrc = tempImgSrc.replace(/temp/g, 'book');
+        const oldPath = path.join('./public', tempImgSrc);
         const newPath = path.join('./public', bookImgSrc);
         fs.renameSync(oldPath, newPath);
         setDataJson = {

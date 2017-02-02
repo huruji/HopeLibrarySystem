@@ -163,11 +163,11 @@ router.route("/modify").get(function(req,res){
         res.redirect("/admin/login");
         return;
     }
-    const readerImgSrc = req.body.readerImgSrc.toString();
+    const tempImgSrc = req.body.readerImgSrc.toString();
     let setDataJson;
-    if(readerImgSrc.includes('temp')) {
-        const adminImgSrc = readerImgSrc.replace(/temp/g, 'admin');
-        const oldPath = path.join('./public', readerImgSrc);
+    if(tempImgSrc.includes('temp')) {
+        const adminImgSrc = tempImgSrc.replace(/temp/g, 'admin');
+        const oldPath = path.join('./public', tempImgSrc);
         const newPath = path.join('./public', adminImgSrc);
         fs.renameSync(oldPath, newPath);
         setDataJson = {

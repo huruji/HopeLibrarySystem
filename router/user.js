@@ -161,13 +161,13 @@ router.route("/modify").get(function(req,res){
     });
 }).post(function(req,res){
     let setDataJson;
-    let readerImgSrc = req.body.readerImgSrc.toString();
-    if(readerImgSrc.includes('temp')) {
-        const userImgSrc = readerImgSrc.replace(/temp/g, 'user');
-        const oldPath = path.join('./public', userImgSrc);
-        const newPath = path.join('./public', userImgSrc);
+    const tempImgSrc = req.body.readerImgSrc.toString();
+    if(tempImgSrc.includes('temp')) {
+        const readerImgSrc = tempImgSrc.toString().replace(/temp/g, 'user');
+        const oldPath = path.join('./public', tempImgSrc);
+        const newPath = path.join('./public', readerImgSrc);
         fs.renameSync(oldPath, newPath);
-        const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,readerImgSrc] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,userImgSrc];
+        const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,userImgSrc] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,readerImgSrc];
         setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,readerImgSrc};
     }else{
         const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup];

@@ -91,10 +91,10 @@ router.route("/equipmodify/:equipID").get(function(req,res){
             return;
         }
         let setDataJson;
-        let equipImgSrc = req.body.equipImgSrc.toString();
-        if(equipImgSrc.includes('temp')) {
-            const equipImgSrc = equipImgSrc.replace(/temp/g, 'book');
-            const oldPath = path.join('./public', equipImgSrc);
+        let tempImgSrc = req.body.equipImgSrc.toString();
+        if(tempImgSrc.includes('temp')) {
+            const equipImgSrc = tempImgSrc.replace(/temp/g, 'book');
+            const oldPath = path.join('./public', tempImgSrc);
             const newPath = path.join('./public', equipImgSrc);
             fs.renameSync(oldPath, newPath);
             setDataJson = {
