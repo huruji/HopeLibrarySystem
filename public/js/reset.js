@@ -1,6 +1,6 @@
 /*修改密码*/
 (function(global,$){
-	$("#resetBtn").click(function(){
+	$("#save").click(function(){
 		var val1=$("#reset-password").val();
 		var val2=$("#config-password").val();
 		if(val1.length==0){

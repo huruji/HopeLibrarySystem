@@ -77,12 +77,7 @@
                         <label for="">邮箱</label>
                         <input type="text" id="readerEmail" value="<%=user.adminEmail%>" >
                     </div>
-                    <div class="main-right-form-button clearfix">
-                        <div class="main-right-form-button-confirm">
-                            <input type="button" value="保存" id="save">
-                        </div>
-                        <div class="main-right-form-button-cancel">重置</div>
-                    </div>
+                    <%- include("./../public/form-btn.ejs")%>
                 </form>
                 <%}%>
             </section>

@@ -59,12 +59,7 @@
                         <img src="<%= user.userImgSrc %>" alt="" id="js-upload-img">
                         <input id="user-img" type="file" value="">
                     </div>
-                    <div class="main-right-form-button clearfix">
-                        <div class="main-right-form-button-confirm">
-                            <input type="button" value="保存" id="save">
-                        </div>
-                        <div class="main-right-form-button-cancel" id="js-form-reset">重置</div>
-                    </div>
+                    <%- include("./../public/form-btn.ejs")%>
                 </form>
             </section>
         </section>
