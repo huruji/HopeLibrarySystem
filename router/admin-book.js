@@ -110,26 +110,31 @@ router.route("/bookadd").get(function(req,res){
 	});
 }).post(function(req,res){
 	let setDataJson;
-	if(!req.body.bookImgSrc || req.body.booImgSrc.length<1){
-		 setDataJson = {
-            bookName: req.body.bookName,
-            bookHopeID: req.body.hopeID,
-            bookAuthor: req.body.bookAuthor,
-            bookISBN: req.body.bookISBN,
-            bookPress: req.body.bookPress,
-            bookCate: req.body.bookGroup
-		}
-	}else{
-         setDataJson = {
+	let bookImgSrc = req.body.bookImgSrc.toString();
+    if(bookImgSrc.includes('temp')) {
+        const bookImgSrc = bookImgSrc.replace(/temp/g, 'book');
+        const oldPath = path.join('./public', bookImgSrc);
+        const newPath = path.join('./public', bookImgSrc);
+        fs.renameSync(oldPath, newPath);
+        setDataJson = {
             bookName: req.body.bookName,
             bookHopeID: req.body.hopeID,
             bookAuthor: req.body.bookAuthor,
             bookISBN: req.body.bookISBN,
             bookPress: req.body.bookPress,
             bookCate: req.body.bookGroup,
-            bookImgSrc: req.body.bookImgSrc
+            bookImgSrc
         }
-	}
+    }else{
+        setDataJson = {
+            bookName: req.body.bookName,
+            bookHopeID: req.body.hopeID,
+            bookAuthor: req.body.bookAuthor,
+            bookISBN: req.body.bookISBN,
+            bookPress: req.body.bookPress,
+            bookCate: req.body.bookGroup
+        }
+    }
 	bookDB.addItem(setDataJson, (message) => {
 		res.send(message);
 	});
