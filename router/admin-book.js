@@ -58,14 +58,32 @@ router.route("/book-modify/:bookID").get(function(req,res){
     });
 }).post(function(req,res){
 	const bookID=req.params.bookID;
-	let setDataJson = {
-	    bookName: req.body.bookName,
-        bookHopeID: req.body.hopeID,
-        bookAuthor: req.body.bookAuthor,
-        bookISBN: req.body.bookISBN,
-        bookPress: req.body.bookPress,
-        bookCate: req.body.bookGroup
-    };
+    let setDataJson;
+    let bookImgSrc = req.body.bookImgSrc.toString();
+    if(bookImgSrc.includes('temp')) {
+        const bookImgSrc = bookImgSrc.replace(/temp/g, 'book');
+        const oldPath = path.join('./public', bookImgSrc);
+        const newPath = path.join('./public', bookImgSrc);
+        fs.renameSync(oldPath, newPath);
+        setDataJson = {
+            bookName: req.body.bookName,
+            bookHopeID: req.body.hopeID,
+            bookAuthor: req.body.bookAuthor,
+            bookISBN: req.body.bookISBN,
+            bookPress: req.body.bookPress,
+            bookCate: req.body.bookGroup,
+            bookImgSrc
+        }
+    }else{
+        setDataJson = {
+            bookName: req.body.bookName,
+            bookHopeID: req.body.hopeID,
+            bookAuthor: req.body.bookAuthor,
+            bookISBN: req.body.bookISBN,
+            bookPress: req.body.bookPress,
+            bookCate: req.body.bookGroup
+        }
+    }
     bookDB.updateMessage(bookID, setDataJson, (message) => {
         res.send(message);
     });
@@ -86,7 +104,7 @@ router.route("/bookadd-img").post(function(req,res){
 		fs.renameSync(files.img.path,newPath);
 		var DBImgSrc="/img/book"+newName;
 		return imgSrc=DBImgSrc;
-		
+
 	});
 	form.on("end",function(){
 		res.send({
