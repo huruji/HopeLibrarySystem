@@ -22,7 +22,7 @@
                     <div class="main-right-form-file form-group">
                         <label>头像</label>
                         <img src="<%= userImg %>" alt="" id="js-upload-img">
-                        <input id="user-img" type="file" value="">
+                        <input id="js-upload-input" type="file" value="">
                     </div>
                     <%- include("./../public/form-btn.ejs")%>
                 </form>
@@ -31,6 +31,7 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
+<script src="/js/upload.js"></script>
 <script src="/js/admin-modify.js"></script>
 <script src="/js/public/logout.js"></script>
 <script src="/js/form-reset.js"></script>

@@ -44,7 +44,7 @@
                     <div class="main-right-form-file form-group">
                         <label>封面图</label>
                         <img src="<%=book.bookImgSrc%>" alt="" id="js-upload-img">
-                        <input type="file" value="" id="user-img">
+                        <input type="file" value="" id="js-upload-input">
                     </div>
                     <%- include("./../public/form-btn.ejs")%>
                 </form>
@@ -53,6 +53,7 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
+<script src="/js/upload.js"></script>
 <script src="/js/modifybook.js"></script>
 <script src="/js/public/logout.js"></script>
 <script src="/js/form-reset.js"></script>
