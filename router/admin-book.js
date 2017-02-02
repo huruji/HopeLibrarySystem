@@ -58,7 +58,6 @@ router.route("/book-modify/:bookID").get(function(req,res){
     });
 }).post(function(req,res){
 	const bookID=req.params.bookID;
-	console.log(DBParam);
 	let setDataJson = {
 	    bookName: req.body.bookName,
         bookHopeID: req.body.hopeID,
