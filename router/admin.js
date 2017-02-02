@@ -146,36 +146,6 @@ router.route("/reset").get(function(req,res){
 		    res.send(message);
         });
 });
-//管理员修改头像页面
-router.route("/modify-img").post(function(req,res){
-	console.log(req.session.adminID);
-	var form = new formidable.IncomingForm();
-	form.encoding = "utf-8";
-	form.uploadDir =path.join("./","public/img/admin");
-	form.keepExtensions=true;
-	form.maxFieldsSize=2*1024*1024;
-	console.log("kkkk");
-	form.parse(req,function(err,fields,files){
-		console.log(files);
-		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/admin"+req.session.adminID+Date.now()+extension;
-		var newPath=form.uploadDir+newName;
-		fs.renameSync(files.img.path,newPath);
-		var DBImgSrc="/img/admin"+newName;
-		var mysqlQuery="UPDATE hopeadmin SET adminImgSrc=? WHERE adminID=?";
-		console.log(mysqlQuery);
-		mysql_util.DBConnection.query(mysqlQuery,[DBImgSrc,req.cookies.adminId],function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success={
-				code:1
-			}
-			res.send(success);
-		})
-	});
-})
 //管理员修改信息
 router.route("/modify").get(function(req,res){
     if(!req.session.adminID || !req.session.adminSign){
@@ -193,7 +163,23 @@ router.route("/modify").get(function(req,res){
         res.redirect("/admin/login");
         return;
     }
-    adminDB.updateMessage(req.session.adminID, {adminEmail:req.body.readerEmail}, (message) => {
+    const readerImgSrc = req.body.readerImgSrc.toString();
+    let setDataJson;
+    if(readerImgSrc.includes('temp')) {
+        const adminImgSrc = readerImgSrc.replace(/temp/g, 'admin');
+        const oldPath = path.join('./public', readerImgSrc);
+        const newPath = path.join('./public', adminImgSrc);
+        fs.renameSync(oldPath, newPath);
+        setDataJson = {
+            adminEmail: req.body.readerEmail,
+            adminImgSrc
+        };
+    }else{
+        setDataJson = {
+            adminEmail: req.body.readerEmail
+        };
+    }
+    adminDB.updateMessage(req.session.adminID, setDataJson, (message) => {
         res.send(message);
     });
 });
