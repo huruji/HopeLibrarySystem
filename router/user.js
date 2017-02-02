@@ -168,7 +168,7 @@ router.route("/modify").get(function(req,res){
         const newPath = path.join('./public', readerImgSrc);
         fs.renameSync(oldPath, newPath);
         const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,userImgSrc] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup,readerImgSrc];
-        setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,readerImgSrc};
+        setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup,userImgSrc};
     }else{
         const [readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup] = [req.body.sex,req.body.studentNumber,req.body.readerMajor,req.body.readerPhone,req.body.readerEmail,req.body.readerGroup];
         setDataJson = {readerSex,studentNumber,readerMajor,readerPhone,readerEmail,readerGroup};

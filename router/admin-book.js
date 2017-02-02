@@ -60,7 +60,7 @@ router.route("/book-modify/:bookID").get(function(req,res){
 	const bookID=req.params.bookID;
     let setDataJson;
     const tempImgSrc = req.body.bookImgSrc.toString();
-    if(bookImgSrc.includes('temp')) {
+    if(tempImgSrc.includes('temp')) {
         const bookImgSrc = tempImgSrc.replace(/temp/g, 'book');
         const oldPath = path.join('./public', tempImgSrc);
         const newPath = path.join('./public', bookImgSrc);
@@ -89,29 +89,6 @@ router.route("/book-modify/:bookID").get(function(req,res){
     });
 });
 
-router.route("/bookadd-img").post(function(req,res){
-	var form = new formidable.IncomingForm();
-	form.encoding = "utf-8";
-	form.uploadDir =path.join("./","public/img/book");
-	form.keepExtensions=true;
-	form.maxFieldsSize=2*1024*1024;
-	var imgSrc;
-	form.parse(req,function(err,fields,files){
-		console.log(files);
-		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/book"+req.session.adminID+Date.now()+extension;
-		var newPath=form.uploadDir+newName;
-		fs.renameSync(files.img.path,newPath);
-		var DBImgSrc="/img/book"+newName;
-		return imgSrc=DBImgSrc;
-
-	});
-	form.on("end",function(){
-		res.send({
-			src:imgSrc
-		})
-	})
-});
 router.route("/bookadd").get(function(req,res){
     if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");

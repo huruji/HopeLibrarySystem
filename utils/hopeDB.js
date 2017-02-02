@@ -286,7 +286,7 @@ const equipDB ={
             equipID : equipID
         };
         equipOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, message);
+            message = queryResult(err, message);
             callback&&callback(message);
         });
     },
