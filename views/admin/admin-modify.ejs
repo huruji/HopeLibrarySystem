@@ -21,14 +21,14 @@
                     </div>
                     <div class="main-right-form-file form-group">
                         <label>头像</label>
-                        <img src="<%= userImg %>" alt="">
+                        <img src="<%= userImg %>" alt="" id="js-upload-img">
                         <input id="user-img" type="file" value="">
                     </div>
                     <div class="main-right-form-button clearfix">
                         <div class="main-right-form-button-confirm">
                             <input type="button" value="保存" id="save">
                         </div>
-                        <div class="main-right-form-button-cancel">重置</div>
+                        <div class="main-right-form-button-cancel" id="js-form-reset">重置</div>
                     </div>
                 </form>
             </section>
@@ -36,7 +36,7 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/adminModify.js"></script>
+<script src="/js/admin-modify.js"></script>
 <script src="/js/public/logout.js"></script>
 <script src="/js/form-reset.js"></script>
 </body>

@@ -158,7 +158,7 @@ router.route("/modify-img").post(function(req,res){
 	form.parse(req,function(err,fields,files){
 		console.log(files);
 		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/admin"+req.cookies.userId+Date.now()+extension;
+		var newName="/admin"+req.session.adminID+Date.now()+extension;
 		var newPath=form.uploadDir+newName;
 		fs.renameSync(files.img.path,newPath);
 		var DBImgSrc="/img/admin"+newName;

@@ -6,6 +6,7 @@ const session = require('express-session');
 const cookieParser = require("cookie-parser");
 const config = require("./config");
 
+const routerPublic = require('./router/public');
 const routerUser = require("./router/user");
 const routerBook = require("./router/book");
 const routerEquip = require("./router/equip");
@@ -27,20 +28,13 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(cookieParser());
 
-
+app.use('/', routerPublic);
 app.use("/user",routerUser);
 app.use("/book",routerBook);
 app.use("/equip",routerEquip);
 /*app.use("/user", checkLogin(req, res, next, ['adminSign'], '/admin/login'));*/
 app.use("/admin",routerAdmin,routerAdminSuper,routerAdminBook,routerAdminEquip);
 
-app.get("/",function(req,res){
-	res.redirect('/user/login');
-});
-app.get("/logout", function(req, res) {
-    setSession(req,{userSign:false,userID:'',adminSign:false,adminID:''});
-    res.redirect('/');
-});
 emailSchedule();
 app.listen(config.server.port,function(){
 	console.log("listening port 3000");
