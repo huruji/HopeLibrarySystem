@@ -34,7 +34,7 @@
                             <span>
                                 <a href="/admin/book-modify/<%= book[i].bookID %>">修改</a>
                             </span>
-                            <span>
+                            <span class="disable">
                                 删除
                             </span>
                         </td>
@@ -46,7 +46,7 @@
                                 <a href="/admin/book-modify/<%= book[i].bookID %>">修改</a>
                             </span>
                             <span>
-                                删除
+                                <a href="/admin/drop/<%= book[i].bookID%>">删除</a>
                             </span>
                         </td>
                         <%}%>

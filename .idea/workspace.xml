@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="$PROJECT_DIR$/router/admin-book.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="$PROJECT_DIR$/utils/hopeDB.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-book/index.ejs" afterPath="$PROJECT_DIR$/views/admin-book/index.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/router/admin-super.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1700">
-              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+              <caret line="34" column="10" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -58,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/router/public.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -78,17 +79,17 @@
         <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2366">
-              <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+              <caret line="91" column="9" lean-forward="false" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="249" column="11" lean-forward="true" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
+              <caret line="249" column="11" lean-forward="false" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
               <folding>
                 <element signature="e#569#2969#0" expanded="false" />
                 <element signature="e#2986#5033#0" expanded="false" />
@@ -110,21 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email-schedule.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/email-schedule.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2910">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="equip.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/equip.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1844">
-              <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -140,11 +131,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/admin-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="149" column="14" lean-forward="false" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
+            <state relative-caret-position="366">
+              <caret line="150" column="28" lean-forward="false" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-420">
+              <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -192,7 +193,6 @@
         <option value="$PROJECT_DIR$/utils/md5-pass.js" />
         <option value="$PROJECT_DIR$/utils/check-login.js" />
         <option value="$PROJECT_DIR$/utils/dbhope.js" />
-        <option value="$PROJECT_DIR$/views/admin-book/index.ejs" />
         <option value="$PROJECT_DIR$/views/user/book.ejs" />
         <option value="$PROJECT_DIR$/views/user/index.ejs" />
         <option value="$PROJECT_DIR$/utils/db-common.js" />
@@ -234,8 +234,9 @@
         <option value="$PROJECT_DIR$/router/admin-equip.js" />
         <option value="$PROJECT_DIR$/router/admin.js" />
         <option value="$PROJECT_DIR$/router/user.js" />
-        <option value="$PROJECT_DIR$/router/admin-book.js" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
+        <option value="$PROJECT_DIR$/views/admin-book/index.ejs" />
+        <option value="$PROJECT_DIR$/router/admin-book.js" />
       </list>
     </option>
   </component>
@@ -303,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,7 +318,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="router" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin-book" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -478,14 +483,7 @@
       <workItem from="1486028447557" duration="9958000" />
       <workItem from="1486044673976" duration="4506000" />
       <workItem from="1486050086979" duration="599000" />
-      <workItem from="1486108869580" duration="602000" />
-    </task>
-    <task id="LOCAL-00048" summary="数据库操作借阅表的方法添加:rocket:">
-      <created>1484926914846</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1484926914846</updated>
+      <workItem from="1486108869580" duration="1648000" />
     </task>
     <task id="LOCAL-00049" summary="图书借阅流程重构完毕:rocket:">
       <created>1484927725546</created>
@@ -823,17 +821,24 @@
       <option name="project" value="LOCAL" />
       <updated>1486049150297</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="图书数据库增加删除方法:art:">
+      <created>1486109493358</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1486109493360</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150814000" />
+    <option name="totallyTimeSpent" value="151860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -880,7 +885,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="管理员共同部分部署新的数据库代码:rocket:" />
     <MESSAGE value="管理员登录bug修复:bug:" />
     <MESSAGE value="数据库删除方法增加:rocket:" />
     <MESSAGE value="图书管理员页面es6推进暂时完成:art:" />
@@ -905,7 +909,8 @@
     <MESSAGE value="设备管理员修改图片信息上传图片修改:art:" />
     <MESSAGE value="用户修改图片信息上传图片修改:art:" />
     <MESSAGE value="所有修改图片信息上传图片修改完成经过测试:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="所有修改图片信息上传图片修改完成经过测试:art:" />
+    <MESSAGE value="图书数据库增加删除方法:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书数据库增加删除方法:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -995,13 +1000,6 @@
         <state relative-caret-position="260">
           <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-754">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1169,7 +1167,7 @@
         <state relative-caret-position="442">
           <caret line="17" column="109" lean-forward="false" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1227,7 +1225,7 @@
     <entry file="file://$PROJECT_DIR$/router/equip.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1844">
-          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1243,7 +1241,7 @@
     <entry file="file://$PROJECT_DIR$/router/public.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1259,7 +1257,7 @@
     <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2366">
-          <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <caret line="91" column="9" lean-forward="false" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1267,15 +1265,7 @@
     <entry file="file://$PROJECT_DIR$/router/admin-super.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1700">
-          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="149" column="14" lean-forward="false" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
+          <caret line="34" column="10" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1291,7 +1281,7 @@
     <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="249" column="11" lean-forward="true" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
+          <caret line="249" column="11" lean-forward="false" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
           <folding>
             <element signature="e#569#2969#0" expanded="false" />
             <element signature="e#2986#5033#0" expanded="false" />
@@ -1299,6 +1289,22 @@
             <element signature="e#10732#11560#0" expanded="false" />
             <element signature="e#11582#12419#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="150" column="28" lean-forward="false" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -147,6 +147,8 @@ router.route('/drop/:bookID').get(function(req, res) {
         res.redirect("/admin/login");
         return;
     }
-    bookDB.del
+    bookDB.delItem(bookID, (message) => {
+        res.redirect('/admin');
+    });
 });
 module.exports=router;
