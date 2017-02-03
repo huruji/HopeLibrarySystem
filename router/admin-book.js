@@ -11,35 +11,6 @@ const setSession = require('./../utils/set-session');
 const hopeDB = require('./../utils/hopeDB.js');
 const [adminDB, bookDB] = [hopeDB.adminDB, hopeDB.bookDB];
 //管理员修改图书信息
-router.route("/bookmodify-img/:bookID").post(function(req,res){
-	var bookID=req.params.bookID;
-	var form = new formidable.IncomingForm();
-	form.encoding = "utf-8";
-	form.uploadDir =path.join("./","public/img/book");
-	form.keepExtensions=true;
-	form.maxFieldsSize=2*1024*1024;
-	console.log("kkkk");
-	form.parse(req,function(err,fields,files){
-		console.log(files);
-		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/book"+bookID+Date.now()+extension;
-		var newPath=form.uploadDir+newName;
-		fs.renameSync(files.img.path,newPath);
-		var DBImgSrc="/img/book"+newName;
-		var mysqlQuery="UPDATE hopebook SET bookImgSrc=? WHERE bookID=?";
-		console.log(mysqlQuery);
-		mysql_util.DBConnection.query(mysqlQuery,[DBImgSrc,bookID],function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success={
-				code:1
-			}
-			res.send(success);
-		})
-	});
-});
 router.route("/book-modify/:bookID").get(function(req,res){
     if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
@@ -170,5 +141,12 @@ router.route("/admin-book").get(function(req,res){
         });
     });
 });
-
+router.route('/drop/:bookID').get(function(req, res) {
+    const bookID = req.params.bookID;
+    if(!req.session.adminID || !req.session.adminSign){
+        res.redirect("/admin/login");
+        return;
+    }
+    bookDB.del
+});
 module.exports=router;

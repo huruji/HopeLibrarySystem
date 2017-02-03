@@ -240,6 +240,15 @@ const bookDB ={
             callback&&callback(rows);
         })
     },
+    delItem: (bookID, callback, message = '删除成功') => {
+        const searchDataJson = {
+            bookID : bookID
+        };
+        bookOperate.delItem(searchDataJson,(err, rows, fields) => {
+            message = queryResult(err, message);
+            callback&&callback(message);
+        });
+    },
     query: (query, callback) => {
         bookOperate.query(query, (err, rows, fields) => {
             if(err) {
