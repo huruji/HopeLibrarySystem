@@ -354,7 +354,7 @@ const borrowDB = {
             borrowID : borrowID
         };
         borrowOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, message);
+            message = queryResult(err, message);
             callback&&callback(message);
         });
     },
@@ -380,7 +380,7 @@ const reservateDB = {
             borrowID : borrowID
         };
         reservateOperate.updateItem(searchDataJson, setDataJson,(err, rows, fields) => {
-            const message = queryResult(err, message);
+            message = queryResult(err, message);
             callback&&callback(message);
         });
     },
