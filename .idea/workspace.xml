@@ -455,14 +455,7 @@
       <workItem from="1486108869580" duration="1675000" />
       <workItem from="1486134383541" duration="61000" />
       <workItem from="1486204372867" duration="1926000" />
-      <workItem from="1486389664102" duration="2230000" />
-    </task>
-    <task id="LOCAL-00053" summary="设备预约视图层修复:rocket:">
-      <created>1484987154413</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1484987154413</updated>
+      <workItem from="1486389664102" duration="2235000" />
     </task>
     <task id="LOCAL-00054" summary="设备预约视图层修复:rocket:">
       <created>1484987442623</created>
@@ -800,11 +793,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486395001901</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="新版登录页面:bug:">
+      <created>1486395202533</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1486395202533</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156104000" />
+    <option name="totallyTimeSpent" value="156109000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
