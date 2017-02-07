@@ -37,12 +37,13 @@ router.route("/useradd").get(function(req,res){
             res.send(message);
         })
     }else{
+        let permission;
         if(req.body.permission.includes("super")){
-            const permission="super";
+            permission="super";
         }else if(req.body.permission.includes("book")){
-            const permission="book";
+            permission="book";
         }else if(req.body.permission.includes("camera")){
-            const permission="camera";
+            permission="camera";
         }
         let setDataJson = {
             adminName: req.body.readerName,
