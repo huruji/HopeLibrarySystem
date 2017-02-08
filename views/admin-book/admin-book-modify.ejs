@@ -65,24 +65,7 @@
             radio: {bookGroup: 'bookGroup'},
             attr: {'bookImgSrc': ['js-upload-img','src']},
             data: data,
-            successFn: function(res) {
-                var message = res.message;
-                layer.alert(message,{
-                    skin: 'layui-layer-molv',
-                    closeBtn: 0,
-                    shift: 2
-                });
-                setTimeout(function(){
-                    location.assign("/admin");
-                },500)
-            },
-            errorFn: function() {
-                layer.alert("请求失败",{
-                    skin: 'layui-layer-molv',
-                    closeBtn: 0,
-                    shift: 2
-                });
-            }
+            redirect:'/admin'
         })
     })
 </script>
