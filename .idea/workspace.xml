@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/public/hajax.js" afterPath="$PROJECT_DIR$/public/js/public/hajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-equip/index.ejs" afterPath="$PROJECT_DIR$/views/admin-equip/index.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -602,14 +600,7 @@
       <workItem from="1486389664102" duration="4740000" />
       <workItem from="1486480609016" duration="3258000" />
       <workItem from="1486523663576" duration="5957000" />
-      <workItem from="1486536493855" duration="7534000" />
-    </task>
-    <task id="LOCAL-00071" summary="设备管理员页面es6推进暂时完成:art:">
-      <created>1485279219636</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1485279219636</updated>
+      <workItem from="1486536493855" duration="7627000" />
     </task>
     <task id="LOCAL-00072" summary="设备管理员页面es6推进暂时完成:art:">
       <created>1485347974512</created>
@@ -947,11 +938,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486570107808</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="修改hajax默认的重定向时间为1秒:art:">
+      <created>1486570423145</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1486570423145</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175363000" />
+    <option name="totallyTimeSpent" value="175456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1004,7 +1002,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="图片上传前端抽出:rocket:" />
     <MESSAGE value="增加图书路由图片上传修改完成:art:" />
     <MESSAGE value="图书管理员修改图片信息上传图片修改:art:" />
     <MESSAGE value="设备管理员修改图片信息上传图片修改:art:" />
@@ -1029,7 +1026,8 @@
     <MESSAGE value="超级管理员修改用户bug修正:bug:" />
     <MESSAGE value="超级管理员修改首页不显示自己以及前端页面删除用户完成:bug:" />
     <MESSAGE value="超级管理员删除用户后端部分完成:art:" />
-    <option name="LAST_COMMIT_MESSAGE" value="超级管理员删除用户后端部分完成:art:" />
+    <MESSAGE value="修改hajax默认的重定向时间为1秒:art:" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改hajax默认的重定向时间为1秒:art:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
