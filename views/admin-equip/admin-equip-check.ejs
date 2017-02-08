@@ -46,6 +46,57 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/equipCheck.js"></script>
+<!--<script src="/js/equipCheck.js"></script>-->
+<script src="/js/public/hajax.js"></script>
+<script>
+    $(".js-check-yes").click(function() {
+        var equipID=$(this).attr("data-equipid");
+        hajax.ajax({
+            data: {"equipID":equipID,"check":true},
+            successFn: function(res) {
+                var message = res.message;
+                layer.alert(message,{
+                    skin: 'layui-layer-molv',
+                    closeBtn: 0,
+                    shift: 2
+                });
+                setTimeout(function(){
+                    location.assign("/admin");
+                },500)
+            },
+            errorFn:function() {
+                layer.alert("请求失败",{
+                    skin: 'layui-layer-molv',
+                    closeBtn: 0,
+                    shift: 2
+                });
+            }
+        })
+    });
+    $(".js-check-no").click(function() {
+        var equipID = $(this).attr("data-equipID");
+        hajax.ajax({
+            data: {"equipID":equipID,"check":false},
+            successFn: function(res) {
+                var message = res.message;
+                layer.alert(message,{
+                    skin: 'layui-layer-molv',
+                    closeBtn: 0,
+                    shift: 2
+                });
+                setTimeout(function(){
+                    location.assign("/admin");
+                },500)
+            },
+            errorFn:function() {
+                layer.alert("请求失败",{
+                    skin: 'layui-layer-molv',
+                    closeBtn: 0,
+                    shift: 2
+                });
+            }
+        })
+    })
+</script>
 </body>
 </html>
