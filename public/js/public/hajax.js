@@ -19,9 +19,10 @@ var hajax = {
                         closeBtn: 0,
                         shift: 2
                     });
+                    var redirect = cfg.redirect || '/';
                     var redirectTime = cfg.redirectTime || 500;
                     cfg.redirect && setTimeout(function(){
-                      location.assign(cfg.redirect);
+                      location.assign(redirect);
                     },redirectTime);
                 }
             },
