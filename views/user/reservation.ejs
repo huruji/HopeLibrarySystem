@@ -50,6 +50,17 @@
 	</div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/user-equip.js"></script>
+<!--<script src="/js/user-equip.js"></script>-->
+<script src="/js/public/hajax.js"></script>
+<script>
+    $(".js-return-btn").click(function(){
+        var equipID=$(this).attr("data-equipid"),
+            borrowID=$(this).attr("data-borrowid");
+        hajax.ajax({
+            data:{"equipID":equipID,"borrowID":borrowID},
+			redirect:location.href
+		})
+	})
+</script>
 </body>
 </html>

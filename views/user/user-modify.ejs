@@ -67,7 +67,16 @@
 </section>
 <%- include("./../public/footer.ejs") %>
 <script src="/js/upload.js"></script>
-<script src="/js/userModify.js"></script>
+<!--<script src="/js/userModify.js"></script>-->
 <script src="/js/form-reset.js"></script>
+<script src="/js/public/hajax.js"></script>
+<script>
+    hajax.hformAjax({
+        input:{studentNumber:'studentNumber',readerEmail:'readerEmail',readerPhone:'readerPhone',readerMajor:'readerMajor',readerName:'readerName'},
+        attr:{readerImgSrc:['js-upload-img','src']},
+        radio:{sex:'sex'},
+        redirect:'/user'
+    })
+</script>
 </body>
 </html>

@@ -43,6 +43,17 @@
         </div>
     </section>
     <%- include("./../public/footer.ejs") %>
-    <script src="/js/user.js"></script>
+    <!--<script src="/js/user.js"></script>-->
+    <script src="/js/public/hajax.js"></script>
+    <script>
+        $('.js-return-btn').click(function(){
+            var bookID=$(this).attr("data-bookid"),
+                borrowID=$(this).attr("data-borrowid");
+            hajax.hformAjax({
+                data:{"bookID":bookID,"borrowID":borrowID},
+                redirect: '/user'
+            })
+        })
+    </script>
 </body>
 </html>

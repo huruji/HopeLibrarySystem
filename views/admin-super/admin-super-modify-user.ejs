@@ -85,7 +85,57 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/adminModifyuser.js"></script>
+<!--<script src="/js/adminModifyuser.js"></script>-->
 <script src="/js/form-reset.js"></script>
+<script src="/js/public/hajax.js"></script>
+<script>
+    var type=$("#user-form").attr("form-data");
+    if(type=="user") {
+        $("#save").click(function () {
+            var sex = $.trim($(":radio[name=sex]:checked").parent().text());
+            var studentNumber = $.trim($("#studentNumber").val());
+            var readerEmail = $.trim($("#readerEmail").val());
+            var readerPhone = $.trim($("#readerPhone").val());
+            var readerMajor = $.trim($("#readerMajor").val());
+            console.log(readerMajor);
+            var readerGroup = $.trim($(":radio[name=hopeGroup]:checked").parent().text());
+            var readerName = $.trim($("#readerName").val());
+            if (!readerName || !readerEmail || !sex || !readerGroup) {
+                layer.alert("用户名、性别、邮箱、厚朴组为必填", {
+                    skin: 'layui-layer-molv'
+                });
+                return;
+            }
+            hajax.ajax({
+                data: {
+                    "readerName": readerName,
+                    "sex": sex,
+                    "studentNumber": studentNumber,
+                    "readerEmail": readerEmail,
+                    "readerPhone": readerPhone,
+                    "readerMajor": readerMajor,
+                    "readerGroup": readerGroup
+                },
+                redirect: '/admin'
+            })
+        });
+    }else if(type=="admin"){
+        $("#save").click(function(){
+            var permission=$.trim($(":radio[name=permission]:checked").parent().attr("user-type"));
+            var readerEmail=$.trim($("#readerEmail").val());
+            var readerName=$.trim($("#adminName").val());
+            if(!readerName || !readerEmail || !permission){
+                layer.alert("用户名、邮箱、权限为必填",{
+                    skin: 'layui-layer-molv'
+                });
+                return;
+            }
+            hajax.ajax({
+                data:{"readerName":readerName,"readerEmail":readerEmail,"permission":permission},
+                redirect:'/admin'
+            })
+        })
+    }
+</script>
 </body>
 </html>

@@ -26,7 +26,43 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/reset.js"></script>
+<!--<script src="/js/reset.js"></script>-->
 <script src="/js/form-reset.js"></script>
+<script src="/js/public/hajax.js"></script>
+<script>
+    $("#save").click(function() {
+        var val1 = $("#reset-password").val();
+        var val2 = $("#config-password").val();
+        if (val1.length == 0) {
+            layer.alert('请至少输入6位密码', {
+                skin: 'layui-layer-molv',
+                closeBtn: 0,
+                shift: 2
+            });
+            return;
+        }
+        ;
+        if (val2.length == 0) {
+            layer.alert('请确认密码', {
+                skin: 'layui-layer-molv',
+                closeBtn: 0,
+                shift: 2
+            });
+            return;
+        }
+        if (val1 !== val2) {
+            layer.alert('两次输入密码不一致', {
+                skin: 'layui-layer-molv',
+                closeBtn: 0,
+                shift: 2
+            });
+            return;
+        }
+        hajax.ajax({
+            data:{password:val1},
+            redirect:'/user'
+        })
+    })
+</script>
 </body>
 </html>
