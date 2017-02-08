@@ -10,10 +10,31 @@ var hajax = {
                 cfg.beforeFn && cfg.beforeFn();
             },
             success:function(res){
-                cfg.successFn &&　cfg.successFn(res);
+                if(cfg.successFn){
+                    cfg.successFn(res);
+                } else{
+                    var message = res.message;
+                    layer.alert(message,{
+                        skin: 'layui-layer-molv',
+                        closeBtn: 0,
+                        shift: 2
+                    });
+                    var redirectTime = cfg.redirectTime || 500;
+                    cfg.redirect && setTimeout(function(){
+                      location.assign(cfg.redirect);
+                    },redirectTime);
+                }
             },
             error:function(){
-                cfg.errorFn　&& cfg.errorFn();
+                if(cfg.errorFn) {
+                    cfg.errorFn();
+                }else {
+                    layer.alert("请求失败",{
+                        skin: 'layui-layer-molv',
+                        closeBtn: 0,
+                        shift: 2
+                    });
+                }
             },
             complete:function(){
                 cfg.completeFn && cfg.completeFn();
