@@ -45,7 +45,7 @@
                                 <a href="/admin/adminmodifyuser/user<%=user[i].readerID%>">修改</a>
                             </span>
                             <span>
-                                <a href="javascript:" class="js-drop-user" data-user-data="user<%=user[i].readerID%>">删除</a>
+                                <a href="javascript:" class="js-drop-user" data-user="user<%=user[i].readerID%>">删除</a>
                             </span>
                         </td>
                         <%}else{%>
@@ -54,7 +54,7 @@
                                 <a href="/admin/adminmodifyuser/admin<%=user[i].adminID%>" class="modify-user" user-data="admin<%=user[i].adminID%>">修改</a>
                             </span>
                             <span>
-                                <a href="javascript:" class="drop-user" user-data="admin<%=user[i].adminID%>">删除</a>
+                                <a href="javascript:" class="js-drop-user" data-user="admin<%=user[i].adminID%>">删除</a>
                             </span>
                         </td>
                         <%}%>
@@ -81,6 +81,28 @@
     </div>
         </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/admin.js"></script>
+<!--<script src="/js/admin.js"></script>-->
+<script src="/js/public/hajax.js"></script>
+<script>
+    (function(global,$){
+        $(".js-drop-user").click(function(){
+            var dropData=$(this).attr("data-user");
+            console.log(111);
+            layer.confirm("删除用户将会删除该用户的所有信息",{
+                skin: 'layui-layer-molv',
+                btn:["确认","取消"],
+                btn1:function(){
+                    hajax.hformAjax({
+                        data:{"dropData":dropData},
+                        redirect:'/admin',
+                        url:'/admin/admindropuser'
+                    });
+                }
+            });
+        });
+    })(window,jQuery)
+
+
+</script>
 </body>
 </html>

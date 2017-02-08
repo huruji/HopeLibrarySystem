@@ -63,7 +63,7 @@ router.route("/").get(function(req,res){
         if(admin.adminPermissions=="super"){
             userDB.selectAll((rows) => {
                 let reader=rows;
-                adminDB.selectAll((rows) => {
+                adminDB.selectExceptID(adminID,(rows) => {
                     let adminUser=rows;
                     let userPageNum=Math.ceil((adminUser.length+reader.length)/10);
                     let user=adminUser.concat(reader);
