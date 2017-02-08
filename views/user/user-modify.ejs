@@ -71,11 +71,13 @@
 <script src="/js/form-reset.js"></script>
 <script src="/js/public/hajax.js"></script>
 <script>
-    hajax.hformAjax({
-        input:{studentNumber:'studentNumber',readerEmail:'readerEmail',readerPhone:'readerPhone',readerMajor:'readerMajor',readerName:'readerName'},
-        attr:{readerImgSrc:['js-upload-img','src']},
-        radio:{sex:'sex'},
-        redirect:'/user'
+    $('#save').click(function(){
+        hajax.hformAjax({
+            input:{studentNumber:'studentNumber',readerEmail:'readerEmail',readerPhone:'readerPhone',readerMajor:'readerMajor',readerName:'readerName'},
+            attr:{readerImgSrc:['js-upload-img','src']},
+            radio:{sex:'sex',readerGroup:'hopeGroup'},
+            redirect:'/user'
+        })
     })
 </script>
 </body>

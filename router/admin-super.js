@@ -102,7 +102,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
         } else if(userType == "admin"){
             adminDB.selectMessage(userID, (rows) => {
                 setSession(req,{adminID:admin.adminID,adminSign: true});
-                res.render("admin-super/admin-super-modify-user",{userNameuserImg:userImg,userPermission:userPermission,user:rows[0],firstPath:"user",secondPath:''});
+                res.render("admin-super/admin-super-modify-user",{userName,userImg,userPermission,firstPath:"user",secondPath:'',user:rows[0]});
             })
         }
     })
@@ -122,7 +122,7 @@ router.route("/adminmodifyuser/:userID").get(function(req,res){
         userDB.updateMessage(userID, setDataJson, (message) => {
             res.send(message);
         })
-    }else if(userType="admin"){
+    }else if(userType=="admin"){
         const setDataJson = {
             adminName: req.body.readerName,
             adminEmail:　req.body.readerEmail,
