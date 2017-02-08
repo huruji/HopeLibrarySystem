@@ -20,7 +20,7 @@ var hajax = {
                         shift: 2
                     });
                     var redirect = cfg.redirect || '/';
-                    var redirectTime = cfg.redirectTime || 500;
+                    var redirectTime = cfg.redirectTime || 1000;
                     cfg.redirect && setTimeout(function(){
                       location.assign(redirect);
                     },redirectTime);
