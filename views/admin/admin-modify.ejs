@@ -32,7 +32,34 @@
 </section>
 <%- include("./../public/footer.ejs") %>
 <script src="/js/upload.js"></script>
-<script src="/js/admin-modify.js"></script>
+<!--<script src="/js/admin-modify.js"></script>-->
 <script src="/js/form-reset.js"></script>
+<script src="/js/public/hajax.js"></script>
+<script>
+    $('#save').click(function(){
+        hajax.hformAjax({
+            input:{readerEmail:'readerEmail'},
+            attr: {'readerImgSrc': ['js-upload-img','src']},
+            successFn: function(res) {
+                var message = res.message;
+                layer.alert(message,{
+                    skin: 'layui-layer-molv',
+                    closeBtn: 0,
+                    shift: 2
+                });
+                setTimeout(function(){
+                    location.assign("/admin");
+                },500)
+            },
+            errorFn: function() {
+                layer.alert("请求失败",{
+                    skin: 'layui-layer-molv',
+                    closeBtn: 0,
+                    shift: 2
+                });
+            }
+        })
+    })
+</script>
 </body>
 </html>
