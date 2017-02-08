@@ -10,7 +10,7 @@ const router=express.Router();
 const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
-const [adminDB, userDB] = [hopeDB.adminDB, hopeDB.userDB];
+const [adminDB, userDB, equipDB] = [hopeDB.adminDB, hopeDB.userDB, hopeDB.equipDB];
 
 // 超级管理员增加用户界面
 router.route("/useradd").get(function(req,res){
@@ -139,65 +139,46 @@ router.route("/admindropuser").post(function(req,res){
     let userType=req.body.dropData.replace(/\d/g,""),
         userID=req.body.dropData.replace(/\D/g,"");
     if(userType=="user"){
-        mysql_util.DBConnection.query("SELECT * FROM bookborrow WHERE returnWhe=0 AND borrowUserID=?",userID,function(err,rows,fields){
-            if(err){
-                console.log(err);
-            }else if(rows.length>0){
-                const success={
-                    message:"当前用户还有书未归还，不能删除",
-                    code:2,
-                };
-                res.send(success);
-            }else{
-                mysql_util.DBConnection.query("SELECT * FROM equipborrow WHERE returnWhe=0 AND borrowUserID=?",userID,function(err,rows,fields){
-                    if(err){
-                        console.log(err);
-                    }else if(rows.length>0){
-                        const success={
-                            message:"当前用户还有设备未归还，不能删除",
-                            code:2
-                        };
-                        res.send(success);
-                    }else{
-                        mysql_util.DBConnection.query("DELETE FROM hopereader WHERE readerID=?",userID,function(err,rows,fields){
-                            if(err){
-                                console.log(err);
-                                return;
-                            }
-                            const success={
-                                message:"删除用户成功",
-                            };
-                            res.send(success);
-                        });
-                    }
-                })
-            }
-        })
+        const query = 'SELECT * FROM bookborrow WHERE returnWhe=0 AND borrowUserID=' + userID;
+        userDB.query(query, (rows) => {
+           if(rows.length > 0){
+               const message = {
+                   message:"当前用户还有书未归还，不能删除"
+               };
+               res.send(message);
+           }else{
+               const query = 'SELECT * FROM equipborrow WHERE returnWhe=0 AND borrowUserID=' + userID;
+               userDB.query(query, (rows) => {
+                   if(rows.length > 0) {
+                       const message = {
+                           message:"当前用户还有设备未归还，不能删除"
+                       };
+                       res.send(message);
+                   }else {
+                       userDB.delItem(userID, (message) => {
+                           res.send(message);
+                       })
+                   }
+               });
+           }
+           
+        });
     }else if(userType=="admin"){
-        mysql_util.DBConnection.query("SELECT * FROM hopeequip WHERE equipAdminID=?",userID,function(err,rows,fields){
-            if(err){
-                console.log(err);
-                return;
-            }else if(rows.length>0){
-                var success={
-                    message:"当前用户还管理着设备，不能删除",
-                    code:2
-                }
-                res.send(success);
+        const dataJson = {
+            equipAdminID: userID
+        };
+        equipDB.selectItem(dataJson, (rows) => {
+            if(rows.length > 0) {
+                const message = {
+                    message:"当前用户还管理着设备，不能删除"
+                };
+                res.send(message);
             }else{
-                mysql_util.DBConnection.query("DELETE FROM hopeadmin WHERE adminID=?",userID,function(err,rows,fields){
-                    if(err){
-                        console.log(err);
-                        return;
-                    }
-                    var success={
-                        message:"删除用户成功",
-                    };
-                    res.send(success);
+                adminDB.delItem(userID, (message) => {
+                    res.send(message);
                 });
             }
-        })
-
+        });
     }
-})
+});
 module.exports=router;

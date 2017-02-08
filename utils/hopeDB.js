@@ -80,6 +80,15 @@ const adminDB = {
             callback&&callback(message);
         });
     },
+    delItem: (adminID, callback) => {
+        let searchDataJson = {
+            adminID : adminID
+        };
+        adminOperate.delItem(searchDataJson, (err, rows, fields) => {
+            const message = queryResult(err, '删除成功');
+            callback&&callback(message);
+        });
+    },
     query: (query, callback) => {
         adminOperate.query(query, (err, rows, fields) => {
             if(err) {
