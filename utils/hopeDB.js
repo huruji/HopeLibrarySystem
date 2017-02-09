@@ -177,6 +177,15 @@ const bookDB ={
             callback&&callback(rows);
         });
     },
+    selectItem: (dataJson, callback) => {
+        bookOperate.selectItem(dataJson, (err, rows, fields) => {
+            if(err) {
+                console.log(err);
+                retrun;
+            }
+            callback&&callback(rows);
+        })
+    },
     selectMessage: (bookID, callback) => {
         let dataJson = {
             bookID : bookID

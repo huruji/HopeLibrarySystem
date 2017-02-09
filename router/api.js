@@ -20,7 +20,7 @@ router.get('/book/:id', function(req, res, next) {
     });
 });
 router.get('/book', function(req, res, next) {
-    if(req.query.hopeid || req.query.isbn || req.query.cate || req.query.author || req.query.name || req.query.publisher) {
+    if(!req.query) {
         let data = {code: 400, msg: '请求参数错误'};
         return res.json(data);
     }
