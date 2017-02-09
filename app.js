@@ -14,6 +14,7 @@ const routerAdmin = require("./router/admin");
 const routerAdminBook = require("./router/admin-book");
 const routerAdminEquip = require("./router/admin-equip");
 const routerAdminSuper = require("./router/admin-super");
+const routerApi = require('./router/api');
 const emailSchedule = require("./router/email-schedule");
 const setSession = require('./utils/set-session');
 
@@ -34,6 +35,7 @@ app.use("/book",routerBook);
 app.use("/equip",routerEquip);
 /*app.use("/user", checkLogin(req, res, next, ['adminSign'], '/admin/login'));*/
 app.use("/admin",routerAdmin,routerAdminSuper,routerAdminBook,routerAdminEquip);
+app.use("/api", routerApi);
 
 emailSchedule();
 app.listen(config.server.port,function(){
