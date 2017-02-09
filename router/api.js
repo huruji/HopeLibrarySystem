@@ -20,52 +20,55 @@ router.get('/book/:id', function(req, res, next) {
     });
 });
 router.get('/book', function(req, res, next) {
+    let books;
     if(!req.query) {
-        let data = {code: 400, msg: '请求参数错误'};
+        const data = {code: 400, msg: '请求参数错误'};
         return res.json(data);
     }
+    console.log('req.query1:' + JSON.stringify(req.query));
     let keys = Object.keys(req.query);
     let error = keys.find((ele) => {
         return !['hopeid','isbn','cate','author','name','publisher'].includes(ele);
     });
     if(error) {
-        let data = {code: 400, msg: '请求参数错误'};
+        const data = {code: 400, msg: '请求参数错误'};
         return res.json(data);
     }
     for(let key in req.query) {
-        req.query[key] = mysql_util.DBConnection.escape(req.query[key]);
+        req.query[key] = mysql_util.DBConnection.escape(req.query[key]).replace(/(^')|('$)/g,'');
     }
     if(req.query.hopeid) {
         let dataJson = {bookHopeID: req.query.hopeid};
         bookDB.selectItem(dataJson, (rows) => {
             const data = setBookData(rows);
-            return res.json(data);
-        })
-    }
-    if(req.query.isbn) {
+            res.json(data);
+        });
+    }else if(req.query.isbn) {
         let dataJson = {bookISBN: req.query.isbn};
         bookDB.selectItem(dataJson, (rows) => {
             const data = setBookData(rows);
-            return res.json(data);
+            res.json(data);
+        });
+    }else {
+        let dataJson = {};
+        if (req.query.cate) {
+            dataJson.bookCate = req.query.cate;
+        }
+        if (req.query.author) {
+            dataJson.bookAuthor = req.query.author;
+            console.log('datajson:' + JSON.stringify(dataJson));
+        }
+        if (req.query.name) {
+            dataJson.bookName = req.query.name;
+        }
+        if (req.query.publisher) {
+            dataJson.bookPress = req.query.publisher;
+        }
+        bookDB.selectItem(dataJson, (rows) => {
+            const data = setBookData(rows);
+            res.json(data);
         });
     }
-    let dataJson = {};
-    if(req.query.cate) {
-        dataJson.bookCate = req.query.cate;
-    }
-    if(req.query.author) {
-        dataJson.bookAuthor = req.query.author;
-    }
-    if(req.query.name) {
-        dataJson.bookName = req.query.name;
-    }
-    if(req.query.publisher) {
-        dataJson.bookPress = req.query.publisher;
-    }
-    bookDB.selectItem(dataJson, (rows) => {
-        let data = setBookData(rows);
-        res.json(data);
-    })
 });
 function setBookData(bookArr) {
     let data = {};
