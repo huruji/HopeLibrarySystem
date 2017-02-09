@@ -15,12 +15,58 @@ const [adminDB, userDB, bookDB, equipDB] = [hopeDB.adminDB, hopeDB.userDB, hopeD
 router.get('/book/:id', function(req, res, next) {
     const bookID = Number.parseInt(req.params.id);
     bookDB.selectMessage(bookID, (rows) => {
-       const books = rows;
-       const data = setBookData(books);
+       const data = setBookData(rows);
        res.json(data);
     });
 });
-
+router.get('/book', function(req, res, next) {
+    if(req.query.hopeid || req.query.isbn || req.query.cate || req.query.author || req.query.name || req.query.publisher) {
+        let data = {code: 400, msg: '请求参数错误'};
+        return res.json(data);
+    }
+    let keys = Object.keys(req.query);
+    let error = keys.find((ele) => {
+        return !['hopeid','isbn','cate','author','name','publisher'].includes(ele);
+    });
+    if(error) {
+        let data = {code: 400, msg: '请求参数错误'};
+        return res.json(data);
+    }
+    for(let key in req.query) {
+        req.query[key] = mysql_util.DBConnection.escape(req.query[key]);
+    }
+    if(req.query.hopeid) {
+        let dataJson = {bookHopeID: req.query.hopeid};
+        bookDB.selectItem(dataJson, (rows) => {
+            const data = setBookData(rows);
+            return res.json(data);
+        })
+    }
+    if(req.query.isbn) {
+        let dataJson = {bookISBN: req.query.isbn};
+        bookDB.selectItem(dataJson, (rows) => {
+            const data = setBookData(rows);
+            return res.json(data);
+        });
+    }
+    let dataJson = {};
+    if(req.query.cate) {
+        dataJson.bookCate = req.query.cate;
+    }
+    if(req.query.author) {
+        dataJson.bookAuthor = req.query.author;
+    }
+    if(req.query.name) {
+        dataJson.bookName = req.query.name;
+    }
+    if(req.query.publisher) {
+        dataJson.bookPress = req.query.publisher;
+    }
+    bookDB.selectItem(dataJson, (rows) => {
+        let data = setBookData(rows);
+        res.json(data);
+    })
+});
 function setBookData(bookArr) {
     let data = {};
     if(bookArr.length < 1) {
