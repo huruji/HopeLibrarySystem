@@ -135,7 +135,7 @@ const userDB = {
             readerID : userID
         };
         let setDataJson = {
-            userPassword: newPassword
+            readerPassword: newPassword
         };
         userOperate.updateItem(searchDataJson, setDataJson, (err, rows, fields) => {
             const message = queryResult(err, '修改成功');
