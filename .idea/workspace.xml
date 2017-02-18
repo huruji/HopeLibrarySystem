@@ -4,7 +4,6 @@
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/admin-reset.ejs" afterPath="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-reset.ejs" afterPath="$PROJECT_DIR$/views/user/user-reset.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,8 +64,8 @@
       <file leaf-file-name="admin-reset.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            <state relative-caret-position="1414">
+              <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -616,14 +615,7 @@
       <workItem from="1486633487856" duration="6182000" />
       <workItem from="1486652487249" duration="6536000" />
       <workItem from="1487400468252" duration="9883000" />
-      <workItem from="1487424435853" duration="2185000" />
-    </task>
-    <task id="LOCAL-00097" summary="图书数据库增加删除方法:art:">
-      <created>1486109493358</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1486109493360</updated>
+      <workItem from="1487424435853" duration="2270000" />
     </task>
     <task id="LOCAL-00098" summary="图书删除路由增加:art:">
       <created>1486110596997</created>
@@ -961,11 +953,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487429484821</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="修正用户和管理员修改密码的bug:bug:">
+      <created>1487429838360</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1487429838360</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200909000" />
+    <option name="totallyTimeSpent" value="200994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1350,8 +1349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        <state relative-caret-position="1414">
+          <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
           <folding />
         </state>
       </provider>
