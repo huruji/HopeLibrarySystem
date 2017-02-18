@@ -1,6 +1,11 @@
 /*登录函数*/
 $(document).ready(function(){
-	$("#loginBtn").click(function(){
+	$('form').bind('keydown',function(e){
+		if(e.keyCode === 13){
+            $("#loginBtn").click();
+		}
+	});
+	$("#loginBtn").bind('click', function(){
 		var userName=$("#username").val();
 		var password=$("#password").val();
 		if(!userName){
