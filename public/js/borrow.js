@@ -10,34 +10,24 @@
         	type:"POST",
             url:"/book/borrow",
         	success:function(response){
-                if(response){
-                    if(response.code==10){
-                        location.assign("/user/login")
-                    }else{
-                        errMsg=response.message;
-                    }
-                    console.dir(response);
-                }
-        			layer.alert(errMsg,{
-        				skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2 
-        			});
-                    setTimeout(function(){
-                        location.assign(location.href);
-                    },500);
-        		},
+        	    hlayer.alert({
+        	        text:response.message,
+                    time:2000,
+                    mainBg:'#1c95ea',
+                    icon:1
+                });
+                setTimeout(function(){
+                    location.assign(location.href);
+                },2000);
+            },
         	error:function(){
-                layer.alert("请求失败",{
-                        skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2 
-                    });
-        	},
-        	complete:function(){
-        		
+                hlayer.alert({
+                    text:'请求失败',
+                    time:2000,
+                    mainBg:'#1c95ea',
+                    icon:2
+                });
         	}
-
         })
 	})
-})(window,jQuery)
+})(window,jQuery);
