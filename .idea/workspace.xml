@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/bookcate.js" afterPath="$PROJECT_DIR$/public/js/bookcate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/index.ejs" afterPath="$PROJECT_DIR$/views/user/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/reservation.ejs" afterPath="$PROJECT_DIR$/views/user/reservation.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-equip.ejs" afterPath="$PROJECT_DIR$/views/user/user-equip.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-modify.ejs" afterPath="$PROJECT_DIR$/views/user/user-modify.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-reset.ejs" afterPath="$PROJECT_DIR$/views/user/user-reset.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/admin-modify.ejs" afterPath="$PROJECT_DIR$/views/admin/admin-modify.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/admin-reset.ejs" afterPath="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -92,16 +88,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="hajax.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/public/hajax.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -132,10 +118,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-reset.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-reset.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
+              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-modify.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-reset.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-244">
               <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding />
             </state>
@@ -147,16 +153,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
               <caret line="28" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="equip.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/equip.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1688">
-              <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -247,8 +243,6 @@
         <option value="$PROJECT_DIR$/router/user.js" />
         <option value="$PROJECT_DIR$/views/public/login.ejs" />
         <option value="$PROJECT_DIR$/views/user/user-book.ejs" />
-        <option value="$PROJECT_DIR$/views/admin/admin-modify.ejs" />
-        <option value="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
         <option value="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" />
         <option value="$PROJECT_DIR$/views/admin-book/admin-book-modify.ejs" />
         <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" />
@@ -281,6 +275,8 @@
         <option value="$PROJECT_DIR$/views/user/user-equip.ejs" />
         <option value="$PROJECT_DIR$/views/user/user-modify.ejs" />
         <option value="$PROJECT_DIR$/views/user/user-reset.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/admin-modify.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
       </list>
     </option>
   </component>
@@ -351,10 +347,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -367,6 +359,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -590,14 +586,7 @@
       <workItem from="1486536493855" duration="8294000" />
       <workItem from="1486633487856" duration="6182000" />
       <workItem from="1486652487249" duration="6536000" />
-      <workItem from="1487400468252" duration="8996000" />
-    </task>
-    <task id="LOCAL-00087" summary="按钮ejs抽出调整:rocket:">
-      <created>1486038573539</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1486038573539</updated>
+      <workItem from="1487400468252" duration="9058000" />
     </task>
     <task id="LOCAL-00088" summary="图片上传前端抽出:rocket:">
       <created>1486039193044</created>
@@ -935,11 +924,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487423220672</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="用户前端界面脚本连接修复:bug:">
+      <created>1487423422981</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1487423422981</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197837000" />
+    <option name="totallyTimeSpent" value="197899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -992,7 +988,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="图书管理员同意使用hajax处理请求:art:" />
     <MESSAGE value="全站去除loginout.js依赖:art:" />
     <MESSAGE value="管理员公共部分修改为使用hajax:art:" />
     <MESSAGE value="设备管理员修改为使用hajax:art:" />
@@ -1017,7 +1012,8 @@
     <MESSAGE value="图书管理员删除图书修改为post请求并使用hlayer:art:" />
     <MESSAGE value="修正重置按钮时用户不能修改的数据不重置:art:" />
     <MESSAGE value="设备预约问题修复:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="设备预约问题修复:bug:" />
+    <MESSAGE value="用户前端界面脚本连接修复:bug:" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户前端界面脚本连接修复:bug:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1065,20 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="61" column="29" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1422,6 +1404,22 @@
     <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
+          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
           <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
           <folding />
         </state>
