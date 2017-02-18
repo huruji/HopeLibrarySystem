@@ -17,27 +17,39 @@
         console.log(password);
         console.log(confirmPassword);
         if(!permission || !readerName || !readerEmail || !password){
-            layer.alert("用户名、权限、邮箱、密码为必填",{
-                    skin: 'layui-layer-molv',
+            hlayer.alert({
+                text:'用户名、权限、邮箱、密码为必填',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
             });
             return;
         }
         if(password.length<6 || password.length>12){
-            layer.alert("密码为6-12位",{
-                    skin: 'layui-layer-molv',
+            hlayer.alert({
+                text:'密码为6-12位',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
             });
             return;
         }
         if(password!==confirmPassword){
-            layer.alert("前后两次密码不一致",{
-                    skin: 'layui-layer-molv',
+            hlayer.alert({
+                text:'前后两次密码不一致',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
             });
             return;
         }
         if(permission=="user" && !hopeGroup){
-            layer.alert("普通用户的厚朴组为必填",{
-                skin: 'layui-layer-molv',
-            })
+            hlayer.alert({
+                text:'普通用户的厚朴组为必填',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
+            });
             return;
         }
         if(permission=="user" && hopeGroup){
@@ -62,30 +74,25 @@
             dataType:"json",
             data:data,
             type:"POST",
-            beforeSend:function(){
-            },
             success:function(response){
-                if(response){
-                    var success=response.message;
-                }
-                layer.alert(success,{
-                        skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2 
-                    });
-                    setTimeout(function(){
-                        location.assign("/admin");
-                    },500)
-                    
-                    
-                },
+                hlayer.alert({
+                    text: response.message,
+                    time:2000,
+                    mainBg:'#1c95ea',
+                    icon:1
+                });
+                setTimeout(function(){
+                    location.assign("/admin");
+                },2000)
+            },
             error:function(){
-                layer.alert("请求失败",{
-                        skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2 
-                    });
+                hlayer.alert({
+                    text: '请求失败',
+                    time:2000,
+                    mainBg:'#1c95ea',
+                    icon:2
+                });
             }
         })
     });
-})(window,jQuery)
+})(window,jQuery);
