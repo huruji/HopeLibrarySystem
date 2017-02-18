@@ -14,10 +14,10 @@ var hajax = {
                     cfg.successFn(res);
                 } else{
                     var message = res.message;
-                    layer.alert(message,{
-                        skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2
+                    hlayer.alert({
+                        text:message,
+                        time:2000,
+                        mainBg:'#1c95ea'
                     });
                     var redirect = cfg.redirect || '/';
                     var redirectTime = cfg.redirectTime || 1000;
@@ -30,10 +30,10 @@ var hajax = {
                 if(cfg.errorFn) {
                     cfg.errorFn();
                 }else {
-                    layer.alert("请求失败",{
-                        skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2
+                    hlayer.alert({
+                        text: '请求失败',
+                        time:2000,
+                        mainBg:'#1c95ea'
                     });
                 }
             },
