@@ -54,20 +54,21 @@
 </section>
 <%- include("./../public/footer.ejs") %>
 <script src="/js/upload.js"></script>
-<!--<script src="/js/modifybook.js"></script>-->
 <script src="/js/form-reset.js"></script>
 <script src="/js/public/hajax.js"></script>
 <script>
-    $('#save').click(function(){
-        var data = {bookID: $(this).attr('book-data')};
-        hajax.hformAjax({
-            input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},
-            radio: {bookGroup: 'bookGroup'},
-            attr: {'bookImgSrc': ['js-upload-img','src']},
-            data: data,
-            redirect:'/admin'
+    (function(global,$){
+        $('#save').click(function(){
+            var data = {bookID: $(this).attr('book-data')};
+            hajax.hformAjax({
+                input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},
+                radio: {bookGroup: 'bookGroup'},
+                attr: {'bookImgSrc': ['js-upload-img','src']},
+                data: data,
+                redirect:'/admin'
+            })
         })
-    })
+    })(window,jQuery);
 </script>
 </body>
 </html>
