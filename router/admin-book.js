@@ -141,14 +141,14 @@ router.route("/admin-book").get(function(req,res){
         });
     });
 });
-router.route('/drop/:bookID').get(function(req, res) {
-    const bookID = req.params.bookID;
+router.route('/dropbook').post(function(req, res) {
+    const bookID = Number.parseInt(req.body.bookID);
     if(!req.session.adminID || !req.session.adminSign){
         res.redirect("/admin/login");
         return;
     }
     bookDB.delItem(bookID, (message) => {
-        res.redirect('/admin');
+        res.send(message);
     });
 });
 module.exports=router;
