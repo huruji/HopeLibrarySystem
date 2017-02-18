@@ -17,10 +17,11 @@ var hajax = {
                     hlayer.alert({
                         text:message,
                         time:2000,
-                        mainBg:'#1c95ea'
+                        mainBg:'#1c95ea',
+                        icon:1
                     });
                     var redirect = cfg.redirect || '/';
-                    var redirectTime = cfg.redirectTime || 1000;
+                    var redirectTime = cfg.redirectTime || 1500;
                     cfg.redirect && setTimeout(function(){
                       location.assign(redirect);
                     },redirectTime);
@@ -33,7 +34,8 @@ var hajax = {
                     hlayer.alert({
                         text: '请求失败',
                         time:2000,
-                        mainBg:'#1c95ea'
+                        mainBg:'#1c95ea',
+                        icon:2
                     });
                 }
             },

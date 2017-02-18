@@ -54,8 +54,9 @@ router.route("/equipreservation").post(function(req,res){
             + ',borrowUserID='
             + userID
             + ',borrowTime=CURDATE(),returnBefore=ADDDATE(CURDATE(),30)'
-            + ',reservationText= '
-            + 'info';
+            + ',reservationText=" '
+            + info
+            + '"';
         equipDB.query(query, (rows) => {
             const query = 'SELECT adminName,equipName,adminEmail,readerName'
                          + ' FROM hopeadmin,hopeequip,hopereader'
