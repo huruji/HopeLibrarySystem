@@ -60,4 +60,4 @@ $(document).ready(function(){
 
         })
 	})
-})
+});
