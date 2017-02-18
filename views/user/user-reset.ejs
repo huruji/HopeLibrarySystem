@@ -32,7 +32,7 @@
     $("#save").click(function() {
         var val1 = $("#reset-password").val();
         var val2 = $("#config-password").val();
-        if (val1.length == 0) {
+        if (val1.length < 6) {
             hlayer.alert({
                 text: '请至少输入6位密码',
                 time:2000,
@@ -61,8 +61,8 @@
         }
         hajax.ajax({
             data:{password:val1},
-            redirect:'/user'
-        })
+            redirect: 'user'
+        });
     })
 </script>
 </body>
