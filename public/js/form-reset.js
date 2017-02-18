@@ -3,7 +3,10 @@
         var form = document.getElementsByClassName('main-right-form')[0];
         var formFroups = [].slice.call(form.getElementsByClassName('form-group'));
         formFroups.forEach(function(ele){
-            ele.getElementsByTagName('input')[0].value='';
+            var input = ele.getElementsByTagName('input')[0];
+            if(input.getAttribute('disabled') !== 'disabled'){
+                input.value = '';
+            }
         });
     }
 //兼容IE10及以下的事件绑定函数
