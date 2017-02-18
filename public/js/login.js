@@ -4,28 +4,23 @@ $(document).ready(function(){
 		var userName=$("#username").val();
 		var password=$("#password").val();
 		if(!userName){
-			layer.alert("请输入用户名，最多16位字符",{
-				skin:"loyui-layer-molv",
-				closeBtn:0,
-				shift:2
-			});
+			$('p.login-bg-error').remove();
+            var $p = '<p class="login-bg-error">请输入用户名，最多16位字符</p>';
+            $('.login-bg-btn').before($p);
 			return;
 		}
 		if(password){
 			if(password.length<6){
-				layer.alert('请至少输入6位密码', {
-                        skin: 'layui-layer-molv', 
-                        closeBtn: 0,
-                        shift: 2
-                    });
-                    return;
+                $('p.login-bg-error').remove();
+                var $p = '<p class="login-bg-error">请至少输入6位密码</p>';
+                $('.login-bg-btn').before($p);
+                return;
+				
 			}
 		}else {
-            layer.alert('请输入6~16位密码', {
-                skin: 'layui-layer-molv',  
-                closeBtn: 0,
-                shift: 2 
-            });
+            $('p.login-bg-error').remove();
+            var $p = '<p class="login-bg-error">请输入6~16位密码</p>';
+            $('.login-bg-btn').before($p);
             return;
         }
         $.ajax({
@@ -50,18 +45,14 @@ $(document).ready(function(){
         					errMsg=response.message;
         				}
         			}
-        			layer.alert(errMsg,{
-        				skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2 
-        			});
+                	$('p.login-bg-error').remove();
+                	var $p = '<p class="login-bg-error">' + errMsg + '</p>';
+                	$('.login-bg-btn').before($p);
         		},
         	error:function(){
-        		layer.alert("请求失败，请重试！",{
-        			skin: 'layui-layer-molv',  
-                    closeBtn: 0,
-                    shift: 2 
-        		});
+                $('p.login-bg-error').remove();
+                var $p = '<p class="login-bg-error">请求失败，请重试！</p>';
+                $('.login-bg-btn').before($p);
         	},
         	complete:function(){
         		
