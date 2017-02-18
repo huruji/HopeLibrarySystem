@@ -31,7 +31,7 @@ router.route("/useradd").get(function(req,res){
             readerName:req.body.readerName,
             readerEmail:req.body.readerEmail,
             readerPassword:password_md5,
-            readerGroup:req.body.hopeGroup
+            readerGroup:req.body.hopeGroup.trim()
         };
         userDB.addItem(setDataJson, (message) => {
             res.send(message);

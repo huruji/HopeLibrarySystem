@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/public/login.js" afterPath="$PROJECT_DIR$/public/js/public/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/admin-super.js" afterPath="$PROJECT_DIR$/router/admin-super.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -125,7 +125,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/public/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="156">
@@ -137,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/public/login.ejs">
+      <file leaf-file-name="admin-super.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/router/admin-super.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
-              <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="402">
+              <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -198,7 +198,6 @@
         <option value="$PROJECT_DIR$/router/user.js" />
         <option value="$PROJECT_DIR$/public/js/adminModifyuser.js" />
         <option value="$PROJECT_DIR$/router/admin.js" />
-        <option value="$PROJECT_DIR$/router/admin-super.js" />
         <option value="$PROJECT_DIR$/views/admin-equip/index.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/router/api.js" />
@@ -233,6 +232,7 @@
         <option value="$PROJECT_DIR$/views/user/user-reset.ejs" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
         <option value="$PROJECT_DIR$/public/js/public/login.js" />
+        <option value="$PROJECT_DIR$/router/admin-super.js" />
       </list>
     </option>
   </component>
@@ -301,11 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="router" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -324,10 +320,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,14 +503,7 @@
       <workItem from="1486633487856" duration="6182000" />
       <workItem from="1486652487249" duration="6536000" />
       <workItem from="1487400468252" duration="9883000" />
-      <workItem from="1487424435853" duration="1056000" />
-    </task>
-    <task id="LOCAL-00094" summary="用户修改图片信息上传图片修改:art:">
-      <created>1486046767024</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1486046767024</updated>
+      <workItem from="1487424435853" duration="1583000" />
     </task>
     <task id="LOCAL-00095" summary="用户修改图片信息上传图片修改:art:">
       <created>1486048356679</created>
@@ -856,11 +841,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487424552570</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="登录时增加键盘使用:rocket:">
+      <created>1487428731244</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1487428731244</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199780000" />
+    <option name="totallyTimeSpent" value="200307000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -913,7 +905,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="超级管理员修改用户bug修正:bug:" />
     <MESSAGE value="超级管理员修改首页不显示自己以及前端页面删除用户完成:bug:" />
     <MESSAGE value="超级管理员删除用户后端部分完成:art:" />
     <MESSAGE value="修改hajax默认的重定向时间为1秒:art:" />
@@ -938,7 +929,8 @@
     <MESSAGE value="超级管理员前端界面脚本连接修复:bug:" />
     <MESSAGE value="所有前端界面脚本连接修复:bug:" />
     <MESSAGE value="修正用户修改密码的bug:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正用户修改密码的bug:bug:" />
+    <MESSAGE value="登录时增加键盘使用:rocket:" />
+    <option name="LAST_COMMIT_MESSAGE" value="登录时增加键盘使用:rocket:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1003,14 +995,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/upload.js" />
     <entry file="file://$PROJECT_DIR$/public/js/borrow.js" />
-    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2926">
-          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/reset.js" />
     <entry file="file://$PROJECT_DIR$/public/js/form-reset.js" />
     <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
@@ -1226,6 +1210,14 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
