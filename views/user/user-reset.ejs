@@ -33,27 +33,29 @@
         var val1 = $("#reset-password").val();
         var val2 = $("#config-password").val();
         if (val1.length == 0) {
-            layer.alert('请至少输入6位密码', {
-                skin: 'layui-layer-molv',
-                closeBtn: 0,
-                shift: 2
+            hlayer.alert({
+                text: '请至少输入6位密码',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
             });
             return;
         }
-        ;
         if (val2.length == 0) {
-            layer.alert('请确认密码', {
-                skin: 'layui-layer-molv',
-                closeBtn: 0,
-                shift: 2
+            hlayer.alert({
+                text: '请确认密码',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
             });
             return;
         }
         if (val1 !== val2) {
-            layer.alert('两次输入密码不一致', {
-                skin: 'layui-layer-molv',
-                closeBtn: 0,
-                shift: 2
+            hlayer.alert({
+                text: '两次输入密码不一致',
+                time:2000,
+                mainBg:'#1c95ea',
+                icon:2
             });
             return;
         }
