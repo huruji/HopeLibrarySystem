@@ -1,5 +1,4 @@
 /*图书滑动加载的函数*/
-
 (function(global,$){
     var ajaxWhe = true;
     $(window).scroll(function(){
@@ -40,16 +39,13 @@
                     }
                 },
             error:function(){
-                layer.alert("请求失败",{
-                        skin: 'layui-layer-molv',
-                        closeBtn: 0,
-                        shift: 2 
-                    });
-            },
-            complete:function(){
-                
+                hlayer.alert({
+                    text: '请求失败',
+                    time:2000,
+                    mainBg:'#1c95ea',
+                    icon:2
+                });
             }
-
         })
         }
     })
