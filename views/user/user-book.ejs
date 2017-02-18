@@ -43,7 +43,39 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/bookcate.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/borrow.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/user/bookcate.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    (function(global,$){
+        $(".js-borrow-btn").click(function(){
+            var borrowID=$(this).attr("data-borrowID");
+            console.log(borrowID);
+            $.ajax({
+                dataType:"json",
+                async:true,
+                data:{"borrowID":borrowID},
+                type:"POST",
+                url:"/book/borrow",
+                success:function(response){
+                    hlayer.alert({
+                        text:response.message,
+                        time:2000,
+                        mainBg:'#1c95ea',
+                        icon:1
+                    });
+                    setTimeout(function(){
+                        location.assign(location.href);
+                    },2000);
+                },
+                error:function(){
+                    hlayer.alert({
+                        text:'请求失败',
+                        time:2000,
+                        mainBg:'#1c95ea',
+                        icon:2
+                    });
+                }
+            })
+        })
+    })(window,jQuery);</script>
 </body>
 </html>

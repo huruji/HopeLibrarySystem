@@ -1,0 +1,370 @@
+.hlayer-load1 .load-content{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    top: 35px;
+    left: 45px;
+}
+.hlayer-load1 .load-content div {
+    width: 5px;
+    height: 15px;
+    background: #fff;
+    position: absolute;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+@-webkit-keyframes  loader1 {
+    0% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.hlayer-load1 .load-content div:nth-child(1) {
+    top: -20px;
+    left: 0;
+    -webkit-animation: loader1 0.5s -0.4s infinite ease-in-out;
+}
+.hlayer-load1  .load-content div:nth-child(2) {
+    top: -13px;
+    left: 13px;
+    -webkit-transform: rotate(45deg);
+    -webkit-animation: loader1 0.5s -0.35s infinite ease-in-out;
+}
+.hlayer-load1  .load-content div:nth-child(3) {
+    top: 0px;
+    left: 20px;
+    -webkit-transform: rotate(90deg);
+    -webkit-animation: loader1 0.5s -0.30s infinite ease-in-out;
+}
+.hlayer-load1  .load-content div:nth-child(4) {
+    top: 13px;
+    left: 13px;
+    -webkit-transform: rotate(-45deg);
+    -webkit-animation: loader1 0.5s -0.25s infinite ease-in-out;
+}
+.hlayer-load1  .load-content div:nth-child(5) {
+    top: 20px;
+    left: 0px;
+    -webkit-transform: rotate(0deg);
+    -webkit-animation: loader1 0.5s -0.2s infinite ease-in-out;
+}
+.hlayer-load1  .load-content div:nth-child(6) {
+    top: 13px;
+    left: -13px;
+    -webkit-transform: rotate(45deg);
+    -webkit-animation: loader1 0.5s -0.15s infinite ease-in-out;
+}
+.hlayer-load1  .load-content div:nth-child(7) {
+    top: 0px;
+    left: -20px;
+    -webkit-transform: rotate(90deg);
+    -webkit-animation: loader1 0.5s -0.1s infinite ease-in-out;
+}
+.hlayer-load1 .load-content div:nth-child(8) {
+    top: -13px;
+    left: -13px;
+    -webkit-transform: rotate(-45deg);
+    -webkit-animation: loader1 0.5s 0s infinite ease-in-out;
+}
+
+/*各大进入函数的类*/
+.hlayer-animate1 {
+    animation: hlayer-bottomIn 0.3s -0.1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes hlayer-bottomIn{
+    from{
+        transform: translate(0,2000px);
+    }
+    to{
+        transform:  translate(0,0);
+    }
+}
+.hlayer-animate2 {
+    animation: hlayer-topIn 0.3s -0.1s ease-in-out;
+}
+@keyframes hlayer-topIn{
+    from{
+        transform: translate(0,-2000px);
+    }
+    to{
+        transform:  translate(0,0);
+    }
+}
+.hlayer-animate3 {
+    animation: hlayer-scaleIn 0.3s ease-in-out;
+}
+@keyframes hlayer-scaleIn {
+    from{
+        transform:scale(0,0);
+    }
+    to{
+        transform: scale(1,1);
+    }
+}
+
+
+
+.hlayer-icon{
+    width:28px;
+    height:28px;
+    position: absolute;
+    display: inline-block;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    left:10px;
+    margin: auto;
+}
+.hlayer-icon1{
+    border-color: #4fc08d;
+}
+.hlayer-icon1:after{
+    content: '';
+    width: 8px;
+    height: 20px;
+    position: absolute;
+    border: 2px solid #4fc08d;
+    border-left-color: transparent;
+    border-top-color:transparent;
+    background: transparent;
+    transform: rotate(45deg);
+    left:10px;
+}
+.hlayer-icon2{
+    border-color: red;
+}
+.hlayer-icon2:after{
+    content:'';
+    width: 2px;
+    height:20px;
+    background-color: red;
+    transform: rotate(45deg);
+    display: inline-block;
+    position: absolute;
+    left:13px;
+    top:3px;
+}
+.hlayer-icon2:before{
+    content:'';
+    display: inline-block;
+    width: 2px;
+    height:20px;
+    background-color: red;
+    transform: rotate(-45deg);
+    position: absolute;
+    left:13px;
+    top:3px;
+}
+.hlayer-icon3{
+    border-color: #F97B07;
+}
+.hlayer-icon3:before{
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border: 2px solid #F97B07;
+    border-bottom-color: transparent;
+    background: transparent;
+    border-radius: 50%;
+    left: 7px;
+    top: 4px;
+    transform: rotate(45deg);
+}
+.hlayer-icon3:after{
+    content: "";
+    width: 2px;
+    height: 5px;
+    background: #F97B07;
+    display: inline-block;
+    left: 13px;
+    position: absolute;
+    top: 15px;
+}
+.hlayer-icon3 i{
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    left: 13px;
+    top: 21px;
+    background-color: #F97B07;
+}
+.hlayer-icon4{
+    border-color: #4fc08d;
+}
+.hlayer-icon4:before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 2px solid #4fc08d;
+    background-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+}
+.hlayer-icon4:after{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 2px solid #4fc08d;
+    border-radius: 50%;
+    background-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    transform: rotate(-45deg);
+}
+.hlayer-icon4 i{
+    width:10px;
+    height:10px;
+    background: transparent;
+    border:2px solid #4fc08d;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    position:absolute;
+    top: 10px;
+    left: 7px;
+    transform: rotate(-45deg);
+}
+
+.hlayer-icon5{
+    border-color: #4fc08d;
+}
+.hlayer-icon5:before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 2px solid #4fc08d;
+    background-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    transform: rotate(135deg);
+}
+.hlayer-icon5:after{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 2px solid #4fc08d;
+    border-radius: 50%;
+    background-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    transform: rotate(135deg);
+}
+.hlayer-icon5 i{
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border: 2px solid #4fc08d;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 54%;
+    position: absolute;
+    top: 15px;
+    left: 7px;
+    transform: rotate(-45deg);
+}
+
+.hlayer-icon6{
+    border-color: #4fc08d;
+}
+.hlayer-icon6:before{
+    content: "";
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    left: 13px;
+    top: 5px;
+    background-color: #4fc08d;
+    display: inline-block;
+    border-radius: 50%;
+}
+.hlayer-icon6:after{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 14px;
+    left: 13px;
+    top: 10px;
+    background-color: #4fc08d;
+    display: inline-block;
+}
+
+
+.hlayer-icon7{
+    border-color: red;
+}
+.hlayer-icon7:before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 14px;
+    left: 13px;
+    top: 4px;
+    background-color: red;
+    display: inline-block;
+}
+.hlayer-icon7:after{
+    content: "";
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    left: 13px;
+    top: 20px;
+    background-color: red;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.hlayer-icon8{
+    border-color: red;
+}
+.hlayer-icon8:before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 14px;
+    left: 13px;
+    top: 4px;
+    background-color: red;
+    display: inline-block;
+}
+.hlayer-icon8:after{
+    content: "";
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    left: 13px;
+    top: 20px;
+    background-color: red;
+    display: inline-block;
+    border-radius: 50%;
+}
