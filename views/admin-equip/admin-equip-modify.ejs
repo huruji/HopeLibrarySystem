@@ -36,26 +36,28 @@
 </section>
 <%- include("./../public/footer.ejs") %>
 <script src="/js/upload.js"></script>
-<!--<script src="/js/modifyequip.js"></script>-->
 <script src="/js/form-reset.js"></script>
 <script src="/js/public/hajax.js"></script>
 <script>
-    $('#save').click(function(){
-        var equipName=$.trim($("#equipName").val());
-        var hopeID=$.trim($("#hopeID").val());
-        var equipAdmin=$.trim($("#hopeAdmin").val());
-        if(!equipName || !hopeID || !equipAdmin){
-            layer.alert("设备名、厚朴编号、管理员为必填",{
-                skin:'layui-layer-molv'
-            });
-            return;
-        }
-        hajax.hformAjax({
-            input:{equipName:'equipName',hopeID:'hopeID',equipAdmin:'hopeAdmin'},
-            attr: {'equipImgSrc': ['js-upload-img','src']},
-            redirect: '/admin/admin-equip'
-        })
-    })
+    (function(global,$){
+        $('#save').click(function(){
+            var equipName=$.trim($("#equipName").val());
+            var hopeID=$.trim($("#hopeID").val());
+            var equipAdmin=$.trim($("#hopeAdmin").val());
+            if(!equipName || !hopeID || !equipAdmin){
+                layer.alert("设备名、厚朴编号、管理员为必填",{
+                    skin:'layui-layer-molv'
+                });
+                return;
+            }
+            hajax.hformAjax({
+                input:{equipName:'equipName',hopeID:'hopeID',equipAdmin:'hopeAdmin'},
+                attr: {'equipImgSrc': ['js-upload-img','src']},
+                redirect: '/admin/admin-equip'
+            })
+        });
+    })(window,jQuery)
+
 </script>
 </body>
 </html>

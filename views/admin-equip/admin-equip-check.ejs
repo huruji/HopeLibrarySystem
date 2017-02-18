@@ -46,23 +46,24 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<!--<script src="/js/equipCheck.js"></script>-->
 <script src="/js/public/hajax.js"></script>
 <script>
-    $(".js-check-yes").click(function() {
-        var equipID=$(this).attr("data-equipid");
-        hajax.ajax({
-            data: {"equipID":equipID,"check":true},
-            redirect: '/admin'
+    (function(global,$){
+        $(".js-check-yes").click(function() {
+            var equipID=$(this).attr("data-equipid");
+            hajax.ajax({
+                data: {"equipID":equipID,"check":true},
+                redirect: '/admin'
+            });
         });
-    });
-    $(".js-check-no").click(function() {
-        var equipID = $(this).attr("data-equipID");
-        hajax.ajax({
-            data: {"equipID":equipID,"check":false},
-            redirect: '/admin'
+        $(".js-check-no").click(function() {
+            var equipID = $(this).attr("data-equipID");
+            hajax.ajax({
+                data: {"equipID":equipID,"check":false},
+                redirect: '/admin'
+            })
         })
-    })
+    })(window,jQuery)
 </script>
 </body>
 </html>
