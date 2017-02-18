@@ -88,10 +88,11 @@
         $(".js-drop-user").click(function(){
             var dropData=$(this).attr("data-user");
             console.log(111);
-            layer.confirm("删除用户将会删除该用户的所有信息",{
-                skin: 'layui-layer-molv',
-                btn:["确认","取消"],
-                btn1:function(){
+            hlayer.alert({
+                text:'删除用户将会删除该用户的所有信息',
+                icon:3,
+                cancelBtn:true,
+                confirmCb:function(){
                     hajax.hformAjax({
                         data:{"dropData":dropData},
                         redirect:'/admin',
