@@ -6,7 +6,7 @@
 	database:"hopeWechat"
 }
 const server={
-	port:3001
+	port:3002
 }
 const emailSetting={
 	userEmail:"xiezhq3@mail2.sysu.edu.cn",

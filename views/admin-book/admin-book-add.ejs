@@ -59,6 +59,18 @@
 <script>
     (function(global,$){
         $('#save').click(function(){
+            var bookName = $('#bookName').val();
+            var hopeID = $('#hopeID').val();
+            var bookISBN = $('#bookISBN').val();
+            if(!bookName || !hopeID || !bookISBN){
+                hlayer.alert({
+                    text:'图书名、编号、ISBN为必填',
+                    time:2000,
+                    mainBg:'#1c95ea',
+                    icon:2
+                });
+                return;
+            }
             var data = {bookID: $(this).attr('book-data')};
             hajax.hformAjax({
                 input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},

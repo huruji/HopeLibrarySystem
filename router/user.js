@@ -115,36 +115,6 @@ router.route("/reset").post(function(req,res){
     });
 });
 
-
-// 用户更换头像
-router.route("/modify-img").post(function(req,res){
-	var form = new formidable.IncomingForm();
-	form.encoding = "utf-8";
-	form.uploadDir =path.join("./","public/img/user");
-	form.keepExtensions=true;
-	form.maxFieldsSize=2*1024*1024;
-	console.log("kkkk");
-	form.parse(req,function(err,fields,files){
-		console.log(files);
-		var extension = files.img.path.substring(files.img.path.lastIndexOf("."));
-		var newName="/user"+req.cookies.userId+Date.now()+extension;
-		var newPath=form.uploadDir+newName;
-		fs.renameSync(files.img.path,newPath);
-		var DBImgSrc="/img/user"+newName;
-		var mysqlQuery="UPDATE hopereader SET userImgSrc=? WHERE readerID=?";
-		console.log(mysqlQuery);
-		mysql_util.DBConnection.query(mysqlQuery,[DBImgSrc,req.cookies.userId],function(err,rows,fields){
-			if(err){
-				console.log(err);
-				return;
-			}
-			var success={
-				code:1
-			}
-			res.send(success);
-		})
-	});
-});
 //用户更换信息
 router.route("/modify").get(function(req,res){
     if(!req.session.userID || !req.session.userSign){

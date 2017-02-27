@@ -20,7 +20,7 @@ const setSession = require('./utils/set-session');
 
 const app = express();
 
-app.use(session({secret:'hope',cookie:{maxAge:600000},resave: false, saveUninitialized: true,}));
+app.use(session({secret:'hope',cookie:{maxAge:1000*60*60*24*30},resave: false, saveUninitialized: true,}));
 app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname,"public")));
