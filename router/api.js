@@ -11,7 +11,10 @@ const setSession = require('./../utils/set-session');
 const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
 const [adminDB, userDB, bookDB, equipDB] = [hopeDB.adminDB, hopeDB.userDB, hopeDB.bookDB, hopeDB.equipDB];
-
+router.get('/jsonp',function(req,res,next){
+   const callback = req.query.callback;
+   res.send(callback + '("我是jsonp")')
+});
 router.get('/book/:id', function(req, res, next) {
     const bookID = Number.parseInt(req.params.id);
     bookDB.selectMessage(bookID, (rows) => {

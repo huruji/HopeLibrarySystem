@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <%- include("./public/head.ejs")%>
+</head>
+<body>
+<%- include("./public/header.ejs")%>
+<section class="main floatfix">
+  <%- include("./public/aside.ejs")%>
+  <section class="main-articles">
+    <ul>
+        <% for(var  i = 0, max = articles.length; i < max; i++) {%>
+      <li class="main-articles-item">
+        <h2><a href="/articles/<%= articles[i].articleID%>"><%= articles[i].articleTitle %></a></h2>
+        <section class="main-articles-items-des">
+          <p>
+            <span>作者：<%= articles[i].articleAuthor %></span>
+            <span>发布时间：<%= articles[i].articleTime %></span>
+            <span>浏览量：<%= articles[i].articleClick %></span>
+            <% if(user) {%>
+            <span class="delete"><a href="/delete/<%= articles[i].articleID %>">删除</a></span>
+            <span class="modify"><a href="/modify/<%= articles[i].articleID %>">编辑</a></span>
+          <% } %>
+          </p>
+        </section>
+      </li>
+        <% } %>
+    </ul>
+      <%if(pageNum > 1) { %>
+    <section class="page">
+      <% for(var i = 1, max = pageNum; i <= max; i++) { %>
+      <span <% if(i == page){%> class="active" <% } %>><a href="/?page=<%=i%>"><%=i%></a></span>
+      <% } %>
+    </section>
+    <% } %>
+  </section>
+</section>
+<%- include("./public/footer.ejs")%>
+<script type="text/javascript">
+document.domain = 'huruji3.com';
+  window.onmessage = function(e) {
+    console.log(e.data);
+  }
+  window.name = "10000px"
+</script>
+</body>
+</html>
