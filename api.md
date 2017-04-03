@@ -122,8 +122,7 @@ api/book-borrow?reader=忽如寄
 api/book-borrow?time=2017-01-03
 
 根据是否归还返回
-api/book-borrow?return=1
-1代表已归还，0代表未归还
+api/book-borrow?return=true
 
 根据比某个时间更早借的书籍
 api/book-borrow?timeBefore=2017-02-10
@@ -135,8 +134,8 @@ api/book-borrow?timeAfter=2017-02-10
 
 借阅数量统计API
 单个信息返回{
-    name:忽如寄,
-    books:10
+    reader:忽如寄,
+    count:10
 }
 多个信息返回{
     start:0,

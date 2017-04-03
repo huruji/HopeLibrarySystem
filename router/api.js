@@ -26,7 +26,7 @@ router.get("/book-borrow/:id",function(req, res, next){
 router.get('/book-borrow',function(req, res, next){
   apiBookBorrow.apiBookBorrowQuery(req, res, next)
 });
-router.get('/book-borrow/count', function(req, res, next) {
+router.get('/book-borrow-count', function(req, res, next) {
   apiBookBorrow.apiBookBorrowCount(req, res, next);
 })
 

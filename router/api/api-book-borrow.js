@@ -77,31 +77,53 @@ const apiBookBorrow = {
     let keys = Object.keys(req.query);
     if(keys.length===0) {
       borrowDB.countItems(null, (rows) => {
-        const data = setBorrowData(rows);
+        const data = setBorrowCountData(rows);
+        return res.json(data);
+      });
+    }else{
+      let error = keys.find((ele) => {
+        return !['timeAfter','timeBefore'].includes(ele);
+      });
+      if(error) {
+        const data = {code: 400, msg: '请求参数错误'};
+        return res.json(data);
+      }
+      let dataJson = {};
+      if(req.query.timeBefore) {
+        dataJson.timeBefore = mysql_util.DBConnection.escape(req.query.timeBefore);
+      }
+      if(req.query.timeAfter){
+        dataJson.timeAfter = mysql_util.DBConnection.escape(req.query.timeAfter);
+      }
+      borrowDB.countItems(dataJson, (rows) => {
+        const data = setBorrowCountData(rows);
         res.json(data);
       });
-      return res.json(data);
     }
-    let error = keys.find((ele) => {
-      return !['timeAfter','timeBefore'].includes(ele);
-    });
-    if(error) {
-      const data = {code: 400, msg: '请求参数错误'};
-      return res.json(data);
-    }
-    let dataJson = {};
-    if(req.query.timeBefore) {
-      dataJson.timeBefore = req.query.timeBefore;
-    }
-    if(req.query.timeAfter){
-      dataJson.timeAfter = req.query.timeAfter;
-    }
-    borrowDB.countItems(dataJson, (rows) => {
-      const data = setBorrowData(rows);
-      res.json(data);
-    });
   }
 };
+function setBorrowCountData(arr){
+  let data = {};
+  if(arr.length < 1) {
+    return {code:404,msg:'请求的资源不存在'}
+  } else if(arr.length == 1) {
+    return {
+      reader: arr[0].reader,
+      count: arr[0].count
+    }
+  }else{
+    data.totals = arr.length;
+    data.data = [];
+    arr.forEach((ele) => {
+      let elem = {
+        reader: ele.reader,
+        count: ele.count,
+      };
+      data.data.push(elem);
+    });
+    return data;
+  }
+}
 function setBorrowData(arr) {
   let data = {};
   if(arr.length < 1) {
