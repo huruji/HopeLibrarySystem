@@ -411,18 +411,18 @@ const borrowDB = {
     });
   },
   selectItemsByQuery:(dataJson,callback) =>{
-    let query = 'SELECT borrowID, bookName, readerName, borrowTime, returnWhe FROM bookBorrow join hopeBook on bookBorrow.borrowBookID = hopeBook.bookID join hopeReader on bookBorrow.borrowUserID = hopeReader.readerId WHERE';
+    let query = 'SELECT borrowID, bookName, readerName, borrowTime, returnWhe FROM bookBorrow join hopeBook on bookBorrow.borrowBookID = hopeBook.bookID join hopeReader on bookBorrow.borrowUserID = hopeReader.readerId WHERE ';
     let condition = '';
     for(let key in dataJson) {
       if(key=='timeBefore'){
-        condition += 'UNIX_TIMESTAMP('+dataJson[key] + ') > UNIX_TIMEsTAMP(borrowTime) AND';
+        condition += 'UNIX_TIMESTAMP('+ mysqlUtil.DBConnection.escape(dataJson[key]) + ') > UNIX_TIMEsTAMP(borrowTime) AND ';
       }else if(key=='timeAfter'){
-        condition += 'UNIX_TIMESTAMP('+dataJson[key] + ') < UNIX_TIMEsTAMP(borrowTime) AND';
+        condition += 'UNIX_TIMESTAMP('+ mysqlUtil.DBConnection.escape(dataJson[key]) + ') < UNIX_TIMEsTAMP(borrowTime) AND ';
       }else{
-        condition += key + '=' + dataJson[key] + ' AND ';
+        condition += key + '=' + mysqlUtil.DBConnection.escape(dataJson[key]) + ' AND ';
       }
     }
-    condition.replace(/\WAND\W$/gi,'');
+    condition = condition.replace(/\s*AND\s*$/gi,'');
     query = query + condition;
     borrowOperate.query(query, (err, rows, fields) => {
       if(err) {

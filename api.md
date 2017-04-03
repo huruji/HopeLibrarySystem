@@ -122,7 +122,8 @@ api/book-borrow?reader=忽如寄
 api/book-borrow?time=2017-01-03
 
 根据是否归还返回
-api/book-borrow?return=true
+api/book-borrow?return=1
+1代表已归还，0代表未归还
 
 根据比某个时间更早借的书籍
 api/book-borrow?timeBefore=2017-02-10

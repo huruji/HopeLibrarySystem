@@ -30,7 +30,7 @@ const apiBookBorrow = {
       return res.json(data);
     }
     if(req.query.return){
-      req.query.return = req.query.return === true ? 1 : 0;
+      req.query.return = req.query.return == 'true' ? 1 : 0;
     }
     for(let key in req.query) {
       req.query[key] = mysql_util.DBConnection.escape(req.query[key]).replace(/(^')|('$)/g,'');
@@ -49,6 +49,7 @@ const apiBookBorrow = {
       })
     } else{
       let dataJson = {};
+      console.log('req.query.return:' + req.query.return);
       if (req.query.time) {
         dataJson.borrowTime = req.query.time;
       }
@@ -65,6 +66,7 @@ const apiBookBorrow = {
       if(req.query.timeAfter){
         dataJson.timeAfter = req.query.timeAfter;
       }
+      console.log('dataJson.returnWhe' + dataJson.returnWhe);
       borrowDB.selectItemsByQuery(dataJson, (rows) => {
         const data = setBorrowData(rows);
         res.json(data);
@@ -105,22 +107,24 @@ function setBorrowData(arr) {
   if(arr.length < 1) {
     return {code:404,msg:'请求的资源不存在'}
   } else if(arr.length == 1) {
+    let time = arr[0].borrowTime.getFullYear()+"-"+(parseInt(arr[0].borrowTime.getMonth())+1)+"-"+arr[0].borrowTime.getDate();
     return {
       id: arr[0].borrowID,
       book: arr[0].bookName,
       reader: arr[0].readerName,
-      time: arr[0].borrowTime,
+      time: time,
       return: arr[0].returnWhe != 0
     }
   }else{
     data.totals = arr.length;
     data.data = [];
     arr.forEach((ele) => {
+      let time = ele.borrowTime.getFullYear()+"-"+(parseInt(ele.borrowTime.getMonth())+1)+"-"+ele.borrowTime.getDate();
       let elem = {
         id: ele.borrowID,
         book: ele.bookName,
         reader: ele.readerName,
-        time: ele.borrowTime,
+        time: time,
         return: ele.returnWhe != 0
       };
       data.data.push(elem);

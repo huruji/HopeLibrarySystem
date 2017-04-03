@@ -20,15 +20,14 @@ router.get('/book/:id', function(req, res, next){
 router.get('/book', function(req, res, next) {
     apiBook.apiBookQuery(req, res, next);
 });
-router.get("book-borrow/:id",function(req, res, next){
-  const borrowID = Number.parseInt(req.params.id);
-  bookDB.selectMessage(bookID, (rows) => {
-    const data = setBorrowData(rows);
-    res.json(data);
-  });
+router.get("/book-borrow/:id",function(req, res, next){
+  apiBookBorrow.apiBookBorrowId(req, res, next);
 });
-router.get('book-borrow',function(req, res, nex){
-  
+router.get('/book-borrow',function(req, res, next){
+  apiBookBorrow.apiBookBorrowQuery(req, res, next)
+});
+router.get('/book-borrow/count', function(req, res, next) {
+  apiBookBorrow.apiBookBorrowCount(req, res, next);
 })
 
 
