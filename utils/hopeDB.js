@@ -382,7 +382,55 @@ const borrowDB = {
     });
   },
   selectItemsByReader:(reader,callback)=>{
-      const query =
+      const query = 'SELECT borrowID, bookName, readerName, borrowTime, returnWhe FROM bookBorrow join hopeBook on bookBorrow.borrowBookID = hopeBook.bookID join hopeReader on bookBorrow.borrowUserID = hopeReader.readerId WHERE hopeReader.readerName=' + mysqlUtil.DBConnection.escape(reader);
+      borrowOperate.query(query, (err, rows, fields) => {
+        if(err) {
+          console.log(err);
+          return;
+        }
+        callback && callback(rows);
+      })
+  },
+  countItems:(dataJson,callback) =>{
+    let query;
+    if(!dataJson){
+      query = 'SELECT hopeReader.readerName AS name, COUNT(*) AS books FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP(SUBDATE(CURDATE(),30)) < UNIX_TIMESTAMP(borrowTime) GROUP BY readerName';
+    }else{
+      if(dataJson.timeAfter){
+        query = 'SELECT hopeReader.readerName AS name, COUNT(*) AS books FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP('+ dataJson.timeAfter + ') < UNIX_TIMESTAMP(borrowTime) GROUP BY readerName';
+      } else if(dataJson.timeBefore){
+        query = 'SELECT hopeReader.readerName AS name, COUNT(*) AS books FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP('+ dataJson.timeBefore + ') > UNIX_TIMESTAMP(borrowTime) GROUP BY readerName';
+      }
+    }
+    borrowOperate.query(query, (err, rows, fields) => {
+      if(err) {
+        console.log(err);
+        return;
+      }
+      callback && callback(rows);
+    });
+  },
+  selectItemsByQuery:(dataJson,callback) =>{
+    let query = 'SELECT borrowID, bookName, readerName, borrowTime, returnWhe FROM bookBorrow join hopeBook on bookBorrow.borrowBookID = hopeBook.bookID join hopeReader on bookBorrow.borrowUserID = hopeReader.readerId WHERE';
+    let condition = '';
+    for(let key in dataJson) {
+      if(key=='timeBefore'){
+        condition += 'UNIX_TIMESTAMP('+dataJson[key] + ') > UNIX_TIMEsTAMP(borrowTime) AND';
+      }else if(key=='timeAfter'){
+        condition += 'UNIX_TIMESTAMP('+dataJson[key] + ') < UNIX_TIMEsTAMP(borrowTime) AND';
+      }else{
+        condition += key + '=' + dataJson[key] + ' AND ';
+      }
+    }
+    condition.replace(/\WAND\W$/gi,'');
+    query = query + condition;
+    borrowOperate.query(query, (err, rows, fields) => {
+      if(err) {
+        console.log(err);
+        return;
+      }
+      callback && callback(rows);
+    })
   },
     addItem: (setDadaJson, callback) => {
         borrowOperate.insertItem(setDadaJson, (err, rows, fields) => {

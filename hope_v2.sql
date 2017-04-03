@@ -72,3 +72,6 @@ reservation tINYINT(1) default 0,
 /*0表示正在审核，审核未通过*/
 reservationText TEXT
 );
+
+
+SELECT hopeReader as name, COUNT(*) as

@@ -23,7 +23,7 @@ const apiBookBorrow = {
     }
     console.log('req.query1:' + JSON.stringify(req.query));
     let error = keys.find((ele) => {
-      return !['id','book','reader','time','return'].includes(ele);
+      return !['id','book','reader','time','return','timeBefore','timeAfter'].includes(ele);
     });
     if(error) {
       const data = {code: 400, msg: '请求参数错误'};
@@ -47,31 +47,57 @@ const apiBookBorrow = {
         const data = setBorrowData(rows);
         res.json(data);
       })
-    } else if(req.query.reader) {
-      const reader = req.query.reader;
-      borrowDB.selectItemByReader(reader,(rows) => {
-        
-      });
-    }else{
+    } else{
       let dataJson = {};
       if (req.query.time) {
-        dataJson.bookCate = req.query.cate;
+        dataJson.borrowTime = req.query.time;
       }
-      if (req.query.author) {
-        dataJson.bookAuthor = req.query.author;
+      if (req.query.reader) {
+        dataJson.readerName = req.query.reader;
         console.log('datajson:' + JSON.stringify(dataJson));
       }
-      if (req.query.name) {
-        dataJson.bookName = req.query.name;
+      if (req.query.return) {
+        dataJson.returnWhe = req.query.return;
       }
-      if (req.query.publisher) {
-        dataJson.bookPress = req.query.publisher;
+      if(req.query.timeBefore) {
+        dataJson.timeBefore = req.query.timeBefore;
       }
-      borrowDB.selectItem(dataJson, (rows) => {
-        const data = setBookData(rows);
+      if(req.query.timeAfter){
+        dataJson.timeAfter = req.query.timeAfter;
+      }
+      borrowDB.selectItemsByQuery(dataJson, (rows) => {
+        const data = setBorrowData(rows);
         res.json(data);
       });
     }
+  },
+  apiBookBorrowCount: function(req, res, next){
+    let keys = Object.keys(req.query);
+    if(keys.length===0) {
+      borrowDB.countItems(null, (rows) => {
+        const data = setBorrowData(rows);
+        res.json(data);
+      });
+      return res.json(data);
+    }
+    let error = keys.find((ele) => {
+      return !['timeAfter','timeBefore'].includes(ele);
+    });
+    if(error) {
+      const data = {code: 400, msg: '请求参数错误'};
+      return res.json(data);
+    }
+    let dataJson = {};
+    if(req.query.timeBefore) {
+      dataJson.timeBefore = req.query.timeBefore;
+    }
+    if(req.query.timeAfter){
+      dataJson.timeAfter = req.query.timeAfter;
+    }
+    borrowDB.countItems(dataJson, (rows) => {
+      const data = setBorrowData(rows);
+      res.json(data);
+    });
   }
 };
 function setBorrowData(arr) {

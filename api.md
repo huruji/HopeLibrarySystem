@@ -94,3 +94,55 @@ api/book/hopeid
 	code: 404,
 	msg: "请求的资源不存在"
 }
+
+借阅信息API
+单个信息返回{
+    "id"："12323",
+	"book": "一本摄影书",
+	"reader": "忽如寄",
+	"time": "2017-03-01",
+	"return":true,
+}
+多个信息返回
+返回json{
+	start:0,
+	count:20,
+	totals:5,
+	data:[由单个图书json组成的数组]
+}
+根据借阅ID返回
+api/book-borrow/12323
+或api/book-borrow?id=12323
+返回单个借阅信息
+
+根据借阅人返回
+api/book-borrow?reader=忽如寄
+
+根据借阅时间返回
+api/book-borrow?time=2017-01-03
+
+根据是否归还返回
+api/book-borrow?return=true
+
+根据比某个时间更早借的书籍
+api/book-borrow?timeBefore=2017-02-10
+
+根据比某个时间更晚借的书籍
+api/book-borrow?timeAfter=2017-02-10
+
+或者是以上几个的组合
+
+借阅数量统计API
+单个信息返回{
+    name:忽如寄,
+    books:10
+}
+多个信息返回{
+    start:0,
+	count:20,
+	totals:5,
+	data:[由单个信息json组成的数组]
+}
+
+
+

@@ -16,7 +16,6 @@ const apiBook = {
     });
   },
   apiBookQuery: function(req, res, next){
-    let books;
     let keys = Object.keys(req.query);
     if(keys.length===0) {
       const data = {code: 400, msg: '请求参数错误'};

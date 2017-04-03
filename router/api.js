@@ -12,6 +12,7 @@ const md5Pass = require('./../utils/md5-pass');
 const hopeDB = require('./../utils/hopeDB.js');
 const [adminDB, userDB, bookDB, equipDB, borrowDB] = [hopeDB.adminDB, hopeDB.userDB, hopeDB.bookDB, hopeDB.equipDB, hopeDB.borrowDB];
 const apiBook = require('./api/api-book');
+const apiBookBorrow = require('./api/api-book-borrow');
 
 router.get('/book/:id', function(req, res, next){
     apiBook.apiBookId(req, res, next);
@@ -26,6 +27,9 @@ router.get("book-borrow/:id",function(req, res, next){
     res.json(data);
   });
 });
+router.get('book-borrow',function(req, res, nex){
+  
+})
 
 
 
