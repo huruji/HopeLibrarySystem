@@ -181,7 +181,7 @@ const bookDB ={
         bookOperate.selectItem(dataJson, (err, rows, fields) => {
             if(err) {
                 console.log(err);
-                retrun;
+                return;
             }
             callback&&callback(rows);
         })
@@ -361,6 +361,29 @@ const equipDB ={
     }
 };
 const borrowDB = {
+  selectMessage: (borrowID, callback) => {
+    const query = 'SELECT borrowID, bookName, readerName, borrowTime, returnWhe FROM bookBorrow join hopeBook on bookBorrow.borrowBookID = hopeBook.bookID join hopeReader on bookBorrow.borrowUserID = hopeReader.readerId WHERE borrowID=' + mysqlUtil.DBConnection.escape(borrowID);
+    borrowOperate.query(query, (err, rows, fields) => {
+      if(err) {
+        console.log(err);
+        return;
+      }
+      callback&&callback(rows);
+    });
+  },
+  selectItemsByBook: (book,callback)=>{
+      const query = 'SELECT borrowID, bookName, readerName, borrowTime, returnWhe FROM bookBorrow join hopeBook on bookBorrow.borrowBookID = hopeBook.bookID join hopeReader on bookBorrow.borrowUserID = hopeReader.readerId WHERE hopeBook.bookName=' + mysqlUtil.DBConnection.escape(book);
+      borrowOperate.query(query, (err, rows, fields) => {
+        if(err) {
+            console.log(err);
+            return;
+      }
+      callback&&callback(rows);
+    });
+  },
+  selectItemsByReader:(reader,callback)=>{
+      const query =
+  },
     addItem: (setDadaJson, callback) => {
         borrowOperate.insertItem(setDadaJson, (err, rows, fields) => {
             const message = queryResult(err, '增加成功');
