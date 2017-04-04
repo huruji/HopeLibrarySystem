@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api.md" afterPath="$PROJECT_DIR$/api.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hope_v2.sql" afterPath="$PROJECT_DIR$/hope_v2.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/api.js" afterPath="$PROJECT_DIR$/router/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/api/api-book-borrow.js" afterPath="$PROJECT_DIR$/router/api/api-book-borrow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="$PROJECT_DIR$/utils/hopeDB.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,66 +18,13 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="F:\github\HopeLibrarySystem" />
   </component>
-  <component name="DockManager">
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="hope_v2.sql" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/hope_v2.sql">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="413">
-                    <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="624">
-                    <caret line="401" column="237" lean-forward="false" selection-start-line="401" selection-start-column="237" selection-end-line="401" selection-end-column="237" />
-                    <folding>
-                      <element signature="e#569#3263#0" expanded="false" />
-                      <element signature="e#3280#5329#0" expanded="false" />
-                      <element signature="e#5345#8728#0" expanded="false" />
-                      <element signature="e#8745#11267#0" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="api.md" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/api.md">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="404">
-                    <caret line="141" column="13" lean-forward="true" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="4862">
               <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="22" />
               <folding />
             </state>
@@ -108,31 +51,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-book-add.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-add.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="418">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api-book-borrow.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="718">
+              <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api-book-borrow.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/api/api-book-borrow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="260">
+              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -141,7 +84,7 @@
       <file leaf-file-name="db-common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/db-common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3510">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -262,10 +205,10 @@
         <option value="$PROJECT_DIR$/router/api/api-book.js" />
         <option value="$PROJECT_DIR$/router/api/api-borrow.js" />
         <option value="$PROJECT_DIR$/api.md" />
-        <option value="$PROJECT_DIR$/router/api.js" />
         <option value="$PROJECT_DIR$/utils/hopeDB.js" />
         <option value="$PROJECT_DIR$/hope_v2.sql" />
         <option value="$PROJECT_DIR$/router/api/api-book-borrow.js" />
+        <option value="$PROJECT_DIR$/router/api.js" />
       </list>
     </option>
   </component>
@@ -311,6 +254,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,20 +265,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -371,15 +302,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/echarts-learn" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="C:\Users\忽如寄\AppData\Roaming\npm\node_modules\eslint" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -548,14 +477,8 @@
       <workItem from="1488987771299" duration="225000" />
       <workItem from="1491207486502" duration="5497000" />
       <workItem from="1491222176114" duration="8323000" />
-      <workItem from="1491234047437" duration="4788000" />
-    </task>
-    <task id="LOCAL-00106" summary="修正增加用户错误:bug:">
-      <created>1486432205734</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1486432205735</updated>
+      <workItem from="1491234047437" duration="6032000" />
+      <workItem from="1491290066345" duration="1260000" />
     </task>
     <task id="LOCAL-00107" summary="根据设计师建议修改样式:art:">
       <created>1486483626114</created>
@@ -893,18 +816,27 @@
       <option name="project" value="LOCAL" />
       <updated>1491235959356</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="图书借阅记录统计restful api完成:rocket:">
+      <created>1491238991012</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1491238991012</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229780000" />
+    <option name="totallyTimeSpent" value="232284000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17789166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -950,7 +882,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="利用简单的节点插入来替代layer:art:" />
     <MESSAGE value="引入hlayer:art:" />
     <MESSAGE value="图片上传模块修改为使用hlayer:art:" />
     <MESSAGE value="用户借阅图书修改为使用hlayer:art:" />
@@ -975,7 +906,8 @@
     <MESSAGE value="借阅restful api根据图书名返回完成:rocket:" />
     <MESSAGE value="借阅restful api完成:rocket:" />
     <MESSAGE value="修正查询字符串return的bug:bug:" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正查询字符串return的bug:bug:" />
+    <MESSAGE value="图书借阅记录统计restful api完成:rocket:" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书借阅记录统计restful api完成:rocket:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1199,13 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1266,29 +1191,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
           <caret line="141" column="13" lean-forward="true" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
+        <state relative-caret-position="4862">
           <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/db-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3510">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1298,12 +1214,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="401" column="237" lean-forward="false" selection-start-line="401" selection-start-column="237" selection-end-line="401" selection-end-column="237" />
-          <folding>
-            <element signature="e#569#3263#0" expanded="false" />
-            <element signature="e#3280#5329#0" expanded="false" />
-            <element signature="e#5345#8728#0" expanded="false" />
-            <element signature="e#8745#11267#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/api/api-book-borrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1311,14 +1229,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/api-book-borrow.js">
+    <entry file="file://$PROJECT_DIR$/router/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="418">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>

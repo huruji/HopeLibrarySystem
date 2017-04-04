@@ -13,7 +13,10 @@ const hopeDB = require('./../utils/hopeDB.js');
 const [adminDB, userDB, bookDB, equipDB, borrowDB] = [hopeDB.adminDB, hopeDB.userDB, hopeDB.bookDB, hopeDB.equipDB, hopeDB.borrowDB];
 const apiBook = require('./api/api-book');
 const apiBookBorrow = require('./api/api-book-borrow');
-
+router.get('*',function(req, res,next){
+  res.header({'Access-Control-Allow-Origin':'*'});
+  next();
+});
 router.get('/book/:id', function(req, res, next){
     apiBook.apiBookId(req, res, next);
 });
@@ -28,7 +31,7 @@ router.get('/book-borrow',function(req, res, next){
 });
 router.get('/book-borrow-count', function(req, res, next) {
   apiBookBorrow.apiBookBorrowCount(req, res, next);
-})
+});
 
 
 
