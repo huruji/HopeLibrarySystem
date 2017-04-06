@@ -249,6 +249,15 @@ const bookDB ={
             callback&&callback(rows);
         })
     },
+    countItemsGroup: function(left, callback) {
+        let query;
+        if(left){
+            query = 'SELECT bookCate AS cate, COUNT(*) AS count FROM hopeBook WHERE bookLeft =' + left + ' GROUP BY bookCate ORDER BY count DESC';
+        } else {
+            query = 'SELECT bookCate AS cate, COUNT(*) AS count FROM hopeBook GROUP BY bookCate ORDER BY count DESC';
+        }
+        this.query(query,callback)
+    },
     countSearchItems: (searchDataJson, columnName, callback) => {
         bookOperate.countSearchItems(searchDataJson, columnName, (err, rows, fields) => {
             if(err) {

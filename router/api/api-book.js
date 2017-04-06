@@ -64,8 +64,46 @@ const apiBook = {
         res.json(data);
       });
     }
+  },
+  apiBookCount: function(req, res, next) {
+    let keys = Object.keys(req.query);
+    if(keys.length === 0){
+      bookDB.countItemsGroup(null, (rows) => {
+        const data = setBookCountData(rows);
+        res.json(data);
+      });
+    } else{
+      let error = keys.find((ele) => {
+        return !['left'].includes(ele);
+      });
+      if(error) {
+        const data = {code: 400, msg: '请求参数错误'};
+        return res.json(data);
+      }
+      bookDB.countItemsGroup(req.query.left, (rows) => {
+          const data = setBookCountData(rows);
+          res.json(data);
+      });
+    }
   }
 };
+function setBookCountData(bookArr){
+  if(bookArr.length < 1){
+    return {code:404,msg:'请求的资源不存在'}
+  } else{
+    let data = {};
+    data.totals = bookArr.length;
+    data.data = [];
+    bookArr.forEach((ele) => {
+      let cate = {
+        name: ele.cate,
+        count: ele.count
+      };
+      data.data.push(cate);
+    });
+    return data;
+  }
+}
 function setBookData(bookArr) {
   let data = {};
   if(bookArr.length < 1) {
