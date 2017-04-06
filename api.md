@@ -133,8 +133,9 @@ api/book-borrow?timeAfter=2017-02-10
 或者是以上几个的组合
 
 借阅数量统计API
+api/book-borrow-count
 单个信息返回{
-    reader:忽如寄,
+    name:忽如寄,
     count:10
 }
 多个信息返回{
@@ -143,6 +144,28 @@ api/book-borrow?timeAfter=2017-02-10
 	totals:5,
 	data:[由单个信息json组成的数组]
 }
+当无查询字符串时，返回一个月内每个用户的借阅数量
+当查询字符串无时间信息时，返回一个月内的信息
+
+返回某个时间之前的数据信息
+api/book-borrow-count?timeBefore=2017-03-03
+
+返回某个时间之后的数据信息
+api/book-borrow-count?timeAfter=2017-01-20
+
+返回某个时间段之间的数据信息
+api/book-borrow-count?timeAfter=2017-01-20&&timeBefore=2017-03-03
+
+返回各个厚朴组借阅书籍数量的数据信息
+api/book-borrow-count?group=hopegroup
+
+返回每种图书的借阅量的数据信息
+api/book-borrow-count?group=cate
+
+当然可以是以上查询字符串的组合
+
+
+
 
 
 

@@ -102,6 +102,8 @@ const apiBookBorrow = {
       if(req.query.groupby){
         dataJson.groupby = mysql_util.DBConnection.escape(req.query.groupby);
       }
+      console.log('dataJson:');
+      console.log(req.query);
       borrowDB.countItems(dataJson, (rows) => {
         const data = setBorrowCountData(rows);
         res.json(data);
