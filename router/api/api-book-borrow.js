@@ -76,14 +76,18 @@ const apiBookBorrow = {
   apiBookBorrowCount: function(req, res, next){
     let keys = Object.keys(req.query);
     if(keys.length===0) {
-      borrowDB.countItems(null, (rows) => {
+      borrowDB.countItems({}, (rows) => {
         const data = setBorrowCountData(rows);
         return res.json(data);
       });
     }else{
-      let error = keys.find((ele) => {
-        return !['timeAfter','timeBefore'].includes(ele);
+      let error;
+      error = keys.find((ele) => {
+        return !['timeAfter','timeBefore','groupby'].includes(ele);
       });
+      if(!error && req.query.groupby){
+        error = !['cate', 'hopegroup'].includes(req.query.groupby);
+      }
       if(error) {
         const data = {code: 400, msg: '请求参数错误'};
         return res.json(data);
@@ -94,6 +98,9 @@ const apiBookBorrow = {
       }
       if(req.query.timeAfter){
         dataJson.timeAfter = mysql_util.DBConnection.escape(req.query.timeAfter);
+      }
+      if(req.query.groupby){
+        dataJson.groupby = mysql_util.DBConnection.escape(req.query.groupby);
       }
       borrowDB.countItems(dataJson, (rows) => {
         const data = setBorrowCountData(rows);
@@ -116,7 +123,7 @@ function setBorrowCountData(arr){
     data.data = [];
     arr.forEach((ele) => {
       let elem = {
-        reader: ele.reader,
+        name: ele.name,
         count: ele.count,
       };
       data.data.push(elem);

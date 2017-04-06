@@ -393,15 +393,29 @@ const borrowDB = {
   },
   countItems:(dataJson,callback) =>{
     let query;
-    if(!dataJson){
-      query = 'SELECT hopeReader.readerName AS reader, COUNT(*) AS count FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP(SUBDATE(CURDATE(),30)) < UNIX_TIMESTAMP(borrowTime) GROUP BY readerName ORDER BY count DESC';
+    let group = 'readerName';
+    let name = 'readerName';
+    let join = 'JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId';
+    if(dataJson.groupby){
+      if(dataJson.groupby=='\'hopegroup\''){
+        group = 'readerGroup';
+        name = 'readerGroup';
+      } else if(dataJson.groupby=='\'cate\'') {
+        group = 'bookCate';
+        name = 'bookCate';
+        join = 'JOIN hopeBook ON hopeBook.bookID = bookBorrow.borrowBookID'
+      }
+    }
+    console.log(dataJson);
+    if(!dataJson.timeAfter && !dataJson.timeBefore){
+      query = 'SELECT ' + name + ' AS name, COUNT(*) AS count FROM bookBorrow ' + join + ' WHERE UNIX_TIMESTAMP(SUBDATE(CURDATE(),30)) < UNIX_TIMESTAMP(borrowTime) GROUP BY ' + group + ' ORDER BY count DESC';
     }else{
       if(dataJson.timeAfter && !dataJson.timeBefore){
-        query = 'SELECT hopeReader.readerName AS reader, COUNT(*) AS count FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP(borrowTime) > UNIX_TIMESTAMP('+ dataJson.timeAfter + ') GROUP BY readerName ORDER BY count DESC';
+        query = 'SELECT ' + name + ' AS name, COUNT(*) AS count FROM bookBorrow ' + join + ' WHERE UNIX_TIMESTAMP(borrowTime) > UNIX_TIMESTAMP('+ dataJson.timeAfter + ') GROUP BY ' + group + ' ORDER BY count DESC';
       } else if(dataJson.timeBefore && !dataJson.timeAfter){
-        query = 'SELECT hopeReader.readerName AS reader, COUNT(*) AS count FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP(borrowTime) < UNIX_TIMESTAMP('+ dataJson.timeBefore + ')  GROUP BY readerName ORDER BY count DESC';
+        query = 'SELECT ' + name + ' AS name, COUNT(*) AS count FROM bookBorrow  ' + join + '  WHERE UNIX_TIMESTAMP(borrowTime) < UNIX_TIMESTAMP('+ dataJson.timeBefore + ')  GROUP BY ' + group + ' ORDER BY count DESC';
       } else if(dataJson.timeBefore && dataJson.timeAfter) {
-        query = 'SELECT hopeReader.readerName AS reader, COUNT(*) AS count FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP(borrowTime) < UNIX_TIMESTAMP('+ dataJson.timeBefore + ')  AND UNIX_TIMESTAMP(borrowTime) > UNIX_TIMESTAMP('+ dataJson.timeBefore +')GROUP BY readerName ORDER BY count DESC';
+        query = 'SELECT ' + name + ' AS name, COUNT(*) AS count FROM bookBorrow  ' + join + '  WHERE UNIX_TIMESTAMP(borrowTime) < UNIX_TIMESTAMP('+ dataJson.timeBefore + ')  AND UNIX_TIMESTAMP(borrowTime) > UNIX_TIMESTAMP('+ dataJson.timeAfter +')GROUP BY ' + group + ' ORDER BY count DESC';
       }
     }
     borrowOperate.query(query, (err, rows, fields) => {
