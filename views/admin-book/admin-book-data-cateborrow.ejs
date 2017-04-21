@@ -31,15 +31,13 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/upload.js"></script>
-<script src="/js/public/form-reset.js"></script>
 <script src="/js/public/hajax.js"></script>
 <script src="/js/public/echarts.js"></script>
 <script src="/js/data/charts.config.js"></script>
 <script>
   (function(){
     var main = {
-      url: 'http://localhost:3002/api/book-borrow-count?groupby=cate',
+      url: '/api/book-borrow-count?groupby=cate',
       chartsEle: $('#js-main-right-charts').get(0),
       data:{},
       init: function(){

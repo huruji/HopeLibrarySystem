@@ -57,14 +57,16 @@ router.route('/borrow').post(function(req,res){
                       + ',borrowUserID='
                       + userID
                       + ',borrowTime=CURDATE(),returnBefore=ADDDATE(CURDATE(),30)';
-        borrowDB.query(query, (rows) => {
+        if(bookLeft > 0) {
+          borrowDB.query(query, (rows) => {
             const setDataJson = {
-                bookLeft: bookLeft
+              bookLeft: bookLeft
             };
             bookDB.updateMessage(bookID, setDataJson, (message) => {
-                res.send(message);
+              res.send(message);
             }, '借阅成功');
-        });
+          });
+        }
     });
 });
 
