@@ -28,5 +28,19 @@
         <li class="main-right-nav-list-item  <%if(secondPath=="reset"){%> main-right-nav-list-item-active <%}%>"><a
                     href="/admin/reset">修改密码</a></li>
         <%}%>
+        <%if(firstPath=="data"){%>
+        <li class="main-right-nav-list-item <%if(secondPath=="cateCount"){%> main-right-nav-list-item-active <%}%>">
+            <a href="/admin/admin-book-data/catecount">图书数量</a>
+        </li>
+        <li class="main-right-nav-list-item <%if(secondPath=="userBorrow" || !secondPath){%> main-right-nav-list-item-active <%}%>">
+            <a href="/admin/admin-book-data/userborrow">用户借阅</a>
+        </li>
+        <li class="main-right-nav-list-item <%if(secondPath=="groupBorrow"){%> main-right-nav-list-item-active <%}%>">
+            <a href="/admin/admin-book-data/groupborrow">团队借阅</a>
+        </li>
+        <li class="main-right-nav-list-item <%if(secondPath=="cateBorrow"){%> main-right-nav-list-item-active <%}%>">
+            <a href="/admin/admin-book-data/cateborrow">类别借阅</a>
+        </li>
+        <%}%>
     </ul>
 </nav>

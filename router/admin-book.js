@@ -151,4 +151,48 @@ router.route('/dropbook').post(function(req, res) {
         res.send(message);
     });
 });
+router.route('/admin-book-data/userborrow').get(function(req, res) {
+  if(!req.session.adminID || !req.session.adminSign){
+    res.redirect("/admin/login");
+    return;
+  }
+  adminDB.selectMessage(req.session.adminID, (rows) => {
+    const admin = rows[0];
+    const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+    res.render('admin-book/admin-book-data-userborrow',{userName,userImg,userPermission,firstPath:'data',secondPath:'userBorrow'});
+  });
+});
+router.route('/admin-book-data/groupborrow').get(function(req, res) {
+  if(!req.session.adminID || !req.session.adminSign){
+    res.redirect("/admin/login");
+    return;
+  }
+  adminDB.selectMessage(req.session.adminID, (rows) => {
+    const admin = rows[0];
+    const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+    res.render('admin-book/admin-book-data-groupborrow',{userName,userImg,userPermission,firstPath:'data',secondPath:'groupBorrow'});
+  });
+});
+router.route('/admin-book-data/catecount').get(function(req, res) {
+  if(!req.session.adminID || !req.session.adminSign){
+    res.redirect("/admin/login");
+    return;
+  }
+  adminDB.selectMessage(req.session.adminID, (rows) => {
+    const admin = rows[0];
+    const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+    res.render('admin-book/admin-book-data-catecount',{userName,userImg,userPermission,firstPath:'data',secondPath:'cateCount'});
+  });
+});
+router.route('/admin-book-data/cateborrow').get(function(req, res) {
+  if(!req.session.adminID || !req.session.adminSign){
+    res.redirect("/admin/login");
+    return;
+  }
+  adminDB.selectMessage(req.session.adminID, (rows) => {
+    const admin = rows[0];
+    const [userName, userImg, userPermission] = [admin.adminName, admin.adminImgSrc, admin.adminPermissions];
+    res.render('admin-book/admin-book-data-cateborrow',{userName,userImg,userPermission,firstPath:'data',secondPath:'cateBorrow'});
+  });
+});
 module.exports=router;

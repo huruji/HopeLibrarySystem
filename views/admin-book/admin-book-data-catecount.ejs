@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<%- include("./../public/head.ejs") %>
+<body>
+<%- include("./../public/header.ejs") %>
+<%- include("./../public/banner.ejs") %>
+<section class="main">
+    <div class="container clearfix">
+        <%- include("./../public/admin/admin-aside.ejs") %>
+        <section class="main-right">
+            <%- include("./../public/admin/admin-nav.ejs") %>
+            <section class="main-right-charts">
+                <section class="main-right-charts-btns clearfix">
+                    <div class="main-right-charts-btns-type" >
+                        <span id="js-charts-pie" class="active">饼状图</span>
+                        <span id="js-charts-bar">条形图</span>
+                    </div>
+                    <div class="main-right-charts-btns-times">
+                        <select name="charts-time" id="js-charts-time">
+                            <option value="一个月">全部</option>
+                            <option value="三个月">在架上</option>
+                            <option value="半年">借出</option>
+                        </select>
+                    </div>
+                </section>
+                <section class="main-right-charts-content" id="js-main-right-charts"></section>
+            </section>
+        </section>
+    </div>
+</section>
+<%- include("./../public/footer.ejs") %>
+<script src="/js/public/upload.js"></script>
+<script src="/js/public/form-reset.js"></script>
+<script src="/js/public/hajax.js"></script>
+<script src="/js/public/echarts.js"></script>
+<script src="/js/data/charts.config.js"></script>
+<script>
+  (function(){
+    var main = {
+      url: 'http://localhost:3002/api/book-count',
+      chartsEle: $('#js-main-right-charts').get(0),
+      data:{},
+      init: function(){
+        var that = this;
+        hlayer.loading({type:1,time:1000,shadow:true});
+        $.get(that.url,function(data){
+          that.data = data;
+          var dataAfter = that.setData.pieData(that.data);
+          charts.pie(that.chartsEle,'图书分类数量统计','数量',dataAfter);
+          that.btnsListen();
+        });
+      },
+      setData: {
+        pieData: function(data){
+          var dataAfter = [];
+          for(var i = 0; i < data.data.length; i++) {
+            dataAfter.push({
+              name: data.data[i].name,
+              value: data.data[i].count
+            })
+          }
+          return dataAfter;
+        },
+        barData: function(data){
+          var dataAfter = {
+            name:[],
+            count:[]
+          };
+          for (var i = 0; i < data.data.length; i++) {
+            dataAfter.name.push(data.data[i].name.split('').splice(0,2).join(''));
+            dataAfter.count.push(parseInt(data.data[i].count));
+          }
+          return dataAfter;
+        }
+      },
+      btnsCbs: function(){
+        var  that = this;
+        return {
+          pieCb: function () {
+            var dataAfter = that.setData.pieData(that.data);
+            that.getBtns().bar.removeClass('active');
+            that.getBtns().pie.removeClass('active').addClass('active');
+            charts.pie(that.chartsEle,'图书分类数量统计','数量',dataAfter);
+          },
+          barCb: function () {
+            var dataAfter = that.setData.barData(that.data);
+            that.getBtns().pie.removeClass('active');
+            that.getBtns().bar.removeClass('active').addClass('active');
+            charts.bar(that.chartsEle,'图书分类数量统计',null,'数量','类别',dataAfter.name,'数量',dataAfter.count);
+          },
+          timeCb: function () {
+            var index = that.getBtns().time.get(0).selectedIndex;
+            var getUrl;
+            if(index==0){
+              getUrl = that.url;
+            } else if(index == 1){
+              getUrl = that.url + '?left=1';
+            } else if(index ==2 ){
+              getUrl = that.url + '?left=0';
+            }
+            console.log(getUrl);
+            if(that.getBtns().pie.hasClass('active')){
+              hlayer.loading({type:1,time:1000,shadow:true});
+              $.get(getUrl,function(data){
+                that.data = data;
+                var dataAfter = that.setData.pieData(that.data);
+                charts.pie(that.chartsEle,'图书分类借阅量统计','借阅量',dataAfter);
+              });
+            } else {
+              hlayer.loading({type:1,time:1000});
+              $.get(getUrl,function(data){
+                that.data = data;
+                var dataAfter = that.setData.barData(that.data);
+                charts.bar(that.chartsEle,'图书分类借阅量统计',null,'借阅量','类别',dataAfter.name,'借阅量',dataAfter.count);
+              });
+            }
+          }
+        }
+      },
+      getBtns: function(){
+        return {
+          pie: $('#js-charts-pie'),
+          bar: $('#js-charts-bar'),
+          time: $('#js-charts-time')
+        }
+      },
+      btnsListen: function(){
+        var that = this;
+        var btns = this.getBtns();
+        btns.pie.click(function(){
+          that.btnsCbs().pieCb();
+        });
+        btns.bar.click(function(){
+          that.btnsCbs().barCb();
+        });
+        btns.time.change(function(){
+          that.btnsCbs().timeCb();
+        })
+      }
+    };
+    main.init();
+  })();
+</script>
+</body>
+</html>

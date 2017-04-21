@@ -18,5 +18,10 @@
         <li class="aside-list-item <%if(firstPath == 'account'){%> aside-list-item-active <%}%>">
             <a href="/admin/modify">账号管理</a>
         </li>
+        <%if(userPermission == 'super' || userPermission == 'book'){%>
+        <li class="aside-list-item <%if(firstPath == 'data'){%> aside-list-item-active <%}%>">
+            <a href="/admin/admin-book-data/catecount">数据统计</a>
+        </li>
+        <%}%>
     </ul>
 </aside>
