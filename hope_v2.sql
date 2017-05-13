@@ -22,7 +22,7 @@ equipImgSrc VARCHAR(100) DEFAULT "/img/equip/equip-default.jpg",
 equipAdminID INT NOT NULL,
 equipLeft tINYINT(1) DEFAULT 1
 /*1代表在架上，0代表已借出*/
-)
+);
 
 /*读者表*/
 CREATE TABLE hopeReader(
@@ -74,5 +74,3 @@ reservationText TEXT
 );
 
 
-SELECT hopeReader as name, COUNT(*) as
-SELECT hopeReader.readerName AS reader, COUNT(*) AS count FROM bookBorrow JOIN hopeReader ON bookBorrow.borrowUserID = hopeReader.readerId WHERE UNIX_TIMESTAMP(borrowTime) < UNIX_TIMESTAMP('2017-03-30')  GROUP BY readerName ORDER BY count DESC

@@ -20,26 +20,21 @@ Beta版本0.0.1请浏览[http://98.142.130.76:3000/](http://98.142.130.76:3000/)
 6. administrator of equip can add equipments, modify equipments(设备管理员可以增加、修改设备)
 7. super administrator can add user/administrator, delete user/administrator, modify user/administrator and have all the rights of book adminnistrator/equip adminnistrator(超级管理员可以增加、删除、修改管理员和用户，并拥有图书管理员、设备管理员的所有权限)
 8. user/administrator can customize his/her messages like avatar, password(用户和管理员都可以自定义自己的信息，比如：头像、密码)
+9. administraror can see some useful data from charts maked by echarts(管理员可以通过图表直观地看到数据统计信息)
 
 ## Usage images
-1. user
+1. login
+![](git_images/100.png)
+
+2. chart
+![](git_images/200.png)
+![](git_images/300.png)
+![](git_images/400.png)
+
+3. user && administrator
 ![](git_images/1.png)
 ![](git_images/2.png)
 ![](git_images/3.png)
 ![](git_images/4.png)
-
-2. administrator of book
 ![](git_images/5.png)
 ![](git_images/6.png)
-
-3. administrator of equipment
-![](git_images/9.png)
-![](git_images/10.png)
-
-3. super administrator
-![](git_images/7.png)
-![](git_images/8.png)
-
-4. public
-![](git_images/7.png)
-![](git_images/8.png)
