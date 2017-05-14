@@ -2,7 +2,7 @@
 	host:"localhost",
 	port:3306,
 	user:"root",
-	password:"xie138108",
+	password:"root",
 	database:"hopeWechat"
 }
 const server={
