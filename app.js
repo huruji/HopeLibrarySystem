@@ -39,7 +39,7 @@ app.use("/api", routerApi);
 
 emailSchedule();
 app.listen(config.server.port,function(){
-	console.log("listening port 3000");
+	console.log("listening port " + config.server.port);
 });
 
 

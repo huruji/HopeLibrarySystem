@@ -1,5 +1,6 @@
 CREATE DATABASE hopeWechat;
 /*书籍表*/
+USE hopeWechat;
 CREATE TABLE hopeBook(
 bookID INT KEY AUTO_INCREMENT,
 bookImgSrc varchar(100) default "/img/book/bookdefault.jpg",
