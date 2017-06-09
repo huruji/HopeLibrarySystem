@@ -75,3 +75,13 @@ reservationText TEXT
 );
 
 
+INSERT hopeReader VALUES(1,"忽如寄","8c0c831640c1da9f210e8951758aed5a","男","编程组","14234343","高分子材料与工程","1889999999","594613537@qq.com",0);
+
+
+INSERT hopeBook(bookName,bookHopeID,bookAuthor,bookISBN,bookPress,bookCate) VALUES("一本摄影书","ca-111","赵嘉","111111","电子工业出版社","摄影类");
+
+INSERT hopeAdmin VALUES(DEFAULT,"张三","8c0c831640c1da9f210e8951758aed5a","5943537@qq.com",DEFAULT,"super"),
+(DEFAULT,"赵四","8c0c831640c1da9f210e8951758aed5a","5943537@gamil.com",DEFAULT,DEFAULT),
+(DEFAULT,"王五","8c0c831640c1da9f210e8951758aed5a","345353790@qq.com",DEFAULT,"camera"),
+(DEFAULT,"前端","8c0c831640c1da9f210e8951758aed5a","23423423423@qq.com",DEFAULT,"camera"),
+(DEFAULT,"设计","8c0c831640c1da9f210e8951758aed5a","8989898@qq.com",DEFAULT,"camera");
