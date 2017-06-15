@@ -1,0 +1,57 @@
+.main-right-charts{
+  margin-top: 20px;
+  background:#fff;
+  padding:20px;
+  &-content{
+    width:80%;
+    height:400px;
+    margin:0 auto;
+  }
+  &-btns{
+    height:70px;
+    &-type{
+      width: 40%;
+      height: 30px;
+      float: left;
+      font-size: 0;
+      span{
+        width: 50px;
+        border: 1px solid #777;
+        display: inline-block;
+        text-align: center;
+        height: 20px;
+        line-height: 20px;
+        padding: 10px;
+        font-size:14px;
+        cursor:pointer;
+        &:last-child{
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+        &:first-child{
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+        }
+      }
+      span.active{
+        background: #1c95ea;
+        color: #fff;
+      }
+    }
+    &-times{
+      width: 40%;
+      height: 30px;
+      float: right;
+      font-size: 0;
+      select{
+        font-size: 14px;
+        display: block;
+        float: right;
+        height: 40px;
+        border: 1px solid #777;
+        border-radius: 5px;
+        width: 70px;
+      }
+    }
+  }
+}

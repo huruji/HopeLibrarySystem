@@ -1,0 +1,28 @@
+//global setting
+body {
+	font: $global-font;
+	background: $global-background-color;
+	font-family:$global-font-family;
+}
+a{
+	color:$global-font-color;
+	&:hover{
+		color: $global-link-color;
+	}
+}
+.container{
+	width: $global-width;
+	@include m-h-center;
+}
+.clearfix {
+	*zoom: 1
+}
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both
+}
+
+
+
+

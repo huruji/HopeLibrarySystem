@@ -1,0 +1,151 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+address,
+code,
+em,
+img,
+small,
+strong,
+sub,
+sup,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+select,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-weight:inherit;
+  font-family:inherit;
+  font-style:inherit;
+  font-size:100%;
+  line-height:inherit;
+  border:none;
+  outline:0;
+  padding:0;
+  margin:0;
+  color:inherit;
+}
+
+img {
+  border: 0
+}
+table{
+  width:100%!important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal
+}
+
+input,
+button,
+textarea,
+select {
+  *font-size: 100%
+}
+
+input {
+  background: transparent;
+  border: none
+}
+
+input[type=submit] {
+  cursor: pointer
+}
+
+
+
+ol,
+ul,
+li {
+  list-style: none
+}
+
+button {
+  border: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+:link,
+:visited {
+  text-decoration: none
+}
+
+
+
+pre {
+  font-family: "Lucida Console", Consolas, "Courier New", Tahoma;
+  color: #666;
+  text-indent: 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word
+}
+
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block
+}
+

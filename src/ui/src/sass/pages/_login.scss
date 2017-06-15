@@ -1,0 +1,113 @@
+$login-input-width: 300px;
+$login-input-padding: 6px 10px;
+$login-input-height: 34px;
+$login-bg-color:#40CD6C;
+$login-btn-hover:#44e476;
+.login{
+  height:100%;
+  width:100%;
+  body{
+    height:100%;
+    width:100%;
+  }
+  .login-bg{
+    height: 100%;
+    width: 100%;
+    @include bg-center("../img/login-bg.jpg");
+    background-size: 100%;
+    form{
+      width: 416px;
+      height: 226px;
+      padding: 45px 0px;
+      @include p-hv-center;
+      @include b-radius(6px);
+      @include ie-bg-rgba(rgba(255,255,255,1),#ffffff);
+      .form-group{
+        height:48px;
+      }
+      .login-bg-error{
+        margin-left: 62px;
+        font-size: 12px;
+        color: red;
+        &:before,&:after{
+          width: 2px;
+          height: 12px;
+          background: red;
+          transform: rotate(-45deg);
+          content: '';
+          display: inline-block;
+          position: absolute;
+          left: 52px;
+        }
+        &:after{
+          transform: rotate(45deg);
+        }
+      }
+      input{
+        width:$login-input-width;
+        height:$login-input-height;
+        border: 1px solid #ddd;
+        background:#fafafa;
+        @include b-radius(5px);
+        margin: 0 auto;
+        display:block;
+        padding:$login-input-padding;
+        color:#838383;
+        font-size:16px;
+      }
+      h1{
+        margin-bottom: 30px;
+        color: $login-bg-color;
+        font-size: 30px;
+        font-weight:bold;
+        text-align: center;
+        font-family:$global-zh-title-font-family;
+      }
+      .login-bg-btn{
+        text-align: center;
+        width:$login-input-width;
+        height:$login-input-height;
+        padding:$login-input-padding;
+        background-color:$login-bg-color;
+        margin: 5px auto;
+        @include b-radius(5px);
+        &:hover{
+          background: $login-btn-hover;
+        }
+        a{
+          display: block;
+          @include l-v-center($login-input-height);
+          font-size: 20px;
+          color: #fff;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .login-footer{
+    position:absolute;
+    bottom:50px;
+    color:#fff;
+    width:100%;
+    p{
+      text-align: center;
+      a{
+        color:#fff;
+      }
+      span{
+        padding:0 5px;
+        .github{
+          width:14px;
+          height:14px;
+          display:inline-block;
+          background-image:url("../img/github.png");
+          background-repeat:no-repeat;
+          background-position:center;
+          background-size:100%;
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+  }
+}

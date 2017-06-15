@@ -2,7 +2,288 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/api.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/hope_v2.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_ccitt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_kermit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_modbus.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_xmodem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc24.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc32.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc8.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc8_1wire.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/define_crc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/HISTORY.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/cookie.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/memory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/session.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/HISTORY.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/HISTORY.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/HISTORY.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin-default.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036484975.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036599423.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036607687.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036615776.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486048472276.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486048628479.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486049087990.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1487405014642.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin71478350713140.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1478350412864.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1478350434845.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1484117578297.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1484121201958.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1484121237748.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/avatar.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/banner.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book10241484125474904.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book10241484125519304.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book12861484125572598.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486048643710.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486048717899.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486048940273.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486049037173.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486525489611.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486525854535.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486554553556.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1487404915802.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1487405362625.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book191478352257010.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478358444148.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478358495988.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478358741767.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478359121531.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478359249066.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478360104408.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book31484113692265.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book31484113834395.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book361478352295675.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book971478352432342.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/bookdefault.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/bookdefault1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip-default.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361706499.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361765861.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361768445.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361769085.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361796151.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip81478361675139.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip81484122431127.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/upload_6b03bebd8151be476bc26d320158a477.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/github.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/img-default.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/index-bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-bg1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-password.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-username.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486031987388.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032174555.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032294493.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032440114.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032513173.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486033140017.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486033868813.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486046788123.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486046891125.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486046980615.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047039539.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047281842.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047401802.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047470228.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047559856.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486048175948.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486048497819.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486524935032.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525036696.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525132098.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525236326.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525278899.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525387981.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486554506759.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1487403606320.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1487403611931.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1487404887204.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_140f36f91fd3289f2524dfd696c42e90.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_20784edb846cef32aabfa8fcf7fa2ab4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_21c8f9ac6810415813bf069135444f47.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_24b17f22994095fbfc927d09cef8f2b9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_2779af64e72157888aa43fc259642d6a.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_27947adc86c53cc4783cd921172bdcbe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_290ad872baa89ea539f7e1e512693d67.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_2ec824a9e0fc9f4f5ae66392100d69c4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_3f4cad6f81deeaa09e83ad1eb6bb4de9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_46480d8d16acea77305e1aa50542e3d4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_4a638e906756c813b7d9b907c6b130d5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_51fe893a033184378f2cc03b864532e0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_595291865685aa18c53acc2d395230b1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_5e0deb9226ef1cdecfa9a73c131a1962.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_5ea3d3d3b20ec2e5099f5e8d458300f9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_694fb77f5a5eda6cc1ef061cd92f7c14.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_71fc2f6ea09f75f8db4cf25c4da6791e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_7341f844e00c670df91fa55266e6b9da.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_757965c4b3bd0dcf2614946339f13edb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_854c480583e908d09c65a8ce9d4db4d0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_91f18cae50b69977bdb68c48b708ea7f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_98a1ddb4bfcaa2f867ef4242da3c2b91.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_9b526841723959726502418c22f7dd7d.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_aab68bff6c7977cd5d7cefff79d7fb87.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ab7ce320cb6d044b971936be2b318567.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ad1fef04d6d87a0aaff0f62fb5b4bd4b.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_adf67de5ebeb6554eab7eb1bbd3a1e85.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_b62898f60bf4fa7007470573a4c5a2ca.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_bbaf05e4e8e0d6d751efcbc95a1312f2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_c9a646ae8cc008108cdc660e5128191f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_cad317e9db5fe5bc86a0f0ebb3ebc919.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_cb21becd1022e5975f58d99bf21b65c1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_cb84a44e189e286ea72b7725de65f5d1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ea20fd86ff000fe01c4c685439715db8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_eb21cbd873a51e31d2215d19f5f0d31a.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ec7488082b844a2c1fe00575991c77df.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_f80239f0d9e6875d0748836e0c55e46b.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user-default.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048218165.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048376377.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048435222.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048446035.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1487403380994.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1487403620453.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user51478870815285.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348161002.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348230218.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348246889.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348402745.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348464159.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478349013632.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478349163232.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user801484100066318.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/未标题-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/admin-super/adduser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/data/charts.config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/hlayer/hlayer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/hlayer/hlayer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/layer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/icon-ext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/loading-0.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/loading-1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/loading-2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/layer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/addBook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adduser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/admin-modify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/admin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adminModify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adminModifyuser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/bookcate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/borrow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/equip-reservation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/equipCheck.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/form-reset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/logout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/modifybook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/modifyequip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/reset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/upload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/user-equip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/userAdd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/userModify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/echarts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/form-reset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/hajax.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/jquery-hope.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/upload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/user/bookcate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin-equip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin-super.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/api.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/api/api-book-borrow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/api/api-book.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/book.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/email-schedule.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/equip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/mysql_util.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/public.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/router/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/check-login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/db-common.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/hopeDB-util.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/md5-pass.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/set-session.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-cateborrow.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-catecount.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-groupborrow.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-userborrow.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-modify.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-super/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/admin-modify.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/admin-reset.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/admin/admin-aside.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/admin/admin-nav.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/admin/admin-page.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/aside.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/banner.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/footer.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/form-btn.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/head.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/header.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/login.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/user/user-aside.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/user/user-nav.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/reservation.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-book.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-equip.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-modify.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-reset.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,120 +301,101 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/admin.js">
+      <file leaf-file-name="canvas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/canvas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="910">
-              <caret line="150" column="55" lean-forward="true" selection-start-line="150" selection-start-column="55" selection-end-line="150" selection-end-column="55" />
-              <folding>
-                <element signature="e#578#1530#0" expanded="false" />
-                <element signature="e#1720#5791#0" expanded="false" />
-                <element signature="e#5853#6335#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/router/book.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="126">
+              <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-book.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
+      <file leaf-file-name="_borrow-book.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_borrow-book.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="42">
+              <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-book.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/admin-book.js">
+      <file leaf-file-name="_form.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_form.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="175" column="40" lean-forward="true" selection-start-line="175" selection-start-column="14" selection-end-line="175" selection-end-column="40" />
-              <folding>
-                <element signature="e#495#1238#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hopeDB.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2028">
-              <caret line="251" column="46" lean-forward="false" selection-start-line="251" selection-start-column="46" selection-end-line="251" selection-end-column="46" />
-              <folding>
-                <element signature="e#569#3263#0" expanded="false" />
-                <element signature="e#3280#5329#0" expanded="false" />
-                <element signature="e#7655#7873#0" expanded="false" />
-                <element signature="e#7921#8292#0" expanded="false" />
-                <element signature="e#8358#8598#0" expanded="false" />
-                <element signature="e#8653#8902#0" expanded="false" />
-                <element signature="e#8936#9145#0" expanded="false" />
-                <element signature="e#9164#11686#0" expanded="false" />
-                <element signature="e#11705#16956#0" expanded="false" />
-                <element signature="e#16978#17809#0" expanded="false" />
-                <element signature="n#!!block;n#queryResult#0" expanded="false" />
-                <element signature="e#18030#18170#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db-common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/db-common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="105" column="23" lean-forward="false" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="23" />
+            <state relative-caret-position="735">
+              <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hopeDB-util.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/hopeDB-util.js">
+      <file leaf-file-name="add-book.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-book.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="147">
+              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-book-data-catecount.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-catecount.ejs">
+      <file leaf-file-name="head.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/head.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+            <state relative-caret-position="126">
+              <caret line="6" column="38" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-book-data-cateborrow.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-cateborrow.ejs">
+      <file leaf-file-name="borrow-book.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/html/borrow-book.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+            <state relative-caret-position="336">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hope_v2.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hope_v2.sql">
+      <file leaf-file-name="_resize.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/sass/base/_resize.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="10" />
+            <state relative-caret-position="441">
+              <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/sass/main.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/sass/helpers/_variables.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_aside.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_aside.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -177,11 +439,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/admin-equip/index.ejs" />
-        <option value="$PROJECT_DIR$/public/js/login.js" />
-        <option value="$PROJECT_DIR$/views/public/footer.ejs" />
-        <option value="$PROJECT_DIR$/public/js/upload.js" />
-        <option value="$PROJECT_DIR$/public/js/borrow.js" />
         <option value="$PROJECT_DIR$/public/js/adduser.js" />
         <option value="$PROJECT_DIR$/views/admin-book/index.ejs" />
         <option value="$PROJECT_DIR$/public/js/form-reset.js" />
@@ -228,6 +485,11 @@
         <option value="$PROJECT_DIR$/views/admin-book/admin-book-data-catecount.ejs" />
         <option value="$PROJECT_DIR$/views/admin-book/admin-book-data-cateborrow.ejs" />
         <option value="$PROJECT_DIR$/router/book.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/src/ui/src/html/public/canvas.html" />
+        <option value="$PROJECT_DIR$/src/ui/src/html/borrow-book.html" />
+        <option value="$PROJECT_DIR$/src/ui/src/sass/components/_aside.scss" />
       </list>
     </option>
   </component>
@@ -255,8 +517,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="2576" />
+    <option name="height" value="1426" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -273,7 +535,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -297,25 +558,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,7 +584,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -343,12 +606,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="router" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,11 +664,30 @@
     <property name="SearchEverywhereHistoryKey" value="view&#9;null&#9;null" />
     <property name="javascript.nodejs.core.library.configured.version" value="6.9.2" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
@@ -387,7 +706,7 @@
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <profiling do-profile="true" v8-profiler-path="" />
+      <profiling do-profile="true" />
       <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
         <option name="envVars">
           <list />
@@ -410,7 +729,7 @@
         </option>
       </EXTENSION>
       <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSProfilingRunConfigurationExtension">
-        <profiling do-profile="true" v8-profiler-path="" />
+        <profiling do-profile="true" />
       </EXTENSION>
       <method />
     </configuration>
@@ -881,32 +1200,41 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258172000" />
+    <option name="totallyTimeSpent" value="263968000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1426" extended-state="7" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22547585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1203125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22547585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -970,265 +1298,48 @@
           <url>file://$PROJECT_DIR$/utils/check-login.js</url>
           <line>4</line>
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/gulpfile.js</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="115" column="17" lean-forward="false" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-equip/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="63" column="7" lean-forward="false" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2262">
-          <caret line="87" column="17" lean-forward="false" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-super/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="82" column="40" lean-forward="false" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/head.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1352">
-          <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/reservation.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-modify.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1794">
-          <caret line="69" column="24" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/public/hajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
-          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/hlayer/hlayer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5588" lean-forward="true" selection-start-line="0" selection-start-column="5588" selection-end-line="0" selection-end-column="5588" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/hlayer/hlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="48" column="37" lean-forward="false" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/admin-super/adduser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/mysql_util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/equip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/email-schedule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-super.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1092">
-          <caret line="42" column="55" lean-forward="false" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-equip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="57" lean-forward="false" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/public/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/router/admin-equip.js" />
+    <entry file="file://$PROJECT_DIR$/router/public.js" />
+    <entry file="file://$PROJECT_DIR$/config.js" />
+    <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/public/login.ejs" />
+    <entry file="file://$PROJECT_DIR$/public/js/public/login.js" />
     <entry file="file://$PROJECT_DIR$/router/api/api-borrow.js" />
-    <entry file="file://$PROJECT_DIR$/router/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1872">
-          <caret line="72" column="156" lean-forward="false" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="156" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/api-book-borrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="29" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/api-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-add.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="85" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="85" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/app.js">
+    <entry file="file://$PROJECT_DIR$/router/user.js" />
+    <entry file="file://$PROJECT_DIR$/app.js" />
+    <entry file="file://$PROJECT_DIR$/api.md" />
+    <entry file="file://$PROJECT_DIR$/router/api/api-book-borrow.js" />
+    <entry file="file://$PROJECT_DIR$/router/api.js" />
+    <entry file="file://$PROJECT_DIR$/router/api/api-book.js" />
+    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/public/app.js" />
+    <entry file="file://$PROJECT_DIR$/views/public/admin/admin-nav.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/public/admin/admin-aside.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-userborrow.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-groupborrow.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-catecount.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-cateborrow.ejs" />
+    <entry file="file://$PROJECT_DIR$/router/admin-book.js" />
+    <entry file="file://$PROJECT_DIR$/router/admin.js" />
+    <entry file="file://$PROJECT_DIR$/utils/hopeDB-util.js" />
+    <entry file="file://$PROJECT_DIR$/utils/db-common.js" />
+    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js" />
+    <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs" />
+    <entry file="file://$PROJECT_DIR$/hope_v2.sql" />
+    <entry file="file://$PROJECT_DIR$/router/book.js" />
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1236,133 +1347,173 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/admin/admin-nav.ejs">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="147">
+          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/admin/admin-aside.ejs">
+    <entry file="file://$PROJECT_DIR$/src/ui/src/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="-420">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-userborrow.ejs">
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-groupborrow.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-catecount.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-cateborrow.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="175" column="40" lean-forward="true" selection-start-line="175" selection-start-column="14" selection-end-line="175" selection-end-column="40" />
+        <state relative-caret-position="1073">
+          <caret line="79" column="49" lean-forward="false" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
           <folding>
-            <element signature="e#495#1238#0" expanded="false" />
+            <element signature="e#984#1147#0" expanded="false" />
+            <element signature="e#1185#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/admin.js">
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/helpers/_mixin.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="150" column="55" lean-forward="true" selection-start-line="150" selection-start-column="55" selection-end-line="150" selection-end-column="55" />
-          <folding>
-            <element signature="e#578#1530#0" expanded="false" />
-            <element signature="e#1720#5791#0" expanded="false" />
-            <element signature="e#5853#6335#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/hopeDB-util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="2" />
+        <state relative-caret-position="1281">
+          <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/db-common.js">
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/helpers/_lib.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="105" column="23" lean-forward="false" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="23" />
+        <state relative-caret-position="735">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/hopeDB.js">
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/layout/_main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2028">
-          <caret line="251" column="46" lean-forward="false" selection-start-line="251" selection-start-column="46" selection-end-line="251" selection-end-column="46" />
-          <folding>
-            <element signature="e#569#3263#0" expanded="false" />
-            <element signature="e#3280#5329#0" expanded="false" />
-            <element signature="e#7655#7873#0" expanded="false" />
-            <element signature="e#7921#8292#0" expanded="false" />
-            <element signature="e#8358#8598#0" expanded="false" />
-            <element signature="e#8653#8902#0" expanded="false" />
-            <element signature="e#8936#9145#0" expanded="false" />
-            <element signature="e#9164#11686#0" expanded="false" />
-            <element signature="e#11705#16956#0" expanded="false" />
-            <element signature="e#16978#17809#0" expanded="false" />
-            <element signature="n#!!block;n#queryResult#0" expanded="false" />
-            <element signature="e#18030#18170#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="19" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hope_v2.sql">
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_header.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="420">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/book.js">
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/book-canvas-count.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/page-num.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/canvas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_borrow-book.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="38" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/borrow-book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/base/_resize.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/helpers/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_aside.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
           <folding />
         </state>
       </provider>

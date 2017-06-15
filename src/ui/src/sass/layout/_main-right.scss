@@ -1,0 +1,27 @@
+.main-right{
+  margin-left:$main-right-margin-left;
+}
+
+// table setting
+@for $i from 1 through 10{
+  .t-#{$i}{
+  width: $i * 10%;
+}
+}
+
+.center{
+  text-align: center;
+}
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
+
+.t-left-padding{
+  padding-left:20px;
+}
+.t-right-padding{
+  padding-right:20px;
+}

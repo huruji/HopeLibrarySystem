@@ -1,0 +1,25 @@
+.header{
+  $height:22px;
+  padding:20px 0;
+  height: $height;
+  background: $header-bgcolor;
+  color:$global-active-color;
+  &-title{
+    @include float-left;
+    font-size: $height;
+    font-family:$global-zh-title-font-family;
+  }
+  &-right{
+    @include float-right;
+    font-family:$global-zh-title-font-family;
+    span{
+      @include l-v-center($height);
+      @include pointer;
+      padding:0 15px;
+      a{
+        color:$global-active-color;
+      }
+    }
+  }
+}
+

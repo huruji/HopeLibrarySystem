@@ -1,0 +1,32 @@
+.banner{
+  height:94px;
+  padding:23px 0;
+  @include bg-center("../img/banner.png");
+
+  &-avatar{
+    @include float-left;
+    width:90px;
+    height:90px;
+    @include b-circle;
+    border:2px solid #fff;
+    img{
+      @include b-circle;
+      @include h-w-full;
+    }
+  }
+  &-word{
+    @include float-left;
+    padding:10px 20px;
+    color:$global-active-color;
+    h2{
+      font-size:24px;
+      font-family:$global-zh-title-font-family;
+      line-height: 1.5em;
+    }
+    p{
+      font-size:16px;
+      font-family:$global-zh-light-title-font-family;
+      line-height: 1.5em;
+    }
+  }
+}

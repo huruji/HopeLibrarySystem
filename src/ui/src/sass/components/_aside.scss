@@ -1,0 +1,32 @@
+.aside{
+  border:$aside-border;
+  width:$aside-width;
+  background:$main-bgcolor;
+  font-size:16px;
+  font-family:$global-zh-light-title-font-family;
+  @include float-left;
+  &-list{
+    &-item{
+      height:$aside-item-height;
+      border-top:$aside-border;
+      @include text-center;
+      &:first-child{
+        border-top:none;
+      }
+      a{
+        display:block;
+        padding:20.5px 0;
+        &:hover{
+          background:$global-active-bgcolor;
+          color:$global-active-color;
+        }
+      }
+    }
+    .aside-list-item-active{
+      background:$global-active-bgcolor;
+      a{
+        color:$global-active-color;
+      }
+    }
+  }
+}

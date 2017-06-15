@@ -4,7 +4,8 @@
   "description": "book camera and so on",
   "main": "hope",
   "scripts": {
-    "test": "start"
+    "test": "start",
+    "gulp": "gulp"
   },
   "keywords": [
     "huruji",
@@ -22,5 +23,19 @@
     "mysql": "^2.11.1",
     "node-schedule": "^1.2.0",
     "nodemailer": "^2.6.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.4.2",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-include": "^2.3.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^1.2.2"
   }
 }

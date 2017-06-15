@@ -1,0 +1,19 @@
+(function(){
+    function formReset() {
+        var form = document.getElementsByClassName('main-right-form')[0];
+        var formFroups = [].slice.call(form.getElementsByClassName('form-group'));
+        formFroups.forEach(function(ele){
+            ele.getElementsByTagName('input')[0].value='';
+        });
+    }
+//兼容IE10及以下的事件绑定函数
+function addEvent(ele,event,fn){
+    if(window.attachEvent){
+        return ele.attachEvent("on"+event,fn);
+    }else{
+        return ele.addEventListener(event, fn,false);
+    }
+}
+var reset = document.getElementById('js-form-reset');
+addEvent(reset,'click',formReset);
+})();

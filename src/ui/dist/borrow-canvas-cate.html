@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>厚朴工作室图书设备管理系统</title>
+    
+    <meta charset="UTF-8">
+    <meta name="keywords" content="厚朴,厚朴工作室,厚朴工作室图书设备管理系统">
+    <meta name="description" content="厚朴工作室图书设备管理系统">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/public/jquery-hope.js"></script>
+    <script src="/js/layer/layer.js"></script>
+    <link rel="stylesheet" href="/js/hlayer/hlayer.css">
+</head>
+<body>
+<header class="header">
+<div class="container clearfix ">
+    <div class="header-title">
+        <h1>厚朴图书设备管理系统</h1>
+    </div>
+    <div class="header-right">
+        <span class="header-right-index"><a href="#">网站首页</a></span>
+        <span class="header-right-logout"><a href="">退出</a></span>
+    </div>
+</div>
+</header>
+
+
+<section class="banner">
+    <div class="container clearfix ">
+        <div class="banner-avatar">
+            <img src="/img/avatar.jpg" alt="">
+        </div>
+        <div class="banner-word">
+            <h2>忽如寄，欢迎你</h2>
+            <p>书卷多情思故人，晨昏忧乐每相亲。</p>
+        </div>
+    </div>
+</section>
+<section class="main">
+    <div class="container floatfix">
+        <aside class="aside">
+            <ul class="aside-list">
+                <li class="aside-list-item aside-list-item-active">
+                    <a href="">用户管理</a>
+                </li>
+                <li class="aside-list-item">
+                    <a href="">图书管理</a>
+                </li>
+                <li class="aside-list-item">
+                    <a href="">设备管理</a>
+                </li>
+                <li class="aside-list-item">
+                    <a href="">账号管理</a>
+                </li>
+            </ul>
+        </aside>
+        <section class="main-right">
+            <nav class="main-right-nav">
+                <ul class="main-right-nav-list clearfix ">
+                    <li class="main-right-nav-list-item main-right-nav-list-item-active"><a href="">当前用户</a></li>
+                    <li class="main-right-nav-list-item"><a href="">添加用户</a></li>
+                </ul>
+            </nav>
+            <section class="main-right-charts">
+                <section class="main-right-charts-btns clearfix">
+                    <div class="main-right-charts-btns-type" >
+                        <span id="js-charts-pie" class="active">饼状图</span>
+                        <span id="js-charts-bar">条形图</span>
+                    </div>
+                    <div class="main-right-charts-btns-times">
+                        <select name="charts-time" id="js-charts-time">
+                            <option value="一个月">一个月</option>
+                            <option value="三个月">三个月</option>
+                            <option value="半年">半年</option>
+                            <option value="一年">一年</option>
+                            <option value="全部">全部</option>
+                        </select>
+                    </div>
+                </section>
+                <section class="main-right-charts-content" id="js-main-right-charts"></section>
+            </section>
+        </section>
+    </div>
+</section>
+<footer class="footer">
+    <h3>技术支持：<a href="http://ce.sysu.edu.cn/hope/">厚朴〖HOPE〗工作室</a></h3>
+</footer>
+<script src="/js/public/jquery-hope.js"></script>
+<script src="/js/hlayer/hlayer.js"></script>
+<script src="/js/public/echarts.js"></script>
+<script src="/js/charts.config.js"></script>
+<script>
+  (function(){
+    var main = {
+      url: 'http://localhost:3002/api/book-borrow-count?groupby=cate',
+      chartsEle: $('#js-main-right-charts').get(0),
+      data:{},
+      init: function(){
+        var that = this;
+        hlayer.loading({type:1,time:1000,shadow:true});
+        $.get(that.url,function(data){
+          that.data = data;
+          var dataAfter = that.setData.pieData(that.data);
+          charts.pie(that.chartsEle,'图书分类借阅量统计','借阅量',dataAfter);
+          that.btnsListen();
+        });
+      },
+      setData: {
+        pieData: function(data){
+          var dataAfter = [];
+          for(var i = 0; i < data.data.length; i++) {
+            dataAfter.push({
+              name: data.data[i].name,
+              value: data.data[i].count
+            })
+          }
+          return dataAfter;
+        },
+        barData: function(data){
+          var dataAfter = {
+            name:[],
+            count:[]
+          };
+          for (var i = 0; i < data.data.length; i++) {
+            dataAfter.name.push(data.data[i].name.split('').splice(0,2).join(''));
+            dataAfter.count.push(parseInt(data.data[i].count));
+          }
+          return dataAfter;
+        }
+      },
+      btnsCbs: function(){
+        var  that = this;
+        return {
+          pieCb: function () {
+            var dataAfter = that.setData.pieData(that.data);
+            that.getBtns().bar.removeClass('active');
+            that.getBtns().pie.removeClass('active').addClass('active');
+            charts.pie(that.chartsEle,'图书分类借阅量统计','借阅量',dataAfter);
+          },
+          barCb: function () {
+            var dataAfter = that.setData.barData(that.data);
+            that.getBtns().pie.removeClass('active');
+            that.getBtns().bar.removeClass('active').addClass('active');
+            charts.bar(that.chartsEle,'图书分类借阅量统计',null,'借阅量','类别',dataAfter.name,'借阅量',dataAfter.count);
+          },
+          timeCb: function () {
+            var index = that.getBtns().time.get(0).selectedIndex;
+            var getUrl;
+            if(index==0){
+              getUrl = that.url;
+            } else if(index == 1){
+              var time = htime.getDiff(3*30);
+              getUrl = that.url + '&&timeAfter='+time;
+            } else if(index ==2 ){
+              var time = htime.getDiff(6*30);
+              getUrl = that.url + '&&timeAfter='+time;
+            }else if(index ==3 ){
+              var time = htime.getDiff(12*30);
+              getUrl = that.url + '&&timeAfter='+time;
+            }else if(index ==4 ){
+              getUrl = that.url + '&&timeAfter=1970-01-01';
+            }
+            console.log(getUrl);
+            if(that.getBtns().pie.hasClass('active')){
+              hlayer.loading({type:1,time:1000,shadow:true});
+              $.get(getUrl,function(data){
+                that.data = data;
+                var dataAfter = that.setData.pieData(that.data);
+                charts.pie(that.chartsEle,'图书分类借阅量统计','借阅量',dataAfter);
+              });
+            } else {
+              hlayer.loading({type:1,time:1000});
+              $.get(getUrl,function(data){
+                that.data = data;
+                var dataAfter = that.setData.barData(that.data);
+                charts.bar(that.chartsEle,'图书分类借阅量统计',null,'借阅量','类别',dataAfter.name,'借阅量',dataAfter.count);
+              });
+            }
+          }
+        }
+      },
+      getBtns: function(){
+        return {
+          pie: $('#js-charts-pie'),
+          bar: $('#js-charts-bar'),
+          time: $('#js-charts-time')
+        }
+      },
+      btnsListen: function(){
+        var that = this;
+        var btns = this.getBtns();
+        btns.pie.click(function(){
+          that.btnsCbs().pieCb();
+        });
+        btns.bar.click(function(){
+          that.btnsCbs().barCb();
+        });
+        btns.time.change(function(){
+          that.btnsCbs().timeCb();
+        })
+      }
+    };
+    main.init();
+  })();
+</script>
+</body>
+</html>
