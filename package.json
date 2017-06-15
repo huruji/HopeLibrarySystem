@@ -22,5 +22,8 @@
     "mysql": "^2.11.1",
     "node-schedule": "^1.2.0",
     "nodemailer": "^2.6.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
