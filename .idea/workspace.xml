@@ -2,288 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/api.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hope_v2.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/base64-url/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_ccitt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_kermit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_modbus.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc16_xmodem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc24.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc32.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc8.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/crc8_1wire.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/define_crc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crc/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/memory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/session.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express-session/session/store.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/on-headers/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/random-bytes/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/uid-safe/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin-default.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036484975.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036599423.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036607687.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486036615776.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486048472276.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486048628479.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1486049087990.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin1487405014642.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/admin71478350713140.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1478350412864.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1478350434845.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1484117578297.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1484121201958.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/admin/adminundefined1484121237748.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/avatar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/banner.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book10241484125474904.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book10241484125519304.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book12861484125572598.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486048643710.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486048717899.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486048940273.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486049037173.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486525489611.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486525854535.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1486554553556.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1487404915802.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book1487405362625.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book191478352257010.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478358444148.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478358495988.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478358741767.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478359121531.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478359249066.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book21478360104408.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book31484113692265.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book31484113834395.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book361478352295675.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/book971478352432342.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/bookdefault.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/book/bookdefault1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip-default.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361706499.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361765861.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361768445.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361769085.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip11478361796151.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip81478361675139.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/equip81484122431127.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/equip/upload_6b03bebd8151be476bc26d320158a477.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/img-default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/index-bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-bg1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-password.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/login-username.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486031987388.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032174555.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032294493.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032440114.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486032513173.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486033140017.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486033868813.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486046788123.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486046891125.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486046980615.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047039539.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047281842.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047401802.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047470228.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486047559856.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486048175948.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486048497819.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486524935032.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525036696.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525132098.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525236326.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525278899.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486525387981.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1486554506759.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1487403606320.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1487403611931.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/temp/temp1487404887204.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_140f36f91fd3289f2524dfd696c42e90.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_20784edb846cef32aabfa8fcf7fa2ab4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_21c8f9ac6810415813bf069135444f47.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_24b17f22994095fbfc927d09cef8f2b9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_2779af64e72157888aa43fc259642d6a.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_27947adc86c53cc4783cd921172bdcbe.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_290ad872baa89ea539f7e1e512693d67.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_2ec824a9e0fc9f4f5ae66392100d69c4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_3f4cad6f81deeaa09e83ad1eb6bb4de9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_46480d8d16acea77305e1aa50542e3d4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_4a638e906756c813b7d9b907c6b130d5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_51fe893a033184378f2cc03b864532e0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_595291865685aa18c53acc2d395230b1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_5e0deb9226ef1cdecfa9a73c131a1962.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_5ea3d3d3b20ec2e5099f5e8d458300f9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_694fb77f5a5eda6cc1ef061cd92f7c14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_71fc2f6ea09f75f8db4cf25c4da6791e.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_7341f844e00c670df91fa55266e6b9da.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_757965c4b3bd0dcf2614946339f13edb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_854c480583e908d09c65a8ce9d4db4d0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_91f18cae50b69977bdb68c48b708ea7f.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_98a1ddb4bfcaa2f867ef4242da3c2b91.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_9b526841723959726502418c22f7dd7d.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_aab68bff6c7977cd5d7cefff79d7fb87.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ab7ce320cb6d044b971936be2b318567.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ad1fef04d6d87a0aaff0f62fb5b4bd4b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_adf67de5ebeb6554eab7eb1bbd3a1e85.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_b62898f60bf4fa7007470573a4c5a2ca.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_bbaf05e4e8e0d6d751efcbc95a1312f2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_c9a646ae8cc008108cdc660e5128191f.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_cad317e9db5fe5bc86a0f0ebb3ebc919.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_cb21becd1022e5975f58d99bf21b65c1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_cb84a44e189e286ea72b7725de65f5d1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ea20fd86ff000fe01c4c685439715db8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_eb21cbd873a51e31d2215d19f5f0d31a.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_ec7488082b844a2c1fe00575991c77df.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/upload_f80239f0d9e6875d0748836e0c55e46b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user-default.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048218165.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048376377.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048435222.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1486048446035.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1487403380994.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user1487403620453.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user51478870815285.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348161002.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348230218.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348246889.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348402745.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478348464159.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478349013632.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user71478349163232.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/user/user801484100066318.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/未标题-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/admin-super/adduser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/data/charts.config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/hlayer/hlayer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/hlayer/hlayer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/layer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/icon-ext.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/loading-0.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/loading-1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/default/loading-2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/layer/skin/layer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/addBook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adduser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/admin-modify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/admin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adminModify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adminModifyuser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/bookcate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/borrow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/equip-reservation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/equipCheck.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/form-reset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/logout.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/modifybook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/modifyequip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/reset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/upload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/user-equip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/user.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/userAdd.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/userModify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/echarts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/form-reset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/hajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/jquery-hope.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/public/upload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/user/bookcate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin-book.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin-equip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin-super.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/admin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/api/api-book-borrow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/api/api-book.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/book.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/email-schedule.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/equip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/mysql_util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/public.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/user.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/check-login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/db-common.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/hopeDB-util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/hopeDB.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/md5-pass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/set-session.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-cateborrow.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-catecount.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-groupborrow.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-data-userborrow.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-modify.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-book/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-equip/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin-super/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/admin-modify.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/admin-reset.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/admin/admin-aside.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/admin/admin-nav.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/admin/admin-page.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/aside.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/banner.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/footer.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/form-btn.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/head.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/header.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/login.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/user/user-aside.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/public/user/user-nav.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/reservation.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-book.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-equip.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-modify.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/user/user-reset.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -301,16 +20,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="canvas.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/canvas.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_borrow-book.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_borrow-book.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -325,37 +34,7 @@
         <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_form.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="735">
-              <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-book.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-book.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="head.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/head.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="38" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="borrow-book.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/src/html/borrow-book.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -365,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/ui/src/sass/base/_resize.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
-              <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+              <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -375,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/src/ui/src/sass/main.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+              <caret line="19" column="19" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -385,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/ui/src/sass/helpers/_variables.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+              <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -535,7 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -545,32 +223,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sass" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -648,6 +300,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -655,7 +308,7 @@
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HopeLibrarySystemUE" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/list" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="C:\Users\忽如寄\AppData\Roaming\npm\node_modules\eslint" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -852,6 +505,7 @@
       <workItem from="1491493454144" duration="4609000" />
       <workItem from="1491547751597" duration="1325000" />
       <workItem from="1492788395502" duration="8125000" />
+      <workItem from="1497533160593" duration="59000" />
     </task>
     <task id="LOCAL-00114" summary="拓展hajax:art:">
       <created>1486536710885</created>
@@ -1200,41 +854,32 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263968000" />
+    <option name="totallyTimeSpent" value="264940000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1426" extended-state="7" />
+    <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1203125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22539063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32385466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22547585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1301,7 +946,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/gulpfile.js</url>
           <line>69</line>
-          <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
@@ -1343,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1351,7 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,7 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-420">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1378,7 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1281">
           <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1386,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1394,7 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="19" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1402,50 +1040,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/book-canvas-count.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/page-num.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/canvas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/header.html" />
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/book-canvas-count.html" />
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-user.html" />
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/page-num.html" />
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/canvas.html" />
     <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_borrow-book.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1457,39 +1059,18 @@
     <entry file="file://$PROJECT_DIR$/src/ui/src/sass/components/_form.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
-          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="38" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/src/html/borrow-book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/add-book.html" />
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/public/head.html" />
+    <entry file="file://$PROJECT_DIR$/src/ui/src/html/borrow-book.html" />
     <entry file="file://$PROJECT_DIR$/src/ui/src/sass/base/_resize.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
-          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -1497,7 +1078,7 @@
     <entry file="file://$PROJECT_DIR$/src/ui/src/sass/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <caret line="19" column="19" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1505,7 +1086,7 @@
     <entry file="file://$PROJECT_DIR$/src/ui/src/sass/helpers/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding />
         </state>
       </provider>
