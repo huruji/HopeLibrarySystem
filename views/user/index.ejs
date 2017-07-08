@@ -43,16 +43,33 @@
         </div>
     </section>
     <%- include("./../public/footer.ejs") %>
-    <script src="/js/public/hajax.js"></script>
+    <script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
     <script>
-        $('.js-return-btn').click(function(){
+      requirejs.config({
+        baseUrl: "/js",
+        paths:{
+          hajax: "public/hajax",
+          jquery: "public/jquery",
+          hlayer: "./hlayer/hlayer"
+        },
+        shim: {
+          hajax: {exports: "hajax"},
+          hlayer: {exports: "hlayer"}
+        }
+      })
+      requirejs(["hajax", "jquery"],function(hajax) {
+          console.log(hajax)
+          console.log($);
+          $('.js-return-btn').click(function(){
             var bookID=$(this).attr("data-bookid"),
-                borrowID=$(this).attr("data-borrowid");
+              borrowID=$(this).attr("data-borrowid");
             hajax.hformAjax({
-                data:{"bookID":bookID,"borrowID":borrowID},
-                redirect: '/user'
+              data:{"bookID":bookID,"borrowID":borrowID},
+              redirect: '/user'
             });
+          })
         })
+
     </script>
 </body>
 </html>
