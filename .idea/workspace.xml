@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-equip.ejs" afterPath="$PROJECT_DIR$/views/user/user-equip.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-reset.ejs" afterPath="$PROJECT_DIR$/views/user/user-reset.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-reset.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user-reset.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-845">
-              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="226">
+              <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -72,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-equip.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-equip.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            <state relative-caret-position="294">
+              <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -106,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="401">
-              <caret line="58" column="8" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="58" selection-end-column="8" />
+              <caret line="58" column="8" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="58" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -162,7 +162,6 @@
         <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" />
         <option value="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" />
         <option value="$PROJECT_DIR$/router/admin-super.js" />
-        <option value="$PROJECT_DIR$/views/user/user-reset.ejs" />
         <option value="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
         <option value="$PROJECT_DIR$/public/js/hlayer/hlayer.css" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -203,6 +202,7 @@
         <option value="$PROJECT_DIR$/public/js/public/upload.js" />
         <option value="$PROJECT_DIR$/public/js/public/form-reset.js" />
         <option value="$PROJECT_DIR$/views/user/user-equip.ejs" />
+        <option value="$PROJECT_DIR$/views/user/user-reset.ejs" />
       </list>
     </option>
   </component>
@@ -291,6 +291,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,14 +537,7 @@
       <workItem from="1497518979858" duration="178000" />
       <workItem from="1499514913402" duration="10076000" />
       <workItem from="1499529902921" duration="1857000" />
-      <workItem from="1499567215102" duration="7726000" />
-    </task>
-    <task id="LOCAL-00123" summary="添加api的设计文档:rocket:">
-      <created>1486636155132</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1486636155132</updated>
+      <workItem from="1499567215102" duration="8116000" />
     </task>
     <task id="LOCAL-00124" summary="图书api设计完成:rocket:">
       <created>1486654587140</created>
@@ -850,11 +875,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499584360726</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="用户设备预约修改为使用requirejs">
+      <created>1499585550714</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1499585550714</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278009000" />
+    <option name="totallyTimeSpent" value="278399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -912,8 +944,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="超级管理员前端界面脚本连接修复:bug:" />
-    <MESSAGE value="所有前端界面脚本连接修复:bug:" />
     <MESSAGE value="修正用户修改密码的bug:bug:" />
     <MESSAGE value="登录时增加键盘使用:rocket:" />
     <MESSAGE value="修正管理员增加用户的bug:bug:" />
@@ -937,7 +967,9 @@
     <MESSAGE value="用户首页和登录页切换为requirejs" />
     <MESSAGE value="用户借阅书籍完成requirejs" />
     <MESSAGE value="用户账号管理修改为使用requirejs" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户账号管理修改为使用requirejs" />
+    <MESSAGE value="用户设备预约修改为使用requirejs" />
+    <MESSAGE value="用户修改密码修改为使用requirejs" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户修改密码修改为使用requirejs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1243,14 +1275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-845">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1299,18 +1323,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
+    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="58" column="8" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="58" selection-end-column="8" />
+        <state relative-caret-position="294">
+          <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/user-equip.ejs">
+    <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        <state relative-caret-position="401">
+          <caret line="58" column="8" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="58" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
           <folding />
         </state>
       </provider>

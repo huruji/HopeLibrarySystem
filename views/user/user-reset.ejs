@@ -26,44 +26,60 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/form-reset.js"></script>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      "form-reset": "public/form-reset"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"}
+    }
+  });
+  requirejs(['jquery', 'hlayer', 'hajax', 'form-reset'],function($, hlayer, hajax, formReset) {
+    formReset();
     $("#save").click(function() {
-        var val1 = $("#reset-password").val();
-        var val2 = $("#config-password").val();
-        if (val1.length < 6) {
-            hlayer.alert({
-                text: '请至少输入6位密码',
-                time:2000,
-                mainBg:'#1c95ea',
-                icon:2
-            });
-            return;
-        }
-        if (val2.length == 0) {
-            hlayer.alert({
-                text: '请确认密码',
-                time:2000,
-                mainBg:'#1c95ea',
-                icon:2
-            });
-            return;
-        }
-        if (val1 !== val2) {
-            hlayer.alert({
-                text: '两次输入密码不一致',
-                time:2000,
-                mainBg:'#1c95ea',
-                icon:2
-            });
-            return;
-        }
-        hajax.ajax({
-            data:{password:val1},
-            redirect: 'user'
+      var val1 = $("#reset-password").val();
+      var val2 = $("#config-password").val();
+      if (val1.length < 6) {
+        hlayer.alert({
+          text: '请至少输入6位密码',
+          time:2000,
+          mainBg:'#1c95ea',
+          icon:2
         });
+        return;
+      }
+      if (val2.length == 0) {
+        hlayer.alert({
+          text: '请确认密码',
+          time:2000,
+          mainBg:'#1c95ea',
+          icon:2
+        });
+        return;
+      }
+      if (val1 !== val2) {
+        hlayer.alert({
+          text: '两次输入密码不一致',
+          time:2000,
+          mainBg:'#1c95ea',
+          icon:2
+        });
+        return;
+      }
+      hajax.ajax({
+        data:{password:val1},
+        redirect: '/user'
+      });
     })
-</script>
+  })
+  </script>
 </body>
 </html>
