@@ -66,18 +66,19 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/upload.js"></script>
-<script src="/js/public/form-reset.js"></script>
-<script src="/js/public/hajax.js"></script>
+<script data-main="/js/user/modify.js" src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    $('#save').click(function(){
-        hajax.hformAjax({
-            input:{studentNumber:'studentNumber',readerEmail:'readerEmail',readerPhone:'readerPhone',readerMajor:'readerMajor',readerName:'readerName'},
-            attr:{readerImgSrc:['js-upload-img','src']},
-            radio:{sex:'sex',readerGroup:'hopeGroup'},
-            redirect:'/user'
-        })
-    })
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      modify: "user/modify",
+      upload: "public/upload",
+      "form-reset": "public/form-reset"
+    }
+  })
 </script>
 </body>
 </html>
