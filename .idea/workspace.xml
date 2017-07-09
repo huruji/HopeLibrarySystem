@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/addBook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adduser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/admin-modify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/admin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adminModify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/adminModifyuser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/bookcate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/borrow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/equip-reservation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/equipCheck.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/form-reset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/logout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/modifybook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/modifyequip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/reset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/upload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/user-equip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/userAdd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/old/userModify.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/user-reset.ejs" afterPath="$PROJECT_DIR$/views/user/user-reset.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="226">
-              <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+              <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -46,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="65" column="9" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="65" selection-end-column="9" />
+              <caret line="65" column="9" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="65" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -66,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/public/js/public/form-reset.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+              <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -106,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="401">
-              <caret line="58" column="8" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="58" selection-end-column="8" />
+              <caret line="58" column="8" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="58" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -537,14 +557,7 @@
       <workItem from="1497518979858" duration="178000" />
       <workItem from="1499514913402" duration="10076000" />
       <workItem from="1499529902921" duration="1857000" />
-      <workItem from="1499567215102" duration="8116000" />
-    </task>
-    <task id="LOCAL-00124" summary="图书api设计完成:rocket:">
-      <created>1486654587140</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1486654587140</updated>
+      <workItem from="1499567215102" duration="8180000" />
     </task>
     <task id="LOCAL-00125" summary="添加图书数据库操作方法:rocket:">
       <created>1486655326991</created>
@@ -882,15 +895,21 @@
       <option name="project" value="LOCAL" />
       <updated>1499585550714</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="用户修改密码修改为使用requirejs">
+      <created>1499585924662</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1499585924662</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278399000" />
+    <option name="totallyTimeSpent" value="278463000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -900,7 +919,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2306003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1278,7 +1297,7 @@
     <entry file="file://$PROJECT_DIR$/views/user/user-book.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="65" column="9" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="65" selection-end-column="9" />
+          <caret line="65" column="9" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="65" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1318,7 +1337,7 @@
     <entry file="file://$PROJECT_DIR$/public/js/public/form-reset.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1334,7 +1353,7 @@
     <entry file="file://$PROJECT_DIR$/views/user/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
-          <caret line="58" column="8" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="58" selection-end-column="8" />
+          <caret line="58" column="8" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="58" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1342,7 +1361,7 @@
     <entry file="file://$PROJECT_DIR$/views/user/user-reset.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
-          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+          <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
           <folding />
         </state>
       </provider>
