@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
+    <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="设备管理员首页使用requirejs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-book/index.ejs" afterPath="$PROJECT_DIR$/views/admin-book/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" afterPath="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" afterPath="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,21 +23,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin-book-modify.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-modify.ejs">
+      <file leaf-file-name="admin-equip-check.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="82" column="26" lean-forward="false" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+            <state relative-caret-position="422">
+              <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
+      <file leaf-file-name="admin-equip-modify.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="130" column="23" lean-forward="false" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
+            <state relative-caret-position="401">
+              <caret line="77" column="7" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin-equip/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-922">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -45,7 +56,7 @@
       <file leaf-file-name="admin-modify.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="380">
               <caret line="63" column="9" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="63" selection-end-column="9" />
               <folding />
             </state>
@@ -94,9 +105,7 @@
       <list>
         <option value="$PROJECT_DIR$/views/user/reservation.ejs" />
         <option value="$PROJECT_DIR$/public/js/bookcate.js" />
-        <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" />
         <option value="$PROJECT_DIR$/views/admin-super/index.ejs" />
-        <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" />
         <option value="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" />
         <option value="$PROJECT_DIR$/router/admin-super.js" />
         <option value="$PROJECT_DIR$/public/js/hlayer/hlayer.css" />
@@ -143,6 +152,8 @@
         <option value="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" />
         <option value="$PROJECT_DIR$/views/admin-book/admin-book-modify.ejs" />
         <option value="$PROJECT_DIR$/views/admin-book/index.ejs" />
+        <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" />
+        <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" />
       </list>
     </option>
   </component>
@@ -230,7 +241,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin-book" />
+              <option name="myItemId" value="admin-equip" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -249,20 +260,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HopeLibrarySystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -477,14 +474,7 @@
       <workItem from="1497518979858" duration="178000" />
       <workItem from="1499514913402" duration="10076000" />
       <workItem from="1499529902921" duration="1857000" />
-      <workItem from="1499567215102" duration="10658000" />
-    </task>
-    <task id="LOCAL-00129" summary="图片上传模块修改为使用hlayer:art:">
-      <created>1487403736526</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1487403736526</updated>
+      <workItem from="1499567215102" duration="11522000" />
     </task>
     <task id="LOCAL-00130" summary="用户借阅图书修改为使用hlayer:art:">
       <created>1487404245733</created>
@@ -822,11 +812,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499588257446</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="图书管理员首页使用requirejs">
+      <created>1499588483441</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1499588483441</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280941000" />
+    <option name="totallyTimeSpent" value="281805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -884,7 +881,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="压缩css:art:" />
     <MESSAGE value="表单添加autofocus:art:" />
     <MESSAGE value="restful api开始构建:art:" />
     <MESSAGE value="借阅restful api根据图书名返回完成:rocket:" />
@@ -909,7 +905,8 @@
     <MESSAGE value="管理员修改信息使用requirejs" />
     <MESSAGE value="图书管理员增加图书使用requirejs" />
     <MESSAGE value="图书管理员修改图书信息使用requirejs" />
-    <option name="LAST_COMMIT_MESSAGE" value="图书管理员修改图书信息使用requirejs" />
+    <MESSAGE value="图书管理员首页使用requirejs" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书管理员首页使用requirejs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -924,21 +921,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/router/api/api-borrow.js" />
-    <entry file="file://$PROJECT_DIR$/api.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/api-book-borrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="29" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
@@ -1268,26 +1250,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="135" column="7" lean-forward="true" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-modify.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="268">
           <caret line="82" column="26" lean-forward="false" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-equip/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-922">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="380">
           <caret line="63" column="9" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="63" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/index.ejs">
+    <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="130" column="23" lean-forward="false" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
+        <state relative-caret-position="401">
+          <caret line="77" column="7" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="7" />
           <folding />
         </state>
       </provider>

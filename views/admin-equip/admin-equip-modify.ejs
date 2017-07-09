@@ -35,29 +35,45 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/upload.js"></script>
-<script src="/js/public/form-reset.js"></script>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $('#save').click(function(){
-            var equipName=$.trim($("#equipName").val());
-            var hopeID=$.trim($("#hopeID").val());
-            var equipAdmin=$.trim($("#hopeAdmin").val());
-            if(!equipName || !hopeID || !equipAdmin){
-                layer.alert("设备名、厚朴编号、管理员为必填",{
-                    skin:'layui-layer-molv'
-                });
-                return;
-            }
-            hajax.hformAjax({
-                input:{equipName:'equipName',hopeID:'hopeID',equipAdmin:'hopeAdmin'},
-                attr: {'equipImgSrc': ['js-upload-img','src']},
-                redirect: '/admin/admin-equip'
-            })
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      "form-reset": "public/form-reset",
+      upload: "public/upload"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"},
+      "form-reset": {exports: "form-reset"},
+      upload: {exports: "upload"}
+    }
+  });
+  requirejs(['jquery', 'upload', 'hajax', 'form-reset'], function($, upload, hajax, formReset) {
+    formReset();
+    upload();
+    $('#save').click(function(){
+      var equipName=$.trim($("#equipName").val());
+      var hopeID=$.trim($("#hopeID").val());
+      var equipAdmin=$.trim($("#hopeAdmin").val());
+      if(!equipName || !hopeID || !equipAdmin){
+        layer.alert("设备名、厚朴编号、管理员为必填",{
+          skin:'layui-layer-molv'
         });
-    })(window,jQuery)
-
+        return;
+      }
+      hajax.hformAjax({
+        input:{equipName:'equipName',hopeID:'hopeID',equipAdmin:'hopeAdmin'},
+        attr: {'equipImgSrc': ['js-upload-img','src']},
+        redirect: '/admin/admin-equip'
+      })
+    });
+  });
 </script>
 </body>
 </html>
