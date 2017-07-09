@@ -80,10 +80,27 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/admin-super/adduser.js"></script>
-<script src="/js/public/form-reset.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      "form-reset": "public/form-reset",
+      upload: "public/upload",
+      adduser: "admin-super/adduser"
+    },
+    shim: {
+      "form-reset": {exports: "form-reset"},
+      adduser: {exports: 'adduser'}
+    }
+  });
+  requirejs(['adduser', 'form-reset'], function(adduser, formReset) {
+    adduser();
+    formReset();
+  });
 </script>
 </body>
 </html>

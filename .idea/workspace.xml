@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="设备管理员首页使用requirejs">
+    <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" afterPath="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" afterPath="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/admin-super/adduser.js" afterPath="$PROJECT_DIR$/public/js/admin-super/adduser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" afterPath="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" afterPath="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-super/index.ejs" afterPath="$PROJECT_DIR$/views/admin-super/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/public/footer.ejs" afterPath="$PROJECT_DIR$/views/public/footer.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,21 +26,53 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin-equip-check.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs">
+      <file leaf-file-name="admin-super-modify-user.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+            <state relative-caret-position="126">
+              <caret line="81" column="40" lean-forward="true" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-equip-modify.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs">
+      <file leaf-file-name="admin-super-add-user.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="77" column="7" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="7" />
+            <state relative-caret-position="268">
+              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="103" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/admin-super/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="106" column="22" lean-forward="true" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adduser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/admin-super/adduser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form-btn.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/public/form-btn.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="68" lean-forward="false" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -103,16 +138,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/user/reservation.ejs" />
-        <option value="$PROJECT_DIR$/public/js/bookcate.js" />
-        <option value="$PROJECT_DIR$/views/admin-super/index.ejs" />
-        <option value="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" />
-        <option value="$PROJECT_DIR$/router/admin-super.js" />
         <option value="$PROJECT_DIR$/public/js/hlayer/hlayer.css" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/router/user.js" />
         <option value="$PROJECT_DIR$/config.js" />
-        <option value="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" />
         <option value="$PROJECT_DIR$/router/api/api-borrow.js" />
         <option value="$PROJECT_DIR$/hope_v2.sql" />
         <option value="$PROJECT_DIR$/router/api/api-book-borrow.js" />
@@ -154,6 +183,12 @@
         <option value="$PROJECT_DIR$/views/admin-book/index.ejs" />
         <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-check.ejs" />
         <option value="$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs" />
+        <option value="$PROJECT_DIR$/views/public/form-btn.ejs" />
+        <option value="$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs" />
+        <option value="$PROJECT_DIR$/views/public/footer.ejs" />
+        <option value="$PROJECT_DIR$/public/js/admin-super/adduser.js" />
+        <option value="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" />
+        <option value="$PROJECT_DIR$/views/admin-super/index.ejs" />
       </list>
     </option>
   </component>
@@ -241,7 +276,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin-equip" />
+              <option name="myItemId" value="admin-super" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -255,11 +290,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin-super" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -474,14 +545,7 @@
       <workItem from="1497518979858" duration="178000" />
       <workItem from="1499514913402" duration="10076000" />
       <workItem from="1499529902921" duration="1857000" />
-      <workItem from="1499567215102" duration="11522000" />
-    </task>
-    <task id="LOCAL-00130" summary="用户借阅图书修改为使用hlayer:art:">
-      <created>1487404245733</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1487404245733</updated>
+      <workItem from="1499567215102" duration="12758000" />
     </task>
     <task id="LOCAL-00131" summary="超级管理员删除用户修改为使用hlayer:art:">
       <created>1487405073675</created>
@@ -819,11 +883,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499588483441</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="设备管理员系列页面使用requirejs">
+      <created>1499589350579</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1499589350579</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281805000" />
+    <option name="totallyTimeSpent" value="283041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -881,7 +952,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="表单添加autofocus:art:" />
     <MESSAGE value="restful api开始构建:art:" />
     <MESSAGE value="借阅restful api根据图书名返回完成:rocket:" />
     <MESSAGE value="借阅restful api完成:rocket:" />
@@ -906,7 +976,8 @@
     <MESSAGE value="图书管理员增加图书使用requirejs" />
     <MESSAGE value="图书管理员修改图书信息使用requirejs" />
     <MESSAGE value="图书管理员首页使用requirejs" />
-    <option name="LAST_COMMIT_MESSAGE" value="图书管理员首页使用requirejs" />
+    <MESSAGE value="设备管理员系列页面使用requirejs" />
+    <option name="LAST_COMMIT_MESSAGE" value="设备管理员系列页面使用requirejs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -921,48 +992,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/router/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/api/api-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/admin/admin-nav.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/public/admin/admin-aside.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-userborrow.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-data-groupborrow.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1290,10 +1319,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/public/form-btn.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="68" lean-forward="false" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/public/footer.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin-equip/admin-equip-modify.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="77" column="7" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="7" />
+        <state relative-caret-position="79">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="76" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-modify-user.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="81" column="40" lean-forward="true" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/admin-super/adduser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="103" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-super/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="106" column="22" lean-forward="true" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
           <folding />
         </state>
       </provider>

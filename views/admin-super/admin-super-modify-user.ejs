@@ -51,12 +51,7 @@
                         <label for="">专业</label>
                         <input type="text" value="<%=user.readerMajor%>" id="readerMajor">
                     </div>
-                    <div class="main-right-form-button clearfix">
-                        <div class="main-right-form-button-confirm">
-                            <input type="button" value="保存" id="save">
-                        </div>
-                        <div class="main-right-form-button-cancel">重置</div>
-                    </div>
+                    <%- include("./../public/form-btn.ejs")%>
                 </form>
                 <%}else{%>
                 <form form-data="admin" id="user-form">
@@ -85,59 +80,73 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/form-reset.js"></script>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        var type=$("#user-form").attr("form-data");
-        if(type=="user") {
-            $("#save").click(function () {
-                var sex = $.trim($(":radio[name=sex]:checked").parent().text());
-                var studentNumber = $.trim($("#studentNumber").val());
-                var readerEmail = $.trim($("#readerEmail").val());
-                var readerPhone = $.trim($("#readerPhone").val());
-                var readerMajor = $.trim($("#readerMajor").val());
-                console.log(readerMajor);
-                var readerGroup = $.trim($(":radio[name=hopeGroup]:checked").parent().text());
-                var readerName = $.trim($("#readerName").val());
-                if (!readerName || !readerEmail || !sex || !readerGroup) {
-                    layer.alert("用户名、性别、邮箱、厚朴组为必填", {
-                        skin: 'layui-layer-molv'
-                    });
-                    return;
-                }
-                hajax.ajax({
-                    data: {
-                        "readerName": readerName,
-                        "sex": sex,
-                        "studentNumber": studentNumber,
-                        "readerEmail": readerEmail,
-                        "readerPhone": readerPhone,
-                        "readerMajor": readerMajor,
-                        "readerGroup": readerGroup
-                    },
-                    redirect: '/admin'
-                })
-            });
-        }else if(type=="admin"){
-            $("#save").click(function(){
-                var permission=$.trim($(":radio[name=permission]:checked").parent().attr("user-type"));
-                var readerEmail=$.trim($("#readerEmail").val());
-                var readerName=$.trim($("#adminName").val());
-                if(!readerName || !readerEmail || !permission){
-                    layer.alert("用户名、邮箱、权限为必填",{
-                        skin: 'layui-layer-molv'
-                    });
-                    return;
-                }
-                hajax.ajax({
-                    data:{"readerName":readerName,"readerEmail":readerEmail,"permission":permission},
-                    redirect:'/admin'
-                })
-            })
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      "form-reset": "public/form-reset",
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"},
+      "form-reset": {exports: "form-reset"},
+    }
+  });
+  requirejs(['jquery', 'hajax', 'form-reset'], function($,  hajax, formReset) {
+    formReset();
+    var type=$("#user-form").attr("form-data");
+    if(type=="user") {
+      $("#save").click(function () {
+        var sex = $.trim($(":radio[name=sex]:checked").parent().text());
+        var studentNumber = $.trim($("#studentNumber").val());
+        var readerEmail = $.trim($("#readerEmail").val());
+        var readerPhone = $.trim($("#readerPhone").val());
+        var readerMajor = $.trim($("#readerMajor").val());
+        console.log(readerMajor);
+        var readerGroup = $.trim($(":radio[name=hopeGroup]:checked").parent().text());
+        var readerName = $.trim($("#readerName").val());
+        if (!readerName || !readerEmail || !sex || !readerGroup) {
+          layer.alert("用户名、性别、邮箱、厚朴组为必填", {
+            skin: 'layui-layer-molv'
+          });
+          return;
         }
-    })(window,jQuery)
-
+        hajax.ajax({
+          data: {
+            "readerName": readerName,
+            "sex": sex,
+            "studentNumber": studentNumber,
+            "readerEmail": readerEmail,
+            "readerPhone": readerPhone,
+            "readerMajor": readerMajor,
+            "readerGroup": readerGroup
+          },
+          redirect: '/admin'
+        })
+      });
+    }else if(type=="admin"){
+      $("#save").click(function(){
+        var permission=$.trim($(":radio[name=permission]:checked").parent().attr("user-type"));
+        var readerEmail=$.trim($("#readerEmail").val());
+        var readerName=$.trim($("#adminName").val());
+        if(!readerName || !readerEmail || !permission){
+          layer.alert("用户名、邮箱、权限为必填",{
+            skin: 'layui-layer-molv'
+          });
+          return;
+        }
+        hajax.ajax({
+          data:{"readerName":readerName,"readerEmail":readerEmail,"permission":permission},
+          redirect:'/admin'
+        })
+      })
+    }
+  });
 </script>
 </body>
 </html>

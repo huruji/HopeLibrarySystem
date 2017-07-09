@@ -81,27 +81,44 @@
     </div>
         </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $(".js-drop-user").click(function(){
-            var dropData=$(this).attr("data-user");
-            console.log(111);
-            hlayer.alert({
-                text:'删除用户将会删除该用户的所有信息',
-                icon:3,
-                cancelBtn:true,
-                mainBg:'#1c95ea',
-                confirmCb:function(){
-                    hajax.hformAjax({
-                        data:{"dropData":dropData},
-                        redirect:'/admin',
-                        url:'/admin/admindropuser'
-                    });
-                }
-            });
-        });
-    })(window,jQuery);
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+    },
+    shim: {
+      jquery: {exports: "jquery"},
+      hajax: {exports: 'hajax'},
+      hlayer: {exports: 'hlayer'}
+    }
+  });
+  requirejs(['jquery', 'hajax', 'hlayer'], function($, hajax, hlayer) {
+    $(".js-drop-user").click(function(){
+      var dropData=$(this).attr("data-user");
+      console.log(111);
+      hlayer.alert({
+        text:'删除用户将会删除该用户的所有信息',
+        icon:3,
+        cancelBtn:true,
+        width:'300px',
+        mainBg:'#1c95ea',
+        confirmCb:function(){
+          hajax.hformAjax({
+            data:{"dropData":dropData},
+            redirect:'/admin',
+            url:'/admin/admindropuser'
+          });
+        },
+        cancelCb: 'close'
+      });
+    });
+  });
+</script>
+<script>
 </script>
 </body>
 </html>
