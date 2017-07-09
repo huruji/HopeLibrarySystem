@@ -53,34 +53,51 @@
 </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/upload.js"></script>
-<script src="/js/public/form-reset.js"></script>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $('#save').click(function(){
-            var bookName = $('#bookName').val();
-            var hopeID = $('#hopeID').val();
-            var bookISBN = $('#bookISBN').val();
-            if(!bookName || !hopeID || !bookISBN){
-                hlayer.alert({
-                    text:'图书名、编号、ISBN为必填',
-                    time:2000,
-                    mainBg:'#1c95ea',
-                    icon:2
-                });
-                return;
-            }
-            var data = {bookID: $(this).attr('book-data')};
-            hajax.hformAjax({
-                input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},
-                radio: {bookGroup: 'bookGroup'},
-                attr: {'bookImgSrc': ['js-upload-img','src']},
-                data: data,
-                redirect:'/admin'
-            });
-        })
-    })(window,jQuery)
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      "form-reset": "public/form-reset",
+      upload: "public/upload"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"},
+      "form-reset": {exports: "form-reset"},
+      upload: {exports: "upload"}
+    }
+  });
+  requirejs(['jquery', 'hlayer', 'hajax', 'form-reset', 'upload'], function($, hlayer, hajax, formReset, upload) {
+    formReset();
+    upload();
+    $('#save').click(function(){
+      var bookName = $('#bookName').val();
+      var hopeID = $('#hopeID').val();
+      var bookISBN = $('#bookISBN').val();
+      if(!bookName || !hopeID || !bookISBN){
+        hlayer.alert({
+          text:'图书名、编号、ISBN为必填',
+          time:2000,
+          mainBg:'#1c95ea',
+          icon:2
+        });
+        return;
+      }
+      var data = {bookID: $(this).attr('book-data')};
+      hajax.hformAjax({
+        input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},
+        radio: {bookGroup: 'bookGroup'},
+        attr: {'bookImgSrc': ['js-upload-img','src']},
+        data: data,
+        redirect:'/admin'
+      });
+    });
+  });
 </script>
 </body>
 </html>

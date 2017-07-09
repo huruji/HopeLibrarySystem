@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4fd392a-bccf-4f9e-b0dc-d94788751378" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/admin-modify.ejs" afterPath="$PROJECT_DIR$/views/admin/admin-modify.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/admin-reset.ejs" afterPath="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" afterPath="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +22,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin-modify.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin-modify.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="49" column="6" lean-forward="true" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-book-add.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-add.ejs">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+              <caret line="100" column="9" lean-forward="true" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -36,8 +45,8 @@
       <file leaf-file-name="admin-reset.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="83" column="9" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="83" selection-end-column="9" />
+            <state relative-caret-position="373">
+              <caret line="82" column="5" lean-forward="true" selection-start-line="30" selection-start-column="2" selection-end-line="82" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -137,7 +146,6 @@
         <option value="$PROJECT_DIR$/router/user.js" />
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/views/admin-super/admin-super-add-user.ejs" />
-        <option value="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" />
         <option value="$PROJECT_DIR$/router/api/api-borrow.js" />
         <option value="$PROJECT_DIR$/hope_v2.sql" />
         <option value="$PROJECT_DIR$/router/api/api-book-borrow.js" />
@@ -174,6 +182,7 @@
         <option value="$PROJECT_DIR$/views/user/user-reset.ejs" />
         <option value="$PROJECT_DIR$/views/admin/admin-reset.ejs" />
         <option value="$PROJECT_DIR$/views/admin/admin-modify.ejs" />
+        <option value="$PROJECT_DIR$/views/admin-book/admin-book-add.ejs" />
       </list>
     </option>
   </component>
@@ -244,6 +253,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HopeLibrarySystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin-book" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -490,14 +517,7 @@
       <workItem from="1497518979858" duration="178000" />
       <workItem from="1499514913402" duration="10076000" />
       <workItem from="1499529902921" duration="1857000" />
-      <workItem from="1499567215102" duration="9723000" />
-    </task>
-    <task id="LOCAL-00126" summary="图书apibug处理完成:bug:">
-      <created>1486658016133</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1486658016133</updated>
+      <workItem from="1499567215102" duration="10142000" />
     </task>
     <task id="LOCAL-00127" summary="利用简单的节点插入来替代layer:art:">
       <created>1487402548234</created>
@@ -835,11 +855,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499586019600</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="管理员修改信息使用requirejs">
+      <created>1499587555912</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1499587555912</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280006000" />
+    <option name="totallyTimeSpent" value="280425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -897,7 +924,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="登录时增加键盘使用:rocket:" />
     <MESSAGE value="修正管理员增加用户的bug:bug:" />
     <MESSAGE value="修正用户和管理员修改密码的bug:bug:" />
     <MESSAGE value="压缩css:art:" />
@@ -922,7 +948,8 @@
     <MESSAGE value="用户设备预约修改为使用requirejs" />
     <MESSAGE value="用户修改密码修改为使用requirejs" />
     <MESSAGE value="删除原版本中旧的js文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除原版本中旧的js文件" />
+    <MESSAGE value="管理员修改信息使用requirejs" />
+    <option name="LAST_COMMIT_MESSAGE" value="管理员修改信息使用requirejs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -977,13 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-add.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="85" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="85" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1288,16 +1308,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/admin-reset.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="83" column="9" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="373">
+          <caret line="82" column="5" lean-forward="true" selection-start-line="30" selection-start-column="2" selection-end-line="82" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/admin-modify.ejs">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="49" column="6" lean-forward="true" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin-book/admin-book-add.ejs">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <caret line="100" column="9" lean-forward="true" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
           <folding />
         </state>
       </provider>
