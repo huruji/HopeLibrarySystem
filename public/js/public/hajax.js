@@ -1,6 +1,4 @@
 define('hajax',['hlayer','jquery'], function(hlayer, $) {
-  console.log(hlayer);
-  console.log($);
   return{
     ajax: function(cfg){
       $.ajax({
@@ -61,8 +59,6 @@ define('hajax',['hlayer','jquery'], function(hlayer, $) {
       for(var key in attr) {
         cfg.data[key] = $.trim($('#' + attr[key][0]).attr(attr[key][1]));
       }
-      console.log(12345);
-      console.log(cfg.data);
       this.ajax(cfg);
     }
   };

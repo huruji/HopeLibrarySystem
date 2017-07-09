@@ -15,8 +15,6 @@ define('adduser', ['jquery', 'hlayer'], function($, hlayer) {
         var readerEmail=$("#email").val();
         var password=$("#password").val();
         var confirmPassword=$("#confirmPassword").val();
-        console.log(password);
-        console.log(confirmPassword);
         if(!permission || !readerName || !readerEmail || !password){
           hlayer.alert({
             text:'用户名、权限、邮箱、密码为必填',
@@ -70,7 +68,6 @@ define('adduser', ['jquery', 'hlayer'], function($, hlayer) {
             permission:permission,
           }
         }
-        console.log("data:"+data);
         $.ajax({
           dataType:"json",
           data:data,

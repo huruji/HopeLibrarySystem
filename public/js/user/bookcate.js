@@ -3,10 +3,8 @@ define('bookcate', ['jquery', 'hlayer'], function($, hlayer) {
   function scroll() {
     var ajaxWhe = true;
     $(window).scroll(function () {
-      console.log(ajaxWhe);
       if (($(window).scrollTop() >= ($(document).height() - $(window).height() - 1)) && ajaxWhe) {
         var bookNum = $(".main-right-borrow-list-item").length;
-        console.log(bookNum);
         $.ajax({
           dataType: "json",
           async: true,
@@ -15,7 +13,6 @@ define('bookcate', ['jquery', 'hlayer'], function($, hlayer) {
           beforeSend: function () {
           },
           success: function (response) {
-            console.log("response.book.length:" + response.book.length);
             for (var i = 0, max = response.book.length; i < max; i++) {
               var btn = '';
               if (response.book[i].bookLeft <= 0) {
@@ -54,9 +51,7 @@ define('bookcate', ['jquery', 'hlayer'], function($, hlayer) {
   }
   function borrow() {
     $(".js-borrow-btn").click(function(){
-      console.log(111111111111);
       var borrowID=$(this).attr("data-borrowID");
-      console.log(borrowID);
       $.ajax({
         dataType:"json",
         async:true,
