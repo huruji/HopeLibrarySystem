@@ -57,7 +57,7 @@ router.route('/borrow').post(function(req,res){
                       + ',borrowUserID='
                       + userID
                       + ',borrowTime=CURDATE(),returnBefore=ADDDATE(CURDATE(),30)';
-        if(bookLeft > 0) {
+        if(bookLeft >= 0) {
           borrowDB.query(query, (rows) => {
             const setDataJson = {
               bookLeft: bookLeft

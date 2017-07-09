@@ -43,39 +43,26 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/user/bookcate.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $(".js-borrow-btn").click(function(){
-            var borrowID=$(this).attr("data-borrowID");
-            console.log(borrowID);
-            $.ajax({
-                dataType:"json",
-                async:true,
-                data:{"borrowID":borrowID},
-                type:"POST",
-                url:"/book/borrow",
-                success:function(response){
-                    hlayer.alert({
-                        text:response.message,
-                        time:2000,
-                        mainBg:'#1c95ea',
-                        icon:1
-                    });
-                    setTimeout(function(){
-                        location.assign(location.href);
-                    },2000);
-                },
-                error:function(){
-                    hlayer.alert({
-                        text:'请求失败',
-                        time:2000,
-                        mainBg:'#1c95ea',
-                        icon:2
-                    });
-                }
-            })
-        })
-    })(window,jQuery);</script>
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      bookcate: "./user/bookcate"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      bookcate: {exports: "bookcate"}
+    }
+  })
+  requirejs(["jquery", 'hlayer', 'bookcate'],function($, hlayer,bookcate) {
+    bookcate.borrow();
+    bookcate.scroll();
+  })
+</script>
 </body>
 </html>
