@@ -97,26 +97,41 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $(".js-drop-book").click(function(){
-            var dropData=$(this).attr("data-user");
-            hlayer.alert({
-                text:'删除图书将会删除该图书的所有信息',
-                icon:3,
-                cancelBtn:true,
-                mainBg:'#1c95ea',
-                confirmCb:function(){
-                    hajax.hformAjax({
-                        data:{"bookID":dropData},
-                        redirect:'/admin',
-                        url:'/admin/dropbook'
-                    });
-                }
-            });
-        });
-    })(window,jQuery)
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"},
+    }
+  });
+  requirejs(['jquery', 'hajax', 'hlayer'], function($, hajax, hlayer) {
+    $(".js-drop-book").click(function(){
+      var dropData=$(this).attr("data-user");
+      hlayer.alert({
+        text:'删除图书将会删除该图书的所有信息',
+        icon:3,
+        cancelBtn:true,
+        width:'300px',
+        mainBg:'#1c95ea',
+        confirmCb:function(){
+          hajax.hformAjax({
+            data:{"bookID":dropData},
+            redirect:'/admin',
+            url:'/admin/dropbook'
+          });
+        },
+        cancelCb:'close'
+      });
+    });
+  });
 </script>
 </body>
 </html>
