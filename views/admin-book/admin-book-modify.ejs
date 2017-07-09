@@ -53,22 +53,39 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/upload.js"></script>
-<script src="/js/public/form-reset.js"></script>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $('#save').click(function(){
-            var data = {bookID: $(this).attr('book-data')};
-            hajax.hformAjax({
-                input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},
-                radio: {bookGroup: 'bookGroup'},
-                attr: {'bookImgSrc': ['js-upload-img','src']},
-                data: data,
-                redirect:'/admin'
-            })
-        })
-    })(window,jQuery);
-</script>
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "./hlayer/hlayer",
+      "form-reset": "public/form-reset",
+      upload: "public/upload"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"},
+      "form-reset": {exports: "form-reset"},
+      upload: {exports: "upload"}
+    }
+  });
+  requirejs(['jquery', 'upload', 'hajax', 'form-reset'], function($, upload, hajax, formReset) {
+    formReset();
+    upload();
+    $('#save').click(function(){
+      var data = {bookID: $(this).attr('book-data')};
+      hajax.hformAjax({
+        input:{bookName:'bookName',hopeID:'hopeID',bookAuthor:'bookAuthor',bookISBN:'bookISBN',bookPress:'bookPress'},
+        radio: {bookGroup: 'bookGroup'},
+        attr: {'bookImgSrc': ['js-upload-img','src']},
+        data: data,
+        redirect:'/admin'
+      })
+    })
+  });
+  </script>
 </body>
 </html>
