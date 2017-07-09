@@ -43,36 +43,49 @@
     </div>
 </section>
 <%- include("./../public/footer.ejs") %>
-<script src="/js/public/hajax.js"></script>
+<script src="/js/public/require.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    (function(global,$){
-        $(".js-borrow-btn").click(function(){
-            var equipID=$(this).attr("data-reservationID");
-            hajax.ajax({
-                data:{"equipID":equipID},
-                url:"/equip/equipemail",
-                successFn:function(res){
-                    var text = '你预约的设备是' + res.equipName + '，管理员是' + res.adminName + '，请填写你需要发送给管理员的信息(如：取设备的时间，需要的配件），可为空';
-                    hlayer.prompt({
-                        title:'预约信息',
-                        text: text,
-                        formType: 3,
-                        height: '350px',
-                        width: '500px',
-                        mainBg:'#1c95ea',
-                        confirmCb: function(value){
-                            console.log(value);
-                            hajax.ajax({
-                                data:{"equipID":equipID,"info":value},
-                                url:'/equip/equipreservation',
-                                redirect:window.location,
-                            })
-                        }
-                    })
-                }
-            });
-        })
-    })(window,jQuery);
+  requirejs.config({
+    baseUrl: "/js",
+    paths:{
+      hajax: "public/hajax",
+      jquery: "public/jquery",
+      hlayer: "hlayer/hlayer"
+    },
+    shim: {
+      hajax: {exports: "hajax"},
+      hlayer: {exports: "hlayer"},
+      jquery: {exports: "jquery"}
+    }
+  })
+    requirejs(['hajax', 'hlayer', 'jquery'], function(hajax, hlayer, $) {
+      $(".js-borrow-btn").click(function(){
+        var equipID=$(this).attr("data-reservationID");
+        hajax.ajax({
+          data:{"equipID":equipID},
+          url:"/equip/equipemail",
+          successFn:function(res){
+            var text = '你预约的设备是' + res.equipName + '，管理员是' + res.adminName + '，请填写你需要发送给管理员的信息(如：取设备的时间，需要的配件），可为空';
+            hlayer.prompt({
+              title:'预约信息',
+              text: text,
+              formType: 3,
+              height: '350px',
+              width: '500px',
+              mainBg:'#1c95ea',
+              confirmCb: function(value){
+                console.log(value);
+                hajax.ajax({
+                  data:{"equipID":equipID,"info":value},
+                  url:'/equip/equipreservation',
+                  redirect:window.location,
+                })
+              }
+            })
+          }
+        });
+      })
+    })
 </script>
 </body>
 </html>
