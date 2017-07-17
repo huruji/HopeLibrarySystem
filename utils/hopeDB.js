@@ -1,5 +1,5 @@
 const dbCommon = require('./db-common');
-const mysqlUtil = require('./../router/mysql_util');
+const mysqlUtil = require('./../routes/mysql_util');
 const connection = mysqlUtil.DBConnection;
 
 const adminOperate = new dbCommon.operate(connection, 'hopeadmin');

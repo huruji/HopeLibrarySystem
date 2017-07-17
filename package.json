@@ -4,7 +4,8 @@
   "description": "book camera and so on",
   "main": "hope",
   "scripts": {
-    "test": "node config.js"
+    "test": "node config.js",
+    "start": "node bin/www"
   },
   "keywords": [
     "huruji",
@@ -20,9 +21,11 @@
     "express": "^4.14.0",
     "express-session": "^1.15.3",
     "formidable": "^1.0.17",
+    "morgan": "^1.8.2",
     "mysql": "^2.11.1",
     "node-schedule": "^1.2.0",
-    "nodemailer": "^2.6.4"
+    "nodemailer": "^2.6.4",
+    "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
