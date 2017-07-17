@@ -8,7 +8,7 @@ Beta版本0.0.1请浏览[http://98.142.130.76:3000/](http://98.142.130.76:3000/)
 1. git clone <code>https://github.com/huruji/HopeLibrarySystem</code>
 2. use file <code>hope_v2.sql</code> to create your database in your mysql
 3. modify file <code>config.js</code> base on your needs
-4. start up app <code>node app</code>
+4. start up app <code>npm run start</code>
 5. view <code>localhost:3000</code> in your browser
 
 ## Usage
