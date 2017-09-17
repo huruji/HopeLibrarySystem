@@ -38,7 +38,10 @@ router.get('/book-borrow-count', function(req, res, next) {
   apiBookBorrow.apiBookBorrowCount(req, res, next);
 });
 router.post('/admin/login', function(req, res, next) {
-  apiLogin.admin(req,res,next)
+  apiLogin.admin(req,res,next);
+});
+router.post('/user/login', function(req, res, next) {
+  apiLogin.user(req, res, next);
 })
 
 

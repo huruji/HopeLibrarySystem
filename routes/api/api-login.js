@@ -44,6 +44,39 @@ const apiLogin = {
         res.json(message);
       }
     });
+  },
+  user(req, res, next) {
+    console.log(123123123);
+    const password_md5=md5Pass(req.body.password);
+    const userName = req.body.username;
+    const query = 'SELECT * FROM hopereader'
+      + ' WHERE readerName='
+      + mysql_util.DBConnection.escape(userName)
+      + 'AND readerPassword= "'
+      + password_md5
+      + '"';
+    userDB.query(query, (rows) => {
+      const user = rows[0];
+      if(rows.length==0){
+        const error={
+          code:404,
+          message:"用户名或密码错误"
+        };
+        res.send(error)
+      }else {
+        res.cookie("userId", rows[0].readerID, {
+          maxAge: 30 * 60 * 1000,
+          path: '/',
+        });
+        const message = {
+          code: 200,
+          message: "成功",
+          userId: user.readerID
+        };
+        setSession(req, {userID: user.readerID, userSign: true});
+        res.json(message);
+      }
+    });
   }
 }
 
