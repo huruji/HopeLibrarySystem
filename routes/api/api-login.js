@@ -12,8 +12,10 @@ const md5Pass = require('./../../utils/md5-pass');
 const hopeDB = require('./../../utils/hopeDB.js');
 const [adminDB, userDB, bookDB, equipDB] = [hopeDB.adminDB, hopeDB.userDB, hopeDB.bookDB, hopeDB.equipDB];
 
+const host = require('./../../config').host;
 const apiLogin = {
   admin(req, res, next) {
+    console.log(123123123);
     const password_md5=md5Pass(req.body.password);
     const userName = req.body.username;
     const query = 'SELECT * FROM hopeadmin'
@@ -29,7 +31,7 @@ const apiLogin = {
           code:404,
           msg:"用户名或密码错误"
         };
-        res.send(error)
+        res.json(error)
       }else{
         res.cookie("adminId",rows[0].adminID,{
           maxAge: 30 * 60 * 1000,
@@ -38,7 +40,9 @@ const apiLogin = {
         const message ={
           code:200,
           msg:"成功",
-          userId:rows[0].adminID
+          userId:rows[0].adminID,
+          userImg: `${host}${rows[0].adminImgSrc}`,
+          userName: rows[0].adminName
         };
         setSession(req,{adminID:admin.adminID,adminSign: true});
         res.json(message);
@@ -68,10 +72,13 @@ const apiLogin = {
           maxAge: 30 * 60 * 1000,
           path: '/',
         });
+        console.log(user);
         const message = {
           code: 200,
           message: "成功",
-          userId: user.readerID
+          userId: user.readerID,
+          userImg: `${host}${rows[0].userImgSrc}`,
+          userName: user.readerName
         };
         setSession(req, {userID: user.readerID, userSign: true});
         res.json(message);

@@ -52,6 +52,9 @@ router.route("/login").post(function(req,res){
 })
 // 用户首页界面
 router.route("/").get(function(req,res){
+  console.log('req');
+  console.log(req.session);
+  console.log(req.cookies);
     if(!req.session.userID || !req.session.userSign){
         res.redirect("/user/login");
         return;

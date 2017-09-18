@@ -4,10 +4,10 @@
 	user:"root",
 	password:"123456",
 	database:"hopeWechat"
-}
+};
 const server={
 	port:3002
-}
+};
 const emailSetting={
 	userEmail:"xiezhq3@mail2.sysu.edu.cn",
 	userEmailPassWord:"showca7seD",
@@ -28,7 +28,7 @@ const emailSetting={
                      '<td style=\"width:20%;border:1px solid #777;text-align: left;\"> %s </td></tr>'
                     ].join(""),
     emailHTMLEnd:'</tbody></table>'
-}
+};
 
 const equipEmail = {
 	transportOptions:{
@@ -38,9 +38,10 @@ const equipEmail = {
 	},
 	emailSubject:"厚朴工作室设备预约提醒",
 	emailHTML:'<p>%s 管理员：</p><p>%s 同学想预约设备 %s,以下是他的给你留的附加信息：</p><p>%s</p>',
-}
+};
 
 module.exports.DB=DB;
 module.exports.server=server;
 module.exports.email=emailSetting;
 module.exports.reservationEmail=equipEmail;
+module.exports.host = 'http://localhost:3000';

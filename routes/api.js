@@ -14,9 +14,20 @@ const [adminDB, userDB, bookDB, equipDB, borrowDB] = [hopeDB.adminDB, hopeDB.use
 const apiBook = require('./api/api-book');
 const apiBookBorrow = require('./api/api-book-borrow');
 const apiLogin = require('./api/api-login');
-
+const apiUser = require('./api/api-user');
 router.get('*',function(req, res,next){
-  res.header({'Access-Control-Allow-Origin':'*'});
+  console.log('apiget');
+  console.log(req.hostname);
+  res.header({'Access-Control-Allow-Origin': req.headers.origin,"Access-Control-Allow-Credentials": "true"});
+  next();
+});
+router.post('*',function(req, res,next){
+  console.log('apipost');
+  res.header({'Access-Control-Allow-Origin':req.headers.origin,"Access-Control-Allow-Credentials": "true"});
+  next();
+});
+router.options('*', function(req, res, next) {
+  res.header({'Access-Control-Allow-Origin':req.headers.origin,"Access-Control-Allow-Credentials": "true"});
   next();
 });
 router.get('/book/:id', function(req, res, next){
@@ -27,6 +38,9 @@ router.get('/book', function(req, res, next) {
 });
 router.get('/book-count',function(req, res, next) {
     apiBook.apiBookCount(req,res, next);
+});
+router.get('/user/book/borrow', function(req, res, next) {
+  apiUser.getBookBorrow(req, res, next);
 });
 router.get("/book-borrow/:id",function(req, res, next){
   apiBookBorrow.apiBookBorrowId(req, res, next);
