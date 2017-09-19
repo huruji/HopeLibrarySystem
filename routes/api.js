@@ -42,6 +42,12 @@ router.get('/book-count',function(req, res, next) {
 router.get('/user/book/borrow', function(req, res, next) {
   apiUser.getBookBorrow(req, res, next);
 });
+router.get('/user/equip/reservation', function(req, res, next) {
+  apiUser.getEquipReservation(req, res, next);
+});
+router.get('/user/info', function(req, res, next) {
+  apiUser.getUserInfo(req, res, next);
+});
 router.get("/book-borrow/:id",function(req, res, next){
   apiBookBorrow.apiBookBorrowId(req, res, next);
 });
