@@ -81,6 +81,7 @@ const apiLogin = {
           userName: user.readerName
         };
         setSession(req, {userID: user.readerID, userSign: true});
+        console.log(req.session);
         res.json(message);
       }
     });

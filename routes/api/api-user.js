@@ -17,6 +17,7 @@ const userApi = {
   getBookBorrow(req, res, next){
     console.log('req');
     console.log(req.session);
+    console.log('userID', req.session.userID);
     console.log(req.cookies);
     if(!req.session.userID || !req.session.userSign){
       return res.json({
