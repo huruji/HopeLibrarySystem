@@ -6,6 +6,7 @@ const path = require("path");
 const url=require("url");
 const hopeDB = require('./../../utils/hopeDB.js');
 const bookDB = hopeDB.bookDB;
+const host = require('./../../config').host;
 
 const apiBook = {
   apiBookId: function(req, res, next) {
@@ -15,7 +16,7 @@ const apiBook = {
       res.json(data);
     });
   },
-  apiBookQuery: function(req, res, next){
+  /*apiBookQuery: function(req, res, next){
     let keys = Object.keys(req.query);
     if(keys.length===0) {
       const data = {code: 400, msg: '请求参数错误'};
@@ -26,8 +27,13 @@ const apiBook = {
       return !['hopeid','isbn','cate','author','name','publisher'].includes(ele);
     });
     if(error) {
-      const data = {code: 400, msg: '请求参数错误'};
-      return res.json(data);
+      bookDB.orderItems('bookLeft DESC,bookID DESC', 0, 20, (rows) => {
+        const book = setBookCountData(rows);
+        res.json(book);
+        return res.json(book);
+      });
+      /!*const data = {code: 400, msg: '请求参数错误'};
+      return res.json(data);*!/
     }
     for(let key in req.query) {
       req.query[key] = mysql_util.DBConnection.escape(req.query[key]).replace(/(^')|('$)/g,'');
@@ -47,7 +53,9 @@ const apiBook = {
     }else {
       let dataJson = {};
       if (req.query.cate) {
-        dataJson.bookCate = req.query.cate;
+        if(req.query.cate.toLowerCase() !== 'all') {
+          dataJson.bookCate = req.query.cate;
+        }
       }
       if (req.query.author) {
         dataJson.bookAuthor = req.query.author;
@@ -64,7 +72,7 @@ const apiBook = {
         res.json(data);
       });
     }
-  },
+  },*/
   apiBookCount: function(req, res, next) {
     let keys = Object.keys(req.query);
     if(keys.length === 0){
@@ -85,6 +93,27 @@ const apiBook = {
           res.json(data);
       });
     }
+  },
+  apiBookQuery: function(req, res, next) {
+    const query = 'SELECT bookCate FROM hopebook GROUP BY bookCate';
+    bookDB.query(query, (rows) => {
+      const bookCate = [];
+      rows.forEach(function(ele) {
+        bookCate.push(ele.bookCate);
+      });
+      const start = req.query.start || 0;
+      const end = start + 20;
+      if(req.query.cate) {
+        const query = `SELECT * from hopebook WHERE bookCate='${req.query.cate}' ORDER BY bookLeft DESC,bookID DESC LIMIT ${start},${20}`;
+        bookDB.query(query, (rows) => {
+          return res.json(setBookData(rows));
+        })
+      } else {
+        bookDB.orderItems('bookLeft DESC,bookID DESC', start, 20, (rows) => {
+          return res.json(setBookData(rows));
+        });
+      }
+    })
   }
 };
 function setBookCountData(bookArr){
@@ -114,7 +143,7 @@ function setBookData(bookArr) {
       cate: bookArr[0].bookCate,
       hopeid: bookArr[0].bookHopeID,
       left: bookArr[0].bookLeft,
-      imgsrc:bookArr[0].bookImgSrc,
+      imgsrc:host + bookArr[0].bookImgSrc,
       name:bookArr[0].bookName,
       author:bookArr[0].bookAuthor,
       isbn:bookArr[0].bookISBN,
@@ -129,7 +158,7 @@ function setBookData(bookArr) {
         cate: ele.bookCate,
         hopeid: ele.bookHopeID,
         left: ele.bookLeft,
-        imgsrc: ele.bookImgSrc,
+        imgsrc: host + ele.bookImgSrc,
         name: ele.bookName,
         author: ele.bookAuthor,
         isbn: ele.bookISBN,
