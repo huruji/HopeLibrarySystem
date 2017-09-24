@@ -103,7 +103,7 @@ const apiBook = {
       });
       const start = req.query.start || 0;
       const end = start + 20;
-      if(req.query.cate) {
+      if(req.query.cate && req.query.cate !== '全部') {
         const query = `SELECT * from hopebook WHERE bookCate='${req.query.cate}' ORDER BY bookLeft DESC,bookID DESC LIMIT ${start},${20}`;
         bookDB.query(query, (rows) => {
           return res.json(setBookData(rows));
@@ -137,7 +137,7 @@ function setBookData(bookArr) {
   let data = {};
   if(bookArr.length < 1) {
     return {code:404,msg:'请求的资源不存在'}
-  } else if(bookArr.length == 1) {
+  } else if(bookArr.length === 1) {
     return {
       id: bookArr[0].book,
       cate: bookArr[0].bookCate,
