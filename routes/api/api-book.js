@@ -6,6 +6,7 @@ const path = require("path");
 const url=require("url");
 const hopeDB = require('./../../utils/hopeDB.js');
 const bookDB = hopeDB.bookDB;
+const borrowDB = hopeDB.borrowDB;
 const host = require('./../../config').host;
 
 const apiBook = {
@@ -114,6 +115,31 @@ const apiBook = {
         });
       }
     })
+  },
+  apiReturnBook: function(req, res, next) {
+    if(!req.session.userID || !req.session.userSign){
+      return res.json({
+        code: 401,
+        msg: '访问无权限'
+      });
+    }
+    const [bookID, borrowID] = [req.body.bookID, req.body.borrowID];
+    bookDB.selectMessage(bookID, (rows) => {
+      const book = rows[0];
+      const bookLeft = book.bookLeft + 1;
+      const setDataJson = {bookLeft};
+      bookDB.updateMessage(bookID, setDataJson, (message) => {
+        const setDataJson = {
+          returnWhe: 1
+        };
+        borrowDB.updateMessage(borrowID, setDataJson, (message) => {
+          res.json({
+            code: 200,
+            msg: message
+          });
+        }, '归还成功')
+      });
+    });
   }
 };
 function setBookCountData(bookArr){

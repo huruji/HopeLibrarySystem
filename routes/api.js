@@ -36,6 +36,9 @@ router.get('/book/:id', function(req, res, next){
 router.get('/book', function(req, res, next) {
     apiBook.apiBookQuery(req, res, next);
 });
+router.post('/book/return', function(req, res, next) {
+    apiBook.apiReturnBook(req, res, next);
+});
 router.get('/book-count',function(req, res, next) {
     apiBook.apiBookCount(req,res, next);
 });
