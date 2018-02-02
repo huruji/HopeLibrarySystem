@@ -1,6 +1,6 @@
 # 厚朴工作室图书设备管理系统
 
-> 说明：本项目将不再更新
+> 说明：本项目不再更新
 
 前端页面构建已分离至新的仓库，查看相关文档规范、代码规范、技术栈请到[https://github.com/huruji/HopeLibrarySystemUE](https://github.com/huruji/HopeLibrarySystemUE)
 
