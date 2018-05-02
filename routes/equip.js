@@ -4,6 +4,7 @@ const router=express.Router();
 const util = require("util");
 const nodemailer = require("nodemailer");
 const config=require("./../config");
+const captchap=require("./checkcode").captchap;
 
 const setSession = require('./../utils/set-session');
 const hopeDB = require('./../utils/hopeDB.js');
@@ -41,6 +42,10 @@ router.route("/equipemail").post(function(req,res){
     });
 });
 
+router.route("/checkcode").get(function(req, res){
+    console.log('checkcode route')
+    captchap(req,res);
+});//验证码
 router.route("/equipreservation").post(function(req,res){
 	let equipID=parseInt(req.body.equipID);
     let userID=req.session.userID;
